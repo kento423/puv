@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Pokemon {
+  id          Int      @id @default(autoincrement()) // 主キー
+  slug        String   @unique // スラッグ（例: pikachu）
+  nameJa      String // 日本語名（例: ピカチュウ）
+  nameEn      String // 英語名（例: Pikachu）
+  damageClass String
+  rangeType   String
+  battleStyle String
+  imageUrl    String? // 以前のiconUrlを変更
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // リレーション
+  stats      PokemonStat[] // PokemonStat モデルとのリレーション
+  targetOf   PokemonCounter[] @relation("TargetPokemon") // 対策される側
+  counterFor PokemonCounter[] @relation("CounterPokemon") // カウンター側
+}
+
+model Stat {
+  id   Int    @id @default(autoincrement()) // ステータスID (主キー)
+  name String // ステータス名（例: HP 等）
+
+  // リレーション
+  pokemonStats PokemonStat[] // PokemonStat モデルとのリレーション
+}
+
+model PokemonStat {
+  id        Int   @id @default(autoincrement()) // 主キー
+  pokemonId Int // Pokemon モデルへの外部キー
+  statId    Int // Stat モデルへの外部キー
+  level     Int // レベル（1〜15）
+  value     Float // 絶対値ステータス（整数 or 小数）
+
+  // リレーション
+  pokemon Pokemon @relation(fields: [pokemonId], references: [id])
+  stat    Stat    @relation(fields: [statId], references: [id])
+}
+
+model PokemonCounter {
+  id               Int     @id @default(autoincrement()) // 主キー
+  targetPokemonId  Int // 対策される側のポケモンID
+  counterPokemonId Int // カウンター側のポケモンID
+  reason           String? // 任意: 解説やメモ
+  upvotes          Int     @default(0)
+  downvotes        Int     @default(0)
+
+  // リレーション
+  targetPokemon  Pokemon @relation("TargetPokemon", fields: [targetPokemonId], references: [id])
+  counterPokemon Pokemon @relation("CounterPokemon", fields: [counterPokemonId], references: [id])
+}

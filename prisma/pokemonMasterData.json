@@ -1,0 +1,668 @@
+[
+  {
+    "slug": "pikachu",
+    "nameJa": "ピカチュウ",
+    "nameEn": "Pikachu",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/pikachu.png"
+  },
+  {
+    "slug": "charizard",
+    "nameJa": "リザードン",
+    "nameEn": "Charizard",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/charizard.png"
+  },
+  {
+    "slug": "snorlax",
+    "nameJa": "カビゴン",
+    "nameEn": "Snorlax",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/snorlax.png"
+  },
+  {
+    "slug": "crustle",
+    "nameJa": "イワパレス",
+    "nameEn": "Crustle",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/crustle.png"
+  },
+  {
+    "slug": "greninja",
+    "nameJa": "ゲッコウガ",
+    "nameEn": "Greninja",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/greninja.png"
+  },
+  {
+    "slug": "lucario",
+    "nameJa": "ルカリオ",
+    "nameEn": "Lucario",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/lucario.png"
+  },
+  {
+    "slug": "venusaur",
+    "nameJa": "フシギバナ",
+    "nameEn": "Venusaur",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/venusaur.png"
+  },
+  {
+    "slug": "talonflame",
+    "nameJa": "ファイアロー",
+    "nameEn": "Talonflame",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/talonflame.png"
+  },
+  {
+    "slug": "eldegoss",
+    "nameJa": "ワタシラガ",
+    "nameEn": "Eldegoss",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/eldegoss.png"
+  },
+  {
+    "slug": "mr-mime",
+    "nameJa": "バリヤード",
+    "nameEn": "Mr. Mime",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/mr-mime.png"
+  },
+  {
+    "slug": "zeraora",
+    "nameJa": "ゼラオラ",
+    "nameEn": "Zeraora",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/zeraora.png"
+  },
+  {
+    "slug": "cinderace",
+    "nameJa": "エースバーン",
+    "nameEn": "Cinderace",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/cinderace.png"
+  },
+  {
+    "slug": "gengar",
+    "nameJa": "ゲンガー",
+    "nameEn": "Gengar",
+    "damageClass": "special",
+    "rangeType": "special",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/gengar.png"
+  },
+  {
+    "slug": "ninetales",
+    "nameJa": "アローラキュウコン",
+    "nameEn": "Alolan Ninetales",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/ninetales.png"
+  },
+  {
+    "slug": "machamp",
+    "nameJa": "カイリキー",
+    "nameEn": "Machamp",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/machamp.png"
+  },
+  {
+    "slug": "cramorant",
+    "nameJa": "ウッウ",
+    "nameEn": "Cramorant",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/cramorant.png"
+  },
+  {
+    "slug": "wigglytuff",
+    "nameJa": "プクリン",
+    "nameEn": "Wigglytuff",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/wigglytuff.png"
+  },
+  {
+    "slug": "slowbro",
+    "nameJa": "ヤドラン",
+    "nameEn": "Slowbro",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/slowbro.png"
+  },
+  {
+    "slug": "absol",
+    "nameJa": "アブソル",
+    "nameEn": "Absol",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/absol.png"
+  },
+  {
+    "slug": "garchomp",
+    "nameJa": "ガブリアス",
+    "nameEn": "Garchomp",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/garchomp.png"
+  },
+  {
+    "slug": "gardevoir",
+    "nameJa": "サーナイト",
+    "nameEn": "Gardevoir",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/gardevoir.png"
+  },
+  {
+    "slug": "blissey",
+    "nameJa": "ハピナス",
+    "nameEn": "Blissey",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/blissey.png"
+  },
+  {
+    "slug": "blastoise",
+    "nameJa": "カメックス",
+    "nameEn": "Blastoise",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/blastoise.png"
+  },
+  {
+    "slug": "mamoswine",
+    "nameJa": "マンムー",
+    "nameEn": "Mamoswine",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/mamoswine.png"
+  },
+  {
+    "slug": "sylveon",
+    "nameJa": "ニンフィア",
+    "nameEn": "Sylveon",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/sylveon.png"
+  },
+  {
+    "slug": "greedent",
+    "nameJa": "ヨクバリス",
+    "nameEn": "Greedent",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/greedent.png"
+  },
+  {
+    "slug": "decidueye",
+    "nameJa": "ジュナイパー",
+    "nameEn": "Decidueye",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/decidueye.png"
+  },
+  {
+    "slug": "tsareena",
+    "nameJa": "アマージョ",
+    "nameEn": "Tsareena",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/tsareena.png"
+  },
+  {
+    "slug": "dragonite",
+    "nameJa": "カイリュー",
+    "nameEn": "Dragonite",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/dragonite.png"
+  },
+  {
+    "slug": "trevenant",
+    "nameJa": "オーロット",
+    "nameEn": "Trevenant",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/trevenant.png"
+  },
+  {
+    "slug": "aegislash",
+    "nameJa": "ギルガルド",
+    "nameEn": "Aegislash",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/aegislash.png"
+  },
+  {
+    "slug": "hoopa",
+    "nameJa": "フーパ",
+    "nameEn": "Hoopa",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/hoopa.png"
+  },
+  {
+    "slug": "duraludon",
+    "nameJa": "ジュラルドン",
+    "nameEn": "Duraludon",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/duraludon.png"
+  },
+  {
+    "slug": "azumarill",
+    "nameJa": "マリルリ",
+    "nameEn": "Azumarill",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/azumarill.png"
+  },
+  {
+    "slug": "espeon",
+    "nameJa": "エーフィ",
+    "nameEn": "Espeon",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/espeon.png"
+  },
+  {
+    "slug": "delphox",
+    "nameJa": "マフォクシー",
+    "nameEn": "Delphox",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/delphox.png"
+  },
+  {
+    "slug": "glaceon",
+    "nameJa": "グレイシア",
+    "nameEn": "Glaceon",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/glaceon.png"
+  },
+  {
+    "slug": "buzzwole",
+    "nameJa": "マッシブーン",
+    "nameEn": "Buzzwole",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/buzzwole.png"
+  },
+  {
+    "slug": "tyranitar",
+    "nameJa": "バンギラス",
+    "nameEn": "Tyranitar",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/tyranitar.png"
+  },
+  {
+    "slug": "dodrio",
+    "nameJa": "ドードリオ",
+    "nameEn": "Dodrio",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/dodrio.png"
+  },
+  {
+    "slug": "scizor",
+    "nameJa": "ハッサム",
+    "nameEn": "Scizor",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/scizor.png"
+  },
+  {
+    "slug": "scyther",
+    "nameJa": "ストライク",
+    "nameEn": "Scyther",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/scyther.png"
+  },
+  {
+    "slug": "mew",
+    "nameJa": "ミュウ",
+    "nameEn": "Mew",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/mew.png"
+  },
+  {
+    "slug": "clefable",
+    "nameJa": "ピクシー",
+    "nameEn": "Clefable",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/clefable.png"
+  },
+  {
+    "slug": "zoroark",
+    "nameJa": "ゾロアーク",
+    "nameEn": "Zoroark",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/zoroark.png"
+  },
+  {
+    "slug": "sableye",
+    "nameJa": "ヤミラミ",
+    "nameEn": "Sableye",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/sableye.png"
+  },
+  {
+    "slug": "urshifu",
+    "nameJa": "ウーラオス",
+    "nameEn": "Urshifu",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/urshifu.png"
+  },
+  {
+    "slug": "dragapult",
+    "nameJa": "ドラパルト",
+    "nameEn": "Dragapult",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/dragapult.png"
+  },
+  {
+    "slug": "comfey",
+    "nameJa": "キュワワー",
+    "nameEn": "Comfey",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/comfey.png"
+  },
+  {
+    "slug": "zacian",
+    "nameJa": "ザシアン",
+    "nameEn": "Zacian",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/zacian.png"
+  },
+  {
+    "slug": "goodra",
+    "nameJa": "ヌメルゴン",
+    "nameEn": "Goodra",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/goodra.png"
+  },
+  {
+    "slug": "lapras",
+    "nameJa": "ラプラス",
+    "nameEn": "Lapras",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/lapras.png"
+  },
+  {
+    "slug": "chandelure",
+    "nameJa": "シャンデラ",
+    "nameEn": "Chandelure",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/chandelure.png"
+  },
+  {
+    "slug": "umbreon",
+    "nameJa": "ブラッキー",
+    "nameEn": "Umbreon",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/umbreon.png"
+  },
+  {
+    "slug": "leafeon",
+    "nameJa": "リーフィア",
+    "nameEn": "Leafeon",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/leafeon.png"
+  },
+  {
+    "slug": "inteleon",
+    "nameJa": "インテレオン",
+    "nameEn": "Inteleon",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/inteleon.png"
+  },
+  {
+    "slug": "mewtwox",
+    "nameJa": "ミュウツーX",
+    "nameEn": "Mewtwo X",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/mewtwox.png"
+  },
+  {
+    "slug": "mewtwoy",
+    "nameJa": "ミュウツーY",
+    "nameEn": "Mewtwo Y",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/mewtwoy.png"
+  },
+  {
+    "slug": "blaziken",
+    "nameJa": "バシャーモ",
+    "nameEn": "Blaziken",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/blaziken.png"
+  },
+  {
+    "slug": "mimikyu",
+    "nameJa": "ミミッキュ",
+    "nameEn": "Mimikyu",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/mimikyu.png"
+  },
+  {
+    "slug": "metagross",
+    "nameJa": "メタグロス",
+    "nameEn": "Metagross",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/metagross.png"
+  },
+  {
+    "slug": "meowscarada",
+    "nameJa": "マスカーニャ",
+    "nameEn": "Meowscarada",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/meowscarada.png"
+  },
+  {
+    "slug": "gyarados",
+    "nameJa": "ギャラドス",
+    "nameEn": "Gyarados",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/gyarados.png"
+  },
+  {
+    "slug": "miraidon",
+    "nameJa": "ミライドン",
+    "nameEn": "Miraidon",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/miraidon.png"
+  },
+  {
+    "slug": "falinks",
+    "nameJa": "タイレーツ",
+    "nameEn": "Falinks",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/falinks.png"
+  },
+  {
+    "slug": "ceruledge",
+    "nameJa": "ソウブレイズ",
+    "nameEn": "Ceruledge",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/ceruledge.png"
+  },
+  {
+    "slug": "ho-oh",
+    "nameJa": "ホウオウ",
+    "nameEn": "Ho-Oh",
+    "damageClass": "physical",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/ho-oh.png"
+  },
+  {
+    "slug": "armarouge",
+    "nameJa": "グレンアルマ",
+    "nameEn": "Armarouge",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/armarouge.png"
+  },
+  {
+    "slug": "darkrai",
+    "nameJa": "ダークライ",
+    "nameEn": "Darkrai",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/darkrai.png"
+  },
+  {
+    "slug": "psyduck",
+    "nameJa": "コダック",
+    "nameEn": "Psyduck",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/psyduck.png"
+  },
+  {
+    "slug": "tinkaton",
+    "nameJa": "デカヌチャン",
+    "nameEn": "Tinkaton",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/tinkaton.png"
+  },
+  {
+    "slug": "rapidash",
+    "nameJa": "ガラルギャロップ",
+    "nameEn": "Rapidash",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/rapidash.png"
+  },
+  {
+    "slug": "suicune",
+    "nameJa": "スイクン",
+    "nameEn": "Suicune",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/suicune.png"
+  },
+  {
+    "slug": "raichu",
+    "nameJa": "アローラライチュウ",
+    "nameEn": "Raichu",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/raichu.png"
+  }
+]

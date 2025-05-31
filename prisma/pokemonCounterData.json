@@ -1,0 +1,12 @@
+[
+  {
+    "targetPokemonId": 1,
+    "counterPokemonId": 2,
+    "reason": "近距離での突撃に強い"
+  },
+  {
+    "targetPokemonId": 1,
+    "counterPokemonId": 3,
+    "reason": "高い機動力で奇襲を仕掛けやすい"
+  }
+]

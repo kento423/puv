@@ -12,10 +12,7 @@ export default function StatRadarChart({ data }: Props) {
   return (
     <RadarChart outerRadius={90} width={500} height={400} data={data}>
       <PolarGrid />
-      <PolarAngleAxis
-      dataKey="label"
-      tick={{ fill: '#333', fontSize: 12, fontWeight: 'bold' }} // Adjusted label color and style
-      />
+      <PolarAngleAxis dataKey="label" />
       <Radar
       name="ステータス"
       dataKey="value"
@@ -25,9 +22,8 @@ export default function StatRadarChart({ data }: Props) {
       />
       <Tooltip
       formatter={(value: number, name: string, props: any): [string, string] => {
-        return [`${props.payload.original}`, name];
+        return [`${props.payload.original}`, ''];
       }}
-      labelFormatter={(label) => `ステータス: ${label}`}
       />
     </RadarChart>
   );

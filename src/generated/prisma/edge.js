@@ -129,27 +129,14 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
-};
-
-exports.Prisma.PokemonOrderByRelevanceFieldEnum = {
-  slug: 'slug',
-  nameJa: 'nameJa',
-  nameEn: 'nameEn',
-  damageClass: 'damageClass',
-  rangeType: 'rangeType',
-  battleStyle: 'battleStyle',
-  imageUrl: 'imageUrl'
-};
-
-exports.Prisma.StatOrderByRelevanceFieldEnum = {
-  name: 'name'
-};
-
-exports.Prisma.PokemonCounterOrderByRelevanceFieldEnum = {
-  reason: 'reason'
 };
 
 
@@ -197,17 +184,17 @@ const config = {
   "datasourceNames": [
     "db"
   ],
-  "activeProvider": "mysql",
+  "activeProvider": "postgresql",
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://user:password@localhost:3306/unite-db"
+        "value": "postgresql://postgres:postgres@127.0.0.1:54322/postgres"
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Pokemon {\n  id          Int      @id @default(autoincrement()) // 主キー\n  slug        String   @unique // スラッグ（例: pikachu）\n  nameJa      String // 日本語名（例: ピカチュウ）\n  nameEn      String // 英語名（例: Pikachu）\n  damageClass String\n  rangeType   String\n  battleStyle String\n  imageUrl    String? // 以前のiconUrlを変更\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  // リレーション\n  stats      PokemonStat[] // PokemonStat モデルとのリレーション\n  targetOf   PokemonCounter[] @relation(\"TargetPokemon\") // 対策される側\n  counterFor PokemonCounter[] @relation(\"CounterPokemon\") // カウンター側\n}\n\nmodel Stat {\n  id   Int    @id @default(autoincrement()) // ステータスID (主キー)\n  name String // ステータス名（例: HP 等）\n\n  // リレーション\n  pokemonStats PokemonStat[] // PokemonStat モデルとのリレーション\n}\n\nmodel PokemonStat {\n  id        Int   @id @default(autoincrement()) // 主キー\n  pokemonId Int // Pokemon モデルへの外部キー\n  statId    Int // Stat モデルへの外部キー\n  level     Int // レベル（1〜15）\n  value     Float // 絶対値ステータス（整数 or 小数）\n\n  // リレーション\n  pokemon Pokemon @relation(fields: [pokemonId], references: [id])\n  stat    Stat    @relation(fields: [statId], references: [id])\n}\n\nmodel PokemonCounter {\n  id               Int     @id @default(autoincrement()) // 主キー\n  targetPokemonId  Int // 対策される側のポケモンID\n  counterPokemonId Int // カウンター側のポケモンID\n  reason           String? // 任意: 解説やメモ\n  upvotes          Int     @default(0)\n  downvotes        Int     @default(0)\n\n  // リレーション\n  targetPokemon  Pokemon @relation(\"TargetPokemon\", fields: [targetPokemonId], references: [id])\n  counterPokemon Pokemon @relation(\"CounterPokemon\", fields: [counterPokemonId], references: [id])\n}\n",
-  "inlineSchemaHash": "a89bfa9a6faecb5a0aa060ef967132b982541eb544c4a7036a84a06d75efb47c",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Pokemon {\n  id          Int      @id @default(autoincrement()) // 主キー\n  slug        String   @unique // スラッグ（例: pikachu）\n  nameJa      String // 日本語名（例: ピカチュウ）\n  nameEn      String // 英語名（例: Pikachu）\n  damageClass String\n  rangeType   String\n  battleStyle String\n  imageUrl    String? // 以前のiconUrlを変更\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n\n  // リレーション\n  stats      PokemonStat[] // PokemonStat モデルとのリレーション\n  targetOf   PokemonCounter[] @relation(\"TargetPokemon\") // 対策される側\n  counterFor PokemonCounter[] @relation(\"CounterPokemon\") // カウンター側\n}\n\nmodel Stat {\n  id   Int    @id @default(autoincrement()) // ステータスID (主キー)\n  name String // ステータス名（例: HP 等）\n\n  // リレーション\n  pokemonStats PokemonStat[] // PokemonStat モデルとのリレーション\n}\n\nmodel PokemonStat {\n  id        Int   @id @default(autoincrement()) // 主キー\n  pokemonId Int // Pokemon モデルへの外部キー\n  statId    Int // Stat モデルへの外部キー\n  level     Int // レベル（1〜15）\n  value     Float // 絶対値ステータス（整数 or 小数）\n\n  // リレーション\n  pokemon Pokemon @relation(fields: [pokemonId], references: [id])\n  stat    Stat    @relation(fields: [statId], references: [id])\n}\n\nmodel PokemonCounter {\n  id               Int     @id @default(autoincrement()) // 主キー\n  targetPokemonId  Int // 対策される側のポケモンID\n  counterPokemonId Int // カウンター側のポケモンID\n  reason           String? // 任意: 解説やメモ\n  upvotes          Int     @default(0)\n  downvotes        Int     @default(0)\n\n  // リレーション\n  targetPokemon  Pokemon @relation(\"TargetPokemon\", fields: [targetPokemonId], references: [id])\n  counterPokemon Pokemon @relation(\"CounterPokemon\", fields: [counterPokemonId], references: [id])\n}\n",
+  "inlineSchemaHash": "58ce0aa753113013851529fc5743aae570e2b7efa5c3df8b4ad6beafbee50315",
   "copyEngine": true
 }
 config.dirname = '/'

@@ -696,6 +696,10 @@ export namespace Prisma {
             args: Prisma.PokemonCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+          createManyAndReturn: {
+            args: Prisma.PokemonCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PokemonPayload>[]
+          }
           delete: {
             args: Prisma.PokemonDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$PokemonPayload>
@@ -711,6 +715,10 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.PokemonUpdateManyArgs<ExtArgs>
             result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PokemonUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PokemonPayload>[]
           }
           upsert: {
             args: Prisma.PokemonUpsertArgs<ExtArgs>
@@ -762,6 +770,10 @@ export namespace Prisma {
             args: Prisma.StatCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+          createManyAndReturn: {
+            args: Prisma.StatCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StatPayload>[]
+          }
           delete: {
             args: Prisma.StatDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$StatPayload>
@@ -777,6 +789,10 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.StatUpdateManyArgs<ExtArgs>
             result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.StatUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StatPayload>[]
           }
           upsert: {
             args: Prisma.StatUpsertArgs<ExtArgs>
@@ -828,6 +844,10 @@ export namespace Prisma {
             args: Prisma.PokemonStatCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+          createManyAndReturn: {
+            args: Prisma.PokemonStatCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PokemonStatPayload>[]
+          }
           delete: {
             args: Prisma.PokemonStatDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$PokemonStatPayload>
@@ -843,6 +863,10 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.PokemonStatUpdateManyArgs<ExtArgs>
             result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PokemonStatUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PokemonStatPayload>[]
           }
           upsert: {
             args: Prisma.PokemonStatUpsertArgs<ExtArgs>
@@ -894,6 +918,10 @@ export namespace Prisma {
             args: Prisma.PokemonCounterCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
+          createManyAndReturn: {
+            args: Prisma.PokemonCounterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PokemonCounterPayload>[]
+          }
           delete: {
             args: Prisma.PokemonCounterDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$PokemonCounterPayload>
@@ -909,6 +937,10 @@ export namespace Prisma {
           updateMany: {
             args: Prisma.PokemonCounterUpdateManyArgs<ExtArgs>
             result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PokemonCounterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PokemonCounterPayload>[]
           }
           upsert: {
             args: Prisma.PokemonCounterUpsertArgs<ExtArgs>
@@ -1433,7 +1465,31 @@ export namespace Prisma {
     _count?: boolean | PokemonCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemon"]>
 
+  export type PokemonSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    nameJa?: boolean
+    nameEn?: boolean
+    damageClass?: boolean
+    rangeType?: boolean
+    battleStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["pokemon"]>
 
+  export type PokemonSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    slug?: boolean
+    nameJa?: boolean
+    nameEn?: boolean
+    damageClass?: boolean
+    rangeType?: boolean
+    battleStyle?: boolean
+    imageUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["pokemon"]>
 
   export type PokemonSelectScalar = {
     id?: boolean
@@ -1455,6 +1511,8 @@ export namespace Prisma {
     counterFor?: boolean | Pokemon$counterForArgs<ExtArgs>
     _count?: boolean | PokemonCountOutputTypeDefaultArgs<ExtArgs>
   }
+  export type PokemonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PokemonIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $PokemonPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Pokemon"
@@ -1592,6 +1650,30 @@ export namespace Prisma {
     createMany<T extends PokemonCreateManyArgs>(args?: SelectSubset<T, PokemonCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+     * Create many Pokemon and returns the data saved in the database.
+     * @param {PokemonCreateManyAndReturnArgs} args - Arguments to create many Pokemon.
+     * @example
+     * // Create many Pokemon
+     * const pokemon = await prisma.pokemon.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Pokemon and only return the `id`
+     * const pokemonWithIdOnly = await prisma.pokemon.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PokemonCreateManyAndReturnArgs>(args?: SelectSubset<T, PokemonCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
      * Delete a Pokemon.
      * @param {PokemonDeleteArgs} args - Arguments to delete one Pokemon.
      * @example
@@ -1654,6 +1736,36 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends PokemonUpdateManyArgs>(args: SelectSubset<T, PokemonUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Pokemon and returns the data updated in the database.
+     * @param {PokemonUpdateManyAndReturnArgs} args - Arguments to update many Pokemon.
+     * @example
+     * // Update many Pokemon
+     * const pokemon = await prisma.pokemon.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Pokemon and only return the `id`
+     * const pokemonWithIdOnly = await prisma.pokemon.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PokemonUpdateManyAndReturnArgs>(args: SelectSubset<T, PokemonUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one Pokemon.
@@ -2089,6 +2201,25 @@ export namespace Prisma {
   }
 
   /**
+   * Pokemon createManyAndReturn
+   */
+  export type PokemonCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pokemon
+     */
+    select?: PokemonSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pokemon
+     */
+    omit?: PokemonOmit<ExtArgs> | null
+    /**
+     * The data used to create many Pokemon.
+     */
+    data: PokemonCreateManyInput | PokemonCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
    * Pokemon update
    */
   export type PokemonUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2118,6 +2249,32 @@ export namespace Prisma {
    * Pokemon updateMany
    */
   export type PokemonUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Pokemon.
+     */
+    data: XOR<PokemonUpdateManyMutationInput, PokemonUncheckedUpdateManyInput>
+    /**
+     * Filter which Pokemon to update
+     */
+    where?: PokemonWhereInput
+    /**
+     * Limit how many Pokemon to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pokemon updateManyAndReturn
+   */
+  export type PokemonUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pokemon
+     */
+    select?: PokemonSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pokemon
+     */
+    omit?: PokemonOmit<ExtArgs> | null
     /**
      * The data used to update Pokemon.
      */
@@ -2467,7 +2624,15 @@ export namespace Prisma {
     _count?: boolean | StatCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stat"]>
 
+  export type StatSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["stat"]>
 
+  export type StatSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["stat"]>
 
   export type StatSelectScalar = {
     id?: boolean
@@ -2479,6 +2644,8 @@ export namespace Prisma {
     pokemonStats?: boolean | Stat$pokemonStatsArgs<ExtArgs>
     _count?: boolean | StatCountOutputTypeDefaultArgs<ExtArgs>
   }
+  export type StatIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type StatIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $StatPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Stat"
@@ -2606,6 +2773,30 @@ export namespace Prisma {
     createMany<T extends StatCreateManyArgs>(args?: SelectSubset<T, StatCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+     * Create many Stats and returns the data saved in the database.
+     * @param {StatCreateManyAndReturnArgs} args - Arguments to create many Stats.
+     * @example
+     * // Create many Stats
+     * const stat = await prisma.stat.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Stats and only return the `id`
+     * const statWithIdOnly = await prisma.stat.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends StatCreateManyAndReturnArgs>(args?: SelectSubset<T, StatCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StatPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
      * Delete a Stat.
      * @param {StatDeleteArgs} args - Arguments to delete one Stat.
      * @example
@@ -2668,6 +2859,36 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends StatUpdateManyArgs>(args: SelectSubset<T, StatUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Stats and returns the data updated in the database.
+     * @param {StatUpdateManyAndReturnArgs} args - Arguments to update many Stats.
+     * @example
+     * // Update many Stats
+     * const stat = await prisma.stat.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Stats and only return the `id`
+     * const statWithIdOnly = await prisma.stat.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends StatUpdateManyAndReturnArgs>(args: SelectSubset<T, StatUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StatPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one Stat.
@@ -3093,6 +3314,25 @@ export namespace Prisma {
   }
 
   /**
+   * Stat createManyAndReturn
+   */
+  export type StatCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stat
+     */
+    select?: StatSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stat
+     */
+    omit?: StatOmit<ExtArgs> | null
+    /**
+     * The data used to create many Stats.
+     */
+    data: StatCreateManyInput | StatCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
    * Stat update
    */
   export type StatUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3122,6 +3362,32 @@ export namespace Prisma {
    * Stat updateMany
    */
   export type StatUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Stats.
+     */
+    data: XOR<StatUpdateManyMutationInput, StatUncheckedUpdateManyInput>
+    /**
+     * Filter which Stats to update
+     */
+    where?: StatWhereInput
+    /**
+     * Limit how many Stats to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Stat updateManyAndReturn
+   */
+  export type StatUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stat
+     */
+    select?: StatSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stat
+     */
+    omit?: StatOmit<ExtArgs> | null
     /**
      * The data used to update Stats.
      */
@@ -3463,7 +3729,25 @@ export namespace Prisma {
     stat?: boolean | StatDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonStat"]>
 
+  export type PokemonStatSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    statId?: boolean
+    level?: boolean
+    value?: boolean
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    stat?: boolean | StatDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pokemonStat"]>
 
+  export type PokemonStatSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    statId?: boolean
+    level?: boolean
+    value?: boolean
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    stat?: boolean | StatDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pokemonStat"]>
 
   export type PokemonStatSelectScalar = {
     id?: boolean
@@ -3475,6 +3759,14 @@ export namespace Prisma {
 
   export type PokemonStatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pokemonId" | "statId" | "level" | "value", ExtArgs["result"]["pokemonStat"]>
   export type PokemonStatInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    stat?: boolean | StatDefaultArgs<ExtArgs>
+  }
+  export type PokemonStatIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    stat?: boolean | StatDefaultArgs<ExtArgs>
+  }
+  export type PokemonStatIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     stat?: boolean | StatDefaultArgs<ExtArgs>
   }
@@ -3609,6 +3901,30 @@ export namespace Prisma {
     createMany<T extends PokemonStatCreateManyArgs>(args?: SelectSubset<T, PokemonStatCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+     * Create many PokemonStats and returns the data saved in the database.
+     * @param {PokemonStatCreateManyAndReturnArgs} args - Arguments to create many PokemonStats.
+     * @example
+     * // Create many PokemonStats
+     * const pokemonStat = await prisma.pokemonStat.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PokemonStats and only return the `id`
+     * const pokemonStatWithIdOnly = await prisma.pokemonStat.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PokemonStatCreateManyAndReturnArgs>(args?: SelectSubset<T, PokemonStatCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonStatPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
      * Delete a PokemonStat.
      * @param {PokemonStatDeleteArgs} args - Arguments to delete one PokemonStat.
      * @example
@@ -3671,6 +3987,36 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends PokemonStatUpdateManyArgs>(args: SelectSubset<T, PokemonStatUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PokemonStats and returns the data updated in the database.
+     * @param {PokemonStatUpdateManyAndReturnArgs} args - Arguments to update many PokemonStats.
+     * @example
+     * // Update many PokemonStats
+     * const pokemonStat = await prisma.pokemonStat.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PokemonStats and only return the `id`
+     * const pokemonStatWithIdOnly = await prisma.pokemonStat.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PokemonStatUpdateManyAndReturnArgs>(args: SelectSubset<T, PokemonStatUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonStatPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one PokemonStat.
@@ -4100,6 +4446,29 @@ export namespace Prisma {
   }
 
   /**
+   * PokemonStat createManyAndReturn
+   */
+  export type PokemonStatCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PokemonStat
+     */
+    select?: PokemonStatSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PokemonStat
+     */
+    omit?: PokemonStatOmit<ExtArgs> | null
+    /**
+     * The data used to create many PokemonStats.
+     */
+    data: PokemonStatCreateManyInput | PokemonStatCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PokemonStatIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
    * PokemonStat update
    */
   export type PokemonStatUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4141,6 +4510,36 @@ export namespace Prisma {
      * Limit how many PokemonStats to update.
      */
     limit?: number
+  }
+
+  /**
+   * PokemonStat updateManyAndReturn
+   */
+  export type PokemonStatUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PokemonStat
+     */
+    select?: PokemonStatSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PokemonStat
+     */
+    omit?: PokemonStatOmit<ExtArgs> | null
+    /**
+     * The data used to update PokemonStats.
+     */
+    data: XOR<PokemonStatUpdateManyMutationInput, PokemonStatUncheckedUpdateManyInput>
+    /**
+     * Filter which PokemonStats to update
+     */
+    where?: PokemonStatWhereInput
+    /**
+     * Limit how many PokemonStats to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PokemonStatIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -4454,7 +4853,27 @@ export namespace Prisma {
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonCounter"]>
 
+  export type PokemonCounterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    targetPokemonId?: boolean
+    counterPokemonId?: boolean
+    reason?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pokemonCounter"]>
 
+  export type PokemonCounterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    targetPokemonId?: boolean
+    counterPokemonId?: boolean
+    reason?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pokemonCounter"]>
 
   export type PokemonCounterSelectScalar = {
     id?: boolean
@@ -4467,6 +4886,14 @@ export namespace Prisma {
 
   export type PokemonCounterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetPokemonId" | "counterPokemonId" | "reason" | "upvotes" | "downvotes", ExtArgs["result"]["pokemonCounter"]>
   export type PokemonCounterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }
+  export type PokemonCounterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }
+  export type PokemonCounterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
   }
@@ -4602,6 +5029,30 @@ export namespace Prisma {
     createMany<T extends PokemonCounterCreateManyArgs>(args?: SelectSubset<T, PokemonCounterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
+     * Create many PokemonCounters and returns the data saved in the database.
+     * @param {PokemonCounterCreateManyAndReturnArgs} args - Arguments to create many PokemonCounters.
+     * @example
+     * // Create many PokemonCounters
+     * const pokemonCounter = await prisma.pokemonCounter.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PokemonCounters and only return the `id`
+     * const pokemonCounterWithIdOnly = await prisma.pokemonCounter.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PokemonCounterCreateManyAndReturnArgs>(args?: SelectSubset<T, PokemonCounterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonCounterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
      * Delete a PokemonCounter.
      * @param {PokemonCounterDeleteArgs} args - Arguments to delete one PokemonCounter.
      * @example
@@ -4664,6 +5115,36 @@ export namespace Prisma {
      * 
      */
     updateMany<T extends PokemonCounterUpdateManyArgs>(args: SelectSubset<T, PokemonCounterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PokemonCounters and returns the data updated in the database.
+     * @param {PokemonCounterUpdateManyAndReturnArgs} args - Arguments to update many PokemonCounters.
+     * @example
+     * // Update many PokemonCounters
+     * const pokemonCounter = await prisma.pokemonCounter.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PokemonCounters and only return the `id`
+     * const pokemonCounterWithIdOnly = await prisma.pokemonCounter.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PokemonCounterUpdateManyAndReturnArgs>(args: SelectSubset<T, PokemonCounterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonCounterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one PokemonCounter.
@@ -5094,6 +5575,29 @@ export namespace Prisma {
   }
 
   /**
+   * PokemonCounter createManyAndReturn
+   */
+  export type PokemonCounterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PokemonCounter
+     */
+    select?: PokemonCounterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PokemonCounter
+     */
+    omit?: PokemonCounterOmit<ExtArgs> | null
+    /**
+     * The data used to create many PokemonCounters.
+     */
+    data: PokemonCounterCreateManyInput | PokemonCounterCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PokemonCounterIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
    * PokemonCounter update
    */
   export type PokemonCounterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5135,6 +5639,36 @@ export namespace Prisma {
      * Limit how many PokemonCounters to update.
      */
     limit?: number
+  }
+
+  /**
+   * PokemonCounter updateManyAndReturn
+   */
+  export type PokemonCounterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PokemonCounter
+     */
+    select?: PokemonCounterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PokemonCounter
+     */
+    omit?: PokemonCounterOmit<ExtArgs> | null
+    /**
+     * The data used to update PokemonCounters.
+     */
+    data: XOR<PokemonCounterUpdateManyMutationInput, PokemonCounterUncheckedUpdateManyInput>
+    /**
+     * Filter which PokemonCounters to update
+     */
+    where?: PokemonCounterWhereInput
+    /**
+     * Limit how many PokemonCounters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PokemonCounterIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5291,39 +5825,20 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
   export const NullsOrder: {
     first: 'first',
     last: 'last'
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
-
-
-  export const PokemonOrderByRelevanceFieldEnum: {
-    slug: 'slug',
-    nameJa: 'nameJa',
-    nameEn: 'nameEn',
-    damageClass: 'damageClass',
-    rangeType: 'rangeType',
-    battleStyle: 'battleStyle',
-    imageUrl: 'imageUrl'
-  };
-
-  export type PokemonOrderByRelevanceFieldEnum = (typeof PokemonOrderByRelevanceFieldEnum)[keyof typeof PokemonOrderByRelevanceFieldEnum]
-
-
-  export const StatOrderByRelevanceFieldEnum: {
-    name: 'name'
-  };
-
-  export type StatOrderByRelevanceFieldEnum = (typeof StatOrderByRelevanceFieldEnum)[keyof typeof StatOrderByRelevanceFieldEnum]
-
-
-  export const PokemonCounterOrderByRelevanceFieldEnum: {
-    reason: 'reason'
-  };
-
-  export type PokemonCounterOrderByRelevanceFieldEnum = (typeof PokemonCounterOrderByRelevanceFieldEnum)[keyof typeof PokemonCounterOrderByRelevanceFieldEnum]
 
 
   /**
@@ -5339,9 +5854,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Int[]'
+   */
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
     
 
 
@@ -5353,9 +5882,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -5395,7 +5938,6 @@ export namespace Prisma {
     stats?: PokemonStatOrderByRelationAggregateInput
     targetOf?: PokemonCounterOrderByRelationAggregateInput
     counterFor?: PokemonCounterOrderByRelationAggregateInput
-    _relevance?: PokemonOrderByRelevanceInput
   }
 
   export type PokemonWhereUniqueInput = Prisma.AtLeast<{
@@ -5464,7 +6006,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     pokemonStats?: PokemonStatOrderByRelationAggregateInput
-    _relevance?: StatOrderByRelevanceInput
   }
 
   export type StatWhereUniqueInput = Prisma.AtLeast<{
@@ -5577,7 +6118,6 @@ export namespace Prisma {
     downvotes?: SortOrder
     targetPokemon?: PokemonOrderByWithRelationInput
     counterPokemon?: PokemonOrderByWithRelationInput
-    _relevance?: PokemonCounterOrderByRelevanceInput
   }
 
   export type PokemonCounterWhereUniqueInput = Prisma.AtLeast<{
@@ -5867,8 +6407,8 @@ export namespace Prisma {
 
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -5878,8 +6418,8 @@ export namespace Prisma {
 
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -5887,14 +6427,14 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
+    mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -5902,14 +6442,14 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
+    mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -5940,12 +6480,6 @@ export namespace Prisma {
 
   export type PokemonCounterOrderByRelationAggregateInput = {
     _count?: SortOrder
-  }
-
-  export type PokemonOrderByRelevanceInput = {
-    fields: PokemonOrderByRelevanceFieldEnum | PokemonOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type PokemonCountOrderByAggregateInput = {
@@ -5997,8 +6531,8 @@ export namespace Prisma {
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -6013,8 +6547,8 @@ export namespace Prisma {
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -6022,7 +6556,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
+    mode?: QueryMode
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -6031,8 +6565,8 @@ export namespace Prisma {
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -6040,7 +6574,7 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
+    mode?: QueryMode
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -6049,8 +6583,8 @@ export namespace Prisma {
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -6059,12 +6593,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type StatOrderByRelevanceInput = {
-    fields: StatOrderByRelevanceFieldEnum | StatOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type StatCountOrderByAggregateInput = {
@@ -6092,8 +6620,8 @@ export namespace Prisma {
 
   export type FloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -6153,8 +6681,8 @@ export namespace Prisma {
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -6165,12 +6693,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type PokemonCounterOrderByRelevanceInput = {
-    fields: PokemonCounterOrderByRelevanceFieldEnum | PokemonCounterOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
   }
 
   export type PokemonCounterCountOrderByAggregateInput = {
@@ -6470,8 +6992,8 @@ export namespace Prisma {
 
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -6481,8 +7003,8 @@ export namespace Prisma {
 
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -6490,14 +7012,13 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -6505,14 +7026,13 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -6522,8 +7042,8 @@ export namespace Prisma {
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -6538,8 +7058,8 @@ export namespace Prisma {
 
   export type NestedFloatFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
@@ -6549,8 +7069,8 @@ export namespace Prisma {
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -6558,7 +7078,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
@@ -6567,8 +7086,8 @@ export namespace Prisma {
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -6576,7 +7095,6 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
     not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
@@ -6585,8 +7103,8 @@ export namespace Prisma {
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
@@ -6596,8 +7114,8 @@ export namespace Prisma {
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
@@ -6610,8 +7128,8 @@ export namespace Prisma {
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
     lt?: number | FloatFieldRefInput<$PrismaModel>
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>

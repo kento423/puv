@@ -1,12 +1,79 @@
 [
   {
-    "targetPokemonId": 1,
-    "counterPokemonId": 2,
-    "reason": "近距離での突撃に強い"
+    "targetPokemonId": 19,
+    "counterPokemonId": 11,
+    "reason": "放電が牽制になる。スパークで吸い付ける",
+    "downvotes": 0,
+    "upvotes": 0
   },
   {
-    "targetPokemonId": 1,
-    "counterPokemonId": 3,
-    "reason": "高い機動力で奇襲を仕掛けやすい"
+    "targetPokemonId": 44,
+    "counterPokemonId": 21,
+    "reason": "AoEダメージが有効",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 44,
+    "counterPokemonId": 71,
+    "reason": "AoEダメージが有効",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 44,
+    "counterPokemonId": 66,
+    "reason": "AoEダメージが有効",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 20,
+    "counterPokemonId": 2,
+    "reason": "レンジが異なるため間合い管理ができれば有利。ユナイト技をユナイト技で無効化することができる",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 20,
+    "counterPokemonId": 40,
+    "reason": "「トライアタック」で距離を保ちながら攻撃でき、ガブリアスの攻撃をかわしやすい",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 20,
+    "counterPokemonId": 54,
+    "reason": "「くろいまなざし」で突っ込んできたガブリアスを捕まえて動きを止められる",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 20,
+    "counterPokemonId": 24,
+    "reason": "強化攻撃や「こおりのキバ」などで長時間行動妨害を与えられる",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 66,
+    "counterPokemonId": 17,
+    "reason": "ユナイト技をユナイト技でいなせる",
+    "downvotes": 0,
+    "upvotes": 1
+  },
+  {
+    "targetPokemonId": 44,
+    "counterPokemonId": 1,
+    "reason": "AoEダメージが有効",
+    "downvotes": 0,
+    "upvotes": 0
+  },
+  {
+    "targetPokemonId": 2,
+    "counterPokemonId": 38,
+    "reason": "リザードンユナイトをばかぢからで掴める",
+    "downvotes": 0,
+    "upvotes": 1
   }
 ]

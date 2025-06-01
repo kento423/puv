@@ -157,27 +157,14 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
-};
-
-exports.Prisma.PokemonOrderByRelevanceFieldEnum = {
-  slug: 'slug',
-  nameJa: 'nameJa',
-  nameEn: 'nameEn',
-  damageClass: 'damageClass',
-  rangeType: 'rangeType',
-  battleStyle: 'battleStyle',
-  imageUrl: 'imageUrl'
-};
-
-exports.Prisma.StatOrderByRelevanceFieldEnum = {
-  name: 'name'
-};
-
-exports.Prisma.PokemonCounterOrderByRelevanceFieldEnum = {
-  reason: 'reason'
 };
 
 

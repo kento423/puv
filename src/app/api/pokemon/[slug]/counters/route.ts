@@ -1,49 +1,55 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@/generated/prisma";
 
 const prisma = new PrismaClient();
 
-export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } }
-) {
-  const { slug } = await params; // 修正: params を await で解決
+export async function GET(request: NextRequest) {
+  try {
+    const pathname = request.nextUrl.pathname; // 例: "/api/pokemon/pikachu/counters"
+    const slug = pathname.split("/")[3]; // "pikachu"
 
-  const pokemon = await prisma.pokemon.findUnique({
-    where: { slug },
-  });
+    const pokemon = await prisma.pokemon.findUnique({
+      where: { slug },
+    });
 
-  if (!pokemon) {
-    return NextResponse.json({ error: "Pokemon not found" }, { status: 404 });
+    if (!pokemon) {
+      return NextResponse.json({ error: "Pokemon not found" }, { status: 404 });
+    }
+
+    const counters = await prisma.pokemonCounter.findMany({
+      where: { targetPokemonId: pokemon.id },
+      include: {
+        counterPokemon: true,
+      },
+    });
+
+    return NextResponse.json(
+      counters.map((counter) => ({
+        id: counter.id,
+        nameJa: counter.counterPokemon.nameJa,
+        nameEn: counter.counterPokemon.nameEn,
+        imageUrl: counter.counterPokemon.imageUrl,
+        reason: counter.reason,
+        upvotes: counter.upvotes,
+        downvotes: counter.downvotes,
+      }))
+    );
+  } catch (error) {
+    console.error("Error fetching Pokemon counters:", error);
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  } finally {
+    await prisma.$disconnect();
   }
-
-  const counters = await prisma.pokemonCounter.findMany({
-    where: { targetPokemonId: pokemon.id },
-    include: {
-      counterPokemon: true,
-    },
-  });
-
-  return NextResponse.json(
-    counters.map((counter) => ({
-      id: counter.id,
-      nameJa: counter.counterPokemon.nameJa,
-      nameEn: counter.counterPokemon.nameEn,
-      imageUrl: counter.counterPokemon.imageUrl,
-      reason: counter.reason,
-      upvotes: counter.upvotes,
-      downvotes: counter.downvotes,
-    }))
-  );
 }
 
-export async function POST(
-  req: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function POST(request: NextRequest) {
   try {
-    const { slug } = await params;
-    const body = await req.json();
+    const pathname = request.nextUrl.pathname; // 例: "/api/pokemon/pikachu/counters"
+    const slug = pathname.split("/")[3]; // "pikachu"
+    const body = await request.json();
 
     // 必要なデータが揃っているか確認
     const { selectedPokemonId, reason } = body;

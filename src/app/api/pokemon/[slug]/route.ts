@@ -1,15 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@/generated/prisma";
 
 const prisma = new PrismaClient();
 
-export async function GET(
-  req: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function GET(request: NextRequest) {
   try {
-    const awaitedParams = await params; // 修正: params を await
-    const { slug } = awaitedParams;
+    const pathname = request.nextUrl.pathname; // 例: "/api/pokemon/pikachu/counters"
+    const slug = pathname.split("/")[3]; // "pikachu"
 
     // Pokemonデータを取得
     const pokemon = await prisma.pokemon.findUnique({

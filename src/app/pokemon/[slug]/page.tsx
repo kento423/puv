@@ -50,7 +50,7 @@ export default function PokemonPage() {
 
   useEffect(() => {
     async function fetchPokemon() {
-      const res = await fetch(`/api/pokemon/${slug}`);
+      const res = await fetch(`/api/pokemon/${slug}`, { cache: "no-store" });
       if (res.ok) {
         const data = await res.json();
         setPokemonData(data);
@@ -61,7 +61,7 @@ export default function PokemonPage() {
 
   useEffect(() => {
     async function fetchCounters() {
-      const res = await fetch(`/api/pokemon/${slug}/counters`);
+      const res = await fetch(`/api/pokemon/${slug}/counters`, { cache: "no-store" });
       if (res.ok) {
         const data = await res.json();
         setCounters(data);
@@ -72,14 +72,18 @@ export default function PokemonPage() {
 
   useEffect(() => {
     async function fetchPokemonMaster() {
-      const res = await fetch(`/api/pokemon?excludeSlug=${slug}`);
+      const res = await fetch(`/api/pokemon?excludeSlug=${slug}`, { cache: "no-store" });
       if (res.ok) {
         const data = await res.json();
         setPokemonMaster(data);
       }
     }
-    fetchPokemonMaster();
-  }, [slug]);
+
+    // 初回ロード時には呼び出さない
+    if (showForm) {
+      fetchPokemonMaster();
+    }
+  }, [slug, showForm]);
 
   const handleAddCounter = async () => {
     const selectedPokemon = pokemonMaster.find(
@@ -182,7 +186,9 @@ export default function PokemonPage() {
       <div className="mt-8">
         {!showForm ? (
           <button
-            onClick={() => setShowForm(true)}
+            onClick={() => {
+              setShowForm(true);
+            }}
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           >
             ＋ カウンターを追加する

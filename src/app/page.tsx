@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -5,37 +6,28 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <header className="p-4 border-b">
         <nav className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="font-bold text-xl">My Website</div>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-gray-600">
-              Home
-            </a>
-            <a href="#" className="hover:text-gray-600">
-              About
-            </a>
-            <a href="#" className="hover:text-gray-600">
-              Contact
-            </a>
-          </div>
+          <div className="font-bold text-xl">ポケモンカウンター図鑑</div>
         </nav>
       </header>
 
       <main className="flex-1 p-8">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6">Welcome to My Website</h1>
+        <div className="max-w-2xl mx-auto text-center">
+          <h1 className="text-4xl font-bold mb-6">ポケモンカウンター図鑑</h1>
           <p className="text-lg text-gray-600 mb-8">
-            This is a simple and clean website template built with Next.js and
-            Tailwind CSS. Feel free to customize it according to your needs.
+            ポケモンユナイトの対策・カウンター情報をみんなで共有するWebアプリです。
+            気になるポケモンの対策や、他の人の投稿をチェックしましょう！
           </p>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            Get Started
-          </button>
+          <Link href="/pokemon">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold shadow">
+              ポケモン一覧へ
+            </button>
+          </Link>
         </div>
       </main>
 
       <footer className="p-4 border-t">
         <div className="max-w-6xl mx-auto text-center text-gray-600">
-          <p>© 2025 My Website. All rights reserved.</p>
+          <p>© 2025 ポケモンカウンター図鑑</p>
         </div>
       </footer>
     </div>

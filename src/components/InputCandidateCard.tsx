@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Combobox } from "@/components/Combobox";
 
 interface InputCandidateCardProps {
   pokemonMaster: {
@@ -27,20 +28,17 @@ export default function InputCandidateCard({
 }: InputCandidateCardProps) {
   return (
     <div className="flex flex-col p-4 border rounded space-y-4">
-      <select
-        value={newCounter.selectedPokemonId}
-        onChange={(e) =>
-          setNewCounter({ ...newCounter, selectedPokemonId: e.target.value })
+      <Combobox
+        items={pokemonMaster}
+        selectedValue={newCounter.selectedPokemonId}
+        onSelect={(value) =>
+          setNewCounter({ ...newCounter, selectedPokemonId: value })
         }
-        className="w-full p-2 border rounded"
-      >
-        <option value="">ポケモンを選択してください</option>
-        {pokemonMaster.map((pokemon) => (
-          <option key={pokemon.id} value={pokemon.id}>
-            {locale === "ja" ? pokemon.nameJa : pokemon.nameEn}
-          </option>
-        ))}
-      </select>
+        placeholder="ポケモンを選択してください"
+        itemLabel={(item) => (locale === "ja" ? item.nameJa : item.nameEn)}
+        itemValue={(item) => item.id.toString()}
+        className="w-full"
+      />
       <textarea
         placeholder="理由"
         value={newCounter.reason}

@@ -37,6 +37,12 @@ export default async function Page({ params }: { params: any }) {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
+      {/* パンくずリスト追加 */}
+      <nav className="mb-4 text-sm text-gray-500 flex items-center gap-2" aria-label="Breadcrumb">
+        <Link href="/pokemon" className="hover:underline text-blue-600 dark:text-blue-400">ポケモン一覧</Link>
+        <span className="mx-1">&gt;</span>
+        <span className="font-bold text-gray-800 dark:text-gray-100">{locale === "ja" ? pokemonData.nameJa : pokemonData.nameEn}</span>
+      </nav>
       <div className="flex items-center mb-6">
         <Image
           src={pokemonData.imageUrl}
@@ -59,14 +65,6 @@ export default async function Page({ params }: { params: any }) {
       />
       <div className="mt-8">
         <AddCounterForm slug={slug} locale={locale} />
-      </div>
-      <div className="mt-8">
-        <Link
-          href="/pokemon"
-          className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          ← 一覧に戻る
-        </Link>
       </div>
     </div>
   );

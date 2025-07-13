@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -23,11 +24,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="ja">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen flex flex-col`}>
+        {/* ヘッダー */}
+        <header className="w-full border-b bg-white shadow-sm">
+          <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
+            <Link href="/" className="font-bold text-xl text-blue-700">
+              ポケモンユナイト対策DB
+            </Link>
+            <div className="flex gap-6 text-gray-700 text-base">
+              <Link href="/pokemon" className="hover:text-blue-600">ポケモン一覧</Link>
+            </div>
+          </nav>
+        </header>
+        {/* メイン＋広告枠ラッパー */}
+        <div className="flex-1 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-6 p-4">
+          {/* メインコンテンツ */}
+          <main className="flex-1 min-w-0">{children}</main>
+          {/* 広告枠（仮） */}
+          <aside className="w-full md:w-64 bg-white border rounded shadow-sm p-4 h-fit min-h-[120px] flex items-center justify-center text-gray-400">
+            {/* 広告枠：ここに広告コードを挿入 */}
+            <span>広告枠</span>
+          </aside>
+        </div>
+        {/* フッター */}
+        <footer className="w-full border-t bg-white py-4 mt-8">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm gap-2 px-4">
+            <div>© 2025 ポケモンユナイト対策DB</div>
+            <div className="flex gap-4">
+              <Link href="/terms" className="hover:underline">利用規約</Link>
+              <Link href="/privacy" className="hover:underline">プライバシーポリシー</Link>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );

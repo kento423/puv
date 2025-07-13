@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+import { use } from "react";
 import CandidateCardList from "@/components/CandidateCardList";
 import AddCounterForm from "@/components/AddCounterForm";
 import Image from "next/image";
@@ -21,19 +24,43 @@ interface PokemonData {
   imageUrl: string;
 }
 
-export default async function Page({ params }: { params: any }) {
-  const { slug } = params;
+export default function Page({ params }: { params: any }) {
+  const unwrappedParams = use(params) as { slug: string };
+  const { slug } = unwrappedParams;
   const locale = "ja";
+  const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
+  const [counters, setCounters] = useState<Counter[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // SSRでデータ取得
-  const pokemonRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/pokemon/${slug}`, { cache: "no-store" });
-  const countersRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/pokemon/${slug}/counters`, { cache: "no-store" });
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      const pokemonRes = await fetch(`/api/pokemon/${slug}`);
+      const countersRes = await fetch(`/api/pokemon/${slug}/counters`);
+      if (pokemonRes.ok && countersRes.ok) {
+        setPokemonData(await pokemonRes.json());
+        setCounters(await countersRes.json());
+      }
+      setLoading(false);
+    }
+    fetchData();
+  }, [slug]);
 
-  if (!pokemonRes.ok || !countersRes.ok) {
+  const handleCounterAdded = async () => {
+    // POST直後にDB反映遅延対策で少し待つ
+    await new Promise((res) => setTimeout(res, 300));
+    const countersRes = await fetch(`/api/pokemon/${slug}/counters`);
+    if (countersRes.ok) {
+      setCounters(await countersRes.json());
+    }
+  };
+
+  // 並び順: 👍-👎のトータルスコアが高い順にソート
+  const sortedCounters = [...counters].sort((a, b) => (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes));
+
+  if (loading || !pokemonData) {
     return <div>Loading...</div>;
   }
-  const pokemonData: PokemonData = await pokemonRes.json();
-  const counters: Counter[] = await countersRes.json();
 
   return (
     <div className="max-w-2xl mx-auto p-6">
@@ -59,12 +86,13 @@ export default async function Page({ params }: { params: any }) {
         </div>
       </div>
       <CandidateCardList
-        counters={counters}
+        counters={sortedCounters}
         targetPokemonId={pokemonData.id}
         locale={locale}
+        onVoted={handleCounterAdded}
       />
       <div className="mt-8">
-        <AddCounterForm slug={slug} locale={locale} />
+        <AddCounterForm slug={slug} locale={locale} onCounterAdded={handleCounterAdded} />
       </div>
     </div>
   );

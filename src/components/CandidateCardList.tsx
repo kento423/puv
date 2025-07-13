@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import CandidateCard from "@/components/CandidateCard";
 
 interface Counter {
@@ -16,11 +15,10 @@ interface CandidateCardListProps {
   counters: Counter[];
   targetPokemonId: number;
   locale: string;
+  onVoted?: () => void;
 }
 
-export default function CandidateCardList({ counters: initialCounters, targetPokemonId, locale }: CandidateCardListProps) {
-  const [counters, setCounters] = useState<Counter[]>(initialCounters);
-
+export default function CandidateCardList({ counters, targetPokemonId, locale, onVoted }: CandidateCardListProps) {
   const handleVote = async (counterId: number, voteType: "upvote" | "downvote") => {
     const res = await fetch("/api/pokemon/vote", {
       method: "POST",
@@ -31,16 +29,7 @@ export default function CandidateCardList({ counters: initialCounters, targetPok
         voteType,
       }),
     });
-    if (res.ok) {
-      const updatedCounter = await res.json();
-      setCounters((prev) =>
-        prev.map((c) =>
-          c.id === counterId
-            ? { ...c, upvotes: updatedCounter.upvotes, downvotes: updatedCounter.downvotes }
-            : c
-        )
-      );
-    }
+    if (onVoted) onVoted();
   };
 
   return (
@@ -53,7 +42,7 @@ export default function CandidateCardList({ counters: initialCounters, targetPok
           reason={counter.reason}
           upvotes={counter.upvotes}
           downvotes={counter.downvotes}
-          onVote={(voteType) => handleVote(counter.id, voteType)}
+          onVote={(voteType: "upvote" | "downvote") => handleVote(counter.id, voteType)}
         />
       ))}
     </ul>

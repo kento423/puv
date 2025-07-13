@@ -36,24 +36,6 @@ export default function PokemonListPage() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">ポケモン一覧</h1>
-      <div className="mb-4">
-        <button
-          onClick={() => setLocale("ja")}
-          className={`mr-2 px-4 py-2 rounded ${
-            locale === "ja" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
-        >
-          日本語
-        </button>
-        <button
-          onClick={() => setLocale("en")}
-          className={`px-4 py-2 rounded ${
-            locale === "en" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
-        >
-          English
-        </button>
-      </div>
       <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {pokemonList.map((pokemon) => (
           <li key={pokemon.id} className="border p-4 rounded shadow">

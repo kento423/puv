@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { headers } from "next/headers";
 
 interface Pokemon {
   id: number;
@@ -12,30 +10,21 @@ interface Pokemon {
   imageUrl: string;
 }
 
-export default function PokemonListPage() {
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
-  const [locale, setLocale] = useState<string>("ja"); // 初期値を日本語に設定
-
-  useEffect(() => {
-    // ブラウザの言語設定を取得してロケールを設定
-    const browserLocale = navigator.language.startsWith("ja") ? "ja" : "en";
-    setLocale(browserLocale);
-  }, []);
-
-  useEffect(() => {
-    async function fetchPokemonList() {
-      const res = await fetch("/api/pokemon");
-      if (res.ok) {
-        const data = await res.json();
-        setPokemonList(data);
-      }
-    }
-    fetchPokemonList();
-  }, []);
+export default async function PokemonListPage() {
+  const headersList = await headers();
+  const acceptLanguage = headersList.get("accept-language") || "ja";
+  const locale = acceptLanguage.startsWith("ja") ? "ja" : "en";
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/pokemon`,
+    { cache: "no-store" }
+  );
+  const pokemonList: Pokemon[] = res.ok ? await res.json() : [];
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">ポケモン一覧</h1>
+      <h1 className="text-3xl font-bold mb-6">
+        {locale === "ja" ? "ポケモン一覧" : "Pokémon List"}
+      </h1>
       <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {pokemonList.map((pokemon) => (
           <li key={pokemon.id} className="border p-4 rounded shadow">

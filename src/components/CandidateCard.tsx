@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
+import Link from "next/link";
 
 interface CandidateCardProps {
   name: string;
@@ -17,16 +18,19 @@ export default function CandidateCard({
   upvotes,
   downvotes,
   onVote,
-}: CandidateCardProps) {
+  slug, // 新規追加: カウンターポケモンのslug
+}: CandidateCardProps & { slug: string }) {
   return (
     <li className="flex gap-4 items-center p-4 rounded-xl shadow-md bg-white dark:bg-zinc-900">
-      <Image
-        src={imageUrl}
-        alt={name}
-        width={64}
-        height={64}
-        className="rounded-full"
-      />
+      <Link href={`/pokemon/${slug}`} prefetch={false} className="hover:opacity-80">
+        <Image
+          src={imageUrl}
+          alt={name}
+          width={64}
+          height={64}
+          className="rounded-full"
+        />
+      </Link>
       <div className="flex-1">
         <h3 className="font-bold text-lg">{name}</h3>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">{reason}</p>

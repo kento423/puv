@@ -29,6 +29,7 @@ export async function GET(request: NextRequest) {
         nameJa: counter.counterPokemon.nameJa,
         nameEn: counter.counterPokemon.nameEn,
         imageUrl: counter.counterPokemon.imageUrl,
+        slug: counter.counterPokemon.slug, // 追加: カウンターポケモンのslug
         reason: counter.reason,
         upvotes: counter.upvotes,
         downvotes: counter.downvotes,

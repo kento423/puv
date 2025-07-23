@@ -9,6 +9,7 @@ interface Counter {
   reason: string;
   upvotes: number;
   downvotes: number;
+  slug: string; // 追加: slugプロパティをCounterインターフェースに追加
 }
 
 interface CandidateCardListProps {
@@ -43,6 +44,7 @@ export default function CandidateCardList({ counters, targetPokemonId, locale, o
           upvotes={counter.upvotes}
           downvotes={counter.downvotes}
           onVote={(voteType: "upvote" | "downvote") => handleVote(counter.id, voteType)}
+          slug={counter.slug} // 追加: カウンターポケモンのslugを渡す
         />
       ))}
     </ul>

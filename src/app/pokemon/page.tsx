@@ -113,8 +113,8 @@ export default function PokemonListPage() {
   // ダメージクラスの色を取得
   const getDamageClassColor = (damageClass: string): string => {
     const colors: { [key: string]: string } = {
-      physical: "bg-red-100 text-red-700 border-red-300",
-      special: "bg-blue-100 text-blue-700 border-blue-300",
+      physical: "bg-orange-100 text-orange-700 border-orange-300",
+      special: "bg-green-100 text-green-700 border-green-300",
     };
     return colors[damageClass.toLowerCase()] || "bg-gray-100 text-gray-700 border-gray-300";
   };
@@ -137,16 +137,16 @@ export default function PokemonListPage() {
     return colors[rangeType.toLowerCase()] || "bg-gray-100 text-gray-700 border-gray-300";
   };
 
-  // バトルスタイルの背景色を取得
-  const getBattleStyleBgColor = (battleStyle: string): string => {
-    const colors: { [key: string]: string } = {
-      attacker: "bg-red-100",
-      "all-rounder": "bg-purple-100",
-      defender: "bg-green-100",
-      speedster: "bg-blue-100",
-      supporter: "bg-yellow-100",
+  // バトルスタイルの背景画像パスを取得
+  const getBattleStyleBgImage = (battleStyle: string): string => {
+    const images: { [key: string]: string } = {
+      attacker: "/background/bg-thumb_red.jpg",
+      "all-rounder": "/background/bg-thumb_violet.jpg",
+      defender: "/background/bg-thumb_green.jpg",
+      speedster: "/background/bg-thumb_blue.jpg",
+      supporter: "/background/bg-thumb_yellow.jpg",
     };
-    return colors[battleStyle.toLowerCase()] || "bg-white";
+    return images[battleStyle.toLowerCase()] || "";
   };
 
   // ダメージクラスのセレクト用ラベルを取得
@@ -286,21 +286,12 @@ export default function PokemonListPage() {
             {pokemonList.map((pokemon) => (
               <li
                 key={pokemon.id}
-                className={`border p-4 rounded shadow hover:shadow-lg transition-shadow ${getBattleStyleBgColor(
-                  pokemon.battleStyle
-                )} ${
-                  pokemon.battleStyle.toLowerCase() === "defender"
-                    ? "bg-cover bg-center bg-blend-overlay"
-                    : ""
-                }`}
-                style={
-                  pokemon.battleStyle.toLowerCase() === "defender"
-                    ? {
-                        backgroundImage:
-                          "url('/background/bg-thumb_green.jpg')",
-                      }
-                    : {}
-                }
+                className="border p-4 rounded shadow hover:shadow-lg transition-shadow bg-cover bg-center bg-blend-overlay"
+                style={{
+                  backgroundImage: `url('${getBattleStyleBgImage(
+                    pokemon.battleStyle
+                  )}')`,
+                }}
               >
                 <Link href={`/pokemon/${pokemon.slug}`}>
                   <div className="flex flex-col items-center cursor-pointer">

@@ -13,10 +13,10 @@ interface PokemonMaster {
 interface AddCounterFormProps {
   slug: string;
   locale: string;
-  onCounterAdded?: () => void;
+  onAdded?: () => void;
 }
 
-export default function AddCounterForm({ slug, locale, onCounterAdded }: AddCounterFormProps) {
+export default function AddCounterForm({ slug, locale, onAdded }: AddCounterFormProps) {
   const [showForm, setShowForm] = useState(false);
   const [pokemonMaster, setPokemonMaster] = useState<PokemonMaster[]>([]);
   const [newCounter, setNewCounter] = useState({ selectedPokemonId: "", reason: "" });
@@ -47,7 +47,7 @@ export default function AddCounterForm({ slug, locale, onCounterAdded }: AddCoun
     });
     setNewCounter({ selectedPokemonId: "", reason: "" });
     setShowForm(false);
-    if (onCounterAdded) onCounterAdded();
+    if (onAdded) onAdded();
   };
 
   const handleCancel = () => {

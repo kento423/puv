@@ -112,7 +112,7 @@
     "nameJa": "ゲンガー",
     "nameEn": "Gengar",
     "damageClass": "special",
-    "rangeType": "special",
+    "rangeType": "melee",
     "battleStyle": "speedster",
     "imageUrl": "/pokemon/gengar.png"
   },

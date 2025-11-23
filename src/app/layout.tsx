@@ -37,16 +37,17 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        {/* メイン＋広告枠ラッパー */}
-        <div className="flex-1 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-6 p-4">
-          {/* メインコンテンツ */}
-          <main className="flex-1 min-w-0">{children}</main>
-          {/* 広告枠（仮） */}
-          <aside className="w-full md:w-64 bg-white border rounded shadow-sm p-4 h-fit min-h-[120px] flex items-center justify-center text-gray-400">
-            {/* 広告枠：ここに広告コードを挿入 */}
-            <span>広告枠</span>
-          </aside>
-        </div>
+        {/* メインコンテンツ */}
+        <main className="flex-1 w-full max-w-6xl mx-auto p-4">{children}</main>
+        {/* 広告枠（ページ下部） */}
+        <aside className="w-full bg-white border-t border-b py-6">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="bg-gray-100 border rounded shadow-sm p-6 min-h-[120px] flex items-center justify-center text-gray-400">
+              {/* 広告枠：ここに広告コードを挿入 */}
+              <span>広告枠</span>
+            </div>
+          </div>
+        </aside>
         {/* フッター */}
         <footer className="w-full border-t bg-white py-4 mt-8">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm gap-2 px-4">

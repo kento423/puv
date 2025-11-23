@@ -1,6 +1,5 @@
 "use client";
 import CandidateCard from "@/components/CandidateCard";
-import { getUserId } from "@/lib/userId";
 
 interface Counter {
   id: number;
@@ -10,43 +9,22 @@ interface Counter {
   reason: string;
   upvotes: number;
   downvotes: number;
-  slug: string; // 追加: slugプロパティをCounterインターフェースに追加
+  slug: string;
 }
 
 interface CandidateCardListProps {
   counters: Counter[];
-  targetPokemonId: number;
   locale: string;
-  onVoted?: () => void;
+  onVote: (counterId: number, voteType: "upvote" | "downvote") => Promise<void>;
+  onEditReason: (counterId: number, newReason: string) => Promise<void>;
 }
 
-export default function CandidateCardList({ counters, targetPokemonId, locale, onVoted }: CandidateCardListProps) {
-  const handleVote = async (counterId: number, voteType: "upvote" | "downvote"): Promise<void> => {
-    const userId = getUserId();
-    const res = await fetch("/api/pokemon/vote", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        targetPokemonId,
-        counterPokemonId: counterId,
-        voteType,
-        userId,
-      }),
-    });
-    
-    if (!res.ok) {
-      const error = await res.json();
-      if (res.status === 409) {
-        alert("このカウンターには既に投票済みです");
-      } else {
-        alert("投票に失敗しました");
-      }
-      throw new Error("投票に失敗しました");
-    }
-    
-    if (onVoted) onVoted();
-  };
-
+export default function CandidateCardList({ 
+  counters, 
+  locale, 
+  onVote, 
+  onEditReason 
+}: CandidateCardListProps) {
   return (
     <ul className="space-y-4">
       {counters.map((counter) => (
@@ -57,8 +35,9 @@ export default function CandidateCardList({ counters, targetPokemonId, locale, o
           reason={counter.reason}
           upvotes={counter.upvotes}
           downvotes={counter.downvotes}
-          onVote={(voteType: "upvote" | "downvote") => handleVote(counter.id, voteType)}
-          slug={counter.slug} // 追加: カウンターポケモンのslugを渡す
+          slug={counter.slug}
+          onVote={(voteType: "upvote" | "downvote") => onVote(counter.id, voteType)}
+          onEditReason={(newReason: string) => onEditReason(counter.id, newReason)}
         />
       ))}
     </ul>

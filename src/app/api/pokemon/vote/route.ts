@@ -5,7 +5,8 @@ const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
-    const { targetPokemonId, counterPokemonId, voteType, userId } = await req.json();
+    const { targetPokemonId, counterPokemonId, voteType, userId } =
+      await req.json();
 
     if (
       !targetPokemonId ||

@@ -152,6 +152,14 @@ exports.Prisma.PokemonCounterScalarFieldEnum = {
   downvotes: 'downvotes'
 };
 
+exports.Prisma.VoteScalarFieldEnum = {
+  id: 'id',
+  pokemonCounterId: 'pokemonCounterId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -172,7 +180,8 @@ exports.Prisma.ModelName = {
   Pokemon: 'Pokemon',
   Stat: 'Stat',
   PokemonStat: 'PokemonStat',
-  PokemonCounter: 'PokemonCounter'
+  PokemonCounter: 'PokemonCounter',
+  Vote: 'Vote'
 };
 
 /**

@@ -63,4 +63,19 @@ model PokemonCounter {
   // リレーション
   targetPokemon  Pokemon @relation("TargetPokemon", fields: [targetPokemonId], references: [id])
   counterPokemon Pokemon @relation("CounterPokemon", fields: [counterPokemonId], references: [id])
+  votes          Vote[] // 投票履歴
+}
+
+model Vote {
+  id               Int      @id @default(autoincrement()) // 主キー
+  pokemonCounterId Int // PokemonCounter モデルへの外部キー
+  userId           String // ユーザーID（ブラウザで生成された一意のID）
+  voteType         String // "upvote" または "downvote"
+  createdAt        DateTime @default(now())
+
+  // リレーション
+  pokemonCounter PokemonCounter @relation(fields: [pokemonCounterId], references: [id], onDelete: Cascade)
+
+  // ユニーク制約: 同じユーザーが同じカウンターに複数回投票できないようにする
+  @@unique([pokemonCounterId, userId])
 }

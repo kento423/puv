@@ -1,5 +1,6 @@
 "use client";
 import CandidateCard from "@/components/CandidateCard";
+import { getUserId } from "@/lib/userId";
 
 interface Counter {
   id: number;
@@ -20,7 +21,8 @@ interface CandidateCardListProps {
 }
 
 export default function CandidateCardList({ counters, targetPokemonId, locale, onVoted }: CandidateCardListProps) {
-  const handleVote = async (counterId: number, voteType: "upvote" | "downvote") => {
+  const handleVote = async (counterId: number, voteType: "upvote" | "downvote"): Promise<void> => {
+    const userId = getUserId();
     const res = await fetch("/api/pokemon/vote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -28,8 +30,20 @@ export default function CandidateCardList({ counters, targetPokemonId, locale, o
         targetPokemonId,
         counterPokemonId: counterId,
         voteType,
+        userId,
       }),
     });
+    
+    if (!res.ok) {
+      const error = await res.json();
+      if (res.status === 409) {
+        alert("このカウンターには既に投票済みです");
+      } else {
+        alert("投票に失敗しました");
+      }
+      throw new Error("投票に失敗しました");
+    }
+    
     if (onVoted) onVoted();
   };
 

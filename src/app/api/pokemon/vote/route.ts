@@ -5,11 +5,12 @@ const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
-    const { targetPokemonId, counterPokemonId, voteType } = await req.json();
+    const { targetPokemonId, counterPokemonId, voteType, userId } = await req.json();
 
     if (
       !targetPokemonId ||
       !counterPokemonId ||
+      !userId ||
       !["upvote", "downvote"].includes(voteType)
     ) {
       return NextResponse.json(
@@ -25,6 +26,32 @@ export async function POST(req: Request) {
     if (!pokemonCounter) {
       return NextResponse.json({ error: "Counter not found" }, { status: 404 });
     }
+
+    // 既に投票済みかチェック
+    const existingVote = await prisma.vote.findUnique({
+      where: {
+        pokemonCounterId_userId: {
+          pokemonCounterId: counterPokemonId,
+          userId: userId,
+        },
+      },
+    });
+
+    if (existingVote) {
+      return NextResponse.json(
+        { error: "You have already voted on this counter" },
+        { status: 409 }
+      );
+    }
+
+    // 投票を記録
+    await prisma.vote.create({
+      data: {
+        pokemonCounterId: counterPokemonId,
+        userId: userId,
+        voteType: voteType,
+      },
+    });
 
     const updatedCounter = await prisma.pokemonCounter.update({
       where: { id: counterPokemonId },

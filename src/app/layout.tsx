@@ -25,36 +25,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen flex flex-col`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col`}>
         {/* ヘッダー */}
-        <header className="w-full border-b bg-white shadow-sm">
-          <nav className="max-w-6xl mx-auto flex justify-between items-center p-4">
-            <Link href="/" className="font-bold text-xl text-blue-700">
+        <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+          <nav className="w-full mx-auto flex justify-between items-center px-4 py-3 md:px-6">
+            <Link href="/" className="font-bold text-lg md:text-xl text-blue-700 dark:text-blue-400">
               ポケモンユナイト対策DB
             </Link>
-            <div className="flex gap-6 text-gray-700 text-base">
-              <Link href="/pokemon" className="hover:text-blue-600">ポケモン一覧</Link>
+            <div className="flex gap-4 md:gap-6 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+              <Link href="/pokemon" className="hover:text-blue-600 dark:hover:text-blue-400 transition">ポケモン一覧</Link>
             </div>
           </nav>
         </header>
         {/* メインコンテンツ */}
-        <main className="flex-1 w-full max-w-6xl mx-auto p-4">{children}</main>
+        <main className="flex-1 w-full px-4 py-6 md:px-6 md:py-8">{children}</main>
         {/* 広告枠（ページ下部） */}
-        <aside className="w-full bg-white border-t border-b py-6">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="bg-gray-100 border rounded shadow-sm p-6 min-h-[120px] flex items-center justify-center text-gray-400">
+        <aside className="w-full bg-white dark:bg-gray-800 border-t border-b py-6">
+          <div className="px-4 md:px-6">
+            <div className="bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded shadow-sm p-6 min-h-[120px] flex items-center justify-center text-gray-400 dark:text-gray-500">
               {/* 広告枠：ここに広告コードを挿入 */}
               <span>広告枠</span>
             </div>
           </div>
         </aside>
         {/* フッター */}
-        <footer className="w-full border-t bg-white py-4 mt-8">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm gap-2 px-4">
+        <footer className="w-full border-t bg-white dark:bg-gray-800 py-4 mt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-xs md:text-sm gap-3 px-4 md:px-6">
             <div>© 2025 ポケモンユナイト対策DB</div>
             <div className="flex gap-4">
-              <Link href="/terms" className="hover:underline">利用規約</Link>
-              <Link href="/privacy" className="hover:underline">プライバシーポリシー</Link>
+              <Link href="/terms" className="hover:underline transition">利用規約</Link>
+              <Link href="/privacy" className="hover:underline transition">プライバシーポリシー</Link>
             </div>
           </div>
         </footer>

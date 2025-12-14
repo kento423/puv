@@ -83,13 +83,15 @@ export default function PokemonPageClient({ pokemonId, slug }: { pokemonId: numb
 
   return (
     <>
-      <CandidateCardList
-        counters={sortedCounters}
-        locale={locale}
-        onVote={handleVote}
-        onEditReason={handleEditReason}
-      />
-      <div className="mt-8">
+      <div className="mb-6 md:mb-8">
+        <CandidateCardList
+          counters={sortedCounters}
+          locale={locale}
+          onVote={handleVote}
+          onEditReason={handleEditReason}
+        />
+      </div>
+      <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
         <AddCounterForm slug={slug} locale={locale} onAdded={fetchCounters} />
       </div>
     </>

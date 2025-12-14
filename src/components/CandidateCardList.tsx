@@ -26,7 +26,7 @@ export default function CandidateCardList({
   onEditReason 
 }: CandidateCardListProps) {
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-3 md:space-y-4">
       {counters.map((counter) => (
         <CandidateCard
           key={counter.id}

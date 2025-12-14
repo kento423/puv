@@ -95,10 +95,93 @@ const handleVote = async (counterId, voteType) => {
 
 ## UI/スタイリング規則
 
+### **スマホファーストな UI 設計**
+
+本プロジェクトは**スマホファーストなアプローチ**を採用しています。以下のガイドラインに従ってください：
+
+#### **レスポンシブデザイン原則**
+
+- **モバイル優先**: 基本スタイルはモバイル（320px〜767px）向けに設計
+- **タブレット対応**: `md:` ブレークポイント（768px〜）で段階的に拡張
+- **デスクトップ対応**: `lg:` ブレークポイント（1024px〜）でさらに最適化
+- **幅の制限**: デスクトップでも無制限に広がらないよう注意（現在は`w-full`でコンテナに合わせる設計）
+
+#### **タッチ操作への最適化**
+
+- **ボタンサイズ**: 最小タップ領域 44×44px (モバイル時)
+  - パディング: `py-2.5 md:py-2` でモバイル時に大きくする
+- **ボタンのスタイリング**:
+  ```jsx
+  className = "py-2.5 md:py-2 px-4 md:px-6 active:scale-95 transition-all";
+  // active:scale-95 で押下フィードバック
+  ```
+- **入力フィールド**: `py-2.5 md:py-2` でモバイル時に高さを確保
+- **スペーシング**: `gap-3 md:gap-4` や `space-y-3 md:space-y-4` で密度を調整
+
+#### **フォント・テキストサイズ**
+
+- **見出し**: `text-2xl md:text-3xl lg:text-4xl`
+- **本文**: `text-sm md:text-base`
+- **ラベル**: `text-xs md:text-sm`
+- **ボタンテキスト**: `text-sm md:text-base`
+
+#### **ダークモード対応**
+
+- Tailwind の `dark:` プリフィックスで対応
+- 背景: `bg-white dark:bg-gray-800` または `dark:bg-gray-900`
+- テキスト: `text-gray-900 dark:text-white` または `text-gray-600 dark:text-gray-400`
+- ボーダー: `border-gray-200 dark:border-gray-700`
+
+#### **レイアウトパターン**
+
+**フレックスレイアウト（フロー切り替え）:**
+
+```jsx
+className = "flex flex-col md:flex-row gap-3 md:gap-4";
+// モバイル: 縦積み、タブレット以上: 横並び
+```
+
+**グリッドレイアウト:**
+
+```jsx
+className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4";
+// モバイル: 1列、タブレット: 2列、デスクトップ: 4列
+```
+
+**画像レスポンシブ:**
+
+```jsx
+className = "w-14 h-14 md:w-16 md:h-16";
+// モバイル: 56×56px、タブレット: 64×64px
+```
+
+#### **具体的なコンポーネント例**
+
+**カード類:**
+
+```jsx
+className =
+  "p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700";
+```
+
+**ボタン:**
+
+```jsx
+className =
+  "w-full md:w-auto px-4 md:px-6 py-2.5 md:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all font-medium text-sm md:text-base";
+```
+
+**フォーム（検索・セレクト）:**
+
+```jsx
+className =
+  "w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 text-sm";
+```
+
+### **その他のスタイリング規則**
+
 - **Tailwind CSS** を使用
-- **ダークモード対応**: `dark:` プリフィックスで className 記述
 - **アイコン**: lucide-react から import（ThumbsUp, ThumbsDown, SquarePen など）
-- **レスポンシブ**: `md:`, `lg:` ブレークポイント活用
 - **色分け規則**:
   - ダメージクラス: physical=オレンジ, special=緑
   - レンジタイプ: melee=オレンジ, ranged=緑
@@ -140,8 +223,19 @@ const handleVote = async (counterId, voteType) => {
    - エラー時は必ず前の値に戻す
 
 4. **ページネーション未実装**
+
    - 現在は全件取得パターン
    - 対策が増えたら実装検討が必要
+
+5. **スマホファースト実装時の注意**
+
+   - **常にモバイル視点で検討**: デスクトップ対応は後付けする
+   - **レスポンシブクラス**: `md:` / `lg:` は段階的に追加
+   - **ボタン/入力高さ**: モバイルで `py-2.5`、タブレット以上で `md:py-2` に統一
+   - **余白**: `p-3 md:p-4` や `gap-3 md:gap-4` で一貫性を保つ
+   - **画像サイズ**: `w-14 h-14 md:w-16 md:h-16` のようにモバイル優先で指定
+   - **テキストサイズ**: 基本を `text-sm`、必要に応じて `md:text-base` を追加
+   - **フレックス方向**: `flex-col md:flex-row` でモバイルは縦積み
 
 ## コンポーネント設計パターン
 
@@ -157,6 +251,10 @@ const handleVote = async (counterId, voteType) => {
 - フィルタリング（複数条件の AND 検索）
 - reason 編集の保持確認
 - ダークモード切り替え時の表示確認
+- **モバイル（320px）での表示確認**: 最小幅での正常表示を確認
+- **タブレット（768px）での表示確認**: ブレークポイント切り替わり時の正常表示
+- **デスクトップ（1024px 以上）での表示確認**: 無制限な幅広がりがないか確認
+- **タッチ操作検証**: ボタン・フォーム要素が 44×44px 以上のタップ領域を確保しているか
 
 ## 今後の拡張予定（参考）
 

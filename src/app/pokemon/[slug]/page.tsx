@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: Promise<any> }) {
   const name = locale === "ja" ? pokemonData.nameJa : pokemonData.nameEn;
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="w-full">
       <Breadcrumbs name={name} />
       <PokemonInfo name={name} imageUrl={pokemonData.imageUrl} />
       <PokemonPageClient pokemonId={pokemonData.id} slug={slug} />

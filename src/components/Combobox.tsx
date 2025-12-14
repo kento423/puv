@@ -49,11 +49,13 @@ export function Combobox<T>({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={`${className} justify-between`}
+          className={`${className} justify-between text-sm md:text-base h-10 md:h-9`}
         >
-          {selectedValue
-            ? itemLabel(items.find((item) => itemValue(item) === selectedValue)!)
-            : placeholder}
+          <span className="truncate">
+            {selectedValue
+              ? itemLabel(items.find((item) => itemValue(item) === selectedValue)!)
+              : placeholder}
+          </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -63,6 +65,7 @@ export function Combobox<T>({
             placeholder="検索..."
             value={searchQuery}
             onValueChange={setSearchQuery}
+            className="text-sm"
           />
           <CommandEmpty>該当なし</CommandEmpty>
           <CommandGroup>
@@ -75,6 +78,7 @@ export function Combobox<T>({
                     onSelect(val);
                     setOpen(false);
                   }}
+                  className="text-sm"
                 >
                   <Check
                     className={cn(

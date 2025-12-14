@@ -172,20 +172,20 @@ export default function PokemonListPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">
+    <div className="w-full">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">
         {locale === "ja" ? "ポケモン一覧" : "Pokémon List"}
       </h1>
 
       {/* フィルターセクション */}
-      <div className="bg-gray-100 p-4 rounded-lg mb-6">
-        <h2 className="text-xl font-semibold mb-4">
+      <div className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg mb-6 shadow-sm border border-gray-200 dark:border-gray-700">
+        <h2 className="text-lg md:text-xl font-semibold mb-4 text-gray-900 dark:text-white">
           {locale === "ja" ? "絞り込み" : "Filters"}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
           {/* 検索 */}
           <div>
-            <label className="block text-sm font-medium mb-2">
+            <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
               {locale === "ja" ? "名前検索" : "Search Name"}
             </label>
             <input
@@ -193,19 +193,19 @@ export default function PokemonListPage() {
               value={filters.search}
               onChange={(e) => handleFilterChange("search", e.target.value)}
               placeholder={locale === "ja" ? "ポケモン名..." : "Pokemon name..."}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             />
           </div>
 
           {/* ダメージクラス */}
           <div>
-            <label className="block text-sm font-medium mb-2">
+            <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
               {locale === "ja" ? "タイプ" : "Damage Class"}
             </label>
             <select
               value={filters.damageClass}
               onChange={(e) => handleFilterChange("damageClass", e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             >
               <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
               {uniqueValues.damageClasses.map((val) => (
@@ -218,13 +218,13 @@ export default function PokemonListPage() {
 
           {/* レンジタイプ */}
           <div>
-            <label className="block text-sm font-medium mb-2">
+            <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
               {locale === "ja" ? "範囲" : "Range Type"}
             </label>
             <select
               value={filters.rangeType}
               onChange={(e) => handleFilterChange("rangeType", e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             >
               <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
               {uniqueValues.rangeTypes.map((val) => (
@@ -237,13 +237,13 @@ export default function PokemonListPage() {
 
           {/* バトルスタイル */}
           <div>
-            <label className="block text-sm font-medium mb-2">
+            <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
               {locale === "ja" ? "戦闘スタイル" : "Battle Style"}
             </label>
             <select
               value={filters.battleStyle}
               onChange={(e) => handleFilterChange("battleStyle", e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             >
               <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
               {uniqueValues.battleStyles.map((val) => (
@@ -258,7 +258,7 @@ export default function PokemonListPage() {
           <div className="flex items-end">
             <button
               onClick={handleReset}
-              className="w-full px-4 py-2 bg-gray-400 text-white rounded-md hover:bg-gray-500 transition-colors"
+              className="w-full px-4 py-2.5 md:py-2 bg-gray-400 dark:bg-gray-600 text-white rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 active:scale-95 transition-all text-sm md:text-base font-medium"
             >
               {locale === "ja" ? "リセット" : "Reset"}
             </button>
@@ -268,25 +268,25 @@ export default function PokemonListPage() {
 
       {/* 結果表示 */}
       {loading ? (
-        <div className="text-center py-8">
-          <p>{locale === "ja" ? "読み込み中..." : "Loading..."}</p>
+        <div className="text-center py-12">
+          <p className="text-gray-600 dark:text-gray-400">{locale === "ja" ? "読み込み中..." : "Loading..."}</p>
         </div>
       ) : pokemonList.length === 0 ? (
-        <div className="text-center py-8">
-          <p>{locale === "ja" ? "ポケモンが見つかりません" : "No Pokemon found"}</p>
+        <div className="text-center py-12">
+          <p className="text-gray-600 dark:text-gray-400">{locale === "ja" ? "ポケモンが見つかりません" : "No Pokemon found"}</p>
         </div>
       ) : (
         <>
-          <p className="mb-4 text-gray-600">
+          <p className="mb-4 text-sm md:text-base text-gray-600 dark:text-gray-400">
             {locale === "ja"
               ? `${pokemonList.length}件のポケモンが見つかりました`
               : `Found ${pokemonList.length} Pokemon`}
           </p>
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {pokemonList.map((pokemon) => (
               <li
                 key={pokemon.id}
-                className="border p-4 rounded shadow hover:shadow-lg transition-shadow bg-cover bg-center bg-blend-overlay"
+                className="border border-gray-200 dark:border-gray-700 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-gray-800 bg-cover bg-center bg-blend-overlay overflow-hidden"
                 style={{
                   backgroundImage: `url('${getBattleStyleBgImage(
                     pokemon.battleStyle
@@ -298,23 +298,23 @@ export default function PokemonListPage() {
                     <Image
                       src={pokemon.imageUrl}
                       alt={locale === "ja" ? pokemon.nameJa : pokemon.nameEn}
-                      width={100}
-                      height={100}
-                      className="mb-2"
+                      width={80}
+                      height={80}
+                      className="mb-2 md:mb-3"
                     />
-                    <h2 className="text-lg font-bold text-center">
+                    <h2 className="text-sm md:text-base font-bold text-center text-gray-900 dark:text-white">
                       {locale === "ja" ? pokemon.nameJa : pokemon.nameEn}
                     </h2>
-                    <div className="mt-2 flex gap-2 flex-wrap justify-center">
+                    <div className="mt-2 flex gap-1.5 flex-wrap justify-center">
                       <span
-                        className={`inline-block px-3 py-1 rounded-full text-sm font-semibold border ${getDamageClassColor(
+                        className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold border ${getDamageClassColor(
                           pokemon.damageClass
                         )}`}
                       >
                         {getDamageClassLabel(pokemon.damageClass)}
                       </span>
                       <span
-                        className={`inline-block px-3 py-1 rounded-full text-sm font-semibold border ${getRangeTypeColor(
+                        className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold border ${getRangeTypeColor(
                           pokemon.rangeType
                         )}`}
                       >

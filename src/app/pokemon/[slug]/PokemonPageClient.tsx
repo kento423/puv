@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useCallback } from "react";
 import CandidateCardList from "@/components/CandidateCardList";
-import AddCounterForm from "@/components/AddCounterForm";
+import AddCounterForm from "./components/AddCounterForm";
 import { getUserId } from "@/lib/userId";
 
 interface Counter {

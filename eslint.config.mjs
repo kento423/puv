@@ -1,3 +1,5 @@
+import nextTypescript from "eslint-config-next/typescript";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
@@ -10,10 +12,9 @@ const compat = new FlatCompat({
 });
 
 export default [
-  ...compat.extends(
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-  ),
+  ...nextTypescript,
+  ...nextCoreWebVitals,
+  ...compat.extends("plugin:@typescript-eslint/recommended"),
   {
     rules: {
       "@typescript-eslint/no-unused-expressions": "off",
@@ -22,4 +23,7 @@ export default [
       "@typescript-eslint/no-require-imports": "off",
     },
   },
+  {
+    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
+  }
 ];

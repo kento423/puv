@@ -30,7 +30,7 @@ export default function RootLayout({
         <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
           <nav className="w-full mx-auto flex justify-between items-center px-4 py-3 md:px-6">
             <Link href="/" className="font-bold text-lg md:text-xl text-blue-700 dark:text-blue-400">
-              ポケモンユナイト対策DB
+              ユナコミュ
             </Link>
             <div className="flex gap-4 md:gap-6 text-gray-700 dark:text-gray-300 text-sm md:text-base">
               <Link href="/pokemon" className="hover:text-blue-600 dark:hover:text-blue-400 transition">ポケモン一覧</Link>
@@ -51,7 +51,7 @@ export default function RootLayout({
         {/* フッター */}
         <footer className="w-full border-t bg-white dark:bg-gray-800 py-4 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-500 dark:text-gray-400 text-xs md:text-sm gap-3 px-4 md:px-6">
-            <div>© 2025 ポケモンユナイト対策DB</div>
+            <div>© 2025 ユナコミュ</div>
             <div className="flex gap-4">
               <Link href="/terms" className="hover:underline transition">利用規約</Link>
               <Link href="/privacy" className="hover:underline transition">プライバシーポリシー</Link>

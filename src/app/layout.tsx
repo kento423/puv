@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import AdSense from "@/components/AdSense";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -42,10 +44,7 @@ export default function RootLayout({
         {/* 広告枠（ページ下部） */}
         <aside className="w-full bg-white dark:bg-gray-800 border-t border-b py-6">
           <div className="px-4 md:px-6">
-            <div className="bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded shadow-sm p-6 min-h-[120px] flex items-center justify-center text-gray-400 dark:text-gray-500">
-              {/* 広告枠：ここに広告コードを挿入 */}
-              <span>広告枠</span>
-            </div>
+            <AdSense />
           </div>
         </aside>
         {/* フッター */}
@@ -58,6 +57,13 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        {/* Google AdSense スクリプト */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3903983116971021"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

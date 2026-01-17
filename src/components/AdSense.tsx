@@ -23,11 +23,20 @@ export default function AdSense({ adSlot }: AdSenseProps) {
   }
 
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error('AdSense error:', err);
-    }
+    const initAdSense = () => {
+      try {
+        if (typeof window !== 'undefined' && window.adsbygoogle) {
+          window.adsbygoogle.push({});
+        }
+      } catch (err) {
+        console.error('AdSense error:', err);
+      }
+    };
+
+    // スクリプト読み込み後に少し遅延させて初期化
+    const timer = setTimeout(initAdSense, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (

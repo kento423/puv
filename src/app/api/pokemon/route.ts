@@ -40,6 +40,7 @@ export async function GET(req: Request) {
     // データベースからポケモンデータを取得
     const pokemons = await prisma.pokemon.findMany({
       where: Object.keys(where).length > 0 ? where : undefined,
+      orderBy: { id: "asc" },
     });
 
     // データが存在しない場合のエラーハンドリング

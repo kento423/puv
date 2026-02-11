@@ -23,7 +23,17 @@ export default function AdSense({ adSlot }: AdSenseProps) {
   }
 
   useEffect(() => {
-    const initAdSense = () => {
+    // スクリプトが既に読み込まれているか確認
+    if (!document.querySelector('script[src*="adsbygoogle.js"]')) {
+      const script = document.createElement('script');
+      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`;
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      document.head.appendChild(script);
+    }
+
+    // スクリプト読み込み後に初期化
+    const timer = setTimeout(() => {
       try {
         if (typeof window !== 'undefined' && window.adsbygoogle) {
           window.adsbygoogle.push({});
@@ -31,13 +41,10 @@ export default function AdSense({ adSlot }: AdSenseProps) {
       } catch (err) {
         console.error('AdSense error:', err);
       }
-    };
+    }, 100);
 
-    // スクリプト読み込み後に少し遅延させて初期化
-    const timer = setTimeout(initAdSense, 100);
-    
     return () => clearTimeout(timer);
-  }, []);
+  }, [client]);
 
   return (
     <ins

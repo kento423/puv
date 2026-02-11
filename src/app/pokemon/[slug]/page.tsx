@@ -10,6 +10,16 @@ interface PokemonData {
   nameJa: string;
   nameEn: string;
   imageUrl: string;
+  damageClass: string;
+  rangeType: string;
+  battleStyle: string;
+  customTags: Array<{
+    tag: {
+      id: number;
+      name: string;
+      color: string;
+    };
+  }>;
 }
 
 export default async function Page({ params }: { params: Promise<any> }) {
@@ -28,8 +38,16 @@ export default async function Page({ params }: { params: Promise<any> }) {
   return (
     <div className="w-full">
       <Breadcrumbs name={name} />
-      <PokemonInfo name={name} imageUrl={pokemonData.imageUrl} />
-      <PokemonPageClient pokemonId={pokemonData.id} slug={slug} />
+      <PokemonInfo
+        name={name}
+        imageUrl={pokemonData.imageUrl}
+        damageClass={pokemonData.damageClass}
+        rangeType={pokemonData.rangeType}
+        battleStyle={pokemonData.battleStyle}
+        customTags={pokemonData.customTags}
+        slug={slug}
+      />
+      <PokemonPageClient pokemonId={pokemonData.id} slug={slug} pokemonName={name} />
     </div>
   );
 }

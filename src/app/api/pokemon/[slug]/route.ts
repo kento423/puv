@@ -6,9 +6,16 @@ export async function GET(request: NextRequest) {
     const pathname = request.nextUrl.pathname; // 例: "/api/pokemon/pikachu/counters"
     const slug = pathname.split("/")[3]; // "pikachu"
 
-    // Pokemonデータを取得
+    // Pokemonデータをカスタムタグと一緒に取得
     const pokemon = await prisma.pokemon.findUnique({
       where: { slug },
+      include: {
+        customTags: {
+          include: {
+            tag: true,
+          },
+        },
+      },
     });
 
     if (!pokemon) {

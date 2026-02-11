@@ -30,6 +30,7 @@ model Pokemon {
   stats      PokemonStat[] // PokemonStat モデルとのリレーション
   targetOf   PokemonCounter[] @relation("TargetPokemon") // 対策される側
   counterFor PokemonCounter[] @relation("CounterPokemon") // カウンター側
+  customTags PokemonCustomTag[] // カスタムタグとのリレーション
 }
 
 model Stat {
@@ -78,4 +79,28 @@ model Vote {
 
   // ユニーク制約: 同じユーザーが同じカウンターに複数回投票できないようにする
   @@unique([pokemonCounterId, userId])
+}
+
+model Tag {
+  id        Int    @id @default(autoincrement()) // 主キー
+  name      String @unique // タグ名（例: "高速"）
+  color     String @default("gray") // タグの色（Tailwindカラー）
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // リレーション
+  pokemonTags PokemonCustomTag[] // ポケモンとのリレーション
+}
+
+model PokemonCustomTag {
+  pokemonId Int
+  tagId     Int
+  createdAt DateTime @default(now())
+
+  // リレーション
+  pokemon   Pokemon @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  // 複合主キー: 同じポケモンに同じタグは一度だけ付与可能
+  @@id([pokemonId, tagId])
 }

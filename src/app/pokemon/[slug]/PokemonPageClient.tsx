@@ -2,6 +2,9 @@
 import { useEffect, useState, useCallback } from "react";
 import CandidateCardList from "@/components/CandidateCardList";
 import AddCounterForm from "./components/AddCounterForm";
+import PokemonTabs from "./components/PokemonTabs";
+import ReverseCounterList from "./components/ReverseCounterList";
+import StatRadarChartTab from "./components/StatRadarChartTab";
 import { getUserId } from "@/lib/userId";
 
 interface Counter {
@@ -15,7 +18,7 @@ interface Counter {
   slug: string;
 }
 
-export default function PokemonPageClient({ pokemonId, slug }: { pokemonId: number, slug: string }) {
+export default function PokemonPageClient({ pokemonId, slug, pokemonName }: { pokemonId: number, slug: string, pokemonName: string }) {
   const [counters, setCounters] = useState<Counter[]>([]);
   const locale = "ja";
 
@@ -30,10 +33,6 @@ export default function PokemonPageClient({ pokemonId, slug }: { pokemonId: numb
       console.error("Error fetching counters:", error);
     }
   }, [slug]);
-
-  useEffect(() => {
-    fetchCounters();
-  }, [fetchCounters]);
 
   // 投票処理
   const handleVote = async (counterId: number, voteType: "upvote" | "downvote"): Promise<void> => {
@@ -79,21 +78,36 @@ export default function PokemonPageClient({ pokemonId, slug }: { pokemonId: numb
     await fetchCounters();
   };
 
+  useEffect(() => {
+    fetchCounters();
+  }, [fetchCounters]);
+
   const sortedCounters = [...counters].sort((a, b) => (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes));
 
   return (
-    <>
-      <div className="mb-6 md:mb-8">
-        <CandidateCardList
-          counters={sortedCounters}
-          locale={locale}
-          onVote={handleVote}
-          onEditReason={handleEditReason}
-        />
-      </div>
-      <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-        <AddCounterForm slug={slug} locale={locale} onAdded={fetchCounters} />
-      </div>
-    </>
+    <PokemonTabs
+      pokemonId={pokemonId}
+      slug={slug}
+      pokemonName={pokemonName}
+      children={{
+        counters: (
+          <>
+            <div className="mb-6 md:mb-8">
+              <CandidateCardList
+                counters={sortedCounters}
+                locale={locale}
+                onVote={handleVote}
+                onEditReason={handleEditReason}
+              />
+            </div>
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+              <AddCounterForm slug={slug} locale={locale} onAdded={fetchCounters} />
+            </div>
+          </>
+        ),
+        counteredBy: <ReverseCounterList slug={slug} />,
+        stats: <StatRadarChartTab slug={slug} />,
+      }}
+    />
   );
 }

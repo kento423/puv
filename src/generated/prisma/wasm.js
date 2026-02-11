@@ -160,6 +160,20 @@ exports.Prisma.VoteScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.TagScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  color: 'color',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PokemonCustomTagScalarFieldEnum = {
+  pokemonId: 'pokemonId',
+  tagId: 'tagId',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -181,7 +195,9 @@ exports.Prisma.ModelName = {
   Stat: 'Stat',
   PokemonStat: 'PokemonStat',
   PokemonCounter: 'PokemonCounter',
-  Vote: 'Vote'
+  Vote: 'Vote',
+  Tag: 'Tag',
+  PokemonCustomTag: 'PokemonCustomTag'
 };
 
 /**

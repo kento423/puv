@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-おimport { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
   try {
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     ) {
       return NextResponse.json(
         { error: "Invalid request parameters" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     if (existingVote) {
       return NextResponse.json(
         { error: "You have already voted on this counter" },
-        { status: 409 }
+        { status: 409 },
       );
     }
 
@@ -71,7 +71,7 @@ export async function POST(req: Request) {
     console.error("Error processing vote:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   } finally {
     await prisma.$disconnect();

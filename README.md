@@ -64,6 +64,7 @@ npx prisma migrate dev --name add-user-model
 ⸻
 
 🧪 Prisma Client の手動再生成（必要な場合）
+schema を変更したとき
 
 ```
 npx prisma generate

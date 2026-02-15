@@ -14,6 +14,46 @@ pnpm dev
 bun dev
 ```
 
+## 📱 スマホからローカル環境へアクセスする方法
+
+同じWi-Fiに接続したスマートフォンから、開発中のアプリへアクセスできます。
+
+### 1. 開発サーバーを外部公開で起動
+
+package.json の dev スクリプトを次のように設定します。
+
+```bash
+next dev --turbopack -H 0.0.0.0
+```
+
+その後、通常通り
+
+```bash
+npm run dev
+```
+
+で起動します。
+
+### 2. PC のローカルIPアドレスを確認（Mac）
+
+```bash
+ipconfig getifaddr en0
+```
+
+例：
+
+```
+192.168.1.12
+```
+
+### 3. スマホのブラウザでアクセス
+
+```
+http://192.168.1.12:3000
+```
+
+※ PC とスマホが同じネットワークに接続されている必要があります。
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
@@ -116,6 +156,104 @@ my-app/
 ```
 
 ⸻
+
+## 🔐 本番 / CI における Prisma & Supabase 運用方針（確定版）
+
+このプロジェクトでは **マイグレーションの責務を Vercel に寄せる** 形で安定運用しています。  
+GitHub Actions は将来的に **他環境へ手動適用するための仕組み** として利用予定です（現在は本番には使いません）。
+
+---
+
+### 🎯 Production（本番環境）
+
+デプロイのトリガーは `git push`。  
+実行される処理は `vercel.json` に定義されています。
+
+```
+prisma generate
+→ prisma migrate deploy
+→ next build
+```
+
+これにより：
+
+- アプリ起動前に必ず DB が最新化される
+- migrate と build の順序が保証される
+- GitHub Actions の完了を待つ必要がない
+
+という安全な状態になります。
+
+---
+
+### 🧪 GitHub Actions の位置づけ
+
+現状、本番の migrate には使用していません。
+
+将来的には：
+
+- staging
+- 検証用DB
+- 共有開発DB
+
+などへ **workflow_dispatch（手動実行）** で流す用途を想定しています。
+
+---
+
+### 🔌 環境変数の役割
+
+Prisma では接続を自動で使い分けます。
+
+- `DATABASE_URL` → 通常のアプリ接続（pooler / pgbouncer）
+- `DIRECT_URL` → migrate 実行時の direct 接続
+
+---
+
+### Supabase から取得する値
+
+Prisma 用の接続文字列をそのまま利用します。
+
+```
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:6543/postgres?pgbouncer=true"
+DIRECT_URL="postgresql://USER:PASSWORD@HOST:5432/postgres"
+```
+
+---
+
+### prisma/schema.prisma
+
+```
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+```
+
+---
+
+### 🧠 generate が毎回必要な理由
+
+Prisma Client は `node_modules` に生成されます。  
+Vercel では build ごとに install が走るため、
+
+```
+prisma generate
+```
+
+は **毎回必要** です。
+
+---
+
+### 🛠 依存関係で壊れたときの最終手段
+
+CI や Vercel で install 周りが怪しくなったらまずこれ。
+
+```
+rm -rf node_modules package-lock.json
+npm install
+```
+
+その後 lock ファイルをコミットして再デプロイします。
 
 ## memo
 

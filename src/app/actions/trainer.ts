@@ -1,5 +1,5 @@
 'use server';
-
+import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@/generated/prisma';
 
@@ -109,5 +109,51 @@ export async function getTrainer(id: number) {
   } catch (error) {
     console.error(`Failed to fetch trainer ${id}:`, error);
     return null;
+  }
+}
+
+export async function createTrainer(data: {
+  name: string;
+  type: string;
+  teamId?: number;
+}) {
+  try {
+    const trainer = await prisma.trainer.create({
+      data: {
+        name: data.name,
+        type: data.type,
+        currentTeamId: data.teamId || null,
+        status: 'active',
+      },
+    });
+
+    // 初期所属履歴を作成
+    if (data.teamId) {
+      await prisma.trainerTeamHistory.create({
+        data: {
+          trainerId: trainer.id,
+          teamId: data.teamId,
+          joinedAt: new Date(),
+        },
+      });
+    }
+
+    revalidatePath('/trainers');
+    return { success: true, trainer };
+  } catch (error) {
+    console.error('Failed to create trainer:', error);
+    return { success: false, message: 'トレーナーの追加に失敗しました。' };
+  }
+}
+
+export async function getTeams() {
+  try {
+    const teams = await prisma.team.findMany({
+      orderBy: { name: 'asc' },
+    });
+    return teams;
+  } catch (error) {
+    console.error('Failed to fetch teams:', error);
+    return [];
   }
 }

@@ -35,7 +35,10 @@ export default function RootLayout({
           <nav className="w-full mx-auto flex justify-between items-center px-4 py-3 md:px-6">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg md:text-xl text-blue-700 dark:text-blue-400">
               <img src="/logo.png" alt="Unite Community Logo" className="w-8 h-8 md:w-10 md:h-10 rounded-lg shadow-sm" />
-              <span>Unite Community</span>
+              <span>
+                <span className="text-orange-500">Unite</span>{" "}
+                <span className="text-purple-600">Community</span>
+              </span>
             </Link>
           </nav>
         </header>

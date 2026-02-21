@@ -47,11 +47,18 @@ export default function RadarChartDisplay({ data, metrics, width = '100%', heigh
     return (
         <div className="w-full flex justify-center items-center" style={{ height }}>
             <ResponsiveContainer width={width} height={height}>
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={chartData}>
+                <RadarChart
+                    cx="50%"
+                    cy="50%"
+                    outerRadius="60%"
+                    data={chartData}
+                    margin={{ top: 10, right: 40, bottom: 10, left: 40 }}
+                >
                     <PolarGrid stroke="#4B5563" />
                     <PolarAngleAxis
                         dataKey="subject"
-                        tick={{ fill: '#e5e7eb', fontSize: 12 }}
+                        tick={{ fill: '#4b5563', fontSize: 11, fontWeight: 'bold' }}
+                        tickSize={15}
                     />
                     <PolarRadiusAxis
                         angle={30}
@@ -62,10 +69,10 @@ export default function RadarChartDisplay({ data, metrics, width = '100%', heigh
                     <Radar
                         name="Trainer Stats"
                         dataKey="value"
-                        stroke="#8884d8"
-                        strokeWidth={2}
-                        fill="#8884d8"
-                        fillOpacity={0.6}
+                        stroke="#9333ea"
+                        strokeWidth={3}
+                        fill="#9333ea"
+                        fillOpacity={0.5}
                     />
                 </RadarChart>
             </ResponsiveContainer>

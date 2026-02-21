@@ -1,4 +1,11 @@
-# Copilot Instructions for Pokemon Unite Counter Database
+# Copilot Instructions (Unite Community)
+
+> [!IMPORTANT]
+> このプロジェクトの主要な指針、ブランドガイドライン、技術スタック、およびAI開発ルールはルートディレクトリの [AGENTS.md](../AGENTS.md) に定義されています。
+> 実装や提案を行う前に、必ず `AGENTS.md` を参照してください。
+
+## 開発コンテキスト
+以下の内容は既存のシステム構成の詳細です。
 
 ## プロジェクト概要
 

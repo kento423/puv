@@ -1,31 +1,96 @@
 import Link from "next/link";
-import Image from "next/image";
+import StatusBadge from "@/components/ui/StatusBadge";
+import { MessageSquare, Users, Shield, Wrench } from "lucide-react";
 
 export default function Home() {
+  const features = [
+    {
+      title: "ポケモンカウンター図鑑",
+      description: "対面での有利不利や対策情報をチェック・共有できるデータベースです。",
+      href: "/pokemon",
+      status: "beta" as const,
+      icon: <Shield className="w-6 h-6" />,
+      color: "blue",
+    },
+    {
+      title: "トレーナー名鑑",
+      description: "ユナイトを盛り上げるトレーナーたちのプロフィール・活動を掲載。",
+      href: "/trainers",
+      status: "alpha" as const,
+      icon: <Users className="w-6 h-6" />,
+      color: "orange",
+    },
+    {
+      title: "アプデ後情報掲示板",
+      description: "最新パッチや新キャラの評価をリアルタイムで議論しましょう。",
+      href: "#",
+      status: "coming-soon" as const,
+      icon: <MessageSquare className="w-6 h-6" />,
+      color: "gray",
+    },
+    {
+      title: "構成メーカー",
+      description: "俺の考える最強のチーム構成やビルドをシミュレーション。",
+      href: "#",
+      status: "coming-soon" as const,
+      icon: <Wrench className="w-6 h-6" />,
+      color: "gray",
+    },
+  ];
+
   return (
-    <>
-      {/* お知らせ機能（インフォメーションボックス） */}
-      <div className="w-full flex justify-center bg-yellow-50 dark:bg-yellow-900/20 border-b border-yellow-200 dark:border-yellow-700 -mx-4 px-4 py-3 md:py-4 mb-6 md:mb-8">
-        <div className="w-full text-yellow-800 dark:text-yellow-200 text-center text-sm md:text-base">
-          <strong>お知らせ：</strong>このサイトは現在{" "}
-          <span className="font-bold">アルファ版</span> です。動作やデータ内容に不具合がある場合があります。ご意見・ご要望はお気軽にお寄せください。
-        </div>
+    <div className="max-w-5xl mx-auto py-8 md:py-12">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight">
+          Unite Community
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          ポケモンユナイトをもっと楽しく、もっと深く。コミュニティで作る究極の攻略ハブ。
+        </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center">
-        <div className="w-full text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">ポケモンカウンター図鑑</h1>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6 md:mb-8 leading-relaxed">
-            ポケモンユナイトの対策・カウンター情報をみんなで共有するWebアプリです。
-            気になるポケモンの対策や、他の人の投稿をチェックしましょう！
-          </p>
-          <Link href="/pokemon">
-            <button className="bg-blue-600 dark:bg-blue-700 text-white px-6 md:px-8 py-3 md:py-3.5 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 active:scale-95 transition-all text-base md:text-lg font-semibold shadow-md hover:shadow-lg w-full md:w-auto max-w-sm">
-              ポケモン一覧へ
-            </button>
-          </Link>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+        {features.map((feature, idx) => (
+          feature.href !== "#" ? (
+            <Link
+              key={idx}
+              href={feature.href}
+              className="group block p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className={`p-3 rounded-xl bg-${feature.color}-50 dark:bg-${feature.color}-900/20 text-${feature.color}-600 dark:text-${feature.color}-400 group-hover:scale-110 transition-transform`}>
+                  {feature.icon}
+                </div>
+                <StatusBadge status={feature.status} />
+              </div>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {feature.title}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                {feature.description}
+              </p>
+            </Link>
+          ) : (
+            <div
+              key={idx}
+              className="p-6 bg-gray-50/50 dark:bg-gray-800/50 rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 flex flex-col opacity-75"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className="p-3 rounded-xl bg-gray-100 dark:bg-gray-900/40 text-gray-400">
+                  {feature.icon}
+                </div>
+                <StatusBadge status={feature.status} />
+              </div>
+              <h2 className="text-xl font-bold text-gray-400 dark:text-gray-500 mb-2">
+                {feature.title}
+              </h2>
+              <p className="text-gray-400 dark:text-gray-500 leading-relaxed italic">
+                {feature.description}
+              </p>
+            </div>
+          )
+        ))}
       </div>
-    </>
+    </div>
   );
 }

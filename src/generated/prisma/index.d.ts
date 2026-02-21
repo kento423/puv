@@ -48,6 +48,36 @@ export type Tag = $Result.DefaultSelection<Prisma.$TagPayload>
  * 
  */
 export type PokemonCustomTag = $Result.DefaultSelection<Prisma.$PokemonCustomTagPayload>
+/**
+ * Model Team
+ * 
+ */
+export type Team = $Result.DefaultSelection<Prisma.$TeamPayload>
+/**
+ * Model Trainer
+ * 
+ */
+export type Trainer = $Result.DefaultSelection<Prisma.$TrainerPayload>
+/**
+ * Model TrainerTeamHistory
+ * 
+ */
+export type TrainerTeamHistory = $Result.DefaultSelection<Prisma.$TrainerTeamHistoryPayload>
+/**
+ * Model RadarMetric
+ * 
+ */
+export type RadarMetric = $Result.DefaultSelection<Prisma.$RadarMetricPayload>
+/**
+ * Model TrainerRadarPost
+ * 
+ */
+export type TrainerRadarPost = $Result.DefaultSelection<Prisma.$TrainerRadarPostPayload>
+/**
+ * Model RadarValue
+ * 
+ */
+export type RadarValue = $Result.DefaultSelection<Prisma.$RadarValuePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -236,6 +266,66 @@ export class PrismaClient<
     * ```
     */
   get pokemonCustomTag(): Prisma.PokemonCustomTagDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.team`: Exposes CRUD operations for the **Team** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Teams
+    * const teams = await prisma.team.findMany()
+    * ```
+    */
+  get team(): Prisma.TeamDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.trainer`: Exposes CRUD operations for the **Trainer** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Trainers
+    * const trainers = await prisma.trainer.findMany()
+    * ```
+    */
+  get trainer(): Prisma.TrainerDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.trainerTeamHistory`: Exposes CRUD operations for the **TrainerTeamHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrainerTeamHistories
+    * const trainerTeamHistories = await prisma.trainerTeamHistory.findMany()
+    * ```
+    */
+  get trainerTeamHistory(): Prisma.TrainerTeamHistoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.radarMetric`: Exposes CRUD operations for the **RadarMetric** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RadarMetrics
+    * const radarMetrics = await prisma.radarMetric.findMany()
+    * ```
+    */
+  get radarMetric(): Prisma.RadarMetricDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.trainerRadarPost`: Exposes CRUD operations for the **TrainerRadarPost** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TrainerRadarPosts
+    * const trainerRadarPosts = await prisma.trainerRadarPost.findMany()
+    * ```
+    */
+  get trainerRadarPost(): Prisma.TrainerRadarPostDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.radarValue`: Exposes CRUD operations for the **RadarValue** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RadarValues
+    * const radarValues = await prisma.radarValue.findMany()
+    * ```
+    */
+  get radarValue(): Prisma.RadarValueDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -683,7 +773,13 @@ export namespace Prisma {
     PokemonCounter: 'PokemonCounter',
     Vote: 'Vote',
     Tag: 'Tag',
-    PokemonCustomTag: 'PokemonCustomTag'
+    PokemonCustomTag: 'PokemonCustomTag',
+    Team: 'Team',
+    Trainer: 'Trainer',
+    TrainerTeamHistory: 'TrainerTeamHistory',
+    RadarMetric: 'RadarMetric',
+    TrainerRadarPost: 'TrainerRadarPost',
+    RadarValue: 'RadarValue'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -702,7 +798,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag"
+      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "team" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1224,6 +1320,450 @@ export namespace Prisma {
           }
         }
       }
+      Team: {
+        payload: Prisma.$TeamPayload<ExtArgs>
+        fields: Prisma.TeamFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TeamFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TeamFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>
+          }
+          findFirst: {
+            args: Prisma.TeamFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TeamFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>
+          }
+          findMany: {
+            args: Prisma.TeamFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>[]
+          }
+          create: {
+            args: Prisma.TeamCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>
+          }
+          createMany: {
+            args: Prisma.TeamCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TeamCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>[]
+          }
+          delete: {
+            args: Prisma.TeamDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>
+          }
+          update: {
+            args: Prisma.TeamUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>
+          }
+          deleteMany: {
+            args: Prisma.TeamDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TeamUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TeamUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>[]
+          }
+          upsert: {
+            args: Prisma.TeamUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamPayload>
+          }
+          aggregate: {
+            args: Prisma.TeamAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTeam>
+          }
+          groupBy: {
+            args: Prisma.TeamGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TeamGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TeamCountArgs<ExtArgs>
+            result: $Utils.Optional<TeamCountAggregateOutputType> | number
+          }
+        }
+      }
+      Trainer: {
+        payload: Prisma.$TrainerPayload<ExtArgs>
+        fields: Prisma.TrainerFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TrainerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TrainerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>
+          }
+          findFirst: {
+            args: Prisma.TrainerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TrainerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>
+          }
+          findMany: {
+            args: Prisma.TrainerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>[]
+          }
+          create: {
+            args: Prisma.TrainerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>
+          }
+          createMany: {
+            args: Prisma.TrainerCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TrainerCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>[]
+          }
+          delete: {
+            args: Prisma.TrainerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>
+          }
+          update: {
+            args: Prisma.TrainerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>
+          }
+          deleteMany: {
+            args: Prisma.TrainerDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TrainerUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TrainerUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>[]
+          }
+          upsert: {
+            args: Prisma.TrainerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerPayload>
+          }
+          aggregate: {
+            args: Prisma.TrainerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTrainer>
+          }
+          groupBy: {
+            args: Prisma.TrainerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TrainerGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TrainerCountArgs<ExtArgs>
+            result: $Utils.Optional<TrainerCountAggregateOutputType> | number
+          }
+        }
+      }
+      TrainerTeamHistory: {
+        payload: Prisma.$TrainerTeamHistoryPayload<ExtArgs>
+        fields: Prisma.TrainerTeamHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TrainerTeamHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TrainerTeamHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.TrainerTeamHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TrainerTeamHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.TrainerTeamHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.TrainerTeamHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.TrainerTeamHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TrainerTeamHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.TrainerTeamHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>
+          }
+          update: {
+            args: Prisma.TrainerTeamHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.TrainerTeamHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TrainerTeamHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TrainerTeamHistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.TrainerTeamHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerTeamHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.TrainerTeamHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTrainerTeamHistory>
+          }
+          groupBy: {
+            args: Prisma.TrainerTeamHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TrainerTeamHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TrainerTeamHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<TrainerTeamHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      RadarMetric: {
+        payload: Prisma.$RadarMetricPayload<ExtArgs>
+        fields: Prisma.RadarMetricFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RadarMetricFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RadarMetricFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>
+          }
+          findFirst: {
+            args: Prisma.RadarMetricFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RadarMetricFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>
+          }
+          findMany: {
+            args: Prisma.RadarMetricFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>[]
+          }
+          create: {
+            args: Prisma.RadarMetricCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>
+          }
+          createMany: {
+            args: Prisma.RadarMetricCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RadarMetricCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>[]
+          }
+          delete: {
+            args: Prisma.RadarMetricDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>
+          }
+          update: {
+            args: Prisma.RadarMetricUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>
+          }
+          deleteMany: {
+            args: Prisma.RadarMetricDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RadarMetricUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RadarMetricUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>[]
+          }
+          upsert: {
+            args: Prisma.RadarMetricUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarMetricPayload>
+          }
+          aggregate: {
+            args: Prisma.RadarMetricAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRadarMetric>
+          }
+          groupBy: {
+            args: Prisma.RadarMetricGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RadarMetricGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RadarMetricCountArgs<ExtArgs>
+            result: $Utils.Optional<RadarMetricCountAggregateOutputType> | number
+          }
+        }
+      }
+      TrainerRadarPost: {
+        payload: Prisma.$TrainerRadarPostPayload<ExtArgs>
+        fields: Prisma.TrainerRadarPostFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TrainerRadarPostFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TrainerRadarPostFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>
+          }
+          findFirst: {
+            args: Prisma.TrainerRadarPostFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TrainerRadarPostFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>
+          }
+          findMany: {
+            args: Prisma.TrainerRadarPostFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>[]
+          }
+          create: {
+            args: Prisma.TrainerRadarPostCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>
+          }
+          createMany: {
+            args: Prisma.TrainerRadarPostCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TrainerRadarPostCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>[]
+          }
+          delete: {
+            args: Prisma.TrainerRadarPostDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>
+          }
+          update: {
+            args: Prisma.TrainerRadarPostUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>
+          }
+          deleteMany: {
+            args: Prisma.TrainerRadarPostDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TrainerRadarPostUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TrainerRadarPostUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>[]
+          }
+          upsert: {
+            args: Prisma.TrainerRadarPostUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TrainerRadarPostPayload>
+          }
+          aggregate: {
+            args: Prisma.TrainerRadarPostAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTrainerRadarPost>
+          }
+          groupBy: {
+            args: Prisma.TrainerRadarPostGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TrainerRadarPostGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TrainerRadarPostCountArgs<ExtArgs>
+            result: $Utils.Optional<TrainerRadarPostCountAggregateOutputType> | number
+          }
+        }
+      }
+      RadarValue: {
+        payload: Prisma.$RadarValuePayload<ExtArgs>
+        fields: Prisma.RadarValueFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RadarValueFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RadarValueFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>
+          }
+          findFirst: {
+            args: Prisma.RadarValueFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RadarValueFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>
+          }
+          findMany: {
+            args: Prisma.RadarValueFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>[]
+          }
+          create: {
+            args: Prisma.RadarValueCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>
+          }
+          createMany: {
+            args: Prisma.RadarValueCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RadarValueCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>[]
+          }
+          delete: {
+            args: Prisma.RadarValueDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>
+          }
+          update: {
+            args: Prisma.RadarValueUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>
+          }
+          deleteMany: {
+            args: Prisma.RadarValueDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RadarValueUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RadarValueUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>[]
+          }
+          upsert: {
+            args: Prisma.RadarValueUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RadarValuePayload>
+          }
+          aggregate: {
+            args: Prisma.RadarValueAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRadarValue>
+          }
+          groupBy: {
+            args: Prisma.RadarValueGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RadarValueGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RadarValueCountArgs<ExtArgs>
+            result: $Utils.Optional<RadarValueCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1327,6 +1867,12 @@ export namespace Prisma {
     vote?: VoteOmit
     tag?: TagOmit
     pokemonCustomTag?: PokemonCustomTagOmit
+    team?: TeamOmit
+    trainer?: TrainerOmit
+    trainerTeamHistory?: TrainerTeamHistoryOmit
+    radarMetric?: RadarMetricOmit
+    trainerRadarPost?: TrainerRadarPostOmit
+    radarValue?: RadarValueOmit
   }
 
   /* Types for Logging */
@@ -1550,6 +2096,148 @@ export namespace Prisma {
    */
   export type TagCountOutputTypeCountPokemonTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PokemonCustomTagWhereInput
+  }
+
+
+  /**
+   * Count Type TeamCountOutputType
+   */
+
+  export type TeamCountOutputType = {
+    trainers: number
+    history: number
+  }
+
+  export type TeamCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainers?: boolean | TeamCountOutputTypeCountTrainersArgs
+    history?: boolean | TeamCountOutputTypeCountHistoryArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TeamCountOutputType without action
+   */
+  export type TeamCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamCountOutputType
+     */
+    select?: TeamCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TeamCountOutputType without action
+   */
+  export type TeamCountOutputTypeCountTrainersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerWhereInput
+  }
+
+  /**
+   * TeamCountOutputType without action
+   */
+  export type TeamCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerTeamHistoryWhereInput
+  }
+
+
+  /**
+   * Count Type TrainerCountOutputType
+   */
+
+  export type TrainerCountOutputType = {
+    history: number
+    radarPosts: number
+  }
+
+  export type TrainerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    history?: boolean | TrainerCountOutputTypeCountHistoryArgs
+    radarPosts?: boolean | TrainerCountOutputTypeCountRadarPostsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TrainerCountOutputType without action
+   */
+  export type TrainerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerCountOutputType
+     */
+    select?: TrainerCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TrainerCountOutputType without action
+   */
+  export type TrainerCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerTeamHistoryWhereInput
+  }
+
+  /**
+   * TrainerCountOutputType without action
+   */
+  export type TrainerCountOutputTypeCountRadarPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerRadarPostWhereInput
+  }
+
+
+  /**
+   * Count Type RadarMetricCountOutputType
+   */
+
+  export type RadarMetricCountOutputType = {
+    values: number
+  }
+
+  export type RadarMetricCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    values?: boolean | RadarMetricCountOutputTypeCountValuesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * RadarMetricCountOutputType without action
+   */
+  export type RadarMetricCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetricCountOutputType
+     */
+    select?: RadarMetricCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * RadarMetricCountOutputType without action
+   */
+  export type RadarMetricCountOutputTypeCountValuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RadarValueWhereInput
+  }
+
+
+  /**
+   * Count Type TrainerRadarPostCountOutputType
+   */
+
+  export type TrainerRadarPostCountOutputType = {
+    radarValues: number
+  }
+
+  export type TrainerRadarPostCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    radarValues?: boolean | TrainerRadarPostCountOutputTypeCountRadarValuesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TrainerRadarPostCountOutputType without action
+   */
+  export type TrainerRadarPostCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPostCountOutputType
+     */
+    select?: TrainerRadarPostCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TrainerRadarPostCountOutputType without action
+   */
+  export type TrainerRadarPostCountOutputTypeCountRadarValuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RadarValueWhereInput
   }
 
 
@@ -9429,6 +10117,6851 @@ export namespace Prisma {
 
 
   /**
+   * Model Team
+   */
+
+  export type AggregateTeam = {
+    _count: TeamCountAggregateOutputType | null
+    _avg: TeamAvgAggregateOutputType | null
+    _sum: TeamSumAggregateOutputType | null
+    _min: TeamMinAggregateOutputType | null
+    _max: TeamMaxAggregateOutputType | null
+  }
+
+  export type TeamAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TeamSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TeamMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    shortName: string | null
+    region: string | null
+    logoUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TeamMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    shortName: string | null
+    region: string | null
+    logoUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TeamCountAggregateOutputType = {
+    id: number
+    name: number
+    shortName: number
+    region: number
+    logoUrl: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TeamAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type TeamSumAggregateInputType = {
+    id?: true
+  }
+
+  export type TeamMinAggregateInputType = {
+    id?: true
+    name?: true
+    shortName?: true
+    region?: true
+    logoUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TeamMaxAggregateInputType = {
+    id?: true
+    name?: true
+    shortName?: true
+    region?: true
+    logoUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TeamCountAggregateInputType = {
+    id?: true
+    name?: true
+    shortName?: true
+    region?: true
+    logoUrl?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TeamAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Team to aggregate.
+     */
+    where?: TeamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Teams to fetch.
+     */
+    orderBy?: TeamOrderByWithRelationInput | TeamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TeamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Teams.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Teams
+    **/
+    _count?: true | TeamCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TeamAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TeamSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TeamMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TeamMaxAggregateInputType
+  }
+
+  export type GetTeamAggregateType<T extends TeamAggregateArgs> = {
+        [P in keyof T & keyof AggregateTeam]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTeam[P]>
+      : GetScalarType<T[P], AggregateTeam[P]>
+  }
+
+
+
+
+  export type TeamGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TeamWhereInput
+    orderBy?: TeamOrderByWithAggregationInput | TeamOrderByWithAggregationInput[]
+    by: TeamScalarFieldEnum[] | TeamScalarFieldEnum
+    having?: TeamScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TeamCountAggregateInputType | true
+    _avg?: TeamAvgAggregateInputType
+    _sum?: TeamSumAggregateInputType
+    _min?: TeamMinAggregateInputType
+    _max?: TeamMaxAggregateInputType
+  }
+
+  export type TeamGroupByOutputType = {
+    id: number
+    name: string
+    shortName: string | null
+    region: string | null
+    logoUrl: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: TeamCountAggregateOutputType | null
+    _avg: TeamAvgAggregateOutputType | null
+    _sum: TeamSumAggregateOutputType | null
+    _min: TeamMinAggregateOutputType | null
+    _max: TeamMaxAggregateOutputType | null
+  }
+
+  type GetTeamGroupByPayload<T extends TeamGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TeamGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TeamGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TeamGroupByOutputType[P]>
+            : GetScalarType<T[P], TeamGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TeamSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    shortName?: boolean
+    region?: boolean
+    logoUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    trainers?: boolean | Team$trainersArgs<ExtArgs>
+    history?: boolean | Team$historyArgs<ExtArgs>
+    _count?: boolean | TeamCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["team"]>
+
+  export type TeamSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    shortName?: boolean
+    region?: boolean
+    logoUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["team"]>
+
+  export type TeamSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    shortName?: boolean
+    region?: boolean
+    logoUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["team"]>
+
+  export type TeamSelectScalar = {
+    id?: boolean
+    name?: boolean
+    shortName?: boolean
+    region?: boolean
+    logoUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TeamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "shortName" | "region" | "logoUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
+  export type TeamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainers?: boolean | Team$trainersArgs<ExtArgs>
+    history?: boolean | Team$historyArgs<ExtArgs>
+    _count?: boolean | TeamCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TeamIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TeamIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TeamPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Team"
+    objects: {
+      trainers: Prisma.$TrainerPayload<ExtArgs>[]
+      history: Prisma.$TrainerTeamHistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      shortName: string | null
+      region: string | null
+      logoUrl: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["team"]>
+    composites: {}
+  }
+
+  type TeamGetPayload<S extends boolean | null | undefined | TeamDefaultArgs> = $Result.GetResult<Prisma.$TeamPayload, S>
+
+  type TeamCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TeamFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TeamCountAggregateInputType | true
+    }
+
+  export interface TeamDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Team'], meta: { name: 'Team' } }
+    /**
+     * Find zero or one Team that matches the filter.
+     * @param {TeamFindUniqueArgs} args - Arguments to find a Team
+     * @example
+     * // Get one Team
+     * const team = await prisma.team.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TeamFindUniqueArgs>(args: SelectSubset<T, TeamFindUniqueArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Team that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TeamFindUniqueOrThrowArgs} args - Arguments to find a Team
+     * @example
+     * // Get one Team
+     * const team = await prisma.team.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TeamFindUniqueOrThrowArgs>(args: SelectSubset<T, TeamFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Team that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamFindFirstArgs} args - Arguments to find a Team
+     * @example
+     * // Get one Team
+     * const team = await prisma.team.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TeamFindFirstArgs>(args?: SelectSubset<T, TeamFindFirstArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Team that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamFindFirstOrThrowArgs} args - Arguments to find a Team
+     * @example
+     * // Get one Team
+     * const team = await prisma.team.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TeamFindFirstOrThrowArgs>(args?: SelectSubset<T, TeamFindFirstOrThrowArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Teams that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Teams
+     * const teams = await prisma.team.findMany()
+     * 
+     * // Get first 10 Teams
+     * const teams = await prisma.team.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const teamWithIdOnly = await prisma.team.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TeamFindManyArgs>(args?: SelectSubset<T, TeamFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Team.
+     * @param {TeamCreateArgs} args - Arguments to create a Team.
+     * @example
+     * // Create one Team
+     * const Team = await prisma.team.create({
+     *   data: {
+     *     // ... data to create a Team
+     *   }
+     * })
+     * 
+     */
+    create<T extends TeamCreateArgs>(args: SelectSubset<T, TeamCreateArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Teams.
+     * @param {TeamCreateManyArgs} args - Arguments to create many Teams.
+     * @example
+     * // Create many Teams
+     * const team = await prisma.team.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TeamCreateManyArgs>(args?: SelectSubset<T, TeamCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Teams and returns the data saved in the database.
+     * @param {TeamCreateManyAndReturnArgs} args - Arguments to create many Teams.
+     * @example
+     * // Create many Teams
+     * const team = await prisma.team.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Teams and only return the `id`
+     * const teamWithIdOnly = await prisma.team.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TeamCreateManyAndReturnArgs>(args?: SelectSubset<T, TeamCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Team.
+     * @param {TeamDeleteArgs} args - Arguments to delete one Team.
+     * @example
+     * // Delete one Team
+     * const Team = await prisma.team.delete({
+     *   where: {
+     *     // ... filter to delete one Team
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TeamDeleteArgs>(args: SelectSubset<T, TeamDeleteArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Team.
+     * @param {TeamUpdateArgs} args - Arguments to update one Team.
+     * @example
+     * // Update one Team
+     * const team = await prisma.team.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TeamUpdateArgs>(args: SelectSubset<T, TeamUpdateArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Teams.
+     * @param {TeamDeleteManyArgs} args - Arguments to filter Teams to delete.
+     * @example
+     * // Delete a few Teams
+     * const { count } = await prisma.team.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TeamDeleteManyArgs>(args?: SelectSubset<T, TeamDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Teams.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Teams
+     * const team = await prisma.team.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TeamUpdateManyArgs>(args: SelectSubset<T, TeamUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Teams and returns the data updated in the database.
+     * @param {TeamUpdateManyAndReturnArgs} args - Arguments to update many Teams.
+     * @example
+     * // Update many Teams
+     * const team = await prisma.team.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Teams and only return the `id`
+     * const teamWithIdOnly = await prisma.team.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TeamUpdateManyAndReturnArgs>(args: SelectSubset<T, TeamUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Team.
+     * @param {TeamUpsertArgs} args - Arguments to update or create a Team.
+     * @example
+     * // Update or create a Team
+     * const team = await prisma.team.upsert({
+     *   create: {
+     *     // ... data to create a Team
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Team we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TeamUpsertArgs>(args: SelectSubset<T, TeamUpsertArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Teams.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamCountArgs} args - Arguments to filter Teams to count.
+     * @example
+     * // Count the number of Teams
+     * const count = await prisma.team.count({
+     *   where: {
+     *     // ... the filter for the Teams we want to count
+     *   }
+     * })
+    **/
+    count<T extends TeamCountArgs>(
+      args?: Subset<T, TeamCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TeamCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Team.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TeamAggregateArgs>(args: Subset<T, TeamAggregateArgs>): Prisma.PrismaPromise<GetTeamAggregateType<T>>
+
+    /**
+     * Group by Team.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TeamGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TeamGroupByArgs['orderBy'] }
+        : { orderBy?: TeamGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TeamGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTeamGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Team model
+   */
+  readonly fields: TeamFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Team.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TeamClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    trainers<T extends Team$trainersArgs<ExtArgs> = {}>(args?: Subset<T, Team$trainersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    history<T extends Team$historyArgs<ExtArgs> = {}>(args?: Subset<T, Team$historyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Team model
+   */
+  interface TeamFieldRefs {
+    readonly id: FieldRef<"Team", 'Int'>
+    readonly name: FieldRef<"Team", 'String'>
+    readonly shortName: FieldRef<"Team", 'String'>
+    readonly region: FieldRef<"Team", 'String'>
+    readonly logoUrl: FieldRef<"Team", 'String'>
+    readonly createdAt: FieldRef<"Team", 'DateTime'>
+    readonly updatedAt: FieldRef<"Team", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Team findUnique
+   */
+  export type TeamFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * Filter, which Team to fetch.
+     */
+    where: TeamWhereUniqueInput
+  }
+
+  /**
+   * Team findUniqueOrThrow
+   */
+  export type TeamFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * Filter, which Team to fetch.
+     */
+    where: TeamWhereUniqueInput
+  }
+
+  /**
+   * Team findFirst
+   */
+  export type TeamFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * Filter, which Team to fetch.
+     */
+    where?: TeamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Teams to fetch.
+     */
+    orderBy?: TeamOrderByWithRelationInput | TeamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Teams.
+     */
+    cursor?: TeamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Teams.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Teams.
+     */
+    distinct?: TeamScalarFieldEnum | TeamScalarFieldEnum[]
+  }
+
+  /**
+   * Team findFirstOrThrow
+   */
+  export type TeamFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * Filter, which Team to fetch.
+     */
+    where?: TeamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Teams to fetch.
+     */
+    orderBy?: TeamOrderByWithRelationInput | TeamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Teams.
+     */
+    cursor?: TeamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Teams.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Teams.
+     */
+    distinct?: TeamScalarFieldEnum | TeamScalarFieldEnum[]
+  }
+
+  /**
+   * Team findMany
+   */
+  export type TeamFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * Filter, which Teams to fetch.
+     */
+    where?: TeamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Teams to fetch.
+     */
+    orderBy?: TeamOrderByWithRelationInput | TeamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Teams.
+     */
+    cursor?: TeamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Teams.
+     */
+    skip?: number
+    distinct?: TeamScalarFieldEnum | TeamScalarFieldEnum[]
+  }
+
+  /**
+   * Team create
+   */
+  export type TeamCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Team.
+     */
+    data: XOR<TeamCreateInput, TeamUncheckedCreateInput>
+  }
+
+  /**
+   * Team createMany
+   */
+  export type TeamCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Teams.
+     */
+    data: TeamCreateManyInput | TeamCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Team createManyAndReturn
+   */
+  export type TeamCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * The data used to create many Teams.
+     */
+    data: TeamCreateManyInput | TeamCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Team update
+   */
+  export type TeamUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Team.
+     */
+    data: XOR<TeamUpdateInput, TeamUncheckedUpdateInput>
+    /**
+     * Choose, which Team to update.
+     */
+    where: TeamWhereUniqueInput
+  }
+
+  /**
+   * Team updateMany
+   */
+  export type TeamUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Teams.
+     */
+    data: XOR<TeamUpdateManyMutationInput, TeamUncheckedUpdateManyInput>
+    /**
+     * Filter which Teams to update
+     */
+    where?: TeamWhereInput
+    /**
+     * Limit how many Teams to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Team updateManyAndReturn
+   */
+  export type TeamUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * The data used to update Teams.
+     */
+    data: XOR<TeamUpdateManyMutationInput, TeamUncheckedUpdateManyInput>
+    /**
+     * Filter which Teams to update
+     */
+    where?: TeamWhereInput
+    /**
+     * Limit how many Teams to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Team upsert
+   */
+  export type TeamUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Team to update in case it exists.
+     */
+    where: TeamWhereUniqueInput
+    /**
+     * In case the Team found by the `where` argument doesn't exist, create a new Team with this data.
+     */
+    create: XOR<TeamCreateInput, TeamUncheckedCreateInput>
+    /**
+     * In case the Team was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TeamUpdateInput, TeamUncheckedUpdateInput>
+  }
+
+  /**
+   * Team delete
+   */
+  export type TeamDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    /**
+     * Filter which Team to delete.
+     */
+    where: TeamWhereUniqueInput
+  }
+
+  /**
+   * Team deleteMany
+   */
+  export type TeamDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Teams to delete
+     */
+    where?: TeamWhereInput
+    /**
+     * Limit how many Teams to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Team.trainers
+   */
+  export type Team$trainersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    where?: TrainerWhereInput
+    orderBy?: TrainerOrderByWithRelationInput | TrainerOrderByWithRelationInput[]
+    cursor?: TrainerWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrainerScalarFieldEnum | TrainerScalarFieldEnum[]
+  }
+
+  /**
+   * Team.history
+   */
+  export type Team$historyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    where?: TrainerTeamHistoryWhereInput
+    orderBy?: TrainerTeamHistoryOrderByWithRelationInput | TrainerTeamHistoryOrderByWithRelationInput[]
+    cursor?: TrainerTeamHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrainerTeamHistoryScalarFieldEnum | TrainerTeamHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Team without action
+   */
+  export type TeamDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Trainer
+   */
+
+  export type AggregateTrainer = {
+    _count: TrainerCountAggregateOutputType | null
+    _avg: TrainerAvgAggregateOutputType | null
+    _sum: TrainerSumAggregateOutputType | null
+    _min: TrainerMinAggregateOutputType | null
+    _max: TrainerMaxAggregateOutputType | null
+  }
+
+  export type TrainerAvgAggregateOutputType = {
+    id: number | null
+    currentTeamId: number | null
+  }
+
+  export type TrainerSumAggregateOutputType = {
+    id: number | null
+    currentTeamId: number | null
+  }
+
+  export type TrainerMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    type: string | null
+    currentTeamId: number | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TrainerMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    type: string | null
+    currentTeamId: number | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TrainerCountAggregateOutputType = {
+    id: number
+    name: number
+    type: number
+    currentTeamId: number
+    status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TrainerAvgAggregateInputType = {
+    id?: true
+    currentTeamId?: true
+  }
+
+  export type TrainerSumAggregateInputType = {
+    id?: true
+    currentTeamId?: true
+  }
+
+  export type TrainerMinAggregateInputType = {
+    id?: true
+    name?: true
+    type?: true
+    currentTeamId?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TrainerMaxAggregateInputType = {
+    id?: true
+    name?: true
+    type?: true
+    currentTeamId?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TrainerCountAggregateInputType = {
+    id?: true
+    name?: true
+    type?: true
+    currentTeamId?: true
+    status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TrainerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Trainer to aggregate.
+     */
+    where?: TrainerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Trainers to fetch.
+     */
+    orderBy?: TrainerOrderByWithRelationInput | TrainerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TrainerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Trainers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Trainers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Trainers
+    **/
+    _count?: true | TrainerCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TrainerAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TrainerSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TrainerMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TrainerMaxAggregateInputType
+  }
+
+  export type GetTrainerAggregateType<T extends TrainerAggregateArgs> = {
+        [P in keyof T & keyof AggregateTrainer]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTrainer[P]>
+      : GetScalarType<T[P], AggregateTrainer[P]>
+  }
+
+
+
+
+  export type TrainerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerWhereInput
+    orderBy?: TrainerOrderByWithAggregationInput | TrainerOrderByWithAggregationInput[]
+    by: TrainerScalarFieldEnum[] | TrainerScalarFieldEnum
+    having?: TrainerScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TrainerCountAggregateInputType | true
+    _avg?: TrainerAvgAggregateInputType
+    _sum?: TrainerSumAggregateInputType
+    _min?: TrainerMinAggregateInputType
+    _max?: TrainerMaxAggregateInputType
+  }
+
+  export type TrainerGroupByOutputType = {
+    id: number
+    name: string
+    type: string
+    currentTeamId: number | null
+    status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: TrainerCountAggregateOutputType | null
+    _avg: TrainerAvgAggregateOutputType | null
+    _sum: TrainerSumAggregateOutputType | null
+    _min: TrainerMinAggregateOutputType | null
+    _max: TrainerMaxAggregateOutputType | null
+  }
+
+  type GetTrainerGroupByPayload<T extends TrainerGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TrainerGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TrainerGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TrainerGroupByOutputType[P]>
+            : GetScalarType<T[P], TrainerGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TrainerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    currentTeamId?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    team?: boolean | Trainer$teamArgs<ExtArgs>
+    history?: boolean | Trainer$historyArgs<ExtArgs>
+    radarPosts?: boolean | Trainer$radarPostsArgs<ExtArgs>
+    _count?: boolean | TrainerCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainer"]>
+
+  export type TrainerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    currentTeamId?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    team?: boolean | Trainer$teamArgs<ExtArgs>
+  }, ExtArgs["result"]["trainer"]>
+
+  export type TrainerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    currentTeamId?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    team?: boolean | Trainer$teamArgs<ExtArgs>
+  }, ExtArgs["result"]["trainer"]>
+
+  export type TrainerSelectScalar = {
+    id?: boolean
+    name?: boolean
+    type?: boolean
+    currentTeamId?: boolean
+    status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TrainerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "type" | "currentTeamId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["trainer"]>
+  export type TrainerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | Trainer$teamArgs<ExtArgs>
+    history?: boolean | Trainer$historyArgs<ExtArgs>
+    radarPosts?: boolean | Trainer$radarPostsArgs<ExtArgs>
+    _count?: boolean | TrainerCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TrainerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | Trainer$teamArgs<ExtArgs>
+  }
+  export type TrainerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | Trainer$teamArgs<ExtArgs>
+  }
+
+  export type $TrainerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Trainer"
+    objects: {
+      team: Prisma.$TeamPayload<ExtArgs> | null
+      history: Prisma.$TrainerTeamHistoryPayload<ExtArgs>[]
+      radarPosts: Prisma.$TrainerRadarPostPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      type: string
+      currentTeamId: number | null
+      status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["trainer"]>
+    composites: {}
+  }
+
+  type TrainerGetPayload<S extends boolean | null | undefined | TrainerDefaultArgs> = $Result.GetResult<Prisma.$TrainerPayload, S>
+
+  type TrainerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TrainerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TrainerCountAggregateInputType | true
+    }
+
+  export interface TrainerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Trainer'], meta: { name: 'Trainer' } }
+    /**
+     * Find zero or one Trainer that matches the filter.
+     * @param {TrainerFindUniqueArgs} args - Arguments to find a Trainer
+     * @example
+     * // Get one Trainer
+     * const trainer = await prisma.trainer.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TrainerFindUniqueArgs>(args: SelectSubset<T, TrainerFindUniqueArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Trainer that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TrainerFindUniqueOrThrowArgs} args - Arguments to find a Trainer
+     * @example
+     * // Get one Trainer
+     * const trainer = await prisma.trainer.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TrainerFindUniqueOrThrowArgs>(args: SelectSubset<T, TrainerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Trainer that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerFindFirstArgs} args - Arguments to find a Trainer
+     * @example
+     * // Get one Trainer
+     * const trainer = await prisma.trainer.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TrainerFindFirstArgs>(args?: SelectSubset<T, TrainerFindFirstArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Trainer that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerFindFirstOrThrowArgs} args - Arguments to find a Trainer
+     * @example
+     * // Get one Trainer
+     * const trainer = await prisma.trainer.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TrainerFindFirstOrThrowArgs>(args?: SelectSubset<T, TrainerFindFirstOrThrowArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Trainers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Trainers
+     * const trainers = await prisma.trainer.findMany()
+     * 
+     * // Get first 10 Trainers
+     * const trainers = await prisma.trainer.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const trainerWithIdOnly = await prisma.trainer.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TrainerFindManyArgs>(args?: SelectSubset<T, TrainerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Trainer.
+     * @param {TrainerCreateArgs} args - Arguments to create a Trainer.
+     * @example
+     * // Create one Trainer
+     * const Trainer = await prisma.trainer.create({
+     *   data: {
+     *     // ... data to create a Trainer
+     *   }
+     * })
+     * 
+     */
+    create<T extends TrainerCreateArgs>(args: SelectSubset<T, TrainerCreateArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Trainers.
+     * @param {TrainerCreateManyArgs} args - Arguments to create many Trainers.
+     * @example
+     * // Create many Trainers
+     * const trainer = await prisma.trainer.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TrainerCreateManyArgs>(args?: SelectSubset<T, TrainerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Trainers and returns the data saved in the database.
+     * @param {TrainerCreateManyAndReturnArgs} args - Arguments to create many Trainers.
+     * @example
+     * // Create many Trainers
+     * const trainer = await prisma.trainer.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Trainers and only return the `id`
+     * const trainerWithIdOnly = await prisma.trainer.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TrainerCreateManyAndReturnArgs>(args?: SelectSubset<T, TrainerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Trainer.
+     * @param {TrainerDeleteArgs} args - Arguments to delete one Trainer.
+     * @example
+     * // Delete one Trainer
+     * const Trainer = await prisma.trainer.delete({
+     *   where: {
+     *     // ... filter to delete one Trainer
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TrainerDeleteArgs>(args: SelectSubset<T, TrainerDeleteArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Trainer.
+     * @param {TrainerUpdateArgs} args - Arguments to update one Trainer.
+     * @example
+     * // Update one Trainer
+     * const trainer = await prisma.trainer.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TrainerUpdateArgs>(args: SelectSubset<T, TrainerUpdateArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Trainers.
+     * @param {TrainerDeleteManyArgs} args - Arguments to filter Trainers to delete.
+     * @example
+     * // Delete a few Trainers
+     * const { count } = await prisma.trainer.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TrainerDeleteManyArgs>(args?: SelectSubset<T, TrainerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Trainers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Trainers
+     * const trainer = await prisma.trainer.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TrainerUpdateManyArgs>(args: SelectSubset<T, TrainerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Trainers and returns the data updated in the database.
+     * @param {TrainerUpdateManyAndReturnArgs} args - Arguments to update many Trainers.
+     * @example
+     * // Update many Trainers
+     * const trainer = await prisma.trainer.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Trainers and only return the `id`
+     * const trainerWithIdOnly = await prisma.trainer.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TrainerUpdateManyAndReturnArgs>(args: SelectSubset<T, TrainerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Trainer.
+     * @param {TrainerUpsertArgs} args - Arguments to update or create a Trainer.
+     * @example
+     * // Update or create a Trainer
+     * const trainer = await prisma.trainer.upsert({
+     *   create: {
+     *     // ... data to create a Trainer
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Trainer we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TrainerUpsertArgs>(args: SelectSubset<T, TrainerUpsertArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Trainers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerCountArgs} args - Arguments to filter Trainers to count.
+     * @example
+     * // Count the number of Trainers
+     * const count = await prisma.trainer.count({
+     *   where: {
+     *     // ... the filter for the Trainers we want to count
+     *   }
+     * })
+    **/
+    count<T extends TrainerCountArgs>(
+      args?: Subset<T, TrainerCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TrainerCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Trainer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TrainerAggregateArgs>(args: Subset<T, TrainerAggregateArgs>): Prisma.PrismaPromise<GetTrainerAggregateType<T>>
+
+    /**
+     * Group by Trainer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TrainerGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TrainerGroupByArgs['orderBy'] }
+        : { orderBy?: TrainerGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TrainerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTrainerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Trainer model
+   */
+  readonly fields: TrainerFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Trainer.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TrainerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    team<T extends Trainer$teamArgs<ExtArgs> = {}>(args?: Subset<T, Trainer$teamArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    history<T extends Trainer$historyArgs<ExtArgs> = {}>(args?: Subset<T, Trainer$historyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    radarPosts<T extends Trainer$radarPostsArgs<ExtArgs> = {}>(args?: Subset<T, Trainer$radarPostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Trainer model
+   */
+  interface TrainerFieldRefs {
+    readonly id: FieldRef<"Trainer", 'Int'>
+    readonly name: FieldRef<"Trainer", 'String'>
+    readonly type: FieldRef<"Trainer", 'String'>
+    readonly currentTeamId: FieldRef<"Trainer", 'Int'>
+    readonly status: FieldRef<"Trainer", 'String'>
+    readonly createdAt: FieldRef<"Trainer", 'DateTime'>
+    readonly updatedAt: FieldRef<"Trainer", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Trainer findUnique
+   */
+  export type TrainerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * Filter, which Trainer to fetch.
+     */
+    where: TrainerWhereUniqueInput
+  }
+
+  /**
+   * Trainer findUniqueOrThrow
+   */
+  export type TrainerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * Filter, which Trainer to fetch.
+     */
+    where: TrainerWhereUniqueInput
+  }
+
+  /**
+   * Trainer findFirst
+   */
+  export type TrainerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * Filter, which Trainer to fetch.
+     */
+    where?: TrainerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Trainers to fetch.
+     */
+    orderBy?: TrainerOrderByWithRelationInput | TrainerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Trainers.
+     */
+    cursor?: TrainerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Trainers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Trainers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Trainers.
+     */
+    distinct?: TrainerScalarFieldEnum | TrainerScalarFieldEnum[]
+  }
+
+  /**
+   * Trainer findFirstOrThrow
+   */
+  export type TrainerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * Filter, which Trainer to fetch.
+     */
+    where?: TrainerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Trainers to fetch.
+     */
+    orderBy?: TrainerOrderByWithRelationInput | TrainerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Trainers.
+     */
+    cursor?: TrainerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Trainers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Trainers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Trainers.
+     */
+    distinct?: TrainerScalarFieldEnum | TrainerScalarFieldEnum[]
+  }
+
+  /**
+   * Trainer findMany
+   */
+  export type TrainerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * Filter, which Trainers to fetch.
+     */
+    where?: TrainerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Trainers to fetch.
+     */
+    orderBy?: TrainerOrderByWithRelationInput | TrainerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Trainers.
+     */
+    cursor?: TrainerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Trainers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Trainers.
+     */
+    skip?: number
+    distinct?: TrainerScalarFieldEnum | TrainerScalarFieldEnum[]
+  }
+
+  /**
+   * Trainer create
+   */
+  export type TrainerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Trainer.
+     */
+    data: XOR<TrainerCreateInput, TrainerUncheckedCreateInput>
+  }
+
+  /**
+   * Trainer createMany
+   */
+  export type TrainerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Trainers.
+     */
+    data: TrainerCreateManyInput | TrainerCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Trainer createManyAndReturn
+   */
+  export type TrainerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * The data used to create many Trainers.
+     */
+    data: TrainerCreateManyInput | TrainerCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Trainer update
+   */
+  export type TrainerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Trainer.
+     */
+    data: XOR<TrainerUpdateInput, TrainerUncheckedUpdateInput>
+    /**
+     * Choose, which Trainer to update.
+     */
+    where: TrainerWhereUniqueInput
+  }
+
+  /**
+   * Trainer updateMany
+   */
+  export type TrainerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Trainers.
+     */
+    data: XOR<TrainerUpdateManyMutationInput, TrainerUncheckedUpdateManyInput>
+    /**
+     * Filter which Trainers to update
+     */
+    where?: TrainerWhereInput
+    /**
+     * Limit how many Trainers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Trainer updateManyAndReturn
+   */
+  export type TrainerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * The data used to update Trainers.
+     */
+    data: XOR<TrainerUpdateManyMutationInput, TrainerUncheckedUpdateManyInput>
+    /**
+     * Filter which Trainers to update
+     */
+    where?: TrainerWhereInput
+    /**
+     * Limit how many Trainers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Trainer upsert
+   */
+  export type TrainerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Trainer to update in case it exists.
+     */
+    where: TrainerWhereUniqueInput
+    /**
+     * In case the Trainer found by the `where` argument doesn't exist, create a new Trainer with this data.
+     */
+    create: XOR<TrainerCreateInput, TrainerUncheckedCreateInput>
+    /**
+     * In case the Trainer was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TrainerUpdateInput, TrainerUncheckedUpdateInput>
+  }
+
+  /**
+   * Trainer delete
+   */
+  export type TrainerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+    /**
+     * Filter which Trainer to delete.
+     */
+    where: TrainerWhereUniqueInput
+  }
+
+  /**
+   * Trainer deleteMany
+   */
+  export type TrainerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Trainers to delete
+     */
+    where?: TrainerWhereInput
+    /**
+     * Limit how many Trainers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Trainer.team
+   */
+  export type Trainer$teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Team
+     */
+    select?: TeamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Team
+     */
+    omit?: TeamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamInclude<ExtArgs> | null
+    where?: TeamWhereInput
+  }
+
+  /**
+   * Trainer.history
+   */
+  export type Trainer$historyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    where?: TrainerTeamHistoryWhereInput
+    orderBy?: TrainerTeamHistoryOrderByWithRelationInput | TrainerTeamHistoryOrderByWithRelationInput[]
+    cursor?: TrainerTeamHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrainerTeamHistoryScalarFieldEnum | TrainerTeamHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Trainer.radarPosts
+   */
+  export type Trainer$radarPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    where?: TrainerRadarPostWhereInput
+    orderBy?: TrainerRadarPostOrderByWithRelationInput | TrainerRadarPostOrderByWithRelationInput[]
+    cursor?: TrainerRadarPostWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrainerRadarPostScalarFieldEnum | TrainerRadarPostScalarFieldEnum[]
+  }
+
+  /**
+   * Trainer without action
+   */
+  export type TrainerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Trainer
+     */
+    select?: TrainerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Trainer
+     */
+    omit?: TrainerOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TrainerTeamHistory
+   */
+
+  export type AggregateTrainerTeamHistory = {
+    _count: TrainerTeamHistoryCountAggregateOutputType | null
+    _avg: TrainerTeamHistoryAvgAggregateOutputType | null
+    _sum: TrainerTeamHistorySumAggregateOutputType | null
+    _min: TrainerTeamHistoryMinAggregateOutputType | null
+    _max: TrainerTeamHistoryMaxAggregateOutputType | null
+  }
+
+  export type TrainerTeamHistoryAvgAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+    teamId: number | null
+  }
+
+  export type TrainerTeamHistorySumAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+    teamId: number | null
+  }
+
+  export type TrainerTeamHistoryMinAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+    teamId: number | null
+    joinedAt: Date | null
+    leftAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type TrainerTeamHistoryMaxAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+    teamId: number | null
+    joinedAt: Date | null
+    leftAt: Date | null
+    createdAt: Date | null
+  }
+
+  export type TrainerTeamHistoryCountAggregateOutputType = {
+    id: number
+    trainerId: number
+    teamId: number
+    joinedAt: number
+    leftAt: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type TrainerTeamHistoryAvgAggregateInputType = {
+    id?: true
+    trainerId?: true
+    teamId?: true
+  }
+
+  export type TrainerTeamHistorySumAggregateInputType = {
+    id?: true
+    trainerId?: true
+    teamId?: true
+  }
+
+  export type TrainerTeamHistoryMinAggregateInputType = {
+    id?: true
+    trainerId?: true
+    teamId?: true
+    joinedAt?: true
+    leftAt?: true
+    createdAt?: true
+  }
+
+  export type TrainerTeamHistoryMaxAggregateInputType = {
+    id?: true
+    trainerId?: true
+    teamId?: true
+    joinedAt?: true
+    leftAt?: true
+    createdAt?: true
+  }
+
+  export type TrainerTeamHistoryCountAggregateInputType = {
+    id?: true
+    trainerId?: true
+    teamId?: true
+    joinedAt?: true
+    leftAt?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type TrainerTeamHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrainerTeamHistory to aggregate.
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerTeamHistories to fetch.
+     */
+    orderBy?: TrainerTeamHistoryOrderByWithRelationInput | TrainerTeamHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TrainerTeamHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerTeamHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerTeamHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TrainerTeamHistories
+    **/
+    _count?: true | TrainerTeamHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TrainerTeamHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TrainerTeamHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TrainerTeamHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TrainerTeamHistoryMaxAggregateInputType
+  }
+
+  export type GetTrainerTeamHistoryAggregateType<T extends TrainerTeamHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateTrainerTeamHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTrainerTeamHistory[P]>
+      : GetScalarType<T[P], AggregateTrainerTeamHistory[P]>
+  }
+
+
+
+
+  export type TrainerTeamHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerTeamHistoryWhereInput
+    orderBy?: TrainerTeamHistoryOrderByWithAggregationInput | TrainerTeamHistoryOrderByWithAggregationInput[]
+    by: TrainerTeamHistoryScalarFieldEnum[] | TrainerTeamHistoryScalarFieldEnum
+    having?: TrainerTeamHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TrainerTeamHistoryCountAggregateInputType | true
+    _avg?: TrainerTeamHistoryAvgAggregateInputType
+    _sum?: TrainerTeamHistorySumAggregateInputType
+    _min?: TrainerTeamHistoryMinAggregateInputType
+    _max?: TrainerTeamHistoryMaxAggregateInputType
+  }
+
+  export type TrainerTeamHistoryGroupByOutputType = {
+    id: number
+    trainerId: number
+    teamId: number
+    joinedAt: Date
+    leftAt: Date | null
+    createdAt: Date
+    _count: TrainerTeamHistoryCountAggregateOutputType | null
+    _avg: TrainerTeamHistoryAvgAggregateOutputType | null
+    _sum: TrainerTeamHistorySumAggregateOutputType | null
+    _min: TrainerTeamHistoryMinAggregateOutputType | null
+    _max: TrainerTeamHistoryMaxAggregateOutputType | null
+  }
+
+  type GetTrainerTeamHistoryGroupByPayload<T extends TrainerTeamHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TrainerTeamHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TrainerTeamHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TrainerTeamHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], TrainerTeamHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TrainerTeamHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    trainerId?: boolean
+    teamId?: boolean
+    joinedAt?: boolean
+    leftAt?: boolean
+    createdAt?: boolean
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainerTeamHistory"]>
+
+  export type TrainerTeamHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    trainerId?: boolean
+    teamId?: boolean
+    joinedAt?: boolean
+    leftAt?: boolean
+    createdAt?: boolean
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainerTeamHistory"]>
+
+  export type TrainerTeamHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    trainerId?: boolean
+    teamId?: boolean
+    joinedAt?: boolean
+    leftAt?: boolean
+    createdAt?: boolean
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainerTeamHistory"]>
+
+  export type TrainerTeamHistorySelectScalar = {
+    id?: boolean
+    trainerId?: boolean
+    teamId?: boolean
+    joinedAt?: boolean
+    leftAt?: boolean
+    createdAt?: boolean
+  }
+
+  export type TrainerTeamHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "trainerId" | "teamId" | "joinedAt" | "leftAt" | "createdAt", ExtArgs["result"]["trainerTeamHistory"]>
+  export type TrainerTeamHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }
+  export type TrainerTeamHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }
+  export type TrainerTeamHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }
+
+  export type $TrainerTeamHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TrainerTeamHistory"
+    objects: {
+      trainer: Prisma.$TrainerPayload<ExtArgs>
+      team: Prisma.$TeamPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      trainerId: number
+      teamId: number
+      joinedAt: Date
+      leftAt: Date | null
+      createdAt: Date
+    }, ExtArgs["result"]["trainerTeamHistory"]>
+    composites: {}
+  }
+
+  type TrainerTeamHistoryGetPayload<S extends boolean | null | undefined | TrainerTeamHistoryDefaultArgs> = $Result.GetResult<Prisma.$TrainerTeamHistoryPayload, S>
+
+  type TrainerTeamHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TrainerTeamHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TrainerTeamHistoryCountAggregateInputType | true
+    }
+
+  export interface TrainerTeamHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TrainerTeamHistory'], meta: { name: 'TrainerTeamHistory' } }
+    /**
+     * Find zero or one TrainerTeamHistory that matches the filter.
+     * @param {TrainerTeamHistoryFindUniqueArgs} args - Arguments to find a TrainerTeamHistory
+     * @example
+     * // Get one TrainerTeamHistory
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TrainerTeamHistoryFindUniqueArgs>(args: SelectSubset<T, TrainerTeamHistoryFindUniqueArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TrainerTeamHistory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TrainerTeamHistoryFindUniqueOrThrowArgs} args - Arguments to find a TrainerTeamHistory
+     * @example
+     * // Get one TrainerTeamHistory
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TrainerTeamHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, TrainerTeamHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TrainerTeamHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryFindFirstArgs} args - Arguments to find a TrainerTeamHistory
+     * @example
+     * // Get one TrainerTeamHistory
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TrainerTeamHistoryFindFirstArgs>(args?: SelectSubset<T, TrainerTeamHistoryFindFirstArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TrainerTeamHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryFindFirstOrThrowArgs} args - Arguments to find a TrainerTeamHistory
+     * @example
+     * // Get one TrainerTeamHistory
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TrainerTeamHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, TrainerTeamHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TrainerTeamHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TrainerTeamHistories
+     * const trainerTeamHistories = await prisma.trainerTeamHistory.findMany()
+     * 
+     * // Get first 10 TrainerTeamHistories
+     * const trainerTeamHistories = await prisma.trainerTeamHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const trainerTeamHistoryWithIdOnly = await prisma.trainerTeamHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TrainerTeamHistoryFindManyArgs>(args?: SelectSubset<T, TrainerTeamHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TrainerTeamHistory.
+     * @param {TrainerTeamHistoryCreateArgs} args - Arguments to create a TrainerTeamHistory.
+     * @example
+     * // Create one TrainerTeamHistory
+     * const TrainerTeamHistory = await prisma.trainerTeamHistory.create({
+     *   data: {
+     *     // ... data to create a TrainerTeamHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends TrainerTeamHistoryCreateArgs>(args: SelectSubset<T, TrainerTeamHistoryCreateArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TrainerTeamHistories.
+     * @param {TrainerTeamHistoryCreateManyArgs} args - Arguments to create many TrainerTeamHistories.
+     * @example
+     * // Create many TrainerTeamHistories
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TrainerTeamHistoryCreateManyArgs>(args?: SelectSubset<T, TrainerTeamHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TrainerTeamHistories and returns the data saved in the database.
+     * @param {TrainerTeamHistoryCreateManyAndReturnArgs} args - Arguments to create many TrainerTeamHistories.
+     * @example
+     * // Create many TrainerTeamHistories
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TrainerTeamHistories and only return the `id`
+     * const trainerTeamHistoryWithIdOnly = await prisma.trainerTeamHistory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TrainerTeamHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, TrainerTeamHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TrainerTeamHistory.
+     * @param {TrainerTeamHistoryDeleteArgs} args - Arguments to delete one TrainerTeamHistory.
+     * @example
+     * // Delete one TrainerTeamHistory
+     * const TrainerTeamHistory = await prisma.trainerTeamHistory.delete({
+     *   where: {
+     *     // ... filter to delete one TrainerTeamHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TrainerTeamHistoryDeleteArgs>(args: SelectSubset<T, TrainerTeamHistoryDeleteArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TrainerTeamHistory.
+     * @param {TrainerTeamHistoryUpdateArgs} args - Arguments to update one TrainerTeamHistory.
+     * @example
+     * // Update one TrainerTeamHistory
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TrainerTeamHistoryUpdateArgs>(args: SelectSubset<T, TrainerTeamHistoryUpdateArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TrainerTeamHistories.
+     * @param {TrainerTeamHistoryDeleteManyArgs} args - Arguments to filter TrainerTeamHistories to delete.
+     * @example
+     * // Delete a few TrainerTeamHistories
+     * const { count } = await prisma.trainerTeamHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TrainerTeamHistoryDeleteManyArgs>(args?: SelectSubset<T, TrainerTeamHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TrainerTeamHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TrainerTeamHistories
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TrainerTeamHistoryUpdateManyArgs>(args: SelectSubset<T, TrainerTeamHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TrainerTeamHistories and returns the data updated in the database.
+     * @param {TrainerTeamHistoryUpdateManyAndReturnArgs} args - Arguments to update many TrainerTeamHistories.
+     * @example
+     * // Update many TrainerTeamHistories
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TrainerTeamHistories and only return the `id`
+     * const trainerTeamHistoryWithIdOnly = await prisma.trainerTeamHistory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TrainerTeamHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, TrainerTeamHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TrainerTeamHistory.
+     * @param {TrainerTeamHistoryUpsertArgs} args - Arguments to update or create a TrainerTeamHistory.
+     * @example
+     * // Update or create a TrainerTeamHistory
+     * const trainerTeamHistory = await prisma.trainerTeamHistory.upsert({
+     *   create: {
+     *     // ... data to create a TrainerTeamHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TrainerTeamHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TrainerTeamHistoryUpsertArgs>(args: SelectSubset<T, TrainerTeamHistoryUpsertArgs<ExtArgs>>): Prisma__TrainerTeamHistoryClient<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TrainerTeamHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryCountArgs} args - Arguments to filter TrainerTeamHistories to count.
+     * @example
+     * // Count the number of TrainerTeamHistories
+     * const count = await prisma.trainerTeamHistory.count({
+     *   where: {
+     *     // ... the filter for the TrainerTeamHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends TrainerTeamHistoryCountArgs>(
+      args?: Subset<T, TrainerTeamHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TrainerTeamHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TrainerTeamHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TrainerTeamHistoryAggregateArgs>(args: Subset<T, TrainerTeamHistoryAggregateArgs>): Prisma.PrismaPromise<GetTrainerTeamHistoryAggregateType<T>>
+
+    /**
+     * Group by TrainerTeamHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerTeamHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TrainerTeamHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TrainerTeamHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: TrainerTeamHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TrainerTeamHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTrainerTeamHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TrainerTeamHistory model
+   */
+  readonly fields: TrainerTeamHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TrainerTeamHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TrainerTeamHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    trainer<T extends TrainerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TrainerDefaultArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    team<T extends TeamDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamDefaultArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TrainerTeamHistory model
+   */
+  interface TrainerTeamHistoryFieldRefs {
+    readonly id: FieldRef<"TrainerTeamHistory", 'Int'>
+    readonly trainerId: FieldRef<"TrainerTeamHistory", 'Int'>
+    readonly teamId: FieldRef<"TrainerTeamHistory", 'Int'>
+    readonly joinedAt: FieldRef<"TrainerTeamHistory", 'DateTime'>
+    readonly leftAt: FieldRef<"TrainerTeamHistory", 'DateTime'>
+    readonly createdAt: FieldRef<"TrainerTeamHistory", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TrainerTeamHistory findUnique
+   */
+  export type TrainerTeamHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerTeamHistory to fetch.
+     */
+    where: TrainerTeamHistoryWhereUniqueInput
+  }
+
+  /**
+   * TrainerTeamHistory findUniqueOrThrow
+   */
+  export type TrainerTeamHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerTeamHistory to fetch.
+     */
+    where: TrainerTeamHistoryWhereUniqueInput
+  }
+
+  /**
+   * TrainerTeamHistory findFirst
+   */
+  export type TrainerTeamHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerTeamHistory to fetch.
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerTeamHistories to fetch.
+     */
+    orderBy?: TrainerTeamHistoryOrderByWithRelationInput | TrainerTeamHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TrainerTeamHistories.
+     */
+    cursor?: TrainerTeamHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerTeamHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerTeamHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TrainerTeamHistories.
+     */
+    distinct?: TrainerTeamHistoryScalarFieldEnum | TrainerTeamHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerTeamHistory findFirstOrThrow
+   */
+  export type TrainerTeamHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerTeamHistory to fetch.
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerTeamHistories to fetch.
+     */
+    orderBy?: TrainerTeamHistoryOrderByWithRelationInput | TrainerTeamHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TrainerTeamHistories.
+     */
+    cursor?: TrainerTeamHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerTeamHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerTeamHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TrainerTeamHistories.
+     */
+    distinct?: TrainerTeamHistoryScalarFieldEnum | TrainerTeamHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerTeamHistory findMany
+   */
+  export type TrainerTeamHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerTeamHistories to fetch.
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerTeamHistories to fetch.
+     */
+    orderBy?: TrainerTeamHistoryOrderByWithRelationInput | TrainerTeamHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TrainerTeamHistories.
+     */
+    cursor?: TrainerTeamHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerTeamHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerTeamHistories.
+     */
+    skip?: number
+    distinct?: TrainerTeamHistoryScalarFieldEnum | TrainerTeamHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerTeamHistory create
+   */
+  export type TrainerTeamHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TrainerTeamHistory.
+     */
+    data: XOR<TrainerTeamHistoryCreateInput, TrainerTeamHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * TrainerTeamHistory createMany
+   */
+  export type TrainerTeamHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TrainerTeamHistories.
+     */
+    data: TrainerTeamHistoryCreateManyInput | TrainerTeamHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TrainerTeamHistory createManyAndReturn
+   */
+  export type TrainerTeamHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many TrainerTeamHistories.
+     */
+    data: TrainerTeamHistoryCreateManyInput | TrainerTeamHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TrainerTeamHistory update
+   */
+  export type TrainerTeamHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TrainerTeamHistory.
+     */
+    data: XOR<TrainerTeamHistoryUpdateInput, TrainerTeamHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which TrainerTeamHistory to update.
+     */
+    where: TrainerTeamHistoryWhereUniqueInput
+  }
+
+  /**
+   * TrainerTeamHistory updateMany
+   */
+  export type TrainerTeamHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TrainerTeamHistories.
+     */
+    data: XOR<TrainerTeamHistoryUpdateManyMutationInput, TrainerTeamHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which TrainerTeamHistories to update
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * Limit how many TrainerTeamHistories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrainerTeamHistory updateManyAndReturn
+   */
+  export type TrainerTeamHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update TrainerTeamHistories.
+     */
+    data: XOR<TrainerTeamHistoryUpdateManyMutationInput, TrainerTeamHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which TrainerTeamHistories to update
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * Limit how many TrainerTeamHistories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TrainerTeamHistory upsert
+   */
+  export type TrainerTeamHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TrainerTeamHistory to update in case it exists.
+     */
+    where: TrainerTeamHistoryWhereUniqueInput
+    /**
+     * In case the TrainerTeamHistory found by the `where` argument doesn't exist, create a new TrainerTeamHistory with this data.
+     */
+    create: XOR<TrainerTeamHistoryCreateInput, TrainerTeamHistoryUncheckedCreateInput>
+    /**
+     * In case the TrainerTeamHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TrainerTeamHistoryUpdateInput, TrainerTeamHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * TrainerTeamHistory delete
+   */
+  export type TrainerTeamHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which TrainerTeamHistory to delete.
+     */
+    where: TrainerTeamHistoryWhereUniqueInput
+  }
+
+  /**
+   * TrainerTeamHistory deleteMany
+   */
+  export type TrainerTeamHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrainerTeamHistories to delete
+     */
+    where?: TrainerTeamHistoryWhereInput
+    /**
+     * Limit how many TrainerTeamHistories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrainerTeamHistory without action
+   */
+  export type TrainerTeamHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerTeamHistory
+     */
+    select?: TrainerTeamHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerTeamHistory
+     */
+    omit?: TrainerTeamHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerTeamHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model RadarMetric
+   */
+
+  export type AggregateRadarMetric = {
+    _count: RadarMetricCountAggregateOutputType | null
+    _avg: RadarMetricAvgAggregateOutputType | null
+    _sum: RadarMetricSumAggregateOutputType | null
+    _min: RadarMetricMinAggregateOutputType | null
+    _max: RadarMetricMaxAggregateOutputType | null
+  }
+
+  export type RadarMetricAvgAggregateOutputType = {
+    id: number | null
+    minValue: number | null
+    maxValue: number | null
+    sortOrder: number | null
+  }
+
+  export type RadarMetricSumAggregateOutputType = {
+    id: number | null
+    minValue: number | null
+    maxValue: number | null
+    sortOrder: number | null
+  }
+
+  export type RadarMetricMinAggregateOutputType = {
+    id: number | null
+    key: string | null
+    label: string | null
+    minValue: number | null
+    maxValue: number | null
+    sortOrder: number | null
+    active: boolean | null
+  }
+
+  export type RadarMetricMaxAggregateOutputType = {
+    id: number | null
+    key: string | null
+    label: string | null
+    minValue: number | null
+    maxValue: number | null
+    sortOrder: number | null
+    active: boolean | null
+  }
+
+  export type RadarMetricCountAggregateOutputType = {
+    id: number
+    key: number
+    label: number
+    minValue: number
+    maxValue: number
+    sortOrder: number
+    active: number
+    _all: number
+  }
+
+
+  export type RadarMetricAvgAggregateInputType = {
+    id?: true
+    minValue?: true
+    maxValue?: true
+    sortOrder?: true
+  }
+
+  export type RadarMetricSumAggregateInputType = {
+    id?: true
+    minValue?: true
+    maxValue?: true
+    sortOrder?: true
+  }
+
+  export type RadarMetricMinAggregateInputType = {
+    id?: true
+    key?: true
+    label?: true
+    minValue?: true
+    maxValue?: true
+    sortOrder?: true
+    active?: true
+  }
+
+  export type RadarMetricMaxAggregateInputType = {
+    id?: true
+    key?: true
+    label?: true
+    minValue?: true
+    maxValue?: true
+    sortOrder?: true
+    active?: true
+  }
+
+  export type RadarMetricCountAggregateInputType = {
+    id?: true
+    key?: true
+    label?: true
+    minValue?: true
+    maxValue?: true
+    sortOrder?: true
+    active?: true
+    _all?: true
+  }
+
+  export type RadarMetricAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RadarMetric to aggregate.
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarMetrics to fetch.
+     */
+    orderBy?: RadarMetricOrderByWithRelationInput | RadarMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RadarMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarMetrics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RadarMetrics
+    **/
+    _count?: true | RadarMetricCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RadarMetricAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RadarMetricSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RadarMetricMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RadarMetricMaxAggregateInputType
+  }
+
+  export type GetRadarMetricAggregateType<T extends RadarMetricAggregateArgs> = {
+        [P in keyof T & keyof AggregateRadarMetric]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRadarMetric[P]>
+      : GetScalarType<T[P], AggregateRadarMetric[P]>
+  }
+
+
+
+
+  export type RadarMetricGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RadarMetricWhereInput
+    orderBy?: RadarMetricOrderByWithAggregationInput | RadarMetricOrderByWithAggregationInput[]
+    by: RadarMetricScalarFieldEnum[] | RadarMetricScalarFieldEnum
+    having?: RadarMetricScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RadarMetricCountAggregateInputType | true
+    _avg?: RadarMetricAvgAggregateInputType
+    _sum?: RadarMetricSumAggregateInputType
+    _min?: RadarMetricMinAggregateInputType
+    _max?: RadarMetricMaxAggregateInputType
+  }
+
+  export type RadarMetricGroupByOutputType = {
+    id: number
+    key: string
+    label: string
+    minValue: number
+    maxValue: number
+    sortOrder: number
+    active: boolean
+    _count: RadarMetricCountAggregateOutputType | null
+    _avg: RadarMetricAvgAggregateOutputType | null
+    _sum: RadarMetricSumAggregateOutputType | null
+    _min: RadarMetricMinAggregateOutputType | null
+    _max: RadarMetricMaxAggregateOutputType | null
+  }
+
+  type GetRadarMetricGroupByPayload<T extends RadarMetricGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RadarMetricGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RadarMetricGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RadarMetricGroupByOutputType[P]>
+            : GetScalarType<T[P], RadarMetricGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RadarMetricSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    minValue?: boolean
+    maxValue?: boolean
+    sortOrder?: boolean
+    active?: boolean
+    values?: boolean | RadarMetric$valuesArgs<ExtArgs>
+    _count?: boolean | RadarMetricCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["radarMetric"]>
+
+  export type RadarMetricSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    minValue?: boolean
+    maxValue?: boolean
+    sortOrder?: boolean
+    active?: boolean
+  }, ExtArgs["result"]["radarMetric"]>
+
+  export type RadarMetricSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    minValue?: boolean
+    maxValue?: boolean
+    sortOrder?: boolean
+    active?: boolean
+  }, ExtArgs["result"]["radarMetric"]>
+
+  export type RadarMetricSelectScalar = {
+    id?: boolean
+    key?: boolean
+    label?: boolean
+    minValue?: boolean
+    maxValue?: boolean
+    sortOrder?: boolean
+    active?: boolean
+  }
+
+  export type RadarMetricOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "label" | "minValue" | "maxValue" | "sortOrder" | "active", ExtArgs["result"]["radarMetric"]>
+  export type RadarMetricInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    values?: boolean | RadarMetric$valuesArgs<ExtArgs>
+    _count?: boolean | RadarMetricCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type RadarMetricIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type RadarMetricIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $RadarMetricPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RadarMetric"
+    objects: {
+      values: Prisma.$RadarValuePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      key: string
+      label: string
+      minValue: number
+      maxValue: number
+      sortOrder: number
+      active: boolean
+    }, ExtArgs["result"]["radarMetric"]>
+    composites: {}
+  }
+
+  type RadarMetricGetPayload<S extends boolean | null | undefined | RadarMetricDefaultArgs> = $Result.GetResult<Prisma.$RadarMetricPayload, S>
+
+  type RadarMetricCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RadarMetricFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RadarMetricCountAggregateInputType | true
+    }
+
+  export interface RadarMetricDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RadarMetric'], meta: { name: 'RadarMetric' } }
+    /**
+     * Find zero or one RadarMetric that matches the filter.
+     * @param {RadarMetricFindUniqueArgs} args - Arguments to find a RadarMetric
+     * @example
+     * // Get one RadarMetric
+     * const radarMetric = await prisma.radarMetric.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RadarMetricFindUniqueArgs>(args: SelectSubset<T, RadarMetricFindUniqueArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RadarMetric that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RadarMetricFindUniqueOrThrowArgs} args - Arguments to find a RadarMetric
+     * @example
+     * // Get one RadarMetric
+     * const radarMetric = await prisma.radarMetric.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RadarMetricFindUniqueOrThrowArgs>(args: SelectSubset<T, RadarMetricFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RadarMetric that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricFindFirstArgs} args - Arguments to find a RadarMetric
+     * @example
+     * // Get one RadarMetric
+     * const radarMetric = await prisma.radarMetric.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RadarMetricFindFirstArgs>(args?: SelectSubset<T, RadarMetricFindFirstArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RadarMetric that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricFindFirstOrThrowArgs} args - Arguments to find a RadarMetric
+     * @example
+     * // Get one RadarMetric
+     * const radarMetric = await prisma.radarMetric.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RadarMetricFindFirstOrThrowArgs>(args?: SelectSubset<T, RadarMetricFindFirstOrThrowArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RadarMetrics that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RadarMetrics
+     * const radarMetrics = await prisma.radarMetric.findMany()
+     * 
+     * // Get first 10 RadarMetrics
+     * const radarMetrics = await prisma.radarMetric.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const radarMetricWithIdOnly = await prisma.radarMetric.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RadarMetricFindManyArgs>(args?: SelectSubset<T, RadarMetricFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RadarMetric.
+     * @param {RadarMetricCreateArgs} args - Arguments to create a RadarMetric.
+     * @example
+     * // Create one RadarMetric
+     * const RadarMetric = await prisma.radarMetric.create({
+     *   data: {
+     *     // ... data to create a RadarMetric
+     *   }
+     * })
+     * 
+     */
+    create<T extends RadarMetricCreateArgs>(args: SelectSubset<T, RadarMetricCreateArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RadarMetrics.
+     * @param {RadarMetricCreateManyArgs} args - Arguments to create many RadarMetrics.
+     * @example
+     * // Create many RadarMetrics
+     * const radarMetric = await prisma.radarMetric.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RadarMetricCreateManyArgs>(args?: SelectSubset<T, RadarMetricCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RadarMetrics and returns the data saved in the database.
+     * @param {RadarMetricCreateManyAndReturnArgs} args - Arguments to create many RadarMetrics.
+     * @example
+     * // Create many RadarMetrics
+     * const radarMetric = await prisma.radarMetric.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RadarMetrics and only return the `id`
+     * const radarMetricWithIdOnly = await prisma.radarMetric.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RadarMetricCreateManyAndReturnArgs>(args?: SelectSubset<T, RadarMetricCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RadarMetric.
+     * @param {RadarMetricDeleteArgs} args - Arguments to delete one RadarMetric.
+     * @example
+     * // Delete one RadarMetric
+     * const RadarMetric = await prisma.radarMetric.delete({
+     *   where: {
+     *     // ... filter to delete one RadarMetric
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RadarMetricDeleteArgs>(args: SelectSubset<T, RadarMetricDeleteArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RadarMetric.
+     * @param {RadarMetricUpdateArgs} args - Arguments to update one RadarMetric.
+     * @example
+     * // Update one RadarMetric
+     * const radarMetric = await prisma.radarMetric.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RadarMetricUpdateArgs>(args: SelectSubset<T, RadarMetricUpdateArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RadarMetrics.
+     * @param {RadarMetricDeleteManyArgs} args - Arguments to filter RadarMetrics to delete.
+     * @example
+     * // Delete a few RadarMetrics
+     * const { count } = await prisma.radarMetric.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RadarMetricDeleteManyArgs>(args?: SelectSubset<T, RadarMetricDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RadarMetrics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RadarMetrics
+     * const radarMetric = await prisma.radarMetric.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RadarMetricUpdateManyArgs>(args: SelectSubset<T, RadarMetricUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RadarMetrics and returns the data updated in the database.
+     * @param {RadarMetricUpdateManyAndReturnArgs} args - Arguments to update many RadarMetrics.
+     * @example
+     * // Update many RadarMetrics
+     * const radarMetric = await prisma.radarMetric.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RadarMetrics and only return the `id`
+     * const radarMetricWithIdOnly = await prisma.radarMetric.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RadarMetricUpdateManyAndReturnArgs>(args: SelectSubset<T, RadarMetricUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RadarMetric.
+     * @param {RadarMetricUpsertArgs} args - Arguments to update or create a RadarMetric.
+     * @example
+     * // Update or create a RadarMetric
+     * const radarMetric = await prisma.radarMetric.upsert({
+     *   create: {
+     *     // ... data to create a RadarMetric
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RadarMetric we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RadarMetricUpsertArgs>(args: SelectSubset<T, RadarMetricUpsertArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RadarMetrics.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricCountArgs} args - Arguments to filter RadarMetrics to count.
+     * @example
+     * // Count the number of RadarMetrics
+     * const count = await prisma.radarMetric.count({
+     *   where: {
+     *     // ... the filter for the RadarMetrics we want to count
+     *   }
+     * })
+    **/
+    count<T extends RadarMetricCountArgs>(
+      args?: Subset<T, RadarMetricCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RadarMetricCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RadarMetric.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RadarMetricAggregateArgs>(args: Subset<T, RadarMetricAggregateArgs>): Prisma.PrismaPromise<GetRadarMetricAggregateType<T>>
+
+    /**
+     * Group by RadarMetric.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarMetricGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RadarMetricGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RadarMetricGroupByArgs['orderBy'] }
+        : { orderBy?: RadarMetricGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RadarMetricGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRadarMetricGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RadarMetric model
+   */
+  readonly fields: RadarMetricFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RadarMetric.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RadarMetricClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    values<T extends RadarMetric$valuesArgs<ExtArgs> = {}>(args?: Subset<T, RadarMetric$valuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RadarMetric model
+   */
+  interface RadarMetricFieldRefs {
+    readonly id: FieldRef<"RadarMetric", 'Int'>
+    readonly key: FieldRef<"RadarMetric", 'String'>
+    readonly label: FieldRef<"RadarMetric", 'String'>
+    readonly minValue: FieldRef<"RadarMetric", 'Int'>
+    readonly maxValue: FieldRef<"RadarMetric", 'Int'>
+    readonly sortOrder: FieldRef<"RadarMetric", 'Int'>
+    readonly active: FieldRef<"RadarMetric", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RadarMetric findUnique
+   */
+  export type RadarMetricFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarMetric to fetch.
+     */
+    where: RadarMetricWhereUniqueInput
+  }
+
+  /**
+   * RadarMetric findUniqueOrThrow
+   */
+  export type RadarMetricFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarMetric to fetch.
+     */
+    where: RadarMetricWhereUniqueInput
+  }
+
+  /**
+   * RadarMetric findFirst
+   */
+  export type RadarMetricFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarMetric to fetch.
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarMetrics to fetch.
+     */
+    orderBy?: RadarMetricOrderByWithRelationInput | RadarMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RadarMetrics.
+     */
+    cursor?: RadarMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarMetrics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RadarMetrics.
+     */
+    distinct?: RadarMetricScalarFieldEnum | RadarMetricScalarFieldEnum[]
+  }
+
+  /**
+   * RadarMetric findFirstOrThrow
+   */
+  export type RadarMetricFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarMetric to fetch.
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarMetrics to fetch.
+     */
+    orderBy?: RadarMetricOrderByWithRelationInput | RadarMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RadarMetrics.
+     */
+    cursor?: RadarMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarMetrics.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RadarMetrics.
+     */
+    distinct?: RadarMetricScalarFieldEnum | RadarMetricScalarFieldEnum[]
+  }
+
+  /**
+   * RadarMetric findMany
+   */
+  export type RadarMetricFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarMetrics to fetch.
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarMetrics to fetch.
+     */
+    orderBy?: RadarMetricOrderByWithRelationInput | RadarMetricOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RadarMetrics.
+     */
+    cursor?: RadarMetricWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarMetrics from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarMetrics.
+     */
+    skip?: number
+    distinct?: RadarMetricScalarFieldEnum | RadarMetricScalarFieldEnum[]
+  }
+
+  /**
+   * RadarMetric create
+   */
+  export type RadarMetricCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * The data needed to create a RadarMetric.
+     */
+    data: XOR<RadarMetricCreateInput, RadarMetricUncheckedCreateInput>
+  }
+
+  /**
+   * RadarMetric createMany
+   */
+  export type RadarMetricCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RadarMetrics.
+     */
+    data: RadarMetricCreateManyInput | RadarMetricCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RadarMetric createManyAndReturn
+   */
+  export type RadarMetricCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * The data used to create many RadarMetrics.
+     */
+    data: RadarMetricCreateManyInput | RadarMetricCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RadarMetric update
+   */
+  export type RadarMetricUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * The data needed to update a RadarMetric.
+     */
+    data: XOR<RadarMetricUpdateInput, RadarMetricUncheckedUpdateInput>
+    /**
+     * Choose, which RadarMetric to update.
+     */
+    where: RadarMetricWhereUniqueInput
+  }
+
+  /**
+   * RadarMetric updateMany
+   */
+  export type RadarMetricUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RadarMetrics.
+     */
+    data: XOR<RadarMetricUpdateManyMutationInput, RadarMetricUncheckedUpdateManyInput>
+    /**
+     * Filter which RadarMetrics to update
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * Limit how many RadarMetrics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RadarMetric updateManyAndReturn
+   */
+  export type RadarMetricUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * The data used to update RadarMetrics.
+     */
+    data: XOR<RadarMetricUpdateManyMutationInput, RadarMetricUncheckedUpdateManyInput>
+    /**
+     * Filter which RadarMetrics to update
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * Limit how many RadarMetrics to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RadarMetric upsert
+   */
+  export type RadarMetricUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * The filter to search for the RadarMetric to update in case it exists.
+     */
+    where: RadarMetricWhereUniqueInput
+    /**
+     * In case the RadarMetric found by the `where` argument doesn't exist, create a new RadarMetric with this data.
+     */
+    create: XOR<RadarMetricCreateInput, RadarMetricUncheckedCreateInput>
+    /**
+     * In case the RadarMetric was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RadarMetricUpdateInput, RadarMetricUncheckedUpdateInput>
+  }
+
+  /**
+   * RadarMetric delete
+   */
+  export type RadarMetricDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+    /**
+     * Filter which RadarMetric to delete.
+     */
+    where: RadarMetricWhereUniqueInput
+  }
+
+  /**
+   * RadarMetric deleteMany
+   */
+  export type RadarMetricDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RadarMetrics to delete
+     */
+    where?: RadarMetricWhereInput
+    /**
+     * Limit how many RadarMetrics to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RadarMetric.values
+   */
+  export type RadarMetric$valuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    where?: RadarValueWhereInput
+    orderBy?: RadarValueOrderByWithRelationInput | RadarValueOrderByWithRelationInput[]
+    cursor?: RadarValueWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RadarValueScalarFieldEnum | RadarValueScalarFieldEnum[]
+  }
+
+  /**
+   * RadarMetric without action
+   */
+  export type RadarMetricDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarMetric
+     */
+    select?: RadarMetricSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarMetric
+     */
+    omit?: RadarMetricOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarMetricInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TrainerRadarPost
+   */
+
+  export type AggregateTrainerRadarPost = {
+    _count: TrainerRadarPostCountAggregateOutputType | null
+    _avg: TrainerRadarPostAvgAggregateOutputType | null
+    _sum: TrainerRadarPostSumAggregateOutputType | null
+    _min: TrainerRadarPostMinAggregateOutputType | null
+    _max: TrainerRadarPostMaxAggregateOutputType | null
+  }
+
+  export type TrainerRadarPostAvgAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+  }
+
+  export type TrainerRadarPostSumAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+  }
+
+  export type TrainerRadarPostMinAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+    authorToken: string | null
+    comment: string | null
+    createdAt: Date | null
+  }
+
+  export type TrainerRadarPostMaxAggregateOutputType = {
+    id: number | null
+    trainerId: number | null
+    authorToken: string | null
+    comment: string | null
+    createdAt: Date | null
+  }
+
+  export type TrainerRadarPostCountAggregateOutputType = {
+    id: number
+    trainerId: number
+    authorToken: number
+    comment: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type TrainerRadarPostAvgAggregateInputType = {
+    id?: true
+    trainerId?: true
+  }
+
+  export type TrainerRadarPostSumAggregateInputType = {
+    id?: true
+    trainerId?: true
+  }
+
+  export type TrainerRadarPostMinAggregateInputType = {
+    id?: true
+    trainerId?: true
+    authorToken?: true
+    comment?: true
+    createdAt?: true
+  }
+
+  export type TrainerRadarPostMaxAggregateInputType = {
+    id?: true
+    trainerId?: true
+    authorToken?: true
+    comment?: true
+    createdAt?: true
+  }
+
+  export type TrainerRadarPostCountAggregateInputType = {
+    id?: true
+    trainerId?: true
+    authorToken?: true
+    comment?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type TrainerRadarPostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrainerRadarPost to aggregate.
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerRadarPosts to fetch.
+     */
+    orderBy?: TrainerRadarPostOrderByWithRelationInput | TrainerRadarPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TrainerRadarPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerRadarPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerRadarPosts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TrainerRadarPosts
+    **/
+    _count?: true | TrainerRadarPostCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TrainerRadarPostAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TrainerRadarPostSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TrainerRadarPostMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TrainerRadarPostMaxAggregateInputType
+  }
+
+  export type GetTrainerRadarPostAggregateType<T extends TrainerRadarPostAggregateArgs> = {
+        [P in keyof T & keyof AggregateTrainerRadarPost]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTrainerRadarPost[P]>
+      : GetScalarType<T[P], AggregateTrainerRadarPost[P]>
+  }
+
+
+
+
+  export type TrainerRadarPostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerRadarPostWhereInput
+    orderBy?: TrainerRadarPostOrderByWithAggregationInput | TrainerRadarPostOrderByWithAggregationInput[]
+    by: TrainerRadarPostScalarFieldEnum[] | TrainerRadarPostScalarFieldEnum
+    having?: TrainerRadarPostScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TrainerRadarPostCountAggregateInputType | true
+    _avg?: TrainerRadarPostAvgAggregateInputType
+    _sum?: TrainerRadarPostSumAggregateInputType
+    _min?: TrainerRadarPostMinAggregateInputType
+    _max?: TrainerRadarPostMaxAggregateInputType
+  }
+
+  export type TrainerRadarPostGroupByOutputType = {
+    id: number
+    trainerId: number
+    authorToken: string
+    comment: string | null
+    createdAt: Date
+    _count: TrainerRadarPostCountAggregateOutputType | null
+    _avg: TrainerRadarPostAvgAggregateOutputType | null
+    _sum: TrainerRadarPostSumAggregateOutputType | null
+    _min: TrainerRadarPostMinAggregateOutputType | null
+    _max: TrainerRadarPostMaxAggregateOutputType | null
+  }
+
+  type GetTrainerRadarPostGroupByPayload<T extends TrainerRadarPostGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TrainerRadarPostGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TrainerRadarPostGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TrainerRadarPostGroupByOutputType[P]>
+            : GetScalarType<T[P], TrainerRadarPostGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TrainerRadarPostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    trainerId?: boolean
+    authorToken?: boolean
+    comment?: boolean
+    createdAt?: boolean
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    radarValues?: boolean | TrainerRadarPost$radarValuesArgs<ExtArgs>
+    _count?: boolean | TrainerRadarPostCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainerRadarPost"]>
+
+  export type TrainerRadarPostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    trainerId?: boolean
+    authorToken?: boolean
+    comment?: boolean
+    createdAt?: boolean
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainerRadarPost"]>
+
+  export type TrainerRadarPostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    trainerId?: boolean
+    authorToken?: boolean
+    comment?: boolean
+    createdAt?: boolean
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["trainerRadarPost"]>
+
+  export type TrainerRadarPostSelectScalar = {
+    id?: boolean
+    trainerId?: boolean
+    authorToken?: boolean
+    comment?: boolean
+    createdAt?: boolean
+  }
+
+  export type TrainerRadarPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "trainerId" | "authorToken" | "comment" | "createdAt", ExtArgs["result"]["trainerRadarPost"]>
+  export type TrainerRadarPostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    radarValues?: boolean | TrainerRadarPost$radarValuesArgs<ExtArgs>
+    _count?: boolean | TrainerRadarPostCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TrainerRadarPostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+  }
+  export type TrainerRadarPostIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+  }
+
+  export type $TrainerRadarPostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TrainerRadarPost"
+    objects: {
+      trainer: Prisma.$TrainerPayload<ExtArgs>
+      radarValues: Prisma.$RadarValuePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      trainerId: number
+      authorToken: string
+      comment: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["trainerRadarPost"]>
+    composites: {}
+  }
+
+  type TrainerRadarPostGetPayload<S extends boolean | null | undefined | TrainerRadarPostDefaultArgs> = $Result.GetResult<Prisma.$TrainerRadarPostPayload, S>
+
+  type TrainerRadarPostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TrainerRadarPostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TrainerRadarPostCountAggregateInputType | true
+    }
+
+  export interface TrainerRadarPostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TrainerRadarPost'], meta: { name: 'TrainerRadarPost' } }
+    /**
+     * Find zero or one TrainerRadarPost that matches the filter.
+     * @param {TrainerRadarPostFindUniqueArgs} args - Arguments to find a TrainerRadarPost
+     * @example
+     * // Get one TrainerRadarPost
+     * const trainerRadarPost = await prisma.trainerRadarPost.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TrainerRadarPostFindUniqueArgs>(args: SelectSubset<T, TrainerRadarPostFindUniqueArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TrainerRadarPost that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TrainerRadarPostFindUniqueOrThrowArgs} args - Arguments to find a TrainerRadarPost
+     * @example
+     * // Get one TrainerRadarPost
+     * const trainerRadarPost = await prisma.trainerRadarPost.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TrainerRadarPostFindUniqueOrThrowArgs>(args: SelectSubset<T, TrainerRadarPostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TrainerRadarPost that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostFindFirstArgs} args - Arguments to find a TrainerRadarPost
+     * @example
+     * // Get one TrainerRadarPost
+     * const trainerRadarPost = await prisma.trainerRadarPost.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TrainerRadarPostFindFirstArgs>(args?: SelectSubset<T, TrainerRadarPostFindFirstArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TrainerRadarPost that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostFindFirstOrThrowArgs} args - Arguments to find a TrainerRadarPost
+     * @example
+     * // Get one TrainerRadarPost
+     * const trainerRadarPost = await prisma.trainerRadarPost.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TrainerRadarPostFindFirstOrThrowArgs>(args?: SelectSubset<T, TrainerRadarPostFindFirstOrThrowArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TrainerRadarPosts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TrainerRadarPosts
+     * const trainerRadarPosts = await prisma.trainerRadarPost.findMany()
+     * 
+     * // Get first 10 TrainerRadarPosts
+     * const trainerRadarPosts = await prisma.trainerRadarPost.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const trainerRadarPostWithIdOnly = await prisma.trainerRadarPost.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TrainerRadarPostFindManyArgs>(args?: SelectSubset<T, TrainerRadarPostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TrainerRadarPost.
+     * @param {TrainerRadarPostCreateArgs} args - Arguments to create a TrainerRadarPost.
+     * @example
+     * // Create one TrainerRadarPost
+     * const TrainerRadarPost = await prisma.trainerRadarPost.create({
+     *   data: {
+     *     // ... data to create a TrainerRadarPost
+     *   }
+     * })
+     * 
+     */
+    create<T extends TrainerRadarPostCreateArgs>(args: SelectSubset<T, TrainerRadarPostCreateArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TrainerRadarPosts.
+     * @param {TrainerRadarPostCreateManyArgs} args - Arguments to create many TrainerRadarPosts.
+     * @example
+     * // Create many TrainerRadarPosts
+     * const trainerRadarPost = await prisma.trainerRadarPost.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TrainerRadarPostCreateManyArgs>(args?: SelectSubset<T, TrainerRadarPostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TrainerRadarPosts and returns the data saved in the database.
+     * @param {TrainerRadarPostCreateManyAndReturnArgs} args - Arguments to create many TrainerRadarPosts.
+     * @example
+     * // Create many TrainerRadarPosts
+     * const trainerRadarPost = await prisma.trainerRadarPost.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TrainerRadarPosts and only return the `id`
+     * const trainerRadarPostWithIdOnly = await prisma.trainerRadarPost.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TrainerRadarPostCreateManyAndReturnArgs>(args?: SelectSubset<T, TrainerRadarPostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TrainerRadarPost.
+     * @param {TrainerRadarPostDeleteArgs} args - Arguments to delete one TrainerRadarPost.
+     * @example
+     * // Delete one TrainerRadarPost
+     * const TrainerRadarPost = await prisma.trainerRadarPost.delete({
+     *   where: {
+     *     // ... filter to delete one TrainerRadarPost
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TrainerRadarPostDeleteArgs>(args: SelectSubset<T, TrainerRadarPostDeleteArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TrainerRadarPost.
+     * @param {TrainerRadarPostUpdateArgs} args - Arguments to update one TrainerRadarPost.
+     * @example
+     * // Update one TrainerRadarPost
+     * const trainerRadarPost = await prisma.trainerRadarPost.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TrainerRadarPostUpdateArgs>(args: SelectSubset<T, TrainerRadarPostUpdateArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TrainerRadarPosts.
+     * @param {TrainerRadarPostDeleteManyArgs} args - Arguments to filter TrainerRadarPosts to delete.
+     * @example
+     * // Delete a few TrainerRadarPosts
+     * const { count } = await prisma.trainerRadarPost.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TrainerRadarPostDeleteManyArgs>(args?: SelectSubset<T, TrainerRadarPostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TrainerRadarPosts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TrainerRadarPosts
+     * const trainerRadarPost = await prisma.trainerRadarPost.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TrainerRadarPostUpdateManyArgs>(args: SelectSubset<T, TrainerRadarPostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TrainerRadarPosts and returns the data updated in the database.
+     * @param {TrainerRadarPostUpdateManyAndReturnArgs} args - Arguments to update many TrainerRadarPosts.
+     * @example
+     * // Update many TrainerRadarPosts
+     * const trainerRadarPost = await prisma.trainerRadarPost.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TrainerRadarPosts and only return the `id`
+     * const trainerRadarPostWithIdOnly = await prisma.trainerRadarPost.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TrainerRadarPostUpdateManyAndReturnArgs>(args: SelectSubset<T, TrainerRadarPostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TrainerRadarPost.
+     * @param {TrainerRadarPostUpsertArgs} args - Arguments to update or create a TrainerRadarPost.
+     * @example
+     * // Update or create a TrainerRadarPost
+     * const trainerRadarPost = await prisma.trainerRadarPost.upsert({
+     *   create: {
+     *     // ... data to create a TrainerRadarPost
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TrainerRadarPost we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TrainerRadarPostUpsertArgs>(args: SelectSubset<T, TrainerRadarPostUpsertArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TrainerRadarPosts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostCountArgs} args - Arguments to filter TrainerRadarPosts to count.
+     * @example
+     * // Count the number of TrainerRadarPosts
+     * const count = await prisma.trainerRadarPost.count({
+     *   where: {
+     *     // ... the filter for the TrainerRadarPosts we want to count
+     *   }
+     * })
+    **/
+    count<T extends TrainerRadarPostCountArgs>(
+      args?: Subset<T, TrainerRadarPostCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TrainerRadarPostCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TrainerRadarPost.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TrainerRadarPostAggregateArgs>(args: Subset<T, TrainerRadarPostAggregateArgs>): Prisma.PrismaPromise<GetTrainerRadarPostAggregateType<T>>
+
+    /**
+     * Group by TrainerRadarPost.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrainerRadarPostGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TrainerRadarPostGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TrainerRadarPostGroupByArgs['orderBy'] }
+        : { orderBy?: TrainerRadarPostGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TrainerRadarPostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTrainerRadarPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TrainerRadarPost model
+   */
+  readonly fields: TrainerRadarPostFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TrainerRadarPost.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TrainerRadarPostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    trainer<T extends TrainerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TrainerDefaultArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    radarValues<T extends TrainerRadarPost$radarValuesArgs<ExtArgs> = {}>(args?: Subset<T, TrainerRadarPost$radarValuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TrainerRadarPost model
+   */
+  interface TrainerRadarPostFieldRefs {
+    readonly id: FieldRef<"TrainerRadarPost", 'Int'>
+    readonly trainerId: FieldRef<"TrainerRadarPost", 'Int'>
+    readonly authorToken: FieldRef<"TrainerRadarPost", 'String'>
+    readonly comment: FieldRef<"TrainerRadarPost", 'String'>
+    readonly createdAt: FieldRef<"TrainerRadarPost", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TrainerRadarPost findUnique
+   */
+  export type TrainerRadarPostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerRadarPost to fetch.
+     */
+    where: TrainerRadarPostWhereUniqueInput
+  }
+
+  /**
+   * TrainerRadarPost findUniqueOrThrow
+   */
+  export type TrainerRadarPostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerRadarPost to fetch.
+     */
+    where: TrainerRadarPostWhereUniqueInput
+  }
+
+  /**
+   * TrainerRadarPost findFirst
+   */
+  export type TrainerRadarPostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerRadarPost to fetch.
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerRadarPosts to fetch.
+     */
+    orderBy?: TrainerRadarPostOrderByWithRelationInput | TrainerRadarPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TrainerRadarPosts.
+     */
+    cursor?: TrainerRadarPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerRadarPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerRadarPosts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TrainerRadarPosts.
+     */
+    distinct?: TrainerRadarPostScalarFieldEnum | TrainerRadarPostScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerRadarPost findFirstOrThrow
+   */
+  export type TrainerRadarPostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerRadarPost to fetch.
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerRadarPosts to fetch.
+     */
+    orderBy?: TrainerRadarPostOrderByWithRelationInput | TrainerRadarPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TrainerRadarPosts.
+     */
+    cursor?: TrainerRadarPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerRadarPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerRadarPosts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TrainerRadarPosts.
+     */
+    distinct?: TrainerRadarPostScalarFieldEnum | TrainerRadarPostScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerRadarPost findMany
+   */
+  export type TrainerRadarPostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * Filter, which TrainerRadarPosts to fetch.
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TrainerRadarPosts to fetch.
+     */
+    orderBy?: TrainerRadarPostOrderByWithRelationInput | TrainerRadarPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TrainerRadarPosts.
+     */
+    cursor?: TrainerRadarPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TrainerRadarPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TrainerRadarPosts.
+     */
+    skip?: number
+    distinct?: TrainerRadarPostScalarFieldEnum | TrainerRadarPostScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerRadarPost create
+   */
+  export type TrainerRadarPostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TrainerRadarPost.
+     */
+    data: XOR<TrainerRadarPostCreateInput, TrainerRadarPostUncheckedCreateInput>
+  }
+
+  /**
+   * TrainerRadarPost createMany
+   */
+  export type TrainerRadarPostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TrainerRadarPosts.
+     */
+    data: TrainerRadarPostCreateManyInput | TrainerRadarPostCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TrainerRadarPost createManyAndReturn
+   */
+  export type TrainerRadarPostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * The data used to create many TrainerRadarPosts.
+     */
+    data: TrainerRadarPostCreateManyInput | TrainerRadarPostCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TrainerRadarPost update
+   */
+  export type TrainerRadarPostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TrainerRadarPost.
+     */
+    data: XOR<TrainerRadarPostUpdateInput, TrainerRadarPostUncheckedUpdateInput>
+    /**
+     * Choose, which TrainerRadarPost to update.
+     */
+    where: TrainerRadarPostWhereUniqueInput
+  }
+
+  /**
+   * TrainerRadarPost updateMany
+   */
+  export type TrainerRadarPostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TrainerRadarPosts.
+     */
+    data: XOR<TrainerRadarPostUpdateManyMutationInput, TrainerRadarPostUncheckedUpdateManyInput>
+    /**
+     * Filter which TrainerRadarPosts to update
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * Limit how many TrainerRadarPosts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrainerRadarPost updateManyAndReturn
+   */
+  export type TrainerRadarPostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * The data used to update TrainerRadarPosts.
+     */
+    data: XOR<TrainerRadarPostUpdateManyMutationInput, TrainerRadarPostUncheckedUpdateManyInput>
+    /**
+     * Filter which TrainerRadarPosts to update
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * Limit how many TrainerRadarPosts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TrainerRadarPost upsert
+   */
+  export type TrainerRadarPostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TrainerRadarPost to update in case it exists.
+     */
+    where: TrainerRadarPostWhereUniqueInput
+    /**
+     * In case the TrainerRadarPost found by the `where` argument doesn't exist, create a new TrainerRadarPost with this data.
+     */
+    create: XOR<TrainerRadarPostCreateInput, TrainerRadarPostUncheckedCreateInput>
+    /**
+     * In case the TrainerRadarPost was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TrainerRadarPostUpdateInput, TrainerRadarPostUncheckedUpdateInput>
+  }
+
+  /**
+   * TrainerRadarPost delete
+   */
+  export type TrainerRadarPostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    /**
+     * Filter which TrainerRadarPost to delete.
+     */
+    where: TrainerRadarPostWhereUniqueInput
+  }
+
+  /**
+   * TrainerRadarPost deleteMany
+   */
+  export type TrainerRadarPostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrainerRadarPosts to delete
+     */
+    where?: TrainerRadarPostWhereInput
+    /**
+     * Limit how many TrainerRadarPosts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TrainerRadarPost.radarValues
+   */
+  export type TrainerRadarPost$radarValuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    where?: RadarValueWhereInput
+    orderBy?: RadarValueOrderByWithRelationInput | RadarValueOrderByWithRelationInput[]
+    cursor?: RadarValueWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RadarValueScalarFieldEnum | RadarValueScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerRadarPost without action
+   */
+  export type TrainerRadarPostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model RadarValue
+   */
+
+  export type AggregateRadarValue = {
+    _count: RadarValueCountAggregateOutputType | null
+    _avg: RadarValueAvgAggregateOutputType | null
+    _sum: RadarValueSumAggregateOutputType | null
+    _min: RadarValueMinAggregateOutputType | null
+    _max: RadarValueMaxAggregateOutputType | null
+  }
+
+  export type RadarValueAvgAggregateOutputType = {
+    id: number | null
+    postId: number | null
+    metricId: number | null
+    value: number | null
+  }
+
+  export type RadarValueSumAggregateOutputType = {
+    id: number | null
+    postId: number | null
+    metricId: number | null
+    value: number | null
+  }
+
+  export type RadarValueMinAggregateOutputType = {
+    id: number | null
+    postId: number | null
+    metricId: number | null
+    value: number | null
+  }
+
+  export type RadarValueMaxAggregateOutputType = {
+    id: number | null
+    postId: number | null
+    metricId: number | null
+    value: number | null
+  }
+
+  export type RadarValueCountAggregateOutputType = {
+    id: number
+    postId: number
+    metricId: number
+    value: number
+    _all: number
+  }
+
+
+  export type RadarValueAvgAggregateInputType = {
+    id?: true
+    postId?: true
+    metricId?: true
+    value?: true
+  }
+
+  export type RadarValueSumAggregateInputType = {
+    id?: true
+    postId?: true
+    metricId?: true
+    value?: true
+  }
+
+  export type RadarValueMinAggregateInputType = {
+    id?: true
+    postId?: true
+    metricId?: true
+    value?: true
+  }
+
+  export type RadarValueMaxAggregateInputType = {
+    id?: true
+    postId?: true
+    metricId?: true
+    value?: true
+  }
+
+  export type RadarValueCountAggregateInputType = {
+    id?: true
+    postId?: true
+    metricId?: true
+    value?: true
+    _all?: true
+  }
+
+  export type RadarValueAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RadarValue to aggregate.
+     */
+    where?: RadarValueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarValues to fetch.
+     */
+    orderBy?: RadarValueOrderByWithRelationInput | RadarValueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RadarValueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarValues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarValues.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RadarValues
+    **/
+    _count?: true | RadarValueCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RadarValueAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RadarValueSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RadarValueMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RadarValueMaxAggregateInputType
+  }
+
+  export type GetRadarValueAggregateType<T extends RadarValueAggregateArgs> = {
+        [P in keyof T & keyof AggregateRadarValue]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRadarValue[P]>
+      : GetScalarType<T[P], AggregateRadarValue[P]>
+  }
+
+
+
+
+  export type RadarValueGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RadarValueWhereInput
+    orderBy?: RadarValueOrderByWithAggregationInput | RadarValueOrderByWithAggregationInput[]
+    by: RadarValueScalarFieldEnum[] | RadarValueScalarFieldEnum
+    having?: RadarValueScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RadarValueCountAggregateInputType | true
+    _avg?: RadarValueAvgAggregateInputType
+    _sum?: RadarValueSumAggregateInputType
+    _min?: RadarValueMinAggregateInputType
+    _max?: RadarValueMaxAggregateInputType
+  }
+
+  export type RadarValueGroupByOutputType = {
+    id: number
+    postId: number
+    metricId: number
+    value: number
+    _count: RadarValueCountAggregateOutputType | null
+    _avg: RadarValueAvgAggregateOutputType | null
+    _sum: RadarValueSumAggregateOutputType | null
+    _min: RadarValueMinAggregateOutputType | null
+    _max: RadarValueMaxAggregateOutputType | null
+  }
+
+  type GetRadarValueGroupByPayload<T extends RadarValueGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RadarValueGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RadarValueGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RadarValueGroupByOutputType[P]>
+            : GetScalarType<T[P], RadarValueGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RadarValueSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    postId?: boolean
+    metricId?: boolean
+    value?: boolean
+    post?: boolean | TrainerRadarPostDefaultArgs<ExtArgs>
+    metric?: boolean | RadarMetricDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["radarValue"]>
+
+  export type RadarValueSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    postId?: boolean
+    metricId?: boolean
+    value?: boolean
+    post?: boolean | TrainerRadarPostDefaultArgs<ExtArgs>
+    metric?: boolean | RadarMetricDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["radarValue"]>
+
+  export type RadarValueSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    postId?: boolean
+    metricId?: boolean
+    value?: boolean
+    post?: boolean | TrainerRadarPostDefaultArgs<ExtArgs>
+    metric?: boolean | RadarMetricDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["radarValue"]>
+
+  export type RadarValueSelectScalar = {
+    id?: boolean
+    postId?: boolean
+    metricId?: boolean
+    value?: boolean
+  }
+
+  export type RadarValueOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "postId" | "metricId" | "value", ExtArgs["result"]["radarValue"]>
+  export type RadarValueInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    post?: boolean | TrainerRadarPostDefaultArgs<ExtArgs>
+    metric?: boolean | RadarMetricDefaultArgs<ExtArgs>
+  }
+  export type RadarValueIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    post?: boolean | TrainerRadarPostDefaultArgs<ExtArgs>
+    metric?: boolean | RadarMetricDefaultArgs<ExtArgs>
+  }
+  export type RadarValueIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    post?: boolean | TrainerRadarPostDefaultArgs<ExtArgs>
+    metric?: boolean | RadarMetricDefaultArgs<ExtArgs>
+  }
+
+  export type $RadarValuePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RadarValue"
+    objects: {
+      post: Prisma.$TrainerRadarPostPayload<ExtArgs>
+      metric: Prisma.$RadarMetricPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      postId: number
+      metricId: number
+      value: number
+    }, ExtArgs["result"]["radarValue"]>
+    composites: {}
+  }
+
+  type RadarValueGetPayload<S extends boolean | null | undefined | RadarValueDefaultArgs> = $Result.GetResult<Prisma.$RadarValuePayload, S>
+
+  type RadarValueCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RadarValueFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RadarValueCountAggregateInputType | true
+    }
+
+  export interface RadarValueDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RadarValue'], meta: { name: 'RadarValue' } }
+    /**
+     * Find zero or one RadarValue that matches the filter.
+     * @param {RadarValueFindUniqueArgs} args - Arguments to find a RadarValue
+     * @example
+     * // Get one RadarValue
+     * const radarValue = await prisma.radarValue.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RadarValueFindUniqueArgs>(args: SelectSubset<T, RadarValueFindUniqueArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RadarValue that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RadarValueFindUniqueOrThrowArgs} args - Arguments to find a RadarValue
+     * @example
+     * // Get one RadarValue
+     * const radarValue = await prisma.radarValue.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RadarValueFindUniqueOrThrowArgs>(args: SelectSubset<T, RadarValueFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RadarValue that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueFindFirstArgs} args - Arguments to find a RadarValue
+     * @example
+     * // Get one RadarValue
+     * const radarValue = await prisma.radarValue.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RadarValueFindFirstArgs>(args?: SelectSubset<T, RadarValueFindFirstArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RadarValue that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueFindFirstOrThrowArgs} args - Arguments to find a RadarValue
+     * @example
+     * // Get one RadarValue
+     * const radarValue = await prisma.radarValue.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RadarValueFindFirstOrThrowArgs>(args?: SelectSubset<T, RadarValueFindFirstOrThrowArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RadarValues that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RadarValues
+     * const radarValues = await prisma.radarValue.findMany()
+     * 
+     * // Get first 10 RadarValues
+     * const radarValues = await prisma.radarValue.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const radarValueWithIdOnly = await prisma.radarValue.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RadarValueFindManyArgs>(args?: SelectSubset<T, RadarValueFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RadarValue.
+     * @param {RadarValueCreateArgs} args - Arguments to create a RadarValue.
+     * @example
+     * // Create one RadarValue
+     * const RadarValue = await prisma.radarValue.create({
+     *   data: {
+     *     // ... data to create a RadarValue
+     *   }
+     * })
+     * 
+     */
+    create<T extends RadarValueCreateArgs>(args: SelectSubset<T, RadarValueCreateArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RadarValues.
+     * @param {RadarValueCreateManyArgs} args - Arguments to create many RadarValues.
+     * @example
+     * // Create many RadarValues
+     * const radarValue = await prisma.radarValue.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RadarValueCreateManyArgs>(args?: SelectSubset<T, RadarValueCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RadarValues and returns the data saved in the database.
+     * @param {RadarValueCreateManyAndReturnArgs} args - Arguments to create many RadarValues.
+     * @example
+     * // Create many RadarValues
+     * const radarValue = await prisma.radarValue.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RadarValues and only return the `id`
+     * const radarValueWithIdOnly = await prisma.radarValue.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RadarValueCreateManyAndReturnArgs>(args?: SelectSubset<T, RadarValueCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RadarValue.
+     * @param {RadarValueDeleteArgs} args - Arguments to delete one RadarValue.
+     * @example
+     * // Delete one RadarValue
+     * const RadarValue = await prisma.radarValue.delete({
+     *   where: {
+     *     // ... filter to delete one RadarValue
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RadarValueDeleteArgs>(args: SelectSubset<T, RadarValueDeleteArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RadarValue.
+     * @param {RadarValueUpdateArgs} args - Arguments to update one RadarValue.
+     * @example
+     * // Update one RadarValue
+     * const radarValue = await prisma.radarValue.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RadarValueUpdateArgs>(args: SelectSubset<T, RadarValueUpdateArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RadarValues.
+     * @param {RadarValueDeleteManyArgs} args - Arguments to filter RadarValues to delete.
+     * @example
+     * // Delete a few RadarValues
+     * const { count } = await prisma.radarValue.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RadarValueDeleteManyArgs>(args?: SelectSubset<T, RadarValueDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RadarValues.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RadarValues
+     * const radarValue = await prisma.radarValue.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RadarValueUpdateManyArgs>(args: SelectSubset<T, RadarValueUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RadarValues and returns the data updated in the database.
+     * @param {RadarValueUpdateManyAndReturnArgs} args - Arguments to update many RadarValues.
+     * @example
+     * // Update many RadarValues
+     * const radarValue = await prisma.radarValue.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RadarValues and only return the `id`
+     * const radarValueWithIdOnly = await prisma.radarValue.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RadarValueUpdateManyAndReturnArgs>(args: SelectSubset<T, RadarValueUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RadarValue.
+     * @param {RadarValueUpsertArgs} args - Arguments to update or create a RadarValue.
+     * @example
+     * // Update or create a RadarValue
+     * const radarValue = await prisma.radarValue.upsert({
+     *   create: {
+     *     // ... data to create a RadarValue
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RadarValue we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RadarValueUpsertArgs>(args: SelectSubset<T, RadarValueUpsertArgs<ExtArgs>>): Prisma__RadarValueClient<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RadarValues.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueCountArgs} args - Arguments to filter RadarValues to count.
+     * @example
+     * // Count the number of RadarValues
+     * const count = await prisma.radarValue.count({
+     *   where: {
+     *     // ... the filter for the RadarValues we want to count
+     *   }
+     * })
+    **/
+    count<T extends RadarValueCountArgs>(
+      args?: Subset<T, RadarValueCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RadarValueCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RadarValue.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RadarValueAggregateArgs>(args: Subset<T, RadarValueAggregateArgs>): Prisma.PrismaPromise<GetRadarValueAggregateType<T>>
+
+    /**
+     * Group by RadarValue.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RadarValueGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RadarValueGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RadarValueGroupByArgs['orderBy'] }
+        : { orderBy?: RadarValueGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RadarValueGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRadarValueGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RadarValue model
+   */
+  readonly fields: RadarValueFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RadarValue.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RadarValueClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    post<T extends TrainerRadarPostDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TrainerRadarPostDefaultArgs<ExtArgs>>): Prisma__TrainerRadarPostClient<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    metric<T extends RadarMetricDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RadarMetricDefaultArgs<ExtArgs>>): Prisma__RadarMetricClient<$Result.GetResult<Prisma.$RadarMetricPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RadarValue model
+   */
+  interface RadarValueFieldRefs {
+    readonly id: FieldRef<"RadarValue", 'Int'>
+    readonly postId: FieldRef<"RadarValue", 'Int'>
+    readonly metricId: FieldRef<"RadarValue", 'Int'>
+    readonly value: FieldRef<"RadarValue", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RadarValue findUnique
+   */
+  export type RadarValueFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarValue to fetch.
+     */
+    where: RadarValueWhereUniqueInput
+  }
+
+  /**
+   * RadarValue findUniqueOrThrow
+   */
+  export type RadarValueFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarValue to fetch.
+     */
+    where: RadarValueWhereUniqueInput
+  }
+
+  /**
+   * RadarValue findFirst
+   */
+  export type RadarValueFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarValue to fetch.
+     */
+    where?: RadarValueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarValues to fetch.
+     */
+    orderBy?: RadarValueOrderByWithRelationInput | RadarValueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RadarValues.
+     */
+    cursor?: RadarValueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarValues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarValues.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RadarValues.
+     */
+    distinct?: RadarValueScalarFieldEnum | RadarValueScalarFieldEnum[]
+  }
+
+  /**
+   * RadarValue findFirstOrThrow
+   */
+  export type RadarValueFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarValue to fetch.
+     */
+    where?: RadarValueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarValues to fetch.
+     */
+    orderBy?: RadarValueOrderByWithRelationInput | RadarValueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RadarValues.
+     */
+    cursor?: RadarValueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarValues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarValues.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RadarValues.
+     */
+    distinct?: RadarValueScalarFieldEnum | RadarValueScalarFieldEnum[]
+  }
+
+  /**
+   * RadarValue findMany
+   */
+  export type RadarValueFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * Filter, which RadarValues to fetch.
+     */
+    where?: RadarValueWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RadarValues to fetch.
+     */
+    orderBy?: RadarValueOrderByWithRelationInput | RadarValueOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RadarValues.
+     */
+    cursor?: RadarValueWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RadarValues from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RadarValues.
+     */
+    skip?: number
+    distinct?: RadarValueScalarFieldEnum | RadarValueScalarFieldEnum[]
+  }
+
+  /**
+   * RadarValue create
+   */
+  export type RadarValueCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * The data needed to create a RadarValue.
+     */
+    data: XOR<RadarValueCreateInput, RadarValueUncheckedCreateInput>
+  }
+
+  /**
+   * RadarValue createMany
+   */
+  export type RadarValueCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RadarValues.
+     */
+    data: RadarValueCreateManyInput | RadarValueCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RadarValue createManyAndReturn
+   */
+  export type RadarValueCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * The data used to create many RadarValues.
+     */
+    data: RadarValueCreateManyInput | RadarValueCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RadarValue update
+   */
+  export type RadarValueUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * The data needed to update a RadarValue.
+     */
+    data: XOR<RadarValueUpdateInput, RadarValueUncheckedUpdateInput>
+    /**
+     * Choose, which RadarValue to update.
+     */
+    where: RadarValueWhereUniqueInput
+  }
+
+  /**
+   * RadarValue updateMany
+   */
+  export type RadarValueUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RadarValues.
+     */
+    data: XOR<RadarValueUpdateManyMutationInput, RadarValueUncheckedUpdateManyInput>
+    /**
+     * Filter which RadarValues to update
+     */
+    where?: RadarValueWhereInput
+    /**
+     * Limit how many RadarValues to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RadarValue updateManyAndReturn
+   */
+  export type RadarValueUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * The data used to update RadarValues.
+     */
+    data: XOR<RadarValueUpdateManyMutationInput, RadarValueUncheckedUpdateManyInput>
+    /**
+     * Filter which RadarValues to update
+     */
+    where?: RadarValueWhereInput
+    /**
+     * Limit how many RadarValues to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RadarValue upsert
+   */
+  export type RadarValueUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * The filter to search for the RadarValue to update in case it exists.
+     */
+    where: RadarValueWhereUniqueInput
+    /**
+     * In case the RadarValue found by the `where` argument doesn't exist, create a new RadarValue with this data.
+     */
+    create: XOR<RadarValueCreateInput, RadarValueUncheckedCreateInput>
+    /**
+     * In case the RadarValue was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RadarValueUpdateInput, RadarValueUncheckedUpdateInput>
+  }
+
+  /**
+   * RadarValue delete
+   */
+  export type RadarValueDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+    /**
+     * Filter which RadarValue to delete.
+     */
+    where: RadarValueWhereUniqueInput
+  }
+
+  /**
+   * RadarValue deleteMany
+   */
+  export type RadarValueDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RadarValues to delete
+     */
+    where?: RadarValueWhereInput
+    /**
+     * Limit how many RadarValues to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RadarValue without action
+   */
+  export type RadarValueDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RadarValue
+     */
+    select?: RadarValueSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RadarValue
+     */
+    omit?: RadarValueOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RadarValueInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9520,6 +17053,78 @@ export namespace Prisma {
   export type PokemonCustomTagScalarFieldEnum = (typeof PokemonCustomTagScalarFieldEnum)[keyof typeof PokemonCustomTagScalarFieldEnum]
 
 
+  export const TeamScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    shortName: 'shortName',
+    region: 'region',
+    logoUrl: 'logoUrl',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TeamScalarFieldEnum = (typeof TeamScalarFieldEnum)[keyof typeof TeamScalarFieldEnum]
+
+
+  export const TrainerScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    type: 'type',
+    currentTeamId: 'currentTeamId',
+    status: 'status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TrainerScalarFieldEnum = (typeof TrainerScalarFieldEnum)[keyof typeof TrainerScalarFieldEnum]
+
+
+  export const TrainerTeamHistoryScalarFieldEnum: {
+    id: 'id',
+    trainerId: 'trainerId',
+    teamId: 'teamId',
+    joinedAt: 'joinedAt',
+    leftAt: 'leftAt',
+    createdAt: 'createdAt'
+  };
+
+  export type TrainerTeamHistoryScalarFieldEnum = (typeof TrainerTeamHistoryScalarFieldEnum)[keyof typeof TrainerTeamHistoryScalarFieldEnum]
+
+
+  export const RadarMetricScalarFieldEnum: {
+    id: 'id',
+    key: 'key',
+    label: 'label',
+    minValue: 'minValue',
+    maxValue: 'maxValue',
+    sortOrder: 'sortOrder',
+    active: 'active'
+  };
+
+  export type RadarMetricScalarFieldEnum = (typeof RadarMetricScalarFieldEnum)[keyof typeof RadarMetricScalarFieldEnum]
+
+
+  export const TrainerRadarPostScalarFieldEnum: {
+    id: 'id',
+    trainerId: 'trainerId',
+    authorToken: 'authorToken',
+    comment: 'comment',
+    createdAt: 'createdAt'
+  };
+
+  export type TrainerRadarPostScalarFieldEnum = (typeof TrainerRadarPostScalarFieldEnum)[keyof typeof TrainerRadarPostScalarFieldEnum]
+
+
+  export const RadarValueScalarFieldEnum: {
+    id: 'id',
+    postId: 'postId',
+    metricId: 'metricId',
+    value: 'value'
+  };
+
+  export type RadarValueScalarFieldEnum = (typeof RadarValueScalarFieldEnum)[keyof typeof RadarValueScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -9602,6 +17207,13 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
   /**
    * Deep Input Types
@@ -10035,6 +17647,397 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"PokemonCustomTag"> | Date | string
   }
 
+  export type TeamWhereInput = {
+    AND?: TeamWhereInput | TeamWhereInput[]
+    OR?: TeamWhereInput[]
+    NOT?: TeamWhereInput | TeamWhereInput[]
+    id?: IntFilter<"Team"> | number
+    name?: StringFilter<"Team"> | string
+    shortName?: StringNullableFilter<"Team"> | string | null
+    region?: StringNullableFilter<"Team"> | string | null
+    logoUrl?: StringNullableFilter<"Team"> | string | null
+    createdAt?: DateTimeFilter<"Team"> | Date | string
+    updatedAt?: DateTimeFilter<"Team"> | Date | string
+    trainers?: TrainerListRelationFilter
+    history?: TrainerTeamHistoryListRelationFilter
+  }
+
+  export type TeamOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    shortName?: SortOrderInput | SortOrder
+    region?: SortOrderInput | SortOrder
+    logoUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    trainers?: TrainerOrderByRelationAggregateInput
+    history?: TrainerTeamHistoryOrderByRelationAggregateInput
+  }
+
+  export type TeamWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TeamWhereInput | TeamWhereInput[]
+    OR?: TeamWhereInput[]
+    NOT?: TeamWhereInput | TeamWhereInput[]
+    name?: StringFilter<"Team"> | string
+    shortName?: StringNullableFilter<"Team"> | string | null
+    region?: StringNullableFilter<"Team"> | string | null
+    logoUrl?: StringNullableFilter<"Team"> | string | null
+    createdAt?: DateTimeFilter<"Team"> | Date | string
+    updatedAt?: DateTimeFilter<"Team"> | Date | string
+    trainers?: TrainerListRelationFilter
+    history?: TrainerTeamHistoryListRelationFilter
+  }, "id">
+
+  export type TeamOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    shortName?: SortOrderInput | SortOrder
+    region?: SortOrderInput | SortOrder
+    logoUrl?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TeamCountOrderByAggregateInput
+    _avg?: TeamAvgOrderByAggregateInput
+    _max?: TeamMaxOrderByAggregateInput
+    _min?: TeamMinOrderByAggregateInput
+    _sum?: TeamSumOrderByAggregateInput
+  }
+
+  export type TeamScalarWhereWithAggregatesInput = {
+    AND?: TeamScalarWhereWithAggregatesInput | TeamScalarWhereWithAggregatesInput[]
+    OR?: TeamScalarWhereWithAggregatesInput[]
+    NOT?: TeamScalarWhereWithAggregatesInput | TeamScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Team"> | number
+    name?: StringWithAggregatesFilter<"Team"> | string
+    shortName?: StringNullableWithAggregatesFilter<"Team"> | string | null
+    region?: StringNullableWithAggregatesFilter<"Team"> | string | null
+    logoUrl?: StringNullableWithAggregatesFilter<"Team"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Team"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Team"> | Date | string
+  }
+
+  export type TrainerWhereInput = {
+    AND?: TrainerWhereInput | TrainerWhereInput[]
+    OR?: TrainerWhereInput[]
+    NOT?: TrainerWhereInput | TrainerWhereInput[]
+    id?: IntFilter<"Trainer"> | number
+    name?: StringFilter<"Trainer"> | string
+    type?: StringFilter<"Trainer"> | string
+    currentTeamId?: IntNullableFilter<"Trainer"> | number | null
+    status?: StringFilter<"Trainer"> | string
+    createdAt?: DateTimeFilter<"Trainer"> | Date | string
+    updatedAt?: DateTimeFilter<"Trainer"> | Date | string
+    team?: XOR<TeamNullableScalarRelationFilter, TeamWhereInput> | null
+    history?: TrainerTeamHistoryListRelationFilter
+    radarPosts?: TrainerRadarPostListRelationFilter
+  }
+
+  export type TrainerOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    currentTeamId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    team?: TeamOrderByWithRelationInput
+    history?: TrainerTeamHistoryOrderByRelationAggregateInput
+    radarPosts?: TrainerRadarPostOrderByRelationAggregateInput
+  }
+
+  export type TrainerWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TrainerWhereInput | TrainerWhereInput[]
+    OR?: TrainerWhereInput[]
+    NOT?: TrainerWhereInput | TrainerWhereInput[]
+    name?: StringFilter<"Trainer"> | string
+    type?: StringFilter<"Trainer"> | string
+    currentTeamId?: IntNullableFilter<"Trainer"> | number | null
+    status?: StringFilter<"Trainer"> | string
+    createdAt?: DateTimeFilter<"Trainer"> | Date | string
+    updatedAt?: DateTimeFilter<"Trainer"> | Date | string
+    team?: XOR<TeamNullableScalarRelationFilter, TeamWhereInput> | null
+    history?: TrainerTeamHistoryListRelationFilter
+    radarPosts?: TrainerRadarPostListRelationFilter
+  }, "id">
+
+  export type TrainerOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    currentTeamId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: TrainerCountOrderByAggregateInput
+    _avg?: TrainerAvgOrderByAggregateInput
+    _max?: TrainerMaxOrderByAggregateInput
+    _min?: TrainerMinOrderByAggregateInput
+    _sum?: TrainerSumOrderByAggregateInput
+  }
+
+  export type TrainerScalarWhereWithAggregatesInput = {
+    AND?: TrainerScalarWhereWithAggregatesInput | TrainerScalarWhereWithAggregatesInput[]
+    OR?: TrainerScalarWhereWithAggregatesInput[]
+    NOT?: TrainerScalarWhereWithAggregatesInput | TrainerScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Trainer"> | number
+    name?: StringWithAggregatesFilter<"Trainer"> | string
+    type?: StringWithAggregatesFilter<"Trainer"> | string
+    currentTeamId?: IntNullableWithAggregatesFilter<"Trainer"> | number | null
+    status?: StringWithAggregatesFilter<"Trainer"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Trainer"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Trainer"> | Date | string
+  }
+
+  export type TrainerTeamHistoryWhereInput = {
+    AND?: TrainerTeamHistoryWhereInput | TrainerTeamHistoryWhereInput[]
+    OR?: TrainerTeamHistoryWhereInput[]
+    NOT?: TrainerTeamHistoryWhereInput | TrainerTeamHistoryWhereInput[]
+    id?: IntFilter<"TrainerTeamHistory"> | number
+    trainerId?: IntFilter<"TrainerTeamHistory"> | number
+    teamId?: IntFilter<"TrainerTeamHistory"> | number
+    joinedAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
+    leftAt?: DateTimeNullableFilter<"TrainerTeamHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
+    trainer?: XOR<TrainerScalarRelationFilter, TrainerWhereInput>
+    team?: XOR<TeamScalarRelationFilter, TeamWhereInput>
+  }
+
+  export type TrainerTeamHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+    joinedAt?: SortOrder
+    leftAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    trainer?: TrainerOrderByWithRelationInput
+    team?: TeamOrderByWithRelationInput
+  }
+
+  export type TrainerTeamHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TrainerTeamHistoryWhereInput | TrainerTeamHistoryWhereInput[]
+    OR?: TrainerTeamHistoryWhereInput[]
+    NOT?: TrainerTeamHistoryWhereInput | TrainerTeamHistoryWhereInput[]
+    trainerId?: IntFilter<"TrainerTeamHistory"> | number
+    teamId?: IntFilter<"TrainerTeamHistory"> | number
+    joinedAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
+    leftAt?: DateTimeNullableFilter<"TrainerTeamHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
+    trainer?: XOR<TrainerScalarRelationFilter, TrainerWhereInput>
+    team?: XOR<TeamScalarRelationFilter, TeamWhereInput>
+  }, "id">
+
+  export type TrainerTeamHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+    joinedAt?: SortOrder
+    leftAt?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: TrainerTeamHistoryCountOrderByAggregateInput
+    _avg?: TrainerTeamHistoryAvgOrderByAggregateInput
+    _max?: TrainerTeamHistoryMaxOrderByAggregateInput
+    _min?: TrainerTeamHistoryMinOrderByAggregateInput
+    _sum?: TrainerTeamHistorySumOrderByAggregateInput
+  }
+
+  export type TrainerTeamHistoryScalarWhereWithAggregatesInput = {
+    AND?: TrainerTeamHistoryScalarWhereWithAggregatesInput | TrainerTeamHistoryScalarWhereWithAggregatesInput[]
+    OR?: TrainerTeamHistoryScalarWhereWithAggregatesInput[]
+    NOT?: TrainerTeamHistoryScalarWhereWithAggregatesInput | TrainerTeamHistoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TrainerTeamHistory"> | number
+    trainerId?: IntWithAggregatesFilter<"TrainerTeamHistory"> | number
+    teamId?: IntWithAggregatesFilter<"TrainerTeamHistory"> | number
+    joinedAt?: DateTimeWithAggregatesFilter<"TrainerTeamHistory"> | Date | string
+    leftAt?: DateTimeNullableWithAggregatesFilter<"TrainerTeamHistory"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"TrainerTeamHistory"> | Date | string
+  }
+
+  export type RadarMetricWhereInput = {
+    AND?: RadarMetricWhereInput | RadarMetricWhereInput[]
+    OR?: RadarMetricWhereInput[]
+    NOT?: RadarMetricWhereInput | RadarMetricWhereInput[]
+    id?: IntFilter<"RadarMetric"> | number
+    key?: StringFilter<"RadarMetric"> | string
+    label?: StringFilter<"RadarMetric"> | string
+    minValue?: IntFilter<"RadarMetric"> | number
+    maxValue?: IntFilter<"RadarMetric"> | number
+    sortOrder?: IntFilter<"RadarMetric"> | number
+    active?: BoolFilter<"RadarMetric"> | boolean
+    values?: RadarValueListRelationFilter
+  }
+
+  export type RadarMetricOrderByWithRelationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+    active?: SortOrder
+    values?: RadarValueOrderByRelationAggregateInput
+  }
+
+  export type RadarMetricWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    key?: string
+    AND?: RadarMetricWhereInput | RadarMetricWhereInput[]
+    OR?: RadarMetricWhereInput[]
+    NOT?: RadarMetricWhereInput | RadarMetricWhereInput[]
+    label?: StringFilter<"RadarMetric"> | string
+    minValue?: IntFilter<"RadarMetric"> | number
+    maxValue?: IntFilter<"RadarMetric"> | number
+    sortOrder?: IntFilter<"RadarMetric"> | number
+    active?: BoolFilter<"RadarMetric"> | boolean
+    values?: RadarValueListRelationFilter
+  }, "id" | "key">
+
+  export type RadarMetricOrderByWithAggregationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+    active?: SortOrder
+    _count?: RadarMetricCountOrderByAggregateInput
+    _avg?: RadarMetricAvgOrderByAggregateInput
+    _max?: RadarMetricMaxOrderByAggregateInput
+    _min?: RadarMetricMinOrderByAggregateInput
+    _sum?: RadarMetricSumOrderByAggregateInput
+  }
+
+  export type RadarMetricScalarWhereWithAggregatesInput = {
+    AND?: RadarMetricScalarWhereWithAggregatesInput | RadarMetricScalarWhereWithAggregatesInput[]
+    OR?: RadarMetricScalarWhereWithAggregatesInput[]
+    NOT?: RadarMetricScalarWhereWithAggregatesInput | RadarMetricScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"RadarMetric"> | number
+    key?: StringWithAggregatesFilter<"RadarMetric"> | string
+    label?: StringWithAggregatesFilter<"RadarMetric"> | string
+    minValue?: IntWithAggregatesFilter<"RadarMetric"> | number
+    maxValue?: IntWithAggregatesFilter<"RadarMetric"> | number
+    sortOrder?: IntWithAggregatesFilter<"RadarMetric"> | number
+    active?: BoolWithAggregatesFilter<"RadarMetric"> | boolean
+  }
+
+  export type TrainerRadarPostWhereInput = {
+    AND?: TrainerRadarPostWhereInput | TrainerRadarPostWhereInput[]
+    OR?: TrainerRadarPostWhereInput[]
+    NOT?: TrainerRadarPostWhereInput | TrainerRadarPostWhereInput[]
+    id?: IntFilter<"TrainerRadarPost"> | number
+    trainerId?: IntFilter<"TrainerRadarPost"> | number
+    authorToken?: StringFilter<"TrainerRadarPost"> | string
+    comment?: StringNullableFilter<"TrainerRadarPost"> | string | null
+    createdAt?: DateTimeFilter<"TrainerRadarPost"> | Date | string
+    trainer?: XOR<TrainerScalarRelationFilter, TrainerWhereInput>
+    radarValues?: RadarValueListRelationFilter
+  }
+
+  export type TrainerRadarPostOrderByWithRelationInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    authorToken?: SortOrder
+    comment?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    trainer?: TrainerOrderByWithRelationInput
+    radarValues?: RadarValueOrderByRelationAggregateInput
+  }
+
+  export type TrainerRadarPostWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TrainerRadarPostWhereInput | TrainerRadarPostWhereInput[]
+    OR?: TrainerRadarPostWhereInput[]
+    NOT?: TrainerRadarPostWhereInput | TrainerRadarPostWhereInput[]
+    trainerId?: IntFilter<"TrainerRadarPost"> | number
+    authorToken?: StringFilter<"TrainerRadarPost"> | string
+    comment?: StringNullableFilter<"TrainerRadarPost"> | string | null
+    createdAt?: DateTimeFilter<"TrainerRadarPost"> | Date | string
+    trainer?: XOR<TrainerScalarRelationFilter, TrainerWhereInput>
+    radarValues?: RadarValueListRelationFilter
+  }, "id">
+
+  export type TrainerRadarPostOrderByWithAggregationInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    authorToken?: SortOrder
+    comment?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: TrainerRadarPostCountOrderByAggregateInput
+    _avg?: TrainerRadarPostAvgOrderByAggregateInput
+    _max?: TrainerRadarPostMaxOrderByAggregateInput
+    _min?: TrainerRadarPostMinOrderByAggregateInput
+    _sum?: TrainerRadarPostSumOrderByAggregateInput
+  }
+
+  export type TrainerRadarPostScalarWhereWithAggregatesInput = {
+    AND?: TrainerRadarPostScalarWhereWithAggregatesInput | TrainerRadarPostScalarWhereWithAggregatesInput[]
+    OR?: TrainerRadarPostScalarWhereWithAggregatesInput[]
+    NOT?: TrainerRadarPostScalarWhereWithAggregatesInput | TrainerRadarPostScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TrainerRadarPost"> | number
+    trainerId?: IntWithAggregatesFilter<"TrainerRadarPost"> | number
+    authorToken?: StringWithAggregatesFilter<"TrainerRadarPost"> | string
+    comment?: StringNullableWithAggregatesFilter<"TrainerRadarPost"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"TrainerRadarPost"> | Date | string
+  }
+
+  export type RadarValueWhereInput = {
+    AND?: RadarValueWhereInput | RadarValueWhereInput[]
+    OR?: RadarValueWhereInput[]
+    NOT?: RadarValueWhereInput | RadarValueWhereInput[]
+    id?: IntFilter<"RadarValue"> | number
+    postId?: IntFilter<"RadarValue"> | number
+    metricId?: IntFilter<"RadarValue"> | number
+    value?: IntFilter<"RadarValue"> | number
+    post?: XOR<TrainerRadarPostScalarRelationFilter, TrainerRadarPostWhereInput>
+    metric?: XOR<RadarMetricScalarRelationFilter, RadarMetricWhereInput>
+  }
+
+  export type RadarValueOrderByWithRelationInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+    post?: TrainerRadarPostOrderByWithRelationInput
+    metric?: RadarMetricOrderByWithRelationInput
+  }
+
+  export type RadarValueWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    postId_metricId?: RadarValuePostIdMetricIdCompoundUniqueInput
+    AND?: RadarValueWhereInput | RadarValueWhereInput[]
+    OR?: RadarValueWhereInput[]
+    NOT?: RadarValueWhereInput | RadarValueWhereInput[]
+    postId?: IntFilter<"RadarValue"> | number
+    metricId?: IntFilter<"RadarValue"> | number
+    value?: IntFilter<"RadarValue"> | number
+    post?: XOR<TrainerRadarPostScalarRelationFilter, TrainerRadarPostWhereInput>
+    metric?: XOR<RadarMetricScalarRelationFilter, RadarMetricWhereInput>
+  }, "id" | "postId_metricId">
+
+  export type RadarValueOrderByWithAggregationInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+    _count?: RadarValueCountOrderByAggregateInput
+    _avg?: RadarValueAvgOrderByAggregateInput
+    _max?: RadarValueMaxOrderByAggregateInput
+    _min?: RadarValueMinOrderByAggregateInput
+    _sum?: RadarValueSumOrderByAggregateInput
+  }
+
+  export type RadarValueScalarWhereWithAggregatesInput = {
+    AND?: RadarValueScalarWhereWithAggregatesInput | RadarValueScalarWhereWithAggregatesInput[]
+    OR?: RadarValueScalarWhereWithAggregatesInput[]
+    NOT?: RadarValueScalarWhereWithAggregatesInput | RadarValueScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"RadarValue"> | number
+    postId?: IntWithAggregatesFilter<"RadarValue"> | number
+    metricId?: IntWithAggregatesFilter<"RadarValue"> | number
+    value?: IntWithAggregatesFilter<"RadarValue"> | number
+  }
+
   export type PokemonCreateInput = {
     slug: string
     nameJa: string
@@ -10435,6 +18438,384 @@ export namespace Prisma {
     pokemonId?: IntFieldUpdateOperationsInput | number
     tagId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TeamCreateInput = {
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    trainers?: TrainerCreateNestedManyWithoutTeamInput
+    history?: TrainerTeamHistoryCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamUncheckedCreateInput = {
+    id?: number
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    trainers?: TrainerUncheckedCreateNestedManyWithoutTeamInput
+    history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainers?: TrainerUpdateManyWithoutTeamNestedInput
+    history?: TrainerTeamHistoryUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainers?: TrainerUncheckedUpdateManyWithoutTeamNestedInput
+    history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamCreateManyInput = {
+    id?: number
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TeamUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TeamUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerCreateInput = {
+    name: string
+    type?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    team?: TeamCreateNestedOneWithoutTrainersInput
+    history?: TrainerTeamHistoryCreateNestedManyWithoutTrainerInput
+    radarPosts?: TrainerRadarPostCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerUncheckedCreateInput = {
+    id?: number
+    name: string
+    type?: string
+    currentTeamId?: number | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTrainerInput
+    radarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    team?: TeamUpdateOneWithoutTrainersNestedInput
+    history?: TrainerTeamHistoryUpdateManyWithoutTrainerNestedInput
+    radarPosts?: TrainerRadarPostUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TrainerUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    currentTeamId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTrainerNestedInput
+    radarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TrainerCreateManyInput = {
+    id?: number
+    name: string
+    type?: string
+    currentTeamId?: number | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TrainerUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    currentTeamId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryCreateInput = {
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+    trainer: TrainerCreateNestedOneWithoutHistoryInput
+    team: TeamCreateNestedOneWithoutHistoryInput
+  }
+
+  export type TrainerTeamHistoryUncheckedCreateInput = {
+    id?: number
+    trainerId: number
+    teamId: number
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerTeamHistoryUpdateInput = {
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainer?: TrainerUpdateOneRequiredWithoutHistoryNestedInput
+    team?: TeamUpdateOneRequiredWithoutHistoryNestedInput
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    teamId?: IntFieldUpdateOperationsInput | number
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryCreateManyInput = {
+    id?: number
+    trainerId: number
+    teamId: number
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerTeamHistoryUpdateManyMutationInput = {
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    teamId?: IntFieldUpdateOperationsInput | number
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RadarMetricCreateInput = {
+    key: string
+    label: string
+    minValue?: number
+    maxValue?: number
+    sortOrder?: number
+    active?: boolean
+    values?: RadarValueCreateNestedManyWithoutMetricInput
+  }
+
+  export type RadarMetricUncheckedCreateInput = {
+    id?: number
+    key: string
+    label: string
+    minValue?: number
+    maxValue?: number
+    sortOrder?: number
+    active?: boolean
+    values?: RadarValueUncheckedCreateNestedManyWithoutMetricInput
+  }
+
+  export type RadarMetricUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    minValue?: IntFieldUpdateOperationsInput | number
+    maxValue?: IntFieldUpdateOperationsInput | number
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    values?: RadarValueUpdateManyWithoutMetricNestedInput
+  }
+
+  export type RadarMetricUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    minValue?: IntFieldUpdateOperationsInput | number
+    maxValue?: IntFieldUpdateOperationsInput | number
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+    values?: RadarValueUncheckedUpdateManyWithoutMetricNestedInput
+  }
+
+  export type RadarMetricCreateManyInput = {
+    id?: number
+    key: string
+    label: string
+    minValue?: number
+    maxValue?: number
+    sortOrder?: number
+    active?: boolean
+  }
+
+  export type RadarMetricUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    minValue?: IntFieldUpdateOperationsInput | number
+    maxValue?: IntFieldUpdateOperationsInput | number
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type RadarMetricUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    minValue?: IntFieldUpdateOperationsInput | number
+    maxValue?: IntFieldUpdateOperationsInput | number
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type TrainerRadarPostCreateInput = {
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+    trainer: TrainerCreateNestedOneWithoutRadarPostsInput
+    radarValues?: RadarValueCreateNestedManyWithoutPostInput
+  }
+
+  export type TrainerRadarPostUncheckedCreateInput = {
+    id?: number
+    trainerId: number
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+    radarValues?: RadarValueUncheckedCreateNestedManyWithoutPostInput
+  }
+
+  export type TrainerRadarPostUpdateInput = {
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainer?: TrainerUpdateOneRequiredWithoutRadarPostsNestedInput
+    radarValues?: RadarValueUpdateManyWithoutPostNestedInput
+  }
+
+  export type TrainerRadarPostUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    radarValues?: RadarValueUncheckedUpdateManyWithoutPostNestedInput
+  }
+
+  export type TrainerRadarPostCreateManyInput = {
+    id?: number
+    trainerId: number
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerRadarPostUpdateManyMutationInput = {
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerRadarPostUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RadarValueCreateInput = {
+    value: number
+    post: TrainerRadarPostCreateNestedOneWithoutRadarValuesInput
+    metric: RadarMetricCreateNestedOneWithoutValuesInput
+  }
+
+  export type RadarValueUncheckedCreateInput = {
+    id?: number
+    postId: number
+    metricId: number
+    value: number
+  }
+
+  export type RadarValueUpdateInput = {
+    value?: IntFieldUpdateOperationsInput | number
+    post?: TrainerRadarPostUpdateOneRequiredWithoutRadarValuesNestedInput
+    metric?: RadarMetricUpdateOneRequiredWithoutValuesNestedInput
+  }
+
+  export type RadarValueUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
+    metricId?: IntFieldUpdateOperationsInput | number
+    value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type RadarValueCreateManyInput = {
+    id?: number
+    postId: number
+    metricId: number
+    value: number
+  }
+
+  export type RadarValueUpdateManyMutationInput = {
+    value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type RadarValueUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
+    metricId?: IntFieldUpdateOperationsInput | number
+    value?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -10904,6 +19285,371 @@ export namespace Prisma {
     tagId?: SortOrder
   }
 
+  export type TrainerListRelationFilter = {
+    every?: TrainerWhereInput
+    some?: TrainerWhereInput
+    none?: TrainerWhereInput
+  }
+
+  export type TrainerTeamHistoryListRelationFilter = {
+    every?: TrainerTeamHistoryWhereInput
+    some?: TrainerTeamHistoryWhereInput
+    none?: TrainerTeamHistoryWhereInput
+  }
+
+  export type TrainerOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TrainerTeamHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TeamCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    shortName?: SortOrder
+    region?: SortOrder
+    logoUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TeamAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type TeamMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    shortName?: SortOrder
+    region?: SortOrder
+    logoUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TeamMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    shortName?: SortOrder
+    region?: SortOrder
+    logoUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TeamSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type TeamNullableScalarRelationFilter = {
+    is?: TeamWhereInput | null
+    isNot?: TeamWhereInput | null
+  }
+
+  export type TrainerRadarPostListRelationFilter = {
+    every?: TrainerRadarPostWhereInput
+    some?: TrainerRadarPostWhereInput
+    none?: TrainerRadarPostWhereInput
+  }
+
+  export type TrainerRadarPostOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TrainerCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    currentTeamId?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrainerAvgOrderByAggregateInput = {
+    id?: SortOrder
+    currentTeamId?: SortOrder
+  }
+
+  export type TrainerMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    currentTeamId?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrainerMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    type?: SortOrder
+    currentTeamId?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TrainerSumOrderByAggregateInput = {
+    id?: SortOrder
+    currentTeamId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type TrainerScalarRelationFilter = {
+    is?: TrainerWhereInput
+    isNot?: TrainerWhereInput
+  }
+
+  export type TeamScalarRelationFilter = {
+    is?: TeamWhereInput
+    isNot?: TeamWhereInput
+  }
+
+  export type TrainerTeamHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+    joinedAt?: SortOrder
+    leftAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TrainerTeamHistoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+  }
+
+  export type TrainerTeamHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+    joinedAt?: SortOrder
+    leftAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TrainerTeamHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+    joinedAt?: SortOrder
+    leftAt?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TrainerTeamHistorySumOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    teamId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type RadarValueListRelationFilter = {
+    every?: RadarValueWhereInput
+    some?: RadarValueWhereInput
+    none?: RadarValueWhereInput
+  }
+
+  export type RadarValueOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type RadarMetricCountOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+    active?: SortOrder
+  }
+
+  export type RadarMetricAvgOrderByAggregateInput = {
+    id?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type RadarMetricMaxOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+    active?: SortOrder
+  }
+
+  export type RadarMetricMinOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    label?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+    active?: SortOrder
+  }
+
+  export type RadarMetricSumOrderByAggregateInput = {
+    id?: SortOrder
+    minValue?: SortOrder
+    maxValue?: SortOrder
+    sortOrder?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type TrainerRadarPostCountOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    authorToken?: SortOrder
+    comment?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TrainerRadarPostAvgOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+  }
+
+  export type TrainerRadarPostMaxOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    authorToken?: SortOrder
+    comment?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TrainerRadarPostMinOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+    authorToken?: SortOrder
+    comment?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TrainerRadarPostSumOrderByAggregateInput = {
+    id?: SortOrder
+    trainerId?: SortOrder
+  }
+
+  export type TrainerRadarPostScalarRelationFilter = {
+    is?: TrainerRadarPostWhereInput
+    isNot?: TrainerRadarPostWhereInput
+  }
+
+  export type RadarMetricScalarRelationFilter = {
+    is?: RadarMetricWhereInput
+    isNot?: RadarMetricWhereInput
+  }
+
+  export type RadarValuePostIdMetricIdCompoundUniqueInput = {
+    postId: number
+    metricId: number
+  }
+
+  export type RadarValueCountOrderByAggregateInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+  }
+
+  export type RadarValueAvgOrderByAggregateInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+  }
+
+  export type RadarValueMaxOrderByAggregateInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+  }
+
+  export type RadarValueMinOrderByAggregateInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+  }
+
+  export type RadarValueSumOrderByAggregateInput = {
+    id?: SortOrder
+    postId?: SortOrder
+    metricId?: SortOrder
+    value?: SortOrder
+  }
+
   export type PokemonStatCreateNestedManyWithoutPokemonInput = {
     create?: XOR<PokemonStatCreateWithoutPokemonInput, PokemonStatUncheckedCreateWithoutPokemonInput> | PokemonStatCreateWithoutPokemonInput[] | PokemonStatUncheckedCreateWithoutPokemonInput[]
     connectOrCreate?: PokemonStatCreateOrConnectWithoutPokemonInput | PokemonStatCreateOrConnectWithoutPokemonInput[]
@@ -11324,6 +20070,360 @@ export namespace Prisma {
     update?: XOR<XOR<TagUpdateToOneWithWhereWithoutPokemonTagsInput, TagUpdateWithoutPokemonTagsInput>, TagUncheckedUpdateWithoutPokemonTagsInput>
   }
 
+  export type TrainerCreateNestedManyWithoutTeamInput = {
+    create?: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput> | TrainerCreateWithoutTeamInput[] | TrainerUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerCreateOrConnectWithoutTeamInput | TrainerCreateOrConnectWithoutTeamInput[]
+    createMany?: TrainerCreateManyTeamInputEnvelope
+    connect?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+  }
+
+  export type TrainerTeamHistoryCreateNestedManyWithoutTeamInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTeamInput, TrainerTeamHistoryUncheckedCreateWithoutTeamInput> | TrainerTeamHistoryCreateWithoutTeamInput[] | TrainerTeamHistoryUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTeamInput | TrainerTeamHistoryCreateOrConnectWithoutTeamInput[]
+    createMany?: TrainerTeamHistoryCreateManyTeamInputEnvelope
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+  }
+
+  export type TrainerUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput> | TrainerCreateWithoutTeamInput[] | TrainerUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerCreateOrConnectWithoutTeamInput | TrainerCreateOrConnectWithoutTeamInput[]
+    createMany?: TrainerCreateManyTeamInputEnvelope
+    connect?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+  }
+
+  export type TrainerTeamHistoryUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTeamInput, TrainerTeamHistoryUncheckedCreateWithoutTeamInput> | TrainerTeamHistoryCreateWithoutTeamInput[] | TrainerTeamHistoryUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTeamInput | TrainerTeamHistoryCreateOrConnectWithoutTeamInput[]
+    createMany?: TrainerTeamHistoryCreateManyTeamInputEnvelope
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+  }
+
+  export type TrainerUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput> | TrainerCreateWithoutTeamInput[] | TrainerUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerCreateOrConnectWithoutTeamInput | TrainerCreateOrConnectWithoutTeamInput[]
+    upsert?: TrainerUpsertWithWhereUniqueWithoutTeamInput | TrainerUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: TrainerCreateManyTeamInputEnvelope
+    set?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    disconnect?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    delete?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    connect?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    update?: TrainerUpdateWithWhereUniqueWithoutTeamInput | TrainerUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: TrainerUpdateManyWithWhereWithoutTeamInput | TrainerUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: TrainerScalarWhereInput | TrainerScalarWhereInput[]
+  }
+
+  export type TrainerTeamHistoryUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTeamInput, TrainerTeamHistoryUncheckedCreateWithoutTeamInput> | TrainerTeamHistoryCreateWithoutTeamInput[] | TrainerTeamHistoryUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTeamInput | TrainerTeamHistoryCreateOrConnectWithoutTeamInput[]
+    upsert?: TrainerTeamHistoryUpsertWithWhereUniqueWithoutTeamInput | TrainerTeamHistoryUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: TrainerTeamHistoryCreateManyTeamInputEnvelope
+    set?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    disconnect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    delete?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    update?: TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput | TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput | TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+  }
+
+  export type TrainerUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput> | TrainerCreateWithoutTeamInput[] | TrainerUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerCreateOrConnectWithoutTeamInput | TrainerCreateOrConnectWithoutTeamInput[]
+    upsert?: TrainerUpsertWithWhereUniqueWithoutTeamInput | TrainerUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: TrainerCreateManyTeamInputEnvelope
+    set?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    disconnect?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    delete?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    connect?: TrainerWhereUniqueInput | TrainerWhereUniqueInput[]
+    update?: TrainerUpdateWithWhereUniqueWithoutTeamInput | TrainerUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: TrainerUpdateManyWithWhereWithoutTeamInput | TrainerUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: TrainerScalarWhereInput | TrainerScalarWhereInput[]
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTeamInput, TrainerTeamHistoryUncheckedCreateWithoutTeamInput> | TrainerTeamHistoryCreateWithoutTeamInput[] | TrainerTeamHistoryUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTeamInput | TrainerTeamHistoryCreateOrConnectWithoutTeamInput[]
+    upsert?: TrainerTeamHistoryUpsertWithWhereUniqueWithoutTeamInput | TrainerTeamHistoryUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: TrainerTeamHistoryCreateManyTeamInputEnvelope
+    set?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    disconnect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    delete?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    update?: TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput | TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput | TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+  }
+
+  export type TeamCreateNestedOneWithoutTrainersInput = {
+    create?: XOR<TeamCreateWithoutTrainersInput, TeamUncheckedCreateWithoutTrainersInput>
+    connectOrCreate?: TeamCreateOrConnectWithoutTrainersInput
+    connect?: TeamWhereUniqueInput
+  }
+
+  export type TrainerTeamHistoryCreateNestedManyWithoutTrainerInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTrainerInput, TrainerTeamHistoryUncheckedCreateWithoutTrainerInput> | TrainerTeamHistoryCreateWithoutTrainerInput[] | TrainerTeamHistoryUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTrainerInput | TrainerTeamHistoryCreateOrConnectWithoutTrainerInput[]
+    createMany?: TrainerTeamHistoryCreateManyTrainerInputEnvelope
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+  }
+
+  export type TrainerRadarPostCreateNestedManyWithoutTrainerInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutTrainerInput, TrainerRadarPostUncheckedCreateWithoutTrainerInput> | TrainerRadarPostCreateWithoutTrainerInput[] | TrainerRadarPostUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutTrainerInput | TrainerRadarPostCreateOrConnectWithoutTrainerInput[]
+    createMany?: TrainerRadarPostCreateManyTrainerInputEnvelope
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+  }
+
+  export type TrainerTeamHistoryUncheckedCreateNestedManyWithoutTrainerInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTrainerInput, TrainerTeamHistoryUncheckedCreateWithoutTrainerInput> | TrainerTeamHistoryCreateWithoutTrainerInput[] | TrainerTeamHistoryUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTrainerInput | TrainerTeamHistoryCreateOrConnectWithoutTrainerInput[]
+    createMany?: TrainerTeamHistoryCreateManyTrainerInputEnvelope
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+  }
+
+  export type TrainerRadarPostUncheckedCreateNestedManyWithoutTrainerInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutTrainerInput, TrainerRadarPostUncheckedCreateWithoutTrainerInput> | TrainerRadarPostCreateWithoutTrainerInput[] | TrainerRadarPostUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutTrainerInput | TrainerRadarPostCreateOrConnectWithoutTrainerInput[]
+    createMany?: TrainerRadarPostCreateManyTrainerInputEnvelope
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+  }
+
+  export type TeamUpdateOneWithoutTrainersNestedInput = {
+    create?: XOR<TeamCreateWithoutTrainersInput, TeamUncheckedCreateWithoutTrainersInput>
+    connectOrCreate?: TeamCreateOrConnectWithoutTrainersInput
+    upsert?: TeamUpsertWithoutTrainersInput
+    disconnect?: TeamWhereInput | boolean
+    delete?: TeamWhereInput | boolean
+    connect?: TeamWhereUniqueInput
+    update?: XOR<XOR<TeamUpdateToOneWithWhereWithoutTrainersInput, TeamUpdateWithoutTrainersInput>, TeamUncheckedUpdateWithoutTrainersInput>
+  }
+
+  export type TrainerTeamHistoryUpdateManyWithoutTrainerNestedInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTrainerInput, TrainerTeamHistoryUncheckedCreateWithoutTrainerInput> | TrainerTeamHistoryCreateWithoutTrainerInput[] | TrainerTeamHistoryUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTrainerInput | TrainerTeamHistoryCreateOrConnectWithoutTrainerInput[]
+    upsert?: TrainerTeamHistoryUpsertWithWhereUniqueWithoutTrainerInput | TrainerTeamHistoryUpsertWithWhereUniqueWithoutTrainerInput[]
+    createMany?: TrainerTeamHistoryCreateManyTrainerInputEnvelope
+    set?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    disconnect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    delete?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    update?: TrainerTeamHistoryUpdateWithWhereUniqueWithoutTrainerInput | TrainerTeamHistoryUpdateWithWhereUniqueWithoutTrainerInput[]
+    updateMany?: TrainerTeamHistoryUpdateManyWithWhereWithoutTrainerInput | TrainerTeamHistoryUpdateManyWithWhereWithoutTrainerInput[]
+    deleteMany?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+  }
+
+  export type TrainerRadarPostUpdateManyWithoutTrainerNestedInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutTrainerInput, TrainerRadarPostUncheckedCreateWithoutTrainerInput> | TrainerRadarPostCreateWithoutTrainerInput[] | TrainerRadarPostUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutTrainerInput | TrainerRadarPostCreateOrConnectWithoutTrainerInput[]
+    upsert?: TrainerRadarPostUpsertWithWhereUniqueWithoutTrainerInput | TrainerRadarPostUpsertWithWhereUniqueWithoutTrainerInput[]
+    createMany?: TrainerRadarPostCreateManyTrainerInputEnvelope
+    set?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    disconnect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    delete?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    update?: TrainerRadarPostUpdateWithWhereUniqueWithoutTrainerInput | TrainerRadarPostUpdateWithWhereUniqueWithoutTrainerInput[]
+    updateMany?: TrainerRadarPostUpdateManyWithWhereWithoutTrainerInput | TrainerRadarPostUpdateManyWithWhereWithoutTrainerInput[]
+    deleteMany?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateManyWithoutTrainerNestedInput = {
+    create?: XOR<TrainerTeamHistoryCreateWithoutTrainerInput, TrainerTeamHistoryUncheckedCreateWithoutTrainerInput> | TrainerTeamHistoryCreateWithoutTrainerInput[] | TrainerTeamHistoryUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTrainerInput | TrainerTeamHistoryCreateOrConnectWithoutTrainerInput[]
+    upsert?: TrainerTeamHistoryUpsertWithWhereUniqueWithoutTrainerInput | TrainerTeamHistoryUpsertWithWhereUniqueWithoutTrainerInput[]
+    createMany?: TrainerTeamHistoryCreateManyTrainerInputEnvelope
+    set?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    disconnect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    delete?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+    update?: TrainerTeamHistoryUpdateWithWhereUniqueWithoutTrainerInput | TrainerTeamHistoryUpdateWithWhereUniqueWithoutTrainerInput[]
+    updateMany?: TrainerTeamHistoryUpdateManyWithWhereWithoutTrainerInput | TrainerTeamHistoryUpdateManyWithWhereWithoutTrainerInput[]
+    deleteMany?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+  }
+
+  export type TrainerRadarPostUncheckedUpdateManyWithoutTrainerNestedInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutTrainerInput, TrainerRadarPostUncheckedCreateWithoutTrainerInput> | TrainerRadarPostCreateWithoutTrainerInput[] | TrainerRadarPostUncheckedCreateWithoutTrainerInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutTrainerInput | TrainerRadarPostCreateOrConnectWithoutTrainerInput[]
+    upsert?: TrainerRadarPostUpsertWithWhereUniqueWithoutTrainerInput | TrainerRadarPostUpsertWithWhereUniqueWithoutTrainerInput[]
+    createMany?: TrainerRadarPostCreateManyTrainerInputEnvelope
+    set?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    disconnect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    delete?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    update?: TrainerRadarPostUpdateWithWhereUniqueWithoutTrainerInput | TrainerRadarPostUpdateWithWhereUniqueWithoutTrainerInput[]
+    updateMany?: TrainerRadarPostUpdateManyWithWhereWithoutTrainerInput | TrainerRadarPostUpdateManyWithWhereWithoutTrainerInput[]
+    deleteMany?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
+  }
+
+  export type TrainerCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<TrainerCreateWithoutHistoryInput, TrainerUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: TrainerCreateOrConnectWithoutHistoryInput
+    connect?: TrainerWhereUniqueInput
+  }
+
+  export type TeamCreateNestedOneWithoutHistoryInput = {
+    create?: XOR<TeamCreateWithoutHistoryInput, TeamUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: TeamCreateOrConnectWithoutHistoryInput
+    connect?: TeamWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type TrainerUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<TrainerCreateWithoutHistoryInput, TrainerUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: TrainerCreateOrConnectWithoutHistoryInput
+    upsert?: TrainerUpsertWithoutHistoryInput
+    connect?: TrainerWhereUniqueInput
+    update?: XOR<XOR<TrainerUpdateToOneWithWhereWithoutHistoryInput, TrainerUpdateWithoutHistoryInput>, TrainerUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type TeamUpdateOneRequiredWithoutHistoryNestedInput = {
+    create?: XOR<TeamCreateWithoutHistoryInput, TeamUncheckedCreateWithoutHistoryInput>
+    connectOrCreate?: TeamCreateOrConnectWithoutHistoryInput
+    upsert?: TeamUpsertWithoutHistoryInput
+    connect?: TeamWhereUniqueInput
+    update?: XOR<XOR<TeamUpdateToOneWithWhereWithoutHistoryInput, TeamUpdateWithoutHistoryInput>, TeamUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type RadarValueCreateNestedManyWithoutMetricInput = {
+    create?: XOR<RadarValueCreateWithoutMetricInput, RadarValueUncheckedCreateWithoutMetricInput> | RadarValueCreateWithoutMetricInput[] | RadarValueUncheckedCreateWithoutMetricInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutMetricInput | RadarValueCreateOrConnectWithoutMetricInput[]
+    createMany?: RadarValueCreateManyMetricInputEnvelope
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+  }
+
+  export type RadarValueUncheckedCreateNestedManyWithoutMetricInput = {
+    create?: XOR<RadarValueCreateWithoutMetricInput, RadarValueUncheckedCreateWithoutMetricInput> | RadarValueCreateWithoutMetricInput[] | RadarValueUncheckedCreateWithoutMetricInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutMetricInput | RadarValueCreateOrConnectWithoutMetricInput[]
+    createMany?: RadarValueCreateManyMetricInputEnvelope
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type RadarValueUpdateManyWithoutMetricNestedInput = {
+    create?: XOR<RadarValueCreateWithoutMetricInput, RadarValueUncheckedCreateWithoutMetricInput> | RadarValueCreateWithoutMetricInput[] | RadarValueUncheckedCreateWithoutMetricInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutMetricInput | RadarValueCreateOrConnectWithoutMetricInput[]
+    upsert?: RadarValueUpsertWithWhereUniqueWithoutMetricInput | RadarValueUpsertWithWhereUniqueWithoutMetricInput[]
+    createMany?: RadarValueCreateManyMetricInputEnvelope
+    set?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    disconnect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    delete?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    update?: RadarValueUpdateWithWhereUniqueWithoutMetricInput | RadarValueUpdateWithWhereUniqueWithoutMetricInput[]
+    updateMany?: RadarValueUpdateManyWithWhereWithoutMetricInput | RadarValueUpdateManyWithWhereWithoutMetricInput[]
+    deleteMany?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+  }
+
+  export type RadarValueUncheckedUpdateManyWithoutMetricNestedInput = {
+    create?: XOR<RadarValueCreateWithoutMetricInput, RadarValueUncheckedCreateWithoutMetricInput> | RadarValueCreateWithoutMetricInput[] | RadarValueUncheckedCreateWithoutMetricInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutMetricInput | RadarValueCreateOrConnectWithoutMetricInput[]
+    upsert?: RadarValueUpsertWithWhereUniqueWithoutMetricInput | RadarValueUpsertWithWhereUniqueWithoutMetricInput[]
+    createMany?: RadarValueCreateManyMetricInputEnvelope
+    set?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    disconnect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    delete?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    update?: RadarValueUpdateWithWhereUniqueWithoutMetricInput | RadarValueUpdateWithWhereUniqueWithoutMetricInput[]
+    updateMany?: RadarValueUpdateManyWithWhereWithoutMetricInput | RadarValueUpdateManyWithWhereWithoutMetricInput[]
+    deleteMany?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+  }
+
+  export type TrainerCreateNestedOneWithoutRadarPostsInput = {
+    create?: XOR<TrainerCreateWithoutRadarPostsInput, TrainerUncheckedCreateWithoutRadarPostsInput>
+    connectOrCreate?: TrainerCreateOrConnectWithoutRadarPostsInput
+    connect?: TrainerWhereUniqueInput
+  }
+
+  export type RadarValueCreateNestedManyWithoutPostInput = {
+    create?: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput> | RadarValueCreateWithoutPostInput[] | RadarValueUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutPostInput | RadarValueCreateOrConnectWithoutPostInput[]
+    createMany?: RadarValueCreateManyPostInputEnvelope
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+  }
+
+  export type RadarValueUncheckedCreateNestedManyWithoutPostInput = {
+    create?: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput> | RadarValueCreateWithoutPostInput[] | RadarValueUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutPostInput | RadarValueCreateOrConnectWithoutPostInput[]
+    createMany?: RadarValueCreateManyPostInputEnvelope
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+  }
+
+  export type TrainerUpdateOneRequiredWithoutRadarPostsNestedInput = {
+    create?: XOR<TrainerCreateWithoutRadarPostsInput, TrainerUncheckedCreateWithoutRadarPostsInput>
+    connectOrCreate?: TrainerCreateOrConnectWithoutRadarPostsInput
+    upsert?: TrainerUpsertWithoutRadarPostsInput
+    connect?: TrainerWhereUniqueInput
+    update?: XOR<XOR<TrainerUpdateToOneWithWhereWithoutRadarPostsInput, TrainerUpdateWithoutRadarPostsInput>, TrainerUncheckedUpdateWithoutRadarPostsInput>
+  }
+
+  export type RadarValueUpdateManyWithoutPostNestedInput = {
+    create?: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput> | RadarValueCreateWithoutPostInput[] | RadarValueUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutPostInput | RadarValueCreateOrConnectWithoutPostInput[]
+    upsert?: RadarValueUpsertWithWhereUniqueWithoutPostInput | RadarValueUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: RadarValueCreateManyPostInputEnvelope
+    set?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    disconnect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    delete?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    update?: RadarValueUpdateWithWhereUniqueWithoutPostInput | RadarValueUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: RadarValueUpdateManyWithWhereWithoutPostInput | RadarValueUpdateManyWithWhereWithoutPostInput[]
+    deleteMany?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+  }
+
+  export type RadarValueUncheckedUpdateManyWithoutPostNestedInput = {
+    create?: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput> | RadarValueCreateWithoutPostInput[] | RadarValueUncheckedCreateWithoutPostInput[]
+    connectOrCreate?: RadarValueCreateOrConnectWithoutPostInput | RadarValueCreateOrConnectWithoutPostInput[]
+    upsert?: RadarValueUpsertWithWhereUniqueWithoutPostInput | RadarValueUpsertWithWhereUniqueWithoutPostInput[]
+    createMany?: RadarValueCreateManyPostInputEnvelope
+    set?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    disconnect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    delete?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
+    update?: RadarValueUpdateWithWhereUniqueWithoutPostInput | RadarValueUpdateWithWhereUniqueWithoutPostInput[]
+    updateMany?: RadarValueUpdateManyWithWhereWithoutPostInput | RadarValueUpdateManyWithWhereWithoutPostInput[]
+    deleteMany?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+  }
+
+  export type TrainerRadarPostCreateNestedOneWithoutRadarValuesInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutRadarValuesInput, TrainerRadarPostUncheckedCreateWithoutRadarValuesInput>
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutRadarValuesInput
+    connect?: TrainerRadarPostWhereUniqueInput
+  }
+
+  export type RadarMetricCreateNestedOneWithoutValuesInput = {
+    create?: XOR<RadarMetricCreateWithoutValuesInput, RadarMetricUncheckedCreateWithoutValuesInput>
+    connectOrCreate?: RadarMetricCreateOrConnectWithoutValuesInput
+    connect?: RadarMetricWhereUniqueInput
+  }
+
+  export type TrainerRadarPostUpdateOneRequiredWithoutRadarValuesNestedInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutRadarValuesInput, TrainerRadarPostUncheckedCreateWithoutRadarValuesInput>
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutRadarValuesInput
+    upsert?: TrainerRadarPostUpsertWithoutRadarValuesInput
+    connect?: TrainerRadarPostWhereUniqueInput
+    update?: XOR<XOR<TrainerRadarPostUpdateToOneWithWhereWithoutRadarValuesInput, TrainerRadarPostUpdateWithoutRadarValuesInput>, TrainerRadarPostUncheckedUpdateWithoutRadarValuesInput>
+  }
+
+  export type RadarMetricUpdateOneRequiredWithoutValuesNestedInput = {
+    create?: XOR<RadarMetricCreateWithoutValuesInput, RadarMetricUncheckedCreateWithoutValuesInput>
+    connectOrCreate?: RadarMetricCreateOrConnectWithoutValuesInput
+    upsert?: RadarMetricUpsertWithoutValuesInput
+    connect?: RadarMetricWhereUniqueInput
+    update?: XOR<XOR<RadarMetricUpdateToOneWithWhereWithoutValuesInput, RadarMetricUpdateWithoutValuesInput>, RadarMetricUncheckedUpdateWithoutValuesInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -11474,6 +20574,71 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type PokemonStatCreateWithoutPokemonInput = {
@@ -12236,6 +21401,628 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type TrainerCreateWithoutTeamInput = {
+    name: string
+    type?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: TrainerTeamHistoryCreateNestedManyWithoutTrainerInput
+    radarPosts?: TrainerRadarPostCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerUncheckedCreateWithoutTeamInput = {
+    id?: number
+    name: string
+    type?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTrainerInput
+    radarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerCreateOrConnectWithoutTeamInput = {
+    where: TrainerWhereUniqueInput
+    create: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput>
+  }
+
+  export type TrainerCreateManyTeamInputEnvelope = {
+    data: TrainerCreateManyTeamInput | TrainerCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TrainerTeamHistoryCreateWithoutTeamInput = {
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+    trainer: TrainerCreateNestedOneWithoutHistoryInput
+  }
+
+  export type TrainerTeamHistoryUncheckedCreateWithoutTeamInput = {
+    id?: number
+    trainerId: number
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerTeamHistoryCreateOrConnectWithoutTeamInput = {
+    where: TrainerTeamHistoryWhereUniqueInput
+    create: XOR<TrainerTeamHistoryCreateWithoutTeamInput, TrainerTeamHistoryUncheckedCreateWithoutTeamInput>
+  }
+
+  export type TrainerTeamHistoryCreateManyTeamInputEnvelope = {
+    data: TrainerTeamHistoryCreateManyTeamInput | TrainerTeamHistoryCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TrainerUpsertWithWhereUniqueWithoutTeamInput = {
+    where: TrainerWhereUniqueInput
+    update: XOR<TrainerUpdateWithoutTeamInput, TrainerUncheckedUpdateWithoutTeamInput>
+    create: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput>
+  }
+
+  export type TrainerUpdateWithWhereUniqueWithoutTeamInput = {
+    where: TrainerWhereUniqueInput
+    data: XOR<TrainerUpdateWithoutTeamInput, TrainerUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type TrainerUpdateManyWithWhereWithoutTeamInput = {
+    where: TrainerScalarWhereInput
+    data: XOR<TrainerUpdateManyMutationInput, TrainerUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type TrainerScalarWhereInput = {
+    AND?: TrainerScalarWhereInput | TrainerScalarWhereInput[]
+    OR?: TrainerScalarWhereInput[]
+    NOT?: TrainerScalarWhereInput | TrainerScalarWhereInput[]
+    id?: IntFilter<"Trainer"> | number
+    name?: StringFilter<"Trainer"> | string
+    type?: StringFilter<"Trainer"> | string
+    currentTeamId?: IntNullableFilter<"Trainer"> | number | null
+    status?: StringFilter<"Trainer"> | string
+    createdAt?: DateTimeFilter<"Trainer"> | Date | string
+    updatedAt?: DateTimeFilter<"Trainer"> | Date | string
+  }
+
+  export type TrainerTeamHistoryUpsertWithWhereUniqueWithoutTeamInput = {
+    where: TrainerTeamHistoryWhereUniqueInput
+    update: XOR<TrainerTeamHistoryUpdateWithoutTeamInput, TrainerTeamHistoryUncheckedUpdateWithoutTeamInput>
+    create: XOR<TrainerTeamHistoryCreateWithoutTeamInput, TrainerTeamHistoryUncheckedCreateWithoutTeamInput>
+  }
+
+  export type TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput = {
+    where: TrainerTeamHistoryWhereUniqueInput
+    data: XOR<TrainerTeamHistoryUpdateWithoutTeamInput, TrainerTeamHistoryUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput = {
+    where: TrainerTeamHistoryScalarWhereInput
+    data: XOR<TrainerTeamHistoryUpdateManyMutationInput, TrainerTeamHistoryUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type TrainerTeamHistoryScalarWhereInput = {
+    AND?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+    OR?: TrainerTeamHistoryScalarWhereInput[]
+    NOT?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+    id?: IntFilter<"TrainerTeamHistory"> | number
+    trainerId?: IntFilter<"TrainerTeamHistory"> | number
+    teamId?: IntFilter<"TrainerTeamHistory"> | number
+    joinedAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
+    leftAt?: DateTimeNullableFilter<"TrainerTeamHistory"> | Date | string | null
+    createdAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
+  }
+
+  export type TeamCreateWithoutTrainersInput = {
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: TrainerTeamHistoryCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamUncheckedCreateWithoutTrainersInput = {
+    id?: number
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamCreateOrConnectWithoutTrainersInput = {
+    where: TeamWhereUniqueInput
+    create: XOR<TeamCreateWithoutTrainersInput, TeamUncheckedCreateWithoutTrainersInput>
+  }
+
+  export type TrainerTeamHistoryCreateWithoutTrainerInput = {
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+    team: TeamCreateNestedOneWithoutHistoryInput
+  }
+
+  export type TrainerTeamHistoryUncheckedCreateWithoutTrainerInput = {
+    id?: number
+    teamId: number
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerTeamHistoryCreateOrConnectWithoutTrainerInput = {
+    where: TrainerTeamHistoryWhereUniqueInput
+    create: XOR<TrainerTeamHistoryCreateWithoutTrainerInput, TrainerTeamHistoryUncheckedCreateWithoutTrainerInput>
+  }
+
+  export type TrainerTeamHistoryCreateManyTrainerInputEnvelope = {
+    data: TrainerTeamHistoryCreateManyTrainerInput | TrainerTeamHistoryCreateManyTrainerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TrainerRadarPostCreateWithoutTrainerInput = {
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+    radarValues?: RadarValueCreateNestedManyWithoutPostInput
+  }
+
+  export type TrainerRadarPostUncheckedCreateWithoutTrainerInput = {
+    id?: number
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+    radarValues?: RadarValueUncheckedCreateNestedManyWithoutPostInput
+  }
+
+  export type TrainerRadarPostCreateOrConnectWithoutTrainerInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    create: XOR<TrainerRadarPostCreateWithoutTrainerInput, TrainerRadarPostUncheckedCreateWithoutTrainerInput>
+  }
+
+  export type TrainerRadarPostCreateManyTrainerInputEnvelope = {
+    data: TrainerRadarPostCreateManyTrainerInput | TrainerRadarPostCreateManyTrainerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TeamUpsertWithoutTrainersInput = {
+    update: XOR<TeamUpdateWithoutTrainersInput, TeamUncheckedUpdateWithoutTrainersInput>
+    create: XOR<TeamCreateWithoutTrainersInput, TeamUncheckedCreateWithoutTrainersInput>
+    where?: TeamWhereInput
+  }
+
+  export type TeamUpdateToOneWithWhereWithoutTrainersInput = {
+    where?: TeamWhereInput
+    data: XOR<TeamUpdateWithoutTrainersInput, TeamUncheckedUpdateWithoutTrainersInput>
+  }
+
+  export type TeamUpdateWithoutTrainersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: TrainerTeamHistoryUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamUncheckedUpdateWithoutTrainersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TrainerTeamHistoryUpsertWithWhereUniqueWithoutTrainerInput = {
+    where: TrainerTeamHistoryWhereUniqueInput
+    update: XOR<TrainerTeamHistoryUpdateWithoutTrainerInput, TrainerTeamHistoryUncheckedUpdateWithoutTrainerInput>
+    create: XOR<TrainerTeamHistoryCreateWithoutTrainerInput, TrainerTeamHistoryUncheckedCreateWithoutTrainerInput>
+  }
+
+  export type TrainerTeamHistoryUpdateWithWhereUniqueWithoutTrainerInput = {
+    where: TrainerTeamHistoryWhereUniqueInput
+    data: XOR<TrainerTeamHistoryUpdateWithoutTrainerInput, TrainerTeamHistoryUncheckedUpdateWithoutTrainerInput>
+  }
+
+  export type TrainerTeamHistoryUpdateManyWithWhereWithoutTrainerInput = {
+    where: TrainerTeamHistoryScalarWhereInput
+    data: XOR<TrainerTeamHistoryUpdateManyMutationInput, TrainerTeamHistoryUncheckedUpdateManyWithoutTrainerInput>
+  }
+
+  export type TrainerRadarPostUpsertWithWhereUniqueWithoutTrainerInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    update: XOR<TrainerRadarPostUpdateWithoutTrainerInput, TrainerRadarPostUncheckedUpdateWithoutTrainerInput>
+    create: XOR<TrainerRadarPostCreateWithoutTrainerInput, TrainerRadarPostUncheckedCreateWithoutTrainerInput>
+  }
+
+  export type TrainerRadarPostUpdateWithWhereUniqueWithoutTrainerInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    data: XOR<TrainerRadarPostUpdateWithoutTrainerInput, TrainerRadarPostUncheckedUpdateWithoutTrainerInput>
+  }
+
+  export type TrainerRadarPostUpdateManyWithWhereWithoutTrainerInput = {
+    where: TrainerRadarPostScalarWhereInput
+    data: XOR<TrainerRadarPostUpdateManyMutationInput, TrainerRadarPostUncheckedUpdateManyWithoutTrainerInput>
+  }
+
+  export type TrainerRadarPostScalarWhereInput = {
+    AND?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
+    OR?: TrainerRadarPostScalarWhereInput[]
+    NOT?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
+    id?: IntFilter<"TrainerRadarPost"> | number
+    trainerId?: IntFilter<"TrainerRadarPost"> | number
+    authorToken?: StringFilter<"TrainerRadarPost"> | string
+    comment?: StringNullableFilter<"TrainerRadarPost"> | string | null
+    createdAt?: DateTimeFilter<"TrainerRadarPost"> | Date | string
+  }
+
+  export type TrainerCreateWithoutHistoryInput = {
+    name: string
+    type?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    team?: TeamCreateNestedOneWithoutTrainersInput
+    radarPosts?: TrainerRadarPostCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerUncheckedCreateWithoutHistoryInput = {
+    id?: number
+    name: string
+    type?: string
+    currentTeamId?: number | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    radarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerCreateOrConnectWithoutHistoryInput = {
+    where: TrainerWhereUniqueInput
+    create: XOR<TrainerCreateWithoutHistoryInput, TrainerUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type TeamCreateWithoutHistoryInput = {
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    trainers?: TrainerCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamUncheckedCreateWithoutHistoryInput = {
+    id?: number
+    name: string
+    shortName?: string | null
+    region?: string | null
+    logoUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    trainers?: TrainerUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamCreateOrConnectWithoutHistoryInput = {
+    where: TeamWhereUniqueInput
+    create: XOR<TeamCreateWithoutHistoryInput, TeamUncheckedCreateWithoutHistoryInput>
+  }
+
+  export type TrainerUpsertWithoutHistoryInput = {
+    update: XOR<TrainerUpdateWithoutHistoryInput, TrainerUncheckedUpdateWithoutHistoryInput>
+    create: XOR<TrainerCreateWithoutHistoryInput, TrainerUncheckedCreateWithoutHistoryInput>
+    where?: TrainerWhereInput
+  }
+
+  export type TrainerUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: TrainerWhereInput
+    data: XOR<TrainerUpdateWithoutHistoryInput, TrainerUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type TrainerUpdateWithoutHistoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    team?: TeamUpdateOneWithoutTrainersNestedInput
+    radarPosts?: TrainerRadarPostUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TrainerUncheckedUpdateWithoutHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    currentTeamId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    radarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TeamUpsertWithoutHistoryInput = {
+    update: XOR<TeamUpdateWithoutHistoryInput, TeamUncheckedUpdateWithoutHistoryInput>
+    create: XOR<TeamCreateWithoutHistoryInput, TeamUncheckedCreateWithoutHistoryInput>
+    where?: TeamWhereInput
+  }
+
+  export type TeamUpdateToOneWithWhereWithoutHistoryInput = {
+    where?: TeamWhereInput
+    data: XOR<TeamUpdateWithoutHistoryInput, TeamUncheckedUpdateWithoutHistoryInput>
+  }
+
+  export type TeamUpdateWithoutHistoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainers?: TrainerUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamUncheckedUpdateWithoutHistoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainers?: TrainerUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type RadarValueCreateWithoutMetricInput = {
+    value: number
+    post: TrainerRadarPostCreateNestedOneWithoutRadarValuesInput
+  }
+
+  export type RadarValueUncheckedCreateWithoutMetricInput = {
+    id?: number
+    postId: number
+    value: number
+  }
+
+  export type RadarValueCreateOrConnectWithoutMetricInput = {
+    where: RadarValueWhereUniqueInput
+    create: XOR<RadarValueCreateWithoutMetricInput, RadarValueUncheckedCreateWithoutMetricInput>
+  }
+
+  export type RadarValueCreateManyMetricInputEnvelope = {
+    data: RadarValueCreateManyMetricInput | RadarValueCreateManyMetricInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RadarValueUpsertWithWhereUniqueWithoutMetricInput = {
+    where: RadarValueWhereUniqueInput
+    update: XOR<RadarValueUpdateWithoutMetricInput, RadarValueUncheckedUpdateWithoutMetricInput>
+    create: XOR<RadarValueCreateWithoutMetricInput, RadarValueUncheckedCreateWithoutMetricInput>
+  }
+
+  export type RadarValueUpdateWithWhereUniqueWithoutMetricInput = {
+    where: RadarValueWhereUniqueInput
+    data: XOR<RadarValueUpdateWithoutMetricInput, RadarValueUncheckedUpdateWithoutMetricInput>
+  }
+
+  export type RadarValueUpdateManyWithWhereWithoutMetricInput = {
+    where: RadarValueScalarWhereInput
+    data: XOR<RadarValueUpdateManyMutationInput, RadarValueUncheckedUpdateManyWithoutMetricInput>
+  }
+
+  export type RadarValueScalarWhereInput = {
+    AND?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+    OR?: RadarValueScalarWhereInput[]
+    NOT?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+    id?: IntFilter<"RadarValue"> | number
+    postId?: IntFilter<"RadarValue"> | number
+    metricId?: IntFilter<"RadarValue"> | number
+    value?: IntFilter<"RadarValue"> | number
+  }
+
+  export type TrainerCreateWithoutRadarPostsInput = {
+    name: string
+    type?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    team?: TeamCreateNestedOneWithoutTrainersInput
+    history?: TrainerTeamHistoryCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerUncheckedCreateWithoutRadarPostsInput = {
+    id?: number
+    name: string
+    type?: string
+    currentTeamId?: number | null
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTrainerInput
+  }
+
+  export type TrainerCreateOrConnectWithoutRadarPostsInput = {
+    where: TrainerWhereUniqueInput
+    create: XOR<TrainerCreateWithoutRadarPostsInput, TrainerUncheckedCreateWithoutRadarPostsInput>
+  }
+
+  export type RadarValueCreateWithoutPostInput = {
+    value: number
+    metric: RadarMetricCreateNestedOneWithoutValuesInput
+  }
+
+  export type RadarValueUncheckedCreateWithoutPostInput = {
+    id?: number
+    metricId: number
+    value: number
+  }
+
+  export type RadarValueCreateOrConnectWithoutPostInput = {
+    where: RadarValueWhereUniqueInput
+    create: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput>
+  }
+
+  export type RadarValueCreateManyPostInputEnvelope = {
+    data: RadarValueCreateManyPostInput | RadarValueCreateManyPostInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TrainerUpsertWithoutRadarPostsInput = {
+    update: XOR<TrainerUpdateWithoutRadarPostsInput, TrainerUncheckedUpdateWithoutRadarPostsInput>
+    create: XOR<TrainerCreateWithoutRadarPostsInput, TrainerUncheckedCreateWithoutRadarPostsInput>
+    where?: TrainerWhereInput
+  }
+
+  export type TrainerUpdateToOneWithWhereWithoutRadarPostsInput = {
+    where?: TrainerWhereInput
+    data: XOR<TrainerUpdateWithoutRadarPostsInput, TrainerUncheckedUpdateWithoutRadarPostsInput>
+  }
+
+  export type TrainerUpdateWithoutRadarPostsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    team?: TeamUpdateOneWithoutTrainersNestedInput
+    history?: TrainerTeamHistoryUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TrainerUncheckedUpdateWithoutRadarPostsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    currentTeamId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type RadarValueUpsertWithWhereUniqueWithoutPostInput = {
+    where: RadarValueWhereUniqueInput
+    update: XOR<RadarValueUpdateWithoutPostInput, RadarValueUncheckedUpdateWithoutPostInput>
+    create: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput>
+  }
+
+  export type RadarValueUpdateWithWhereUniqueWithoutPostInput = {
+    where: RadarValueWhereUniqueInput
+    data: XOR<RadarValueUpdateWithoutPostInput, RadarValueUncheckedUpdateWithoutPostInput>
+  }
+
+  export type RadarValueUpdateManyWithWhereWithoutPostInput = {
+    where: RadarValueScalarWhereInput
+    data: XOR<RadarValueUpdateManyMutationInput, RadarValueUncheckedUpdateManyWithoutPostInput>
+  }
+
+  export type TrainerRadarPostCreateWithoutRadarValuesInput = {
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+    trainer: TrainerCreateNestedOneWithoutRadarPostsInput
+  }
+
+  export type TrainerRadarPostUncheckedCreateWithoutRadarValuesInput = {
+    id?: number
+    trainerId: number
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerRadarPostCreateOrConnectWithoutRadarValuesInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    create: XOR<TrainerRadarPostCreateWithoutRadarValuesInput, TrainerRadarPostUncheckedCreateWithoutRadarValuesInput>
+  }
+
+  export type RadarMetricCreateWithoutValuesInput = {
+    key: string
+    label: string
+    minValue?: number
+    maxValue?: number
+    sortOrder?: number
+    active?: boolean
+  }
+
+  export type RadarMetricUncheckedCreateWithoutValuesInput = {
+    id?: number
+    key: string
+    label: string
+    minValue?: number
+    maxValue?: number
+    sortOrder?: number
+    active?: boolean
+  }
+
+  export type RadarMetricCreateOrConnectWithoutValuesInput = {
+    where: RadarMetricWhereUniqueInput
+    create: XOR<RadarMetricCreateWithoutValuesInput, RadarMetricUncheckedCreateWithoutValuesInput>
+  }
+
+  export type TrainerRadarPostUpsertWithoutRadarValuesInput = {
+    update: XOR<TrainerRadarPostUpdateWithoutRadarValuesInput, TrainerRadarPostUncheckedUpdateWithoutRadarValuesInput>
+    create: XOR<TrainerRadarPostCreateWithoutRadarValuesInput, TrainerRadarPostUncheckedCreateWithoutRadarValuesInput>
+    where?: TrainerRadarPostWhereInput
+  }
+
+  export type TrainerRadarPostUpdateToOneWithWhereWithoutRadarValuesInput = {
+    where?: TrainerRadarPostWhereInput
+    data: XOR<TrainerRadarPostUpdateWithoutRadarValuesInput, TrainerRadarPostUncheckedUpdateWithoutRadarValuesInput>
+  }
+
+  export type TrainerRadarPostUpdateWithoutRadarValuesInput = {
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainer?: TrainerUpdateOneRequiredWithoutRadarPostsNestedInput
+  }
+
+  export type TrainerRadarPostUncheckedUpdateWithoutRadarValuesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RadarMetricUpsertWithoutValuesInput = {
+    update: XOR<RadarMetricUpdateWithoutValuesInput, RadarMetricUncheckedUpdateWithoutValuesInput>
+    create: XOR<RadarMetricCreateWithoutValuesInput, RadarMetricUncheckedCreateWithoutValuesInput>
+    where?: RadarMetricWhereInput
+  }
+
+  export type RadarMetricUpdateToOneWithWhereWithoutValuesInput = {
+    where?: RadarMetricWhereInput
+    data: XOR<RadarMetricUpdateWithoutValuesInput, RadarMetricUncheckedUpdateWithoutValuesInput>
+  }
+
+  export type RadarMetricUpdateWithoutValuesInput = {
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    minValue?: IntFieldUpdateOperationsInput | number
+    maxValue?: IntFieldUpdateOperationsInput | number
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type RadarMetricUncheckedUpdateWithoutValuesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
+    label?: StringFieldUpdateOperationsInput | string
+    minValue?: IntFieldUpdateOperationsInput | number
+    maxValue?: IntFieldUpdateOperationsInput | number
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    active?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type PokemonStatCreateManyPokemonInput = {
     id?: number
     statId: number
@@ -12421,6 +22208,182 @@ export namespace Prisma {
   export type PokemonCustomTagUncheckedUpdateManyWithoutTagInput = {
     pokemonId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerCreateManyTeamInput = {
+    id?: number
+    name: string
+    type?: string
+    status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type TrainerTeamHistoryCreateManyTeamInput = {
+    id?: number
+    trainerId: number
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerUpdateWithoutTeamInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: TrainerTeamHistoryUpdateManyWithoutTrainerNestedInput
+    radarPosts?: TrainerRadarPostUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TrainerUncheckedUpdateWithoutTeamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTrainerNestedInput
+    radarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutTrainerNestedInput
+  }
+
+  export type TrainerUncheckedUpdateManyWithoutTeamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryUpdateWithoutTeamInput = {
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainer?: TrainerUpdateOneRequiredWithoutHistoryNestedInput
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateWithoutTeamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateManyWithoutTeamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryCreateManyTrainerInput = {
+    id?: number
+    teamId: number
+    joinedAt: Date | string
+    leftAt?: Date | string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerRadarPostCreateManyTrainerInput = {
+    id?: number
+    authorToken: string
+    comment?: string | null
+    createdAt?: Date | string
+  }
+
+  export type TrainerTeamHistoryUpdateWithoutTrainerInput = {
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    team?: TeamUpdateOneRequiredWithoutHistoryNestedInput
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateWithoutTrainerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    teamId?: IntFieldUpdateOperationsInput | number
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerTeamHistoryUncheckedUpdateManyWithoutTrainerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    teamId?: IntFieldUpdateOperationsInput | number
+    joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TrainerRadarPostUpdateWithoutTrainerInput = {
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    radarValues?: RadarValueUpdateManyWithoutPostNestedInput
+  }
+
+  export type TrainerRadarPostUncheckedUpdateWithoutTrainerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    radarValues?: RadarValueUncheckedUpdateManyWithoutPostNestedInput
+  }
+
+  export type TrainerRadarPostUncheckedUpdateManyWithoutTrainerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    authorToken?: StringFieldUpdateOperationsInput | string
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RadarValueCreateManyMetricInput = {
+    id?: number
+    postId: number
+    value: number
+  }
+
+  export type RadarValueUpdateWithoutMetricInput = {
+    value?: IntFieldUpdateOperationsInput | number
+    post?: TrainerRadarPostUpdateOneRequiredWithoutRadarValuesNestedInput
+  }
+
+  export type RadarValueUncheckedUpdateWithoutMetricInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
+    value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type RadarValueUncheckedUpdateManyWithoutMetricInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    postId?: IntFieldUpdateOperationsInput | number
+    value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type RadarValueCreateManyPostInput = {
+    id?: number
+    metricId: number
+    value: number
+  }
+
+  export type RadarValueUpdateWithoutPostInput = {
+    value?: IntFieldUpdateOperationsInput | number
+    metric?: RadarMetricUpdateOneRequiredWithoutValuesNestedInput
+  }
+
+  export type RadarValueUncheckedUpdateWithoutPostInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    metricId?: IntFieldUpdateOperationsInput | number
+    value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type RadarValueUncheckedUpdateManyWithoutPostInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    metricId?: IntFieldUpdateOperationsInput | number
+    value?: IntFieldUpdateOperationsInput | number
   }
 
 

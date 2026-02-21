@@ -38,6 +38,7 @@ export default function RootLayout({
             </Link>
             <div className="flex gap-4 md:gap-6 text-gray-700 dark:text-gray-300 text-sm md:text-base">
               <Link href="/pokemon" className="hover:text-blue-600 dark:hover:text-blue-400 transition">ポケモン一覧</Link>
+              <Link href="/trainers" className="hover:text-blue-600 dark:hover:text-blue-400 transition">トレーナー名鑑</Link>
             </div>
           </nav>
         </header>

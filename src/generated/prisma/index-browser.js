@@ -178,6 +178,60 @@ exports.Prisma.PokemonCustomTagScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.TeamScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  shortName: 'shortName',
+  region: 'region',
+  logoUrl: 'logoUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TrainerScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  type: 'type',
+  currentTeamId: 'currentTeamId',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TrainerTeamHistoryScalarFieldEnum = {
+  id: 'id',
+  trainerId: 'trainerId',
+  teamId: 'teamId',
+  joinedAt: 'joinedAt',
+  leftAt: 'leftAt',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.RadarMetricScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  label: 'label',
+  minValue: 'minValue',
+  maxValue: 'maxValue',
+  sortOrder: 'sortOrder',
+  active: 'active'
+};
+
+exports.Prisma.TrainerRadarPostScalarFieldEnum = {
+  id: 'id',
+  trainerId: 'trainerId',
+  authorToken: 'authorToken',
+  comment: 'comment',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.RadarValueScalarFieldEnum = {
+  id: 'id',
+  postId: 'postId',
+  metricId: 'metricId',
+  value: 'value'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -201,7 +255,13 @@ exports.Prisma.ModelName = {
   PokemonCounter: 'PokemonCounter',
   Vote: 'Vote',
   Tag: 'Tag',
-  PokemonCustomTag: 'PokemonCustomTag'
+  PokemonCustomTag: 'PokemonCustomTag',
+  Team: 'Team',
+  Trainer: 'Trainer',
+  TrainerTeamHistory: 'TrainerTeamHistory',
+  RadarMetric: 'RadarMetric',
+  TrainerRadarPost: 'TrainerRadarPost',
+  RadarValue: 'RadarValue'
 };
 
 /**

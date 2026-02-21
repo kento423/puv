@@ -105,3 +105,85 @@ model PokemonCustomTag {
   // 複合主キー: 同じポケモンに同じタグは一度だけ付与可能
   @@id([pokemonId, tagId])
 }
+
+// --- トレーナー名鑑機能 (Trainer Directory) ---
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String   // チーム名（例: "Secret Ship"）
+  shortName String?  // 略称（例: "SS"）
+  region    String?  // 地域（例: "JP"）
+  logoUrl   String?  // チームロゴURL
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // リレーション
+  trainers  Trainer[]
+  history   TrainerTeamHistory[]
+}
+
+model Trainer {
+  id        Int      @id @default(autoincrement())
+  name      String   // トレーナー名
+  type      String   @default("amateur") // "pro" or "amateur"
+  currentTeamId Int?
+  status    String   @default("active") // "active", "inactive"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // リレーション
+  team      Team?    @relation(fields: [currentTeamId], references: [id])
+  history   TrainerTeamHistory[]
+  radarPosts TrainerRadarPost[]
+}
+
+model TrainerTeamHistory {
+  id        Int      @id @default(autoincrement())
+  trainerId Int
+  teamId    Int
+  joinedAt  DateTime
+  leftAt    DateTime? // null = 現所属
+  createdAt DateTime @default(now())
+
+  // リレーション
+  trainer   Trainer @relation(fields: [trainerId], references: [id])
+  team      Team    @relation(fields: [teamId], references: [id])
+}
+
+model RadarMetric {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique // コード上の識別子（例: "macro"）
+  label     String   // 表示名（例: "マクロ判断"）
+  minValue  Int      @default(1)
+  maxValue  Int      @default(10)
+  sortOrder Int      @default(0)
+  active    Boolean  @default(true)
+
+  // リレーション
+  values    RadarValue[]
+}
+
+model TrainerRadarPost {
+  id          Int      @id @default(autoincrement())
+  trainerId   Int
+  authorToken String   // 投稿者の識別子（UUID等）
+  comment     String?  // 任意コメント
+  createdAt   DateTime @default(now())
+
+  // リレーション
+  trainer     Trainer  @relation(fields: [trainerId], references: [id])
+  radarValues RadarValue[]
+}
+
+model RadarValue {
+  id          Int @id @default(autoincrement())
+  postId      Int
+  metricId    Int
+  value       Int // 1-10
+
+  // リレーション
+  post        TrainerRadarPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  metric      RadarMetric      @relation(fields: [metricId], references: [id])
+
+  @@unique([postId, metricId]) // 1つの投稿内で同じ項目の重複を防ぐ
+}

@@ -182,10 +182,21 @@ exports.Prisma.TeamScalarFieldEnum = {
   id: 'id',
   name: 'name',
   shortName: 'shortName',
+  type: 'type',
   region: 'region',
   logoUrl: 'logoUrl',
+  twitterUrl: 'twitterUrl',
+  websiteUrl: 'websiteUrl',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TeamSponsorScalarFieldEnum = {
+  id: 'id',
+  teamId: 'teamId',
+  name: 'name',
+  logoUrl: 'logoUrl',
+  url: 'url'
 };
 
 exports.Prisma.TrainerScalarFieldEnum = {
@@ -257,6 +268,7 @@ exports.Prisma.ModelName = {
   Tag: 'Tag',
   PokemonCustomTag: 'PokemonCustomTag',
   Team: 'Team',
+  TeamSponsor: 'TeamSponsor',
   Trainer: 'Trainer',
   TrainerTeamHistory: 'TrainerTeamHistory',
   RadarMetric: 'RadarMetric',

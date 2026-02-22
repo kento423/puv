@@ -109,17 +109,31 @@ model PokemonCustomTag {
 // --- トレーナー名鑑機能 (Trainer Directory) ---
 
 model Team {
-  id        Int      @id @default(autoincrement())
-  name      String // チーム名（例: "Secret Ship"）
-  shortName String? // 略称（例: "SS"）
-  region    String? // 地域（例: "JP"）
-  logoUrl   String? // チームロゴURL
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  name       String // チーム名（例: "Secret Ship"）
+  shortName  String? // 略称（例: "SS"）
+  type       String   @default("pro") // "pro" or "amateur"
+  region     String? // 地域（例: "JP"）
+  logoUrl    String? // チームロゴURL
+  twitterUrl String? // チームの公式X(Twitter)URL
+  websiteUrl String? // 公式WebサイトURL
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   // リレーション
   trainers Trainer[]
   history  TrainerTeamHistory[]
+  sponsors TeamSponsor[]
+}
+
+model TeamSponsor {
+  id      Int     @id @default(autoincrement())
+  teamId  Int
+  name    String // スポンサー名
+  logoUrl String? // スポンサーロゴURL
+  url     String? // リンク先URL
+
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
 }
 
 model Trainer {

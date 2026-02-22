@@ -21,6 +21,14 @@ export default function Home() {
       color: "orange",
     },
     {
+      title: "チーム名鑑",
+      description: "プロからコミュニティまで、ユナイトチームのプレイスタイルや活動状況を網羅。",
+      href: "/teams",
+      status: "alpha" as const,
+      icon: <Users className="w-6 h-6" />,
+      color: "purple",
+    },
+    {
       title: "アプデ後情報掲示板",
       description: "最新パッチや新キャラの評価をリアルタイムで議論しましょう。",
       href: "#",

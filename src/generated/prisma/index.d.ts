@@ -54,6 +54,11 @@ export type PokemonCustomTag = $Result.DefaultSelection<Prisma.$PokemonCustomTag
  */
 export type Team = $Result.DefaultSelection<Prisma.$TeamPayload>
 /**
+ * Model TeamSponsor
+ * 
+ */
+export type TeamSponsor = $Result.DefaultSelection<Prisma.$TeamSponsorPayload>
+/**
  * Model Trainer
  * 
  */
@@ -276,6 +281,16 @@ export class PrismaClient<
     * ```
     */
   get team(): Prisma.TeamDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.teamSponsor`: Exposes CRUD operations for the **TeamSponsor** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TeamSponsors
+    * const teamSponsors = await prisma.teamSponsor.findMany()
+    * ```
+    */
+  get teamSponsor(): Prisma.TeamSponsorDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.trainer`: Exposes CRUD operations for the **Trainer** model.
@@ -775,6 +790,7 @@ export namespace Prisma {
     Tag: 'Tag',
     PokemonCustomTag: 'PokemonCustomTag',
     Team: 'Team',
+    TeamSponsor: 'TeamSponsor',
     Trainer: 'Trainer',
     TrainerTeamHistory: 'TrainerTeamHistory',
     RadarMetric: 'RadarMetric',
@@ -798,7 +814,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "team" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue"
+      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "team" | "teamSponsor" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1394,6 +1410,80 @@ export namespace Prisma {
           }
         }
       }
+      TeamSponsor: {
+        payload: Prisma.$TeamSponsorPayload<ExtArgs>
+        fields: Prisma.TeamSponsorFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TeamSponsorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TeamSponsorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>
+          }
+          findFirst: {
+            args: Prisma.TeamSponsorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TeamSponsorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>
+          }
+          findMany: {
+            args: Prisma.TeamSponsorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>[]
+          }
+          create: {
+            args: Prisma.TeamSponsorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>
+          }
+          createMany: {
+            args: Prisma.TeamSponsorCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TeamSponsorCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>[]
+          }
+          delete: {
+            args: Prisma.TeamSponsorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>
+          }
+          update: {
+            args: Prisma.TeamSponsorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>
+          }
+          deleteMany: {
+            args: Prisma.TeamSponsorDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TeamSponsorUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TeamSponsorUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>[]
+          }
+          upsert: {
+            args: Prisma.TeamSponsorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TeamSponsorPayload>
+          }
+          aggregate: {
+            args: Prisma.TeamSponsorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTeamSponsor>
+          }
+          groupBy: {
+            args: Prisma.TeamSponsorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TeamSponsorGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TeamSponsorCountArgs<ExtArgs>
+            result: $Utils.Optional<TeamSponsorCountAggregateOutputType> | number
+          }
+        }
+      }
       Trainer: {
         payload: Prisma.$TrainerPayload<ExtArgs>
         fields: Prisma.TrainerFieldRefs
@@ -1868,6 +1958,7 @@ export namespace Prisma {
     tag?: TagOmit
     pokemonCustomTag?: PokemonCustomTagOmit
     team?: TeamOmit
+    teamSponsor?: TeamSponsorOmit
     trainer?: TrainerOmit
     trainerTeamHistory?: TrainerTeamHistoryOmit
     radarMetric?: RadarMetricOmit
@@ -2106,11 +2197,13 @@ export namespace Prisma {
   export type TeamCountOutputType = {
     trainers: number
     history: number
+    sponsors: number
   }
 
   export type TeamCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trainers?: boolean | TeamCountOutputTypeCountTrainersArgs
     history?: boolean | TeamCountOutputTypeCountHistoryArgs
+    sponsors?: boolean | TeamCountOutputTypeCountSponsorsArgs
   }
 
   // Custom InputTypes
@@ -2136,6 +2229,13 @@ export namespace Prisma {
    */
   export type TeamCountOutputTypeCountHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TrainerTeamHistoryWhereInput
+  }
+
+  /**
+   * TeamCountOutputType without action
+   */
+  export type TeamCountOutputTypeCountSponsorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TeamSponsorWhereInput
   }
 
 
@@ -10140,8 +10240,11 @@ export namespace Prisma {
     id: number | null
     name: string | null
     shortName: string | null
+    type: string | null
     region: string | null
     logoUrl: string | null
+    twitterUrl: string | null
+    websiteUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10150,8 +10253,11 @@ export namespace Prisma {
     id: number | null
     name: string | null
     shortName: string | null
+    type: string | null
     region: string | null
     logoUrl: string | null
+    twitterUrl: string | null
+    websiteUrl: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10160,8 +10266,11 @@ export namespace Prisma {
     id: number
     name: number
     shortName: number
+    type: number
     region: number
     logoUrl: number
+    twitterUrl: number
+    websiteUrl: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -10180,8 +10289,11 @@ export namespace Prisma {
     id?: true
     name?: true
     shortName?: true
+    type?: true
     region?: true
     logoUrl?: true
+    twitterUrl?: true
+    websiteUrl?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10190,8 +10302,11 @@ export namespace Prisma {
     id?: true
     name?: true
     shortName?: true
+    type?: true
     region?: true
     logoUrl?: true
+    twitterUrl?: true
+    websiteUrl?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10200,8 +10315,11 @@ export namespace Prisma {
     id?: true
     name?: true
     shortName?: true
+    type?: true
     region?: true
     logoUrl?: true
+    twitterUrl?: true
+    websiteUrl?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -10297,8 +10415,11 @@ export namespace Prisma {
     id: number
     name: string
     shortName: string | null
+    type: string
     region: string | null
     logoUrl: string | null
+    twitterUrl: string | null
+    websiteUrl: string | null
     createdAt: Date
     updatedAt: Date
     _count: TeamCountAggregateOutputType | null
@@ -10326,12 +10447,16 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     shortName?: boolean
+    type?: boolean
     region?: boolean
     logoUrl?: boolean
+    twitterUrl?: boolean
+    websiteUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     trainers?: boolean | Team$trainersArgs<ExtArgs>
     history?: boolean | Team$historyArgs<ExtArgs>
+    sponsors?: boolean | Team$sponsorsArgs<ExtArgs>
     _count?: boolean | TeamCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["team"]>
 
@@ -10339,8 +10464,11 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     shortName?: boolean
+    type?: boolean
     region?: boolean
     logoUrl?: boolean
+    twitterUrl?: boolean
+    websiteUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["team"]>
@@ -10349,8 +10477,11 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     shortName?: boolean
+    type?: boolean
     region?: boolean
     logoUrl?: boolean
+    twitterUrl?: boolean
+    websiteUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["team"]>
@@ -10359,16 +10490,20 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     shortName?: boolean
+    type?: boolean
     region?: boolean
     logoUrl?: boolean
+    twitterUrl?: boolean
+    websiteUrl?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type TeamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "shortName" | "region" | "logoUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
+  export type TeamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "shortName" | "type" | "region" | "logoUrl" | "twitterUrl" | "websiteUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
   export type TeamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trainers?: boolean | Team$trainersArgs<ExtArgs>
     history?: boolean | Team$historyArgs<ExtArgs>
+    sponsors?: boolean | Team$sponsorsArgs<ExtArgs>
     _count?: boolean | TeamCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TeamIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -10379,13 +10514,17 @@ export namespace Prisma {
     objects: {
       trainers: Prisma.$TrainerPayload<ExtArgs>[]
       history: Prisma.$TrainerTeamHistoryPayload<ExtArgs>[]
+      sponsors: Prisma.$TeamSponsorPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
       shortName: string | null
+      type: string
       region: string | null
       logoUrl: string | null
+      twitterUrl: string | null
+      websiteUrl: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["team"]>
@@ -10784,6 +10923,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     trainers<T extends Team$trainersArgs<ExtArgs> = {}>(args?: Subset<T, Team$trainersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     history<T extends Team$historyArgs<ExtArgs> = {}>(args?: Subset<T, Team$historyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerTeamHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sponsors<T extends Team$sponsorsArgs<ExtArgs> = {}>(args?: Subset<T, Team$sponsorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10816,8 +10956,11 @@ export namespace Prisma {
     readonly id: FieldRef<"Team", 'Int'>
     readonly name: FieldRef<"Team", 'String'>
     readonly shortName: FieldRef<"Team", 'String'>
+    readonly type: FieldRef<"Team", 'String'>
     readonly region: FieldRef<"Team", 'String'>
     readonly logoUrl: FieldRef<"Team", 'String'>
+    readonly twitterUrl: FieldRef<"Team", 'String'>
+    readonly websiteUrl: FieldRef<"Team", 'String'>
     readonly createdAt: FieldRef<"Team", 'DateTime'>
     readonly updatedAt: FieldRef<"Team", 'DateTime'>
   }
@@ -11256,6 +11399,30 @@ export namespace Prisma {
   }
 
   /**
+   * Team.sponsors
+   */
+  export type Team$sponsorsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    where?: TeamSponsorWhereInput
+    orderBy?: TeamSponsorOrderByWithRelationInput | TeamSponsorOrderByWithRelationInput[]
+    cursor?: TeamSponsorWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TeamSponsorScalarFieldEnum | TeamSponsorScalarFieldEnum[]
+  }
+
+  /**
    * Team without action
    */
   export type TeamDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11271,6 +11438,1102 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: TeamInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TeamSponsor
+   */
+
+  export type AggregateTeamSponsor = {
+    _count: TeamSponsorCountAggregateOutputType | null
+    _avg: TeamSponsorAvgAggregateOutputType | null
+    _sum: TeamSponsorSumAggregateOutputType | null
+    _min: TeamSponsorMinAggregateOutputType | null
+    _max: TeamSponsorMaxAggregateOutputType | null
+  }
+
+  export type TeamSponsorAvgAggregateOutputType = {
+    id: number | null
+    teamId: number | null
+  }
+
+  export type TeamSponsorSumAggregateOutputType = {
+    id: number | null
+    teamId: number | null
+  }
+
+  export type TeamSponsorMinAggregateOutputType = {
+    id: number | null
+    teamId: number | null
+    name: string | null
+    logoUrl: string | null
+    url: string | null
+  }
+
+  export type TeamSponsorMaxAggregateOutputType = {
+    id: number | null
+    teamId: number | null
+    name: string | null
+    logoUrl: string | null
+    url: string | null
+  }
+
+  export type TeamSponsorCountAggregateOutputType = {
+    id: number
+    teamId: number
+    name: number
+    logoUrl: number
+    url: number
+    _all: number
+  }
+
+
+  export type TeamSponsorAvgAggregateInputType = {
+    id?: true
+    teamId?: true
+  }
+
+  export type TeamSponsorSumAggregateInputType = {
+    id?: true
+    teamId?: true
+  }
+
+  export type TeamSponsorMinAggregateInputType = {
+    id?: true
+    teamId?: true
+    name?: true
+    logoUrl?: true
+    url?: true
+  }
+
+  export type TeamSponsorMaxAggregateInputType = {
+    id?: true
+    teamId?: true
+    name?: true
+    logoUrl?: true
+    url?: true
+  }
+
+  export type TeamSponsorCountAggregateInputType = {
+    id?: true
+    teamId?: true
+    name?: true
+    logoUrl?: true
+    url?: true
+    _all?: true
+  }
+
+  export type TeamSponsorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TeamSponsor to aggregate.
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TeamSponsors to fetch.
+     */
+    orderBy?: TeamSponsorOrderByWithRelationInput | TeamSponsorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TeamSponsorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TeamSponsors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TeamSponsors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TeamSponsors
+    **/
+    _count?: true | TeamSponsorCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TeamSponsorAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TeamSponsorSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TeamSponsorMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TeamSponsorMaxAggregateInputType
+  }
+
+  export type GetTeamSponsorAggregateType<T extends TeamSponsorAggregateArgs> = {
+        [P in keyof T & keyof AggregateTeamSponsor]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTeamSponsor[P]>
+      : GetScalarType<T[P], AggregateTeamSponsor[P]>
+  }
+
+
+
+
+  export type TeamSponsorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TeamSponsorWhereInput
+    orderBy?: TeamSponsorOrderByWithAggregationInput | TeamSponsorOrderByWithAggregationInput[]
+    by: TeamSponsorScalarFieldEnum[] | TeamSponsorScalarFieldEnum
+    having?: TeamSponsorScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TeamSponsorCountAggregateInputType | true
+    _avg?: TeamSponsorAvgAggregateInputType
+    _sum?: TeamSponsorSumAggregateInputType
+    _min?: TeamSponsorMinAggregateInputType
+    _max?: TeamSponsorMaxAggregateInputType
+  }
+
+  export type TeamSponsorGroupByOutputType = {
+    id: number
+    teamId: number
+    name: string
+    logoUrl: string | null
+    url: string | null
+    _count: TeamSponsorCountAggregateOutputType | null
+    _avg: TeamSponsorAvgAggregateOutputType | null
+    _sum: TeamSponsorSumAggregateOutputType | null
+    _min: TeamSponsorMinAggregateOutputType | null
+    _max: TeamSponsorMaxAggregateOutputType | null
+  }
+
+  type GetTeamSponsorGroupByPayload<T extends TeamSponsorGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TeamSponsorGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TeamSponsorGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TeamSponsorGroupByOutputType[P]>
+            : GetScalarType<T[P], TeamSponsorGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TeamSponsorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    teamId?: boolean
+    name?: boolean
+    logoUrl?: boolean
+    url?: boolean
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["teamSponsor"]>
+
+  export type TeamSponsorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    teamId?: boolean
+    name?: boolean
+    logoUrl?: boolean
+    url?: boolean
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["teamSponsor"]>
+
+  export type TeamSponsorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    teamId?: boolean
+    name?: boolean
+    logoUrl?: boolean
+    url?: boolean
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["teamSponsor"]>
+
+  export type TeamSponsorSelectScalar = {
+    id?: boolean
+    teamId?: boolean
+    name?: boolean
+    logoUrl?: boolean
+    url?: boolean
+  }
+
+  export type TeamSponsorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "teamId" | "name" | "logoUrl" | "url", ExtArgs["result"]["teamSponsor"]>
+  export type TeamSponsorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }
+  export type TeamSponsorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }
+  export type TeamSponsorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamDefaultArgs<ExtArgs>
+  }
+
+  export type $TeamSponsorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TeamSponsor"
+    objects: {
+      team: Prisma.$TeamPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      teamId: number
+      name: string
+      logoUrl: string | null
+      url: string | null
+    }, ExtArgs["result"]["teamSponsor"]>
+    composites: {}
+  }
+
+  type TeamSponsorGetPayload<S extends boolean | null | undefined | TeamSponsorDefaultArgs> = $Result.GetResult<Prisma.$TeamSponsorPayload, S>
+
+  type TeamSponsorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TeamSponsorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TeamSponsorCountAggregateInputType | true
+    }
+
+  export interface TeamSponsorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TeamSponsor'], meta: { name: 'TeamSponsor' } }
+    /**
+     * Find zero or one TeamSponsor that matches the filter.
+     * @param {TeamSponsorFindUniqueArgs} args - Arguments to find a TeamSponsor
+     * @example
+     * // Get one TeamSponsor
+     * const teamSponsor = await prisma.teamSponsor.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TeamSponsorFindUniqueArgs>(args: SelectSubset<T, TeamSponsorFindUniqueArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TeamSponsor that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TeamSponsorFindUniqueOrThrowArgs} args - Arguments to find a TeamSponsor
+     * @example
+     * // Get one TeamSponsor
+     * const teamSponsor = await prisma.teamSponsor.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TeamSponsorFindUniqueOrThrowArgs>(args: SelectSubset<T, TeamSponsorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TeamSponsor that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorFindFirstArgs} args - Arguments to find a TeamSponsor
+     * @example
+     * // Get one TeamSponsor
+     * const teamSponsor = await prisma.teamSponsor.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TeamSponsorFindFirstArgs>(args?: SelectSubset<T, TeamSponsorFindFirstArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TeamSponsor that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorFindFirstOrThrowArgs} args - Arguments to find a TeamSponsor
+     * @example
+     * // Get one TeamSponsor
+     * const teamSponsor = await prisma.teamSponsor.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TeamSponsorFindFirstOrThrowArgs>(args?: SelectSubset<T, TeamSponsorFindFirstOrThrowArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TeamSponsors that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TeamSponsors
+     * const teamSponsors = await prisma.teamSponsor.findMany()
+     * 
+     * // Get first 10 TeamSponsors
+     * const teamSponsors = await prisma.teamSponsor.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const teamSponsorWithIdOnly = await prisma.teamSponsor.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TeamSponsorFindManyArgs>(args?: SelectSubset<T, TeamSponsorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TeamSponsor.
+     * @param {TeamSponsorCreateArgs} args - Arguments to create a TeamSponsor.
+     * @example
+     * // Create one TeamSponsor
+     * const TeamSponsor = await prisma.teamSponsor.create({
+     *   data: {
+     *     // ... data to create a TeamSponsor
+     *   }
+     * })
+     * 
+     */
+    create<T extends TeamSponsorCreateArgs>(args: SelectSubset<T, TeamSponsorCreateArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TeamSponsors.
+     * @param {TeamSponsorCreateManyArgs} args - Arguments to create many TeamSponsors.
+     * @example
+     * // Create many TeamSponsors
+     * const teamSponsor = await prisma.teamSponsor.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TeamSponsorCreateManyArgs>(args?: SelectSubset<T, TeamSponsorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TeamSponsors and returns the data saved in the database.
+     * @param {TeamSponsorCreateManyAndReturnArgs} args - Arguments to create many TeamSponsors.
+     * @example
+     * // Create many TeamSponsors
+     * const teamSponsor = await prisma.teamSponsor.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TeamSponsors and only return the `id`
+     * const teamSponsorWithIdOnly = await prisma.teamSponsor.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TeamSponsorCreateManyAndReturnArgs>(args?: SelectSubset<T, TeamSponsorCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TeamSponsor.
+     * @param {TeamSponsorDeleteArgs} args - Arguments to delete one TeamSponsor.
+     * @example
+     * // Delete one TeamSponsor
+     * const TeamSponsor = await prisma.teamSponsor.delete({
+     *   where: {
+     *     // ... filter to delete one TeamSponsor
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TeamSponsorDeleteArgs>(args: SelectSubset<T, TeamSponsorDeleteArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TeamSponsor.
+     * @param {TeamSponsorUpdateArgs} args - Arguments to update one TeamSponsor.
+     * @example
+     * // Update one TeamSponsor
+     * const teamSponsor = await prisma.teamSponsor.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TeamSponsorUpdateArgs>(args: SelectSubset<T, TeamSponsorUpdateArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TeamSponsors.
+     * @param {TeamSponsorDeleteManyArgs} args - Arguments to filter TeamSponsors to delete.
+     * @example
+     * // Delete a few TeamSponsors
+     * const { count } = await prisma.teamSponsor.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TeamSponsorDeleteManyArgs>(args?: SelectSubset<T, TeamSponsorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TeamSponsors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TeamSponsors
+     * const teamSponsor = await prisma.teamSponsor.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TeamSponsorUpdateManyArgs>(args: SelectSubset<T, TeamSponsorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TeamSponsors and returns the data updated in the database.
+     * @param {TeamSponsorUpdateManyAndReturnArgs} args - Arguments to update many TeamSponsors.
+     * @example
+     * // Update many TeamSponsors
+     * const teamSponsor = await prisma.teamSponsor.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TeamSponsors and only return the `id`
+     * const teamSponsorWithIdOnly = await prisma.teamSponsor.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TeamSponsorUpdateManyAndReturnArgs>(args: SelectSubset<T, TeamSponsorUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TeamSponsor.
+     * @param {TeamSponsorUpsertArgs} args - Arguments to update or create a TeamSponsor.
+     * @example
+     * // Update or create a TeamSponsor
+     * const teamSponsor = await prisma.teamSponsor.upsert({
+     *   create: {
+     *     // ... data to create a TeamSponsor
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TeamSponsor we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TeamSponsorUpsertArgs>(args: SelectSubset<T, TeamSponsorUpsertArgs<ExtArgs>>): Prisma__TeamSponsorClient<$Result.GetResult<Prisma.$TeamSponsorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TeamSponsors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorCountArgs} args - Arguments to filter TeamSponsors to count.
+     * @example
+     * // Count the number of TeamSponsors
+     * const count = await prisma.teamSponsor.count({
+     *   where: {
+     *     // ... the filter for the TeamSponsors we want to count
+     *   }
+     * })
+    **/
+    count<T extends TeamSponsorCountArgs>(
+      args?: Subset<T, TeamSponsorCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TeamSponsorCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TeamSponsor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TeamSponsorAggregateArgs>(args: Subset<T, TeamSponsorAggregateArgs>): Prisma.PrismaPromise<GetTeamSponsorAggregateType<T>>
+
+    /**
+     * Group by TeamSponsor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TeamSponsorGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TeamSponsorGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TeamSponsorGroupByArgs['orderBy'] }
+        : { orderBy?: TeamSponsorGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TeamSponsorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTeamSponsorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TeamSponsor model
+   */
+  readonly fields: TeamSponsorFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TeamSponsor.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TeamSponsorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    team<T extends TeamDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamDefaultArgs<ExtArgs>>): Prisma__TeamClient<$Result.GetResult<Prisma.$TeamPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TeamSponsor model
+   */
+  interface TeamSponsorFieldRefs {
+    readonly id: FieldRef<"TeamSponsor", 'Int'>
+    readonly teamId: FieldRef<"TeamSponsor", 'Int'>
+    readonly name: FieldRef<"TeamSponsor", 'String'>
+    readonly logoUrl: FieldRef<"TeamSponsor", 'String'>
+    readonly url: FieldRef<"TeamSponsor", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TeamSponsor findUnique
+   */
+  export type TeamSponsorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * Filter, which TeamSponsor to fetch.
+     */
+    where: TeamSponsorWhereUniqueInput
+  }
+
+  /**
+   * TeamSponsor findUniqueOrThrow
+   */
+  export type TeamSponsorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * Filter, which TeamSponsor to fetch.
+     */
+    where: TeamSponsorWhereUniqueInput
+  }
+
+  /**
+   * TeamSponsor findFirst
+   */
+  export type TeamSponsorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * Filter, which TeamSponsor to fetch.
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TeamSponsors to fetch.
+     */
+    orderBy?: TeamSponsorOrderByWithRelationInput | TeamSponsorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TeamSponsors.
+     */
+    cursor?: TeamSponsorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TeamSponsors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TeamSponsors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TeamSponsors.
+     */
+    distinct?: TeamSponsorScalarFieldEnum | TeamSponsorScalarFieldEnum[]
+  }
+
+  /**
+   * TeamSponsor findFirstOrThrow
+   */
+  export type TeamSponsorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * Filter, which TeamSponsor to fetch.
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TeamSponsors to fetch.
+     */
+    orderBy?: TeamSponsorOrderByWithRelationInput | TeamSponsorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TeamSponsors.
+     */
+    cursor?: TeamSponsorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TeamSponsors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TeamSponsors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TeamSponsors.
+     */
+    distinct?: TeamSponsorScalarFieldEnum | TeamSponsorScalarFieldEnum[]
+  }
+
+  /**
+   * TeamSponsor findMany
+   */
+  export type TeamSponsorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * Filter, which TeamSponsors to fetch.
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TeamSponsors to fetch.
+     */
+    orderBy?: TeamSponsorOrderByWithRelationInput | TeamSponsorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TeamSponsors.
+     */
+    cursor?: TeamSponsorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TeamSponsors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TeamSponsors.
+     */
+    skip?: number
+    distinct?: TeamSponsorScalarFieldEnum | TeamSponsorScalarFieldEnum[]
+  }
+
+  /**
+   * TeamSponsor create
+   */
+  export type TeamSponsorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TeamSponsor.
+     */
+    data: XOR<TeamSponsorCreateInput, TeamSponsorUncheckedCreateInput>
+  }
+
+  /**
+   * TeamSponsor createMany
+   */
+  export type TeamSponsorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TeamSponsors.
+     */
+    data: TeamSponsorCreateManyInput | TeamSponsorCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TeamSponsor createManyAndReturn
+   */
+  export type TeamSponsorCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * The data used to create many TeamSponsors.
+     */
+    data: TeamSponsorCreateManyInput | TeamSponsorCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TeamSponsor update
+   */
+  export type TeamSponsorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TeamSponsor.
+     */
+    data: XOR<TeamSponsorUpdateInput, TeamSponsorUncheckedUpdateInput>
+    /**
+     * Choose, which TeamSponsor to update.
+     */
+    where: TeamSponsorWhereUniqueInput
+  }
+
+  /**
+   * TeamSponsor updateMany
+   */
+  export type TeamSponsorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TeamSponsors.
+     */
+    data: XOR<TeamSponsorUpdateManyMutationInput, TeamSponsorUncheckedUpdateManyInput>
+    /**
+     * Filter which TeamSponsors to update
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * Limit how many TeamSponsors to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TeamSponsor updateManyAndReturn
+   */
+  export type TeamSponsorUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * The data used to update TeamSponsors.
+     */
+    data: XOR<TeamSponsorUpdateManyMutationInput, TeamSponsorUncheckedUpdateManyInput>
+    /**
+     * Filter which TeamSponsors to update
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * Limit how many TeamSponsors to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TeamSponsor upsert
+   */
+  export type TeamSponsorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TeamSponsor to update in case it exists.
+     */
+    where: TeamSponsorWhereUniqueInput
+    /**
+     * In case the TeamSponsor found by the `where` argument doesn't exist, create a new TeamSponsor with this data.
+     */
+    create: XOR<TeamSponsorCreateInput, TeamSponsorUncheckedCreateInput>
+    /**
+     * In case the TeamSponsor was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TeamSponsorUpdateInput, TeamSponsorUncheckedUpdateInput>
+  }
+
+  /**
+   * TeamSponsor delete
+   */
+  export type TeamSponsorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
+    /**
+     * Filter which TeamSponsor to delete.
+     */
+    where: TeamSponsorWhereUniqueInput
+  }
+
+  /**
+   * TeamSponsor deleteMany
+   */
+  export type TeamSponsorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TeamSponsors to delete
+     */
+    where?: TeamSponsorWhereInput
+    /**
+     * Limit how many TeamSponsors to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TeamSponsor without action
+   */
+  export type TeamSponsorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TeamSponsor
+     */
+    select?: TeamSponsorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TeamSponsor
+     */
+    omit?: TeamSponsorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TeamSponsorInclude<ExtArgs> | null
   }
 
 
@@ -17057,13 +18320,27 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     shortName: 'shortName',
+    type: 'type',
     region: 'region',
     logoUrl: 'logoUrl',
+    twitterUrl: 'twitterUrl',
+    websiteUrl: 'websiteUrl',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
   export type TeamScalarFieldEnum = (typeof TeamScalarFieldEnum)[keyof typeof TeamScalarFieldEnum]
+
+
+  export const TeamSponsorScalarFieldEnum: {
+    id: 'id',
+    teamId: 'teamId',
+    name: 'name',
+    logoUrl: 'logoUrl',
+    url: 'url'
+  };
+
+  export type TeamSponsorScalarFieldEnum = (typeof TeamSponsorScalarFieldEnum)[keyof typeof TeamSponsorScalarFieldEnum]
 
 
   export const TrainerScalarFieldEnum: {
@@ -17654,24 +18931,32 @@ export namespace Prisma {
     id?: IntFilter<"Team"> | number
     name?: StringFilter<"Team"> | string
     shortName?: StringNullableFilter<"Team"> | string | null
+    type?: StringFilter<"Team"> | string
     region?: StringNullableFilter<"Team"> | string | null
     logoUrl?: StringNullableFilter<"Team"> | string | null
+    twitterUrl?: StringNullableFilter<"Team"> | string | null
+    websiteUrl?: StringNullableFilter<"Team"> | string | null
     createdAt?: DateTimeFilter<"Team"> | Date | string
     updatedAt?: DateTimeFilter<"Team"> | Date | string
     trainers?: TrainerListRelationFilter
     history?: TrainerTeamHistoryListRelationFilter
+    sponsors?: TeamSponsorListRelationFilter
   }
 
   export type TeamOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     shortName?: SortOrderInput | SortOrder
+    type?: SortOrder
     region?: SortOrderInput | SortOrder
     logoUrl?: SortOrderInput | SortOrder
+    twitterUrl?: SortOrderInput | SortOrder
+    websiteUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     trainers?: TrainerOrderByRelationAggregateInput
     history?: TrainerTeamHistoryOrderByRelationAggregateInput
+    sponsors?: TeamSponsorOrderByRelationAggregateInput
   }
 
   export type TeamWhereUniqueInput = Prisma.AtLeast<{
@@ -17681,20 +18966,27 @@ export namespace Prisma {
     NOT?: TeamWhereInput | TeamWhereInput[]
     name?: StringFilter<"Team"> | string
     shortName?: StringNullableFilter<"Team"> | string | null
+    type?: StringFilter<"Team"> | string
     region?: StringNullableFilter<"Team"> | string | null
     logoUrl?: StringNullableFilter<"Team"> | string | null
+    twitterUrl?: StringNullableFilter<"Team"> | string | null
+    websiteUrl?: StringNullableFilter<"Team"> | string | null
     createdAt?: DateTimeFilter<"Team"> | Date | string
     updatedAt?: DateTimeFilter<"Team"> | Date | string
     trainers?: TrainerListRelationFilter
     history?: TrainerTeamHistoryListRelationFilter
+    sponsors?: TeamSponsorListRelationFilter
   }, "id">
 
   export type TeamOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     shortName?: SortOrderInput | SortOrder
+    type?: SortOrder
     region?: SortOrderInput | SortOrder
     logoUrl?: SortOrderInput | SortOrder
+    twitterUrl?: SortOrderInput | SortOrder
+    websiteUrl?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: TeamCountOrderByAggregateInput
@@ -17711,10 +19003,70 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Team"> | number
     name?: StringWithAggregatesFilter<"Team"> | string
     shortName?: StringNullableWithAggregatesFilter<"Team"> | string | null
+    type?: StringWithAggregatesFilter<"Team"> | string
     region?: StringNullableWithAggregatesFilter<"Team"> | string | null
     logoUrl?: StringNullableWithAggregatesFilter<"Team"> | string | null
+    twitterUrl?: StringNullableWithAggregatesFilter<"Team"> | string | null
+    websiteUrl?: StringNullableWithAggregatesFilter<"Team"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Team"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Team"> | Date | string
+  }
+
+  export type TeamSponsorWhereInput = {
+    AND?: TeamSponsorWhereInput | TeamSponsorWhereInput[]
+    OR?: TeamSponsorWhereInput[]
+    NOT?: TeamSponsorWhereInput | TeamSponsorWhereInput[]
+    id?: IntFilter<"TeamSponsor"> | number
+    teamId?: IntFilter<"TeamSponsor"> | number
+    name?: StringFilter<"TeamSponsor"> | string
+    logoUrl?: StringNullableFilter<"TeamSponsor"> | string | null
+    url?: StringNullableFilter<"TeamSponsor"> | string | null
+    team?: XOR<TeamScalarRelationFilter, TeamWhereInput>
+  }
+
+  export type TeamSponsorOrderByWithRelationInput = {
+    id?: SortOrder
+    teamId?: SortOrder
+    name?: SortOrder
+    logoUrl?: SortOrderInput | SortOrder
+    url?: SortOrderInput | SortOrder
+    team?: TeamOrderByWithRelationInput
+  }
+
+  export type TeamSponsorWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TeamSponsorWhereInput | TeamSponsorWhereInput[]
+    OR?: TeamSponsorWhereInput[]
+    NOT?: TeamSponsorWhereInput | TeamSponsorWhereInput[]
+    teamId?: IntFilter<"TeamSponsor"> | number
+    name?: StringFilter<"TeamSponsor"> | string
+    logoUrl?: StringNullableFilter<"TeamSponsor"> | string | null
+    url?: StringNullableFilter<"TeamSponsor"> | string | null
+    team?: XOR<TeamScalarRelationFilter, TeamWhereInput>
+  }, "id">
+
+  export type TeamSponsorOrderByWithAggregationInput = {
+    id?: SortOrder
+    teamId?: SortOrder
+    name?: SortOrder
+    logoUrl?: SortOrderInput | SortOrder
+    url?: SortOrderInput | SortOrder
+    _count?: TeamSponsorCountOrderByAggregateInput
+    _avg?: TeamSponsorAvgOrderByAggregateInput
+    _max?: TeamSponsorMaxOrderByAggregateInput
+    _min?: TeamSponsorMinOrderByAggregateInput
+    _sum?: TeamSponsorSumOrderByAggregateInput
+  }
+
+  export type TeamSponsorScalarWhereWithAggregatesInput = {
+    AND?: TeamSponsorScalarWhereWithAggregatesInput | TeamSponsorScalarWhereWithAggregatesInput[]
+    OR?: TeamSponsorScalarWhereWithAggregatesInput[]
+    NOT?: TeamSponsorScalarWhereWithAggregatesInput | TeamSponsorScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TeamSponsor"> | number
+    teamId?: IntWithAggregatesFilter<"TeamSponsor"> | number
+    name?: StringWithAggregatesFilter<"TeamSponsor"> | string
+    logoUrl?: StringNullableWithAggregatesFilter<"TeamSponsor"> | string | null
+    url?: StringNullableWithAggregatesFilter<"TeamSponsor"> | string | null
   }
 
   export type TrainerWhereInput = {
@@ -18443,55 +19795,74 @@ export namespace Prisma {
   export type TeamCreateInput = {
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     trainers?: TrainerCreateNestedManyWithoutTeamInput
     history?: TrainerTeamHistoryCreateNestedManyWithoutTeamInput
+    sponsors?: TeamSponsorCreateNestedManyWithoutTeamInput
   }
 
   export type TeamUncheckedCreateInput = {
     id?: number
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     trainers?: TrainerUncheckedCreateNestedManyWithoutTeamInput
     history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTeamInput
+    sponsors?: TeamSponsorUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trainers?: TrainerUpdateManyWithoutTeamNestedInput
     history?: TrainerTeamHistoryUpdateManyWithoutTeamNestedInput
+    sponsors?: TeamSponsorUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trainers?: TrainerUncheckedUpdateManyWithoutTeamNestedInput
     history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTeamNestedInput
+    sponsors?: TeamSponsorUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamCreateManyInput = {
     id?: number
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18499,8 +19870,11 @@ export namespace Prisma {
   export type TeamUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18509,10 +19883,65 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TeamSponsorCreateInput = {
+    name: string
+    logoUrl?: string | null
+    url?: string | null
+    team: TeamCreateNestedOneWithoutSponsorsInput
+  }
+
+  export type TeamSponsorUncheckedCreateInput = {
+    id?: number
+    teamId: number
+    name: string
+    logoUrl?: string | null
+    url?: string | null
+  }
+
+  export type TeamSponsorUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    team?: TeamUpdateOneRequiredWithoutSponsorsNestedInput
+  }
+
+  export type TeamSponsorUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    teamId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TeamSponsorCreateManyInput = {
+    id?: number
+    teamId: number
+    name: string
+    logoUrl?: string | null
+    url?: string | null
+  }
+
+  export type TeamSponsorUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TeamSponsorUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    teamId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TrainerCreateInput = {
@@ -19297,6 +20726,12 @@ export namespace Prisma {
     none?: TrainerTeamHistoryWhereInput
   }
 
+  export type TeamSponsorListRelationFilter = {
+    every?: TeamSponsorWhereInput
+    some?: TeamSponsorWhereInput
+    none?: TeamSponsorWhereInput
+  }
+
   export type TrainerOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -19305,12 +20740,19 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type TeamSponsorOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type TeamCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     shortName?: SortOrder
+    type?: SortOrder
     region?: SortOrder
     logoUrl?: SortOrder
+    twitterUrl?: SortOrder
+    websiteUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19323,8 +20765,11 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     shortName?: SortOrder
+    type?: SortOrder
     region?: SortOrder
     logoUrl?: SortOrder
+    twitterUrl?: SortOrder
+    websiteUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19333,14 +20778,56 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     shortName?: SortOrder
+    type?: SortOrder
     region?: SortOrder
     logoUrl?: SortOrder
+    twitterUrl?: SortOrder
+    websiteUrl?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type TeamSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type TeamScalarRelationFilter = {
+    is?: TeamWhereInput
+    isNot?: TeamWhereInput
+  }
+
+  export type TeamSponsorCountOrderByAggregateInput = {
+    id?: SortOrder
+    teamId?: SortOrder
+    name?: SortOrder
+    logoUrl?: SortOrder
+    url?: SortOrder
+  }
+
+  export type TeamSponsorAvgOrderByAggregateInput = {
+    id?: SortOrder
+    teamId?: SortOrder
+  }
+
+  export type TeamSponsorMaxOrderByAggregateInput = {
+    id?: SortOrder
+    teamId?: SortOrder
+    name?: SortOrder
+    logoUrl?: SortOrder
+    url?: SortOrder
+  }
+
+  export type TeamSponsorMinOrderByAggregateInput = {
+    id?: SortOrder
+    teamId?: SortOrder
+    name?: SortOrder
+    logoUrl?: SortOrder
+    url?: SortOrder
+  }
+
+  export type TeamSponsorSumOrderByAggregateInput = {
+    id?: SortOrder
+    teamId?: SortOrder
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -19439,11 +20926,6 @@ export namespace Prisma {
   export type TrainerScalarRelationFilter = {
     is?: TrainerWhereInput
     isNot?: TrainerWhereInput
-  }
-
-  export type TeamScalarRelationFilter = {
-    is?: TeamWhereInput
-    isNot?: TeamWhereInput
   }
 
   export type TrainerTeamHistoryCountOrderByAggregateInput = {
@@ -20084,6 +21566,13 @@ export namespace Prisma {
     connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
   }
 
+  export type TeamSponsorCreateNestedManyWithoutTeamInput = {
+    create?: XOR<TeamSponsorCreateWithoutTeamInput, TeamSponsorUncheckedCreateWithoutTeamInput> | TeamSponsorCreateWithoutTeamInput[] | TeamSponsorUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TeamSponsorCreateOrConnectWithoutTeamInput | TeamSponsorCreateOrConnectWithoutTeamInput[]
+    createMany?: TeamSponsorCreateManyTeamInputEnvelope
+    connect?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+  }
+
   export type TrainerUncheckedCreateNestedManyWithoutTeamInput = {
     create?: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput> | TrainerCreateWithoutTeamInput[] | TrainerUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: TrainerCreateOrConnectWithoutTeamInput | TrainerCreateOrConnectWithoutTeamInput[]
@@ -20096,6 +21585,13 @@ export namespace Prisma {
     connectOrCreate?: TrainerTeamHistoryCreateOrConnectWithoutTeamInput | TrainerTeamHistoryCreateOrConnectWithoutTeamInput[]
     createMany?: TrainerTeamHistoryCreateManyTeamInputEnvelope
     connect?: TrainerTeamHistoryWhereUniqueInput | TrainerTeamHistoryWhereUniqueInput[]
+  }
+
+  export type TeamSponsorUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<TeamSponsorCreateWithoutTeamInput, TeamSponsorUncheckedCreateWithoutTeamInput> | TeamSponsorCreateWithoutTeamInput[] | TeamSponsorUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TeamSponsorCreateOrConnectWithoutTeamInput | TeamSponsorCreateOrConnectWithoutTeamInput[]
+    createMany?: TeamSponsorCreateManyTeamInputEnvelope
+    connect?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
   }
 
   export type TrainerUpdateManyWithoutTeamNestedInput = {
@@ -20126,6 +21622,20 @@ export namespace Prisma {
     deleteMany?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
   }
 
+  export type TeamSponsorUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<TeamSponsorCreateWithoutTeamInput, TeamSponsorUncheckedCreateWithoutTeamInput> | TeamSponsorCreateWithoutTeamInput[] | TeamSponsorUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TeamSponsorCreateOrConnectWithoutTeamInput | TeamSponsorCreateOrConnectWithoutTeamInput[]
+    upsert?: TeamSponsorUpsertWithWhereUniqueWithoutTeamInput | TeamSponsorUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: TeamSponsorCreateManyTeamInputEnvelope
+    set?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    disconnect?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    delete?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    connect?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    update?: TeamSponsorUpdateWithWhereUniqueWithoutTeamInput | TeamSponsorUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: TeamSponsorUpdateManyWithWhereWithoutTeamInput | TeamSponsorUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: TeamSponsorScalarWhereInput | TeamSponsorScalarWhereInput[]
+  }
+
   export type TrainerUncheckedUpdateManyWithoutTeamNestedInput = {
     create?: XOR<TrainerCreateWithoutTeamInput, TrainerUncheckedCreateWithoutTeamInput> | TrainerCreateWithoutTeamInput[] | TrainerUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: TrainerCreateOrConnectWithoutTeamInput | TrainerCreateOrConnectWithoutTeamInput[]
@@ -20152,6 +21662,34 @@ export namespace Prisma {
     update?: TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput | TrainerTeamHistoryUpdateWithWhereUniqueWithoutTeamInput[]
     updateMany?: TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput | TrainerTeamHistoryUpdateManyWithWhereWithoutTeamInput[]
     deleteMany?: TrainerTeamHistoryScalarWhereInput | TrainerTeamHistoryScalarWhereInput[]
+  }
+
+  export type TeamSponsorUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<TeamSponsorCreateWithoutTeamInput, TeamSponsorUncheckedCreateWithoutTeamInput> | TeamSponsorCreateWithoutTeamInput[] | TeamSponsorUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: TeamSponsorCreateOrConnectWithoutTeamInput | TeamSponsorCreateOrConnectWithoutTeamInput[]
+    upsert?: TeamSponsorUpsertWithWhereUniqueWithoutTeamInput | TeamSponsorUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: TeamSponsorCreateManyTeamInputEnvelope
+    set?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    disconnect?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    delete?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    connect?: TeamSponsorWhereUniqueInput | TeamSponsorWhereUniqueInput[]
+    update?: TeamSponsorUpdateWithWhereUniqueWithoutTeamInput | TeamSponsorUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: TeamSponsorUpdateManyWithWhereWithoutTeamInput | TeamSponsorUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: TeamSponsorScalarWhereInput | TeamSponsorScalarWhereInput[]
+  }
+
+  export type TeamCreateNestedOneWithoutSponsorsInput = {
+    create?: XOR<TeamCreateWithoutSponsorsInput, TeamUncheckedCreateWithoutSponsorsInput>
+    connectOrCreate?: TeamCreateOrConnectWithoutSponsorsInput
+    connect?: TeamWhereUniqueInput
+  }
+
+  export type TeamUpdateOneRequiredWithoutSponsorsNestedInput = {
+    create?: XOR<TeamCreateWithoutSponsorsInput, TeamUncheckedCreateWithoutSponsorsInput>
+    connectOrCreate?: TeamCreateOrConnectWithoutSponsorsInput
+    upsert?: TeamUpsertWithoutSponsorsInput
+    connect?: TeamWhereUniqueInput
+    update?: XOR<XOR<TeamUpdateToOneWithWhereWithoutSponsorsInput, TeamUpdateWithoutSponsorsInput>, TeamUncheckedUpdateWithoutSponsorsInput>
   }
 
   export type TeamCreateNestedOneWithoutTrainersInput = {
@@ -21457,6 +22995,29 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TeamSponsorCreateWithoutTeamInput = {
+    name: string
+    logoUrl?: string | null
+    url?: string | null
+  }
+
+  export type TeamSponsorUncheckedCreateWithoutTeamInput = {
+    id?: number
+    name: string
+    logoUrl?: string | null
+    url?: string | null
+  }
+
+  export type TeamSponsorCreateOrConnectWithoutTeamInput = {
+    where: TeamSponsorWhereUniqueInput
+    create: XOR<TeamSponsorCreateWithoutTeamInput, TeamSponsorUncheckedCreateWithoutTeamInput>
+  }
+
+  export type TeamSponsorCreateManyTeamInputEnvelope = {
+    data: TeamSponsorCreateManyTeamInput | TeamSponsorCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
   export type TrainerUpsertWithWhereUniqueWithoutTeamInput = {
     where: TrainerWhereUniqueInput
     update: XOR<TrainerUpdateWithoutTeamInput, TrainerUncheckedUpdateWithoutTeamInput>
@@ -21514,25 +23075,134 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"TrainerTeamHistory"> | Date | string
   }
 
+  export type TeamSponsorUpsertWithWhereUniqueWithoutTeamInput = {
+    where: TeamSponsorWhereUniqueInput
+    update: XOR<TeamSponsorUpdateWithoutTeamInput, TeamSponsorUncheckedUpdateWithoutTeamInput>
+    create: XOR<TeamSponsorCreateWithoutTeamInput, TeamSponsorUncheckedCreateWithoutTeamInput>
+  }
+
+  export type TeamSponsorUpdateWithWhereUniqueWithoutTeamInput = {
+    where: TeamSponsorWhereUniqueInput
+    data: XOR<TeamSponsorUpdateWithoutTeamInput, TeamSponsorUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type TeamSponsorUpdateManyWithWhereWithoutTeamInput = {
+    where: TeamSponsorScalarWhereInput
+    data: XOR<TeamSponsorUpdateManyMutationInput, TeamSponsorUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type TeamSponsorScalarWhereInput = {
+    AND?: TeamSponsorScalarWhereInput | TeamSponsorScalarWhereInput[]
+    OR?: TeamSponsorScalarWhereInput[]
+    NOT?: TeamSponsorScalarWhereInput | TeamSponsorScalarWhereInput[]
+    id?: IntFilter<"TeamSponsor"> | number
+    teamId?: IntFilter<"TeamSponsor"> | number
+    name?: StringFilter<"TeamSponsor"> | string
+    logoUrl?: StringNullableFilter<"TeamSponsor"> | string | null
+    url?: StringNullableFilter<"TeamSponsor"> | string | null
+  }
+
+  export type TeamCreateWithoutSponsorsInput = {
+    name: string
+    shortName?: string | null
+    type?: string
+    region?: string | null
+    logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    trainers?: TrainerCreateNestedManyWithoutTeamInput
+    history?: TrainerTeamHistoryCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamUncheckedCreateWithoutSponsorsInput = {
+    id?: number
+    name: string
+    shortName?: string | null
+    type?: string
+    region?: string | null
+    logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    trainers?: TrainerUncheckedCreateNestedManyWithoutTeamInput
+    history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamCreateOrConnectWithoutSponsorsInput = {
+    where: TeamWhereUniqueInput
+    create: XOR<TeamCreateWithoutSponsorsInput, TeamUncheckedCreateWithoutSponsorsInput>
+  }
+
+  export type TeamUpsertWithoutSponsorsInput = {
+    update: XOR<TeamUpdateWithoutSponsorsInput, TeamUncheckedUpdateWithoutSponsorsInput>
+    create: XOR<TeamCreateWithoutSponsorsInput, TeamUncheckedCreateWithoutSponsorsInput>
+    where?: TeamWhereInput
+  }
+
+  export type TeamUpdateToOneWithWhereWithoutSponsorsInput = {
+    where?: TeamWhereInput
+    data: XOR<TeamUpdateWithoutSponsorsInput, TeamUncheckedUpdateWithoutSponsorsInput>
+  }
+
+  export type TeamUpdateWithoutSponsorsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainers?: TrainerUpdateManyWithoutTeamNestedInput
+    history?: TrainerTeamHistoryUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamUncheckedUpdateWithoutSponsorsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
+    region?: NullableStringFieldUpdateOperationsInput | string | null
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainers?: TrainerUncheckedUpdateManyWithoutTeamNestedInput
+    history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
   export type TeamCreateWithoutTrainersInput = {
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     history?: TrainerTeamHistoryCreateNestedManyWithoutTeamInput
+    sponsors?: TeamSponsorCreateNestedManyWithoutTeamInput
   }
 
   export type TeamUncheckedCreateWithoutTrainersInput = {
     id?: number
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     history?: TrainerTeamHistoryUncheckedCreateNestedManyWithoutTeamInput
+    sponsors?: TeamSponsorUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamCreateOrConnectWithoutTrainersInput = {
@@ -21604,22 +23274,30 @@ export namespace Prisma {
   export type TeamUpdateWithoutTrainersInput = {
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     history?: TrainerTeamHistoryUpdateManyWithoutTeamNestedInput
+    sponsors?: TeamSponsorUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamUncheckedUpdateWithoutTrainersInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     history?: TrainerTeamHistoryUncheckedUpdateManyWithoutTeamNestedInput
+    sponsors?: TeamSponsorUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TrainerTeamHistoryUpsertWithWhereUniqueWithoutTrainerInput = {
@@ -21694,22 +23372,30 @@ export namespace Prisma {
   export type TeamCreateWithoutHistoryInput = {
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     trainers?: TrainerCreateNestedManyWithoutTeamInput
+    sponsors?: TeamSponsorCreateNestedManyWithoutTeamInput
   }
 
   export type TeamUncheckedCreateWithoutHistoryInput = {
     id?: number
     name: string
     shortName?: string | null
+    type?: string
     region?: string | null
     logoUrl?: string | null
+    twitterUrl?: string | null
+    websiteUrl?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     trainers?: TrainerUncheckedCreateNestedManyWithoutTeamInput
+    sponsors?: TeamSponsorUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamCreateOrConnectWithoutHistoryInput = {
@@ -21763,22 +23449,30 @@ export namespace Prisma {
   export type TeamUpdateWithoutHistoryInput = {
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trainers?: TrainerUpdateManyWithoutTeamNestedInput
+    sponsors?: TeamSponsorUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamUncheckedUpdateWithoutHistoryInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     shortName?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: StringFieldUpdateOperationsInput | string
     region?: NullableStringFieldUpdateOperationsInput | string | null
     logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    twitterUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    websiteUrl?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trainers?: TrainerUncheckedUpdateManyWithoutTeamNestedInput
+    sponsors?: TeamSponsorUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type RadarValueCreateWithoutMetricInput = {
@@ -22227,6 +23921,13 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
+  export type TeamSponsorCreateManyTeamInput = {
+    id?: number
+    name: string
+    logoUrl?: string | null
+    url?: string | null
+  }
+
   export type TrainerUpdateWithoutTeamInput = {
     name?: StringFieldUpdateOperationsInput | string
     type?: StringFieldUpdateOperationsInput | string
@@ -22278,6 +23979,26 @@ export namespace Prisma {
     joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     leftAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TeamSponsorUpdateWithoutTeamInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TeamSponsorUncheckedUpdateWithoutTeamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TeamSponsorUncheckedUpdateManyWithoutTeamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    logoUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    url?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TrainerTeamHistoryCreateManyTrainerInput = {

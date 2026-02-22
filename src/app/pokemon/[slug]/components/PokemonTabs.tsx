@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Target, Swords, Info } from "lucide-react";
 
 type TabType = "counters" | "countered-by" | "stats";
 
@@ -30,10 +31,9 @@ export default function PokemonTabs({
   ];
 
   const tabButtonClass = (isActive: boolean) =>
-    `flex-1 md:flex-none px-3 md:px-4 py-2.5 md:py-2 text-xs md:text-sm font-medium transition-all border-b-2 ${
-      isActive
-        ? "border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400"
-        : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+    `flex-1 md:flex-none px-3 md:px-4 py-2.5 md:py-2 text-xs md:text-sm font-medium transition-all border-b-2 ${isActive
+      ? "border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400"
+      : "border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
     }`;
 
   return (
@@ -53,22 +53,22 @@ export default function PokemonTabs({
 
       {/* 有利対面タブの説明エリア */}
       {activeTab === "countered-by" && (
-        <div className="bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-800 px-4 py-2.5 text-sm text-blue-800 dark:text-blue-100">
-          📌 {pokemonName}が有利に戦えるポケモン
+        <div className="bg-blue-50 flex items-center gap-2 dark:bg-blue-900 border border-blue-200 dark:border-blue-800 px-4 py-2.5 text-sm text-blue-800 dark:text-blue-100">
+          <Target className="w-4 h-4" /> {pokemonName}が有利に戦えるポケモン
         </div>
       )}
 
       {/* カウンターピックタブの説明エリア */}
       {activeTab === "counters" && (
-        <div className="bg-amber-50 dark:bg-amber-900 border border-amber-200 dark:border-amber-800 px-4 py-2.5 text-sm text-amber-800 dark:text-amber-100">
-          📌 {pokemonName}に有利なポケモン（対策法）
+        <div className="bg-amber-50 flex items-center gap-2 dark:bg-amber-900 border border-amber-200 dark:border-amber-800 px-4 py-2.5 text-sm text-amber-800 dark:text-amber-100">
+          <Swords className="w-4 h-4" /> {pokemonName}に有利なポケモン（対策法）
         </div>
       )}
 
       {/* ステータスタブの説明エリア（Coming soon） */}
       {activeTab === "stats" && (
-        <div className="bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300">
-          🔄 ステータス詳細: Coming soon
+        <div className="bg-gray-50 flex items-center gap-2 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300">
+          <Info className="w-4 h-4" /> ステータス詳細: Coming soon
         </div>
       )}
 

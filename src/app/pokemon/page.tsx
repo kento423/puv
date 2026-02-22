@@ -4,6 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
+import {
+  getDamageClassLabel,
+  getDamageClassColor,
+  getRangeTypeLabel,
+  getRangeTypeColor,
+  getBattleStyleLabel,
+  getBattleStyleBgImage,
+} from "@/lib/pokemon-utils";
 
 interface Pokemon {
   id: number;
@@ -101,81 +109,10 @@ export default function PokemonListPage() {
     });
   };
 
-  // ダメージクラスを日本語に変換
-  const getDamageClassLabel = (damageClass: string): string => {
-    const labels: { [key: string]: string } = {
-      physical: "攻撃",
-      special: "特攻",
-    };
-    return labels[damageClass.toLowerCase()] || damageClass;
-  };
 
-  // ダメージクラスの色を取得
-  const getDamageClassColor = (damageClass: string): string => {
-    const colors: { [key: string]: string } = {
-      physical: "bg-orange-100 text-orange-700 border-orange-300",
-      special: "bg-green-100 text-green-700 border-green-300",
-    };
-    return colors[damageClass.toLowerCase()] || "bg-gray-100 text-gray-700 border-gray-300";
-  };
-
-  // レンジタイプを日本語に変換
-  const getRangeTypeLabel = (rangeType: string): string => {
-    const labels: { [key: string]: string } = {
-      melee: "近接",
-      ranged: "遠隔",
-    };
-    return labels[rangeType.toLowerCase()] || rangeType;
-  };
-
-  // レンジタイプの色を取得
-  const getRangeTypeColor = (rangeType: string): string => {
-    const colors: { [key: string]: string } = {
-      melee: "bg-orange-100 text-orange-700 border-orange-300",
-      ranged: "bg-green-100 text-green-700 border-green-300",
-    };
-    return colors[rangeType.toLowerCase()] || "bg-gray-100 text-gray-700 border-gray-300";
-  };
-
-  // バトルスタイルの背景画像パスを取得
-  const getBattleStyleBgImage = (battleStyle: string): string => {
-    const images: { [key: string]: string } = {
-      attacker: "/background/bg-thumb_red.jpg",
-      "all-rounder": "/background/bg-thumb_violet.jpg",
-      defender: "/background/bg-thumb_green.jpg",
-      speedster: "/background/bg-thumb_blue.jpg",
-      supporter: "/background/bg-thumb_yellow.jpg",
-    };
-    return images[battleStyle.toLowerCase()] || "";
-  };
-
-  // ダメージクラスのセレクト用ラベルを取得
-  const getDamageClassSelectLabel = (damageClass: string): string => {
-    return getDamageClassLabel(damageClass);
-  };
-
-  // レンジタイプのセレクト用ラベルを取得
-  const getRangeTypeSelectLabel = (rangeType: string): string => {
-    return getRangeTypeLabel(rangeType);
-  };
-
-  // バトルスタイルのセレクト用ラベルを取得
-  const getBattleStyleSelectLabel = (battleStyle: string): string => {
-    const labels: { [key: string]: string } = {
-      attacker: "アタック型",
-      "all-rounder": "バランス型",
-      defender: "ディフェンス型",
-      speedster: "スピード型",
-      supporter: "サポート型",
-    };
-    return labels[battleStyle.toLowerCase()] || battleStyle;
-  };
 
   return (
     <div className="w-full">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">
-        {locale === "ja" ? "ポケモン一覧" : "Pokémon List"}
-      </h1>
 
       {/* フィルターセクション */}
       <div className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg mb-6 shadow-sm border border-gray-200 dark:border-gray-700">
@@ -186,14 +123,14 @@ export default function PokemonListPage() {
           {/* 検索 */}
           <div>
             <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              {locale === "ja" ? "名前検索" : "Search Name"}
+              {locale === "ja" ? "名前" : "Search Name"}
             </label>
             <input
               type="text"
               value={filters.search}
               onChange={(e) => handleFilterChange("search", e.target.value)}
               placeholder={locale === "ja" ? "ポケモン名..." : "Pokemon name..."}
-              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             />
           </div>
 
@@ -205,12 +142,12 @@ export default function PokemonListPage() {
             <select
               value={filters.damageClass}
               onChange={(e) => handleFilterChange("damageClass", e.target.value)}
-              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             >
               <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
               {uniqueValues.damageClasses.map((val) => (
                 <option key={val} value={val}>
-                  {locale === "ja" ? getDamageClassSelectLabel(val) : val}
+                  {locale === "ja" ? getDamageClassLabel(val) : val}
                 </option>
               ))}
             </select>
@@ -219,17 +156,17 @@ export default function PokemonListPage() {
           {/* レンジタイプ */}
           <div>
             <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              {locale === "ja" ? "範囲" : "Range Type"}
+              {locale === "ja" ? "攻撃範囲" : "Range Type"}
             </label>
             <select
               value={filters.rangeType}
               onChange={(e) => handleFilterChange("rangeType", e.target.value)}
-              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             >
               <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
               {uniqueValues.rangeTypes.map((val) => (
                 <option key={val} value={val}>
-                  {locale === "ja" ? getRangeTypeSelectLabel(val) : val}
+                  {locale === "ja" ? getRangeTypeLabel(val) : val}
                 </option>
               ))}
             </select>
@@ -238,17 +175,17 @@ export default function PokemonListPage() {
           {/* バトルスタイル */}
           <div>
             <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-              {locale === "ja" ? "戦闘スタイル" : "Battle Style"}
+              {locale === "ja" ? "型" : "Battle Style"}
             </label>
             <select
               value={filters.battleStyle}
               onChange={(e) => handleFilterChange("battleStyle", e.target.value)}
-              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
             >
               <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
               {uniqueValues.battleStyles.map((val) => (
                 <option key={val} value={val}>
-                  {locale === "ja" ? getBattleStyleSelectLabel(val) : val}
+                  {locale === "ja" ? getBattleStyleLabel(val) : val}
                 </option>
               ))}
             </select>

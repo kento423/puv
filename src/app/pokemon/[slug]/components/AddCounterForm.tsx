@@ -8,6 +8,7 @@ interface PokemonMaster {
   nameJa: string;
   nameEn: string;
   imageUrl: string;
+  battleStyle: string;
 }
 
 interface AddCounterFormProps {
@@ -19,13 +20,13 @@ interface AddCounterFormProps {
 export default function AddCounterForm({ slug, locale, onAdded }: AddCounterFormProps) {
   const [showForm, setShowForm] = useState(false);
   const [pokemonMaster, setPokemonMaster] = useState<PokemonMaster[]>([]);
-  const [newCounter, setNewCounter] = useState({ selectedPokemonId: "", reason: "" });
+  const [newCounter, setNewCounter] = useState<{ selectedPokemonId: string; reason: string; counterType?: "hard" | "soft" | null }>({ selectedPokemonId: "", reason: "", counterType: null });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!showForm) return;
-    
+
     async function fetchPokemonMaster() {
       setIsLoading(true);
       setError(null);
@@ -43,7 +44,7 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
         setIsLoading(false);
       }
     }
-    
+
     fetchPokemonMaster();
   }, [slug, showForm]);
 
@@ -68,6 +69,7 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
         body: JSON.stringify({
           selectedPokemonId: newCounter.selectedPokemonId,
           reason: newCounter.reason,
+          counterType: newCounter.counterType,
         }),
       });
 
@@ -76,7 +78,7 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
         throw new Error(errorData.error || "カウンターの追加に失敗しました");
       }
 
-      setNewCounter({ selectedPokemonId: "", reason: "" });
+      setNewCounter({ selectedPokemonId: "", reason: "", counterType: null });
       setShowForm(false);
       setError(null);
       if (onAdded) onAdded();
@@ -88,7 +90,7 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
   };
 
   const handleCancel = () => {
-    setNewCounter({ selectedPokemonId: "", reason: "" });
+    setNewCounter({ selectedPokemonId: "", reason: "", counterType: null });
     setShowForm(false);
     setError(null);
   };

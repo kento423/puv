@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Breadcrumbs from "./Breadcrumbs";
 import PokemonInfo from "./PokemonInfo";
 import PokemonPageClient from "./PokemonPageClient";
+import { prisma } from "@/lib/prisma";
 
 interface PokemonData {
   id: number;
@@ -35,6 +36,26 @@ export default async function Page({ params }: { params: Promise<any> }) {
   const locale = acceptLang.startsWith("en") ? "en" : "ja";
   const name = locale === "ja" ? pokemonData.nameJa : pokemonData.nameEn;
 
+  // SSRでカウンター初期データを取得 (サーバーサイドレンダリング)
+  const countersData = await prisma.pokemonCounter.findMany({
+    where: { targetPokemonId: pokemonData.id },
+    include: {
+      counterPokemon: true,
+    },
+  });
+
+  const initialCounters = countersData.map((counter: any) => ({
+    id: counter.id,
+    nameJa: counter.counterPokemon.nameJa,
+    nameEn: counter.counterPokemon.nameEn,
+    imageUrl: counter.counterPokemon.imageUrl,
+    slug: counter.counterPokemon.slug,
+    reason: counter.reason,
+    counterType: counter.counterType,
+    upvotes: counter.upvotes,
+    downvotes: counter.downvotes,
+  }));
+
   return (
     <div className="w-full">
       <Breadcrumbs name={name} />
@@ -47,7 +68,12 @@ export default async function Page({ params }: { params: Promise<any> }) {
         customTags={pokemonData.customTags}
         slug={slug}
       />
-      <PokemonPageClient pokemonId={pokemonData.id} slug={slug} pokemonName={name} />
+      <PokemonPageClient
+        pokemonId={pokemonData.id}
+        slug={slug}
+        pokemonName={name}
+        initialCounters={initialCounters}
+      />
     </div>
   );
 }

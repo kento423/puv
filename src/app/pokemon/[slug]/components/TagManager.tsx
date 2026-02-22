@@ -122,9 +122,8 @@ export default function TagManager({ slug, customTags, onTagsUpdated }: TagManag
           {customTags.map((ct) => (
             <div
               key={ct.tag.id}
-              className={`flex items-center gap-2 text-xs md:text-sm font-medium px-3 py-1.5 rounded-full ${
-                customTagColorMap[ct.tag.color] || customTagColorMap.gray
-              } border border-current border-opacity-30`}
+              className={`flex items-center gap-2 text-xs md:text-sm font-medium px-3 py-1.5 rounded-full ${customTagColorMap[ct.tag.color] || customTagColorMap.gray
+                } border border-current border-opacity-30`}
             >
               <span>{ct.tag.name}</span>
               <button
@@ -154,12 +153,12 @@ export default function TagManager({ slug, customTags, onTagsUpdated }: TagManag
             value={tagName}
             onChange={(e) => setTagName(e.target.value)}
             maxLength={20}
-            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
           />
           <select
             value={tagColor}
             onChange={(e) => setTagColor(e.target.value)}
-            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
           >
             {colorOptions.map((opt) => (
               <option key={opt.value} value={opt.value}>

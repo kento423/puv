@@ -59,6 +59,7 @@ model PokemonCounter {
   targetPokemonId  Int // 対策される側のポケモンID
   counterPokemonId Int // カウンター側のポケモンID
   reason           String? // 任意: 解説やメモ
+  counterType      String? // "hard" または "soft" または null
   upvotes          Int     @default(0)
   downvotes        Int     @default(0)
 

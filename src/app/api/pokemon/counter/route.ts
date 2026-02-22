@@ -7,9 +7,9 @@ export async function GET(req: Request) {
 
 export async function PATCH(req: Request) {
   try {
-    const { counterId, reason } = await req.json();
+    const { counterId, reason, counterType } = await req.json();
 
-    if (!counterId || reason === undefined) {
+    if (!counterId) {
       return NextResponse.json(
         { error: "Invalid request parameters" },
         { status: 400 }
@@ -25,10 +25,16 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ error: "Counter not found" }, { status: 404 });
     }
 
-    // reason を更新
+    // 変更データを作成
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const updateData: any = {};
+    if (reason !== undefined) updateData.reason = reason;
+    if (counterType !== undefined) updateData.counterType = counterType; // nullも許容
+
+    // 更新
     const updatedCounter = await prisma.pokemonCounter.update({
       where: { id: counterId },
-      data: { reason },
+      data: updateData,
     });
 
     return NextResponse.json(updatedCounter);

@@ -152,6 +152,7 @@ exports.Prisma.PokemonCounterScalarFieldEnum = {
   targetPokemonId: 'targetPokemonId',
   counterPokemonId: 'counterPokemonId',
   reason: 'reason',
+  counterType: 'counterType',
   upvotes: 'upvotes',
   downvotes: 'downvotes'
 };

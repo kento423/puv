@@ -195,24 +195,32 @@ className =
 
 ```jsx
 className =
-  "w-full md:w-auto px-4 md:px-6 py-2.5 md:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all font-medium text-sm md:text-base";
+  "w-full md:w-auto px-4 md:px-6 py-2.5 md:py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 active:scale-95 transition-all font-medium text-sm md:text-base";
 ```
 
 **フォーム（検索・セレクト）:**
 
 ```jsx
 className =
-  "w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 text-sm";
+  "w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 text-sm";
 ```
 
 ### **その他のスタイリング規則**
 
 - **Tailwind CSS** を使用
-- **アイコン**: lucide-react から import（ThumbsUp, ThumbsDown, SquarePen など）
-- **色分け規則**:
+- **アイコン**: lucide-react から import（ThumbsUp, ThumbsDown, SquarePen, Swords, Target, Info など）
+  - **UIコンポーネント内の絵文字は使用禁止**。代わりに lucide-react アイコンを使う。
+- **色分け規則（淡いパステルトーンを使用）**:
   - ダメージクラス: physical=オレンジ, special=緑
   - レンジタイプ: melee=オレンジ, ranged=緑
-  - バトルスタイル: attacker=赤, all-rounder=紫, defender=緑, speedster=青, supporter=黄
+  - バトルスタイル（淡い色で統一）:
+    - attacker=`bg-red-100 text-red-800` / `dark:bg-red-900 dark:text-red-200`
+    - all-rounder=`bg-purple-100 text-purple-800` / `dark:bg-purple-900 dark:text-purple-200`
+    - defender=`bg-green-100 text-green-800` / `dark:bg-green-900 dark:text-green-200`
+    - speedster=`bg-blue-100 text-blue-800` / `dark:bg-blue-900 dark:text-blue-200`
+    - supporter=`bg-yellow-100 text-yellow-800` / `dark:bg-yellow-900 dark:text-yellow-200`
+  - カウンタータイプ（ブランドカラー）: hard=オレンジ (`<Swords />`), soft=パープル (`<Target />`)
+- **レーダーチャート**: ブランドカラーのパープル (`#9333ea`) を使用
 
 ## データモデル（重要）
 

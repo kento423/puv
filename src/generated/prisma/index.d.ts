@@ -5812,6 +5812,7 @@ export namespace Prisma {
     targetPokemonId: number | null
     counterPokemonId: number | null
     reason: string | null
+    counterType: string | null
     upvotes: number | null
     downvotes: number | null
   }
@@ -5821,6 +5822,7 @@ export namespace Prisma {
     targetPokemonId: number | null
     counterPokemonId: number | null
     reason: string | null
+    counterType: string | null
     upvotes: number | null
     downvotes: number | null
   }
@@ -5830,6 +5832,7 @@ export namespace Prisma {
     targetPokemonId: number
     counterPokemonId: number
     reason: number
+    counterType: number
     upvotes: number
     downvotes: number
     _all: number
@@ -5857,6 +5860,7 @@ export namespace Prisma {
     targetPokemonId?: true
     counterPokemonId?: true
     reason?: true
+    counterType?: true
     upvotes?: true
     downvotes?: true
   }
@@ -5866,6 +5870,7 @@ export namespace Prisma {
     targetPokemonId?: true
     counterPokemonId?: true
     reason?: true
+    counterType?: true
     upvotes?: true
     downvotes?: true
   }
@@ -5875,6 +5880,7 @@ export namespace Prisma {
     targetPokemonId?: true
     counterPokemonId?: true
     reason?: true
+    counterType?: true
     upvotes?: true
     downvotes?: true
     _all?: true
@@ -5971,6 +5977,7 @@ export namespace Prisma {
     targetPokemonId: number
     counterPokemonId: number
     reason: string | null
+    counterType: string | null
     upvotes: number
     downvotes: number
     _count: PokemonCounterCountAggregateOutputType | null
@@ -5999,6 +6006,7 @@ export namespace Prisma {
     targetPokemonId?: boolean
     counterPokemonId?: boolean
     reason?: boolean
+    counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
@@ -6012,6 +6020,7 @@ export namespace Prisma {
     targetPokemonId?: boolean
     counterPokemonId?: boolean
     reason?: boolean
+    counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
@@ -6023,6 +6032,7 @@ export namespace Prisma {
     targetPokemonId?: boolean
     counterPokemonId?: boolean
     reason?: boolean
+    counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
@@ -6034,11 +6044,12 @@ export namespace Prisma {
     targetPokemonId?: boolean
     counterPokemonId?: boolean
     reason?: boolean
+    counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
   }
 
-  export type PokemonCounterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetPokemonId" | "counterPokemonId" | "reason" | "upvotes" | "downvotes", ExtArgs["result"]["pokemonCounter"]>
+  export type PokemonCounterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetPokemonId" | "counterPokemonId" | "reason" | "counterType" | "upvotes" | "downvotes", ExtArgs["result"]["pokemonCounter"]>
   export type PokemonCounterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
@@ -6066,6 +6077,7 @@ export namespace Prisma {
       targetPokemonId: number
       counterPokemonId: number
       reason: string | null
+      counterType: string | null
       upvotes: number
       downvotes: number
     }, ExtArgs["result"]["pokemonCounter"]>
@@ -6498,6 +6510,7 @@ export namespace Prisma {
     readonly targetPokemonId: FieldRef<"PokemonCounter", 'Int'>
     readonly counterPokemonId: FieldRef<"PokemonCounter", 'Int'>
     readonly reason: FieldRef<"PokemonCounter", 'String'>
+    readonly counterType: FieldRef<"PokemonCounter", 'String'>
     readonly upvotes: FieldRef<"PokemonCounter", 'Int'>
     readonly downvotes: FieldRef<"PokemonCounter", 'Int'>
   }
@@ -18278,6 +18291,7 @@ export namespace Prisma {
     targetPokemonId: 'targetPokemonId',
     counterPokemonId: 'counterPokemonId',
     reason: 'reason',
+    counterType: 'counterType',
     upvotes: 'upvotes',
     downvotes: 'downvotes'
   };
@@ -18698,6 +18712,7 @@ export namespace Prisma {
     targetPokemonId?: IntFilter<"PokemonCounter"> | number
     counterPokemonId?: IntFilter<"PokemonCounter"> | number
     reason?: StringNullableFilter<"PokemonCounter"> | string | null
+    counterType?: StringNullableFilter<"PokemonCounter"> | string | null
     upvotes?: IntFilter<"PokemonCounter"> | number
     downvotes?: IntFilter<"PokemonCounter"> | number
     targetPokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
@@ -18710,6 +18725,7 @@ export namespace Prisma {
     targetPokemonId?: SortOrder
     counterPokemonId?: SortOrder
     reason?: SortOrderInput | SortOrder
+    counterType?: SortOrderInput | SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
     targetPokemon?: PokemonOrderByWithRelationInput
@@ -18725,6 +18741,7 @@ export namespace Prisma {
     targetPokemonId?: IntFilter<"PokemonCounter"> | number
     counterPokemonId?: IntFilter<"PokemonCounter"> | number
     reason?: StringNullableFilter<"PokemonCounter"> | string | null
+    counterType?: StringNullableFilter<"PokemonCounter"> | string | null
     upvotes?: IntFilter<"PokemonCounter"> | number
     downvotes?: IntFilter<"PokemonCounter"> | number
     targetPokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
@@ -18737,6 +18754,7 @@ export namespace Prisma {
     targetPokemonId?: SortOrder
     counterPokemonId?: SortOrder
     reason?: SortOrderInput | SortOrder
+    counterType?: SortOrderInput | SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
     _count?: PokemonCounterCountOrderByAggregateInput
@@ -18754,6 +18772,7 @@ export namespace Prisma {
     targetPokemonId?: IntWithAggregatesFilter<"PokemonCounter"> | number
     counterPokemonId?: IntWithAggregatesFilter<"PokemonCounter"> | number
     reason?: StringNullableWithAggregatesFilter<"PokemonCounter"> | string | null
+    counterType?: StringNullableWithAggregatesFilter<"PokemonCounter"> | string | null
     upvotes?: IntWithAggregatesFilter<"PokemonCounter"> | number
     downvotes?: IntWithAggregatesFilter<"PokemonCounter"> | number
   }
@@ -19583,6 +19602,7 @@ export namespace Prisma {
 
   export type PokemonCounterCreateInput = {
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
@@ -19595,6 +19615,7 @@ export namespace Prisma {
     targetPokemonId: number
     counterPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
@@ -19602,6 +19623,7 @@ export namespace Prisma {
 
   export type PokemonCounterUpdateInput = {
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
@@ -19614,6 +19636,7 @@ export namespace Prisma {
     targetPokemonId?: IntFieldUpdateOperationsInput | number
     counterPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
@@ -19624,12 +19647,14 @@ export namespace Prisma {
     targetPokemonId: number
     counterPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
   }
 
   export type PokemonCounterUpdateManyMutationInput = {
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
   }
@@ -19639,6 +19664,7 @@ export namespace Prisma {
     targetPokemonId?: IntFieldUpdateOperationsInput | number
     counterPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
   }
@@ -20562,6 +20588,7 @@ export namespace Prisma {
     targetPokemonId?: SortOrder
     counterPokemonId?: SortOrder
     reason?: SortOrder
+    counterType?: SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
   }
@@ -20579,6 +20606,7 @@ export namespace Prisma {
     targetPokemonId?: SortOrder
     counterPokemonId?: SortOrder
     reason?: SortOrder
+    counterType?: SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
   }
@@ -20588,6 +20616,7 @@ export namespace Prisma {
     targetPokemonId?: SortOrder
     counterPokemonId?: SortOrder
     reason?: SortOrder
+    counterType?: SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
   }
@@ -22204,6 +22233,7 @@ export namespace Prisma {
 
   export type PokemonCounterCreateWithoutTargetPokemonInput = {
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     counterPokemon: PokemonCreateNestedOneWithoutCounterForInput
@@ -22214,6 +22244,7 @@ export namespace Prisma {
     id?: number
     counterPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
@@ -22231,6 +22262,7 @@ export namespace Prisma {
 
   export type PokemonCounterCreateWithoutCounterPokemonInput = {
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
@@ -22241,6 +22273,7 @@ export namespace Prisma {
     id?: number
     targetPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
@@ -22327,6 +22360,7 @@ export namespace Prisma {
     targetPokemonId?: IntFilter<"PokemonCounter"> | number
     counterPokemonId?: IntFilter<"PokemonCounter"> | number
     reason?: StringNullableFilter<"PokemonCounter"> | string | null
+    counterType?: StringNullableFilter<"PokemonCounter"> | string | null
     upvotes?: IntFilter<"PokemonCounter"> | number
     downvotes?: IntFilter<"PokemonCounter"> | number
   }
@@ -22731,6 +22765,7 @@ export namespace Prisma {
 
   export type PokemonCounterCreateWithoutVotesInput = {
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
     targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
@@ -22742,6 +22777,7 @@ export namespace Prisma {
     targetPokemonId: number
     counterPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
   }
@@ -22764,6 +22800,7 @@ export namespace Prisma {
 
   export type PokemonCounterUpdateWithoutVotesInput = {
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
@@ -22775,6 +22812,7 @@ export namespace Prisma {
     targetPokemonId?: IntFieldUpdateOperationsInput | number
     counterPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
   }
@@ -23728,6 +23766,7 @@ export namespace Prisma {
     id?: number
     counterPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
   }
@@ -23736,6 +23775,7 @@ export namespace Prisma {
     id?: number
     targetPokemonId: number
     reason?: string | null
+    counterType?: string | null
     upvotes?: number
     downvotes?: number
   }
@@ -23767,6 +23807,7 @@ export namespace Prisma {
 
   export type PokemonCounterUpdateWithoutTargetPokemonInput = {
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     counterPokemon?: PokemonUpdateOneRequiredWithoutCounterForNestedInput
@@ -23777,6 +23818,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     counterPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
@@ -23786,12 +23828,14 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     counterPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
   }
 
   export type PokemonCounterUpdateWithoutCounterPokemonInput = {
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
@@ -23802,6 +23846,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     targetPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
     votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
@@ -23811,6 +23856,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     targetPokemonId?: IntFieldUpdateOperationsInput | number
     reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
   }

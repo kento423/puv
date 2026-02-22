@@ -29,6 +29,7 @@ export async function GET(request: NextRequest) {
         imageUrl: counter.counterPokemon.imageUrl,
         slug: counter.counterPokemon.slug, // 追加: カウンターポケモンのslug
         reason: counter.reason,
+        counterType: counter.counterType,
         upvotes: counter.upvotes,
         downvotes: counter.downvotes,
       }))
@@ -51,7 +52,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // 必要なデータが揃っているか確認
-    const { selectedPokemonId, reason } = body;
+    const { selectedPokemonId, reason, counterType } = body;
     if (!selectedPokemonId || !reason) {
       return NextResponse.json(
         { error: "selectedPokemonId and reason are required" },
@@ -77,6 +78,7 @@ export async function POST(request: NextRequest) {
         targetPokemonId: targetPokemon.id,
         counterPokemonId: parseInt(selectedPokemonId, 10),
         reason,
+        counterType: counterType || null,
       },
     });
 

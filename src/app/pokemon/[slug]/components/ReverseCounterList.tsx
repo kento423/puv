@@ -10,6 +10,7 @@ interface ReverseCounter {
   nameEn: string;
   imageUrl: string;
   reason: string;
+  counterType?: "hard" | "soft" | null;
   upvotes: number;
   downvotes: number;
   slug: string;
@@ -87,10 +88,11 @@ export default function ReverseCounterList({ slug }: ReverseCounterListProps) {
     await fetchReverseCounters();
   };
 
-  // reason編集処理
+  // reasonとcounterType編集処理
   const handleEditReason = async (
     counterId: number,
-    newReason: string
+    newReason: string,
+    newCounterType?: "hard" | "soft" | null
   ): Promise<void> => {
     const res = await fetch("/api/pokemon/counter", {
       method: "PATCH",
@@ -98,12 +100,13 @@ export default function ReverseCounterList({ slug }: ReverseCounterListProps) {
       body: JSON.stringify({
         counterId,
         reason: newReason,
+        counterType: newCounterType,
       }),
     });
 
     if (!res.ok) {
       const error = await res.json();
-      throw new Error(`reason編集に失敗しました: ${error.error}`);
+      throw new Error(`編集に失敗しました: ${error.error}`);
     }
 
     await fetchReverseCounters();

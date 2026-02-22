@@ -60,7 +60,7 @@ export function Combobox<T>({
         </Button>
       </PopoverTrigger>
       <PopoverContent className={`${className} p-0`}>
-        <Command>
+        <Command shouldFilter={false}>
           <CommandInput
             placeholder="検索..."
             value={searchQuery}
@@ -77,6 +77,7 @@ export function Combobox<T>({
                   onSelect={(val) => {
                     onSelect(val);
                     setOpen(false);
+                    setSearchQuery(""); // 選択時に検索クエリをリセット
                   }}
                   className="text-sm"
                 >

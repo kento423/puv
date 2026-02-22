@@ -1,6 +1,8 @@
 "use client";
 import { Combobox } from "@/components/Combobox";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
+import { Swords, Target } from "lucide-react";
+import { getBattleStyleShortLabel, getBattleStyleColor } from "@/lib/pokemon-utils";
 
 interface InputCandidateCardProps {
   pokemonMaster: {
@@ -8,12 +10,14 @@ interface InputCandidateCardProps {
     nameJa: string;
     nameEn: string;
     imageUrl: string;
+    battleStyle: string;
   }[];
   newCounter: {
     selectedPokemonId: string;
     reason: string;
+    counterType?: "hard" | "soft" | null;
   };
-  setNewCounter: (value: { selectedPokemonId: string; reason: string }) => void;
+  setNewCounter: (value: { selectedPokemonId: string; reason: string; counterType?: "hard" | "soft" | null }) => void;
   handleAddCounter: () => void;
   handleCancel: () => void;
   locale: string;
@@ -28,6 +32,20 @@ export default function InputCandidateCard({
   locale,
 }: InputCandidateCardProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [selectedBattleStyle, setSelectedBattleStyle] = useState<string>("all");
+
+  // selectedBattleStyle に基づいて、Combobox に渡す候補をフィルタリング
+  const filteredPokemonMaster = useMemo(() => {
+    if (selectedBattleStyle === "all") return pokemonMaster;
+    return pokemonMaster.filter((p) => p.battleStyle === selectedBattleStyle);
+  }, [pokemonMaster, selectedBattleStyle]);
+
+  // マスターデータから利用可能なバトルスタイルのリストを抽出
+  const availableBattleStyles = useMemo(() => {
+    return Array.from(new Set(pokemonMaster.map((p) => p.battleStyle))).sort();
+  }, [pokemonMaster]);
+
+
 
   // ビューポートをリセット（モバイルのキーボードズーム＆スクロール位置対策）
   const resetViewport = () => {
@@ -66,28 +84,86 @@ export default function InputCandidateCard({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleCancel]);
+
   return (
     <div className="flex flex-col p-4 md:p-6 border border-gray-200 dark:border-gray-700 rounded-lg space-y-4 dark:bg-gray-800 bg-white shadow-sm">
+      <div className="space-y-4">
+        {/* バトルスタイル絞り込み */}
+        <div className="space-y-2">
+          <label className="block text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
+            型で絞り込み (任意)
+          </label>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedBattleStyle("all")}
+              className={`px-3 py-1.5 rounded-full text-xs md:text-sm font-medium transition-colors border ${selectedBattleStyle === "all"
+                ? "bg-gray-800 text-white border-gray-800 dark:bg-gray-200 dark:text-gray-900 dark:border-gray-200"
+                : "bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
+                }`}
+            >
+              すべて
+            </button>
+            {availableBattleStyles.map((style) => (
+              <button
+                key={style}
+                onClick={() => setSelectedBattleStyle(style)}
+                className={`px-3 py-1.5 rounded-full text-xs md:text-sm font-medium transition-colors border ${getBattleStyleColor(style, selectedBattleStyle === style)}`}
+              >
+                {getBattleStyleShortLabel(style)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ポケモン選択 */}
+        <div className="space-y-2">
+          <label className="block text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
+            ポケモンを選択 <span className="text-red-500">*</span>
+          </label>
+          <Combobox
+            items={filteredPokemonMaster}
+            selectedValue={newCounter.selectedPokemonId}
+            onSelect={(value) =>
+              setNewCounter({ ...newCounter, selectedPokemonId: value })
+            }
+            placeholder="ポケモンを選択..."
+            itemLabel={(item) => (locale === "ja" ? item.nameJa : item.nameEn)}
+            itemValue={(item) => item.id.toString()}
+            className="w-full"
+          />
+        </div>
+      </div>
+
+      {/* カウンタータイプ選択 */}
       <div className="space-y-2">
         <label className="block text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
-          ポケモンを選択
+          カウンターの種類 (任意)
         </label>
-        <Combobox
-          items={pokemonMaster}
-          selectedValue={newCounter.selectedPokemonId}
-          onSelect={(value) =>
-            setNewCounter({ ...newCounter, selectedPokemonId: value })
-          }
-          placeholder="ポケモンを選択してください"
-          itemLabel={(item) => (locale === "ja" ? item.nameJa : item.nameEn)}
-          itemValue={(item) => item.id.toString()}
-          className="w-full"
-        />
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => setNewCounter({ ...newCounter, counterType: newCounter.counterType === "hard" ? null : "hard" })}
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-colors border ${newCounter.counterType === "hard"
+              ? "bg-orange-500 text-white border-orange-500 dark:bg-orange-600 dark:border-orange-600"
+              : "bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100 dark:bg-orange-900/20 dark:text-orange-400 dark:border-orange-800/50 dark:hover:bg-orange-900/40"
+              }`}
+          >
+            <Swords size={16} /> ハードカウンター
+          </button>
+          <button
+            onClick={() => setNewCounter({ ...newCounter, counterType: newCounter.counterType === "soft" ? null : "soft" })}
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-colors border ${newCounter.counterType === "soft"
+              ? "bg-purple-600 text-white border-purple-600 dark:bg-purple-500 dark:border-purple-500"
+              : "bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 dark:hover:bg-purple-900/40"
+              }`}
+          >
+            <Target size={16} /> ソフトカウンター
+          </button>
+        </div>
       </div>
 
       <div className="space-y-2">
         <label className="block text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
-          理由（対策方法など）
+          理由（対策方法など） <span className="text-red-500">*</span>
         </label>
         <textarea
           ref={textareaRef}
@@ -101,11 +177,11 @@ export default function InputCandidateCard({
               handleCancelWithReset();
             }
           }}
-          className="w-full p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg min-h-24 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 text-sm md:text-base"
+          className="w-full p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg min-h-24 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-600 text-sm md:text-base"
         />
       </div>
 
-      <div className="flex gap-2 flex-col-reverse md:flex-row">
+      <div className="flex gap-2 flex-col-reverse md:flex-row pt-2">
         <button
           onClick={handleSubmit}
           className="flex-1 px-4 py-2.5 md:py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 active:scale-95 transition-all font-medium text-sm md:text-base"

@@ -13,13 +13,14 @@ interface Counter {
   nameEn: string;
   imageUrl: string;
   reason: string;
+  counterType?: "hard" | "soft" | null;
   upvotes: number;
   downvotes: number;
   slug: string;
 }
 
-export default function PokemonPageClient({ pokemonId, slug, pokemonName }: { pokemonId: number, slug: string, pokemonName: string }) {
-  const [counters, setCounters] = useState<Counter[]>([]);
+export default function PokemonPageClient({ pokemonId, slug, pokemonName, initialCounters }: { pokemonId: number, slug: string, pokemonName: string, initialCounters: Counter[] }) {
+  const [counters, setCounters] = useState<Counter[]>(initialCounters);
   const locale = "ja";
 
   // カウンター一覧を取得
@@ -47,7 +48,7 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName }: { po
         userId,
       }),
     });
-    
+
     if (!res.ok) {
       const error = await res.json();
       if (res.status === 409) {
@@ -55,26 +56,27 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName }: { po
       }
       throw new Error("投票に失敗しました");
     }
-    
+
     await fetchCounters();
   };
 
-  // reason編集処理
-  const handleEditReason = async (counterId: number, newReason: string): Promise<void> => {
+  // reason・counterType編集処理
+  const handleEditReason = async (counterId: number, newReason: string, newCounterType?: "hard" | "soft" | null): Promise<void> => {
     const res = await fetch("/api/pokemon/counter", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         counterId,
         reason: newReason,
+        counterType: newCounterType,
       }),
     });
-    
+
     if (!res.ok) {
       const error = await res.json();
-      throw new Error(`reason編集に失敗しました: ${error.error}`);
+      throw new Error(`編集に失敗しました: ${error.error}`);
     }
-    
+
     await fetchCounters();
   };
 

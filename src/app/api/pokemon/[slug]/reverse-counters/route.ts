@@ -38,6 +38,7 @@ export async function GET(
       nameEn: counter.targetPokemon.nameEn,
       imageUrl: counter.targetPokemon.imageUrl,
       reason: counter.reason,
+      counterType: counter.counterType,
       upvotes: counter.upvotes,
       downvotes: counter.downvotes,
       slug: counter.targetPokemon.slug,

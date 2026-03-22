@@ -1,6 +1,8 @@
 import { PrismaClient } from "../src/generated/prisma";
 import pokemonMasterData from "./pokemonMasterData.json";
-import pokemonCounterData from "./pokemonCounterData.json";
+
+import fs from "fs";
+import path from "path";
 
 const prisma = new PrismaClient();
 
@@ -15,21 +17,29 @@ async function main() {
 
   // console.log("Tables reset successfully!");
 
-  // 必要に応じてデータを再挿入
-  await prisma.pokemon.createMany({
-    data: pokemonMasterData,
-    skipDuplicates: true, // 重複データをスキップ
-  });
+  // 1. ポケモンマスターデータのUpsert & 画像チェック
+  for (const pokemon of pokemonMasterData) {
+    // 画像の存在チェック
+    const imagePath = path.join(process.cwd(), "public", pokemon.imageUrl.replace(/^\//, ""));
+    if (!fs.existsSync(imagePath)) {
+      console.warn(`\x1b[33m[WARNING] Image not found for ${pokemon.slug} at ${pokemon.imageUrl}\x1b[0m`);
+    }
 
-  console.log("Pokemon master data inserted successfully!");
+    await prisma.pokemon.upsert({
+      where: { slug: pokemon.slug },
+      update: {
+        nameJa: pokemon.nameJa,
+        nameEn: pokemon.nameEn,
+        damageClass: pokemon.damageClass,
+        rangeType: pokemon.rangeType,
+        battleStyle: pokemon.battleStyle,
+        imageUrl: pokemon.imageUrl,
+      },
+      create: pokemon,
+    });
+  }
 
-  // PokemonCounter テーブルにデータを投入
-  await prisma.pokemonCounter.createMany({
-    data: pokemonCounterData,
-    skipDuplicates: true, // 重複データをスキップ
-  });
-
-  console.log("PokemonCounter data inserted successfully!");
+  console.log("Pokemon master data upserted successfully!");
 
   // --- トレーナー名鑑データのシード ---
 

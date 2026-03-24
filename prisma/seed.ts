@@ -9,37 +9,41 @@ const prisma = new PrismaClient();
 async function main() {
   // console.log("Resetting tables...");
 
-  // // 外部キー制約を無効化して TRUNCATE を実行
-  // await prisma.$executeRawUnsafe(`SET FOREIGN_KEY_CHECKS = 0;`);
-  // await prisma.$executeRawUnsafe(`TRUNCATE TABLE PokemonCounter;`);
-  // await prisma.$executeRawUnsafe(`TRUNCATE TABLE Pokemon;`);
-  // await prisma.$executeRawUnsafe(`SET FOREIGN_KEY_CHECKS = 1;`);
+  // --- Pokemon Master Data & Reset ---
+  console.log("Syncing Pokemon master data (non-destructive)...");
 
-  // console.log("Tables reset successfully!");
+  // 1. 既存データの取得（ID飛び防止とデータ保護のため、手動で差分更新を行う）
+  const existingPokemons = await prisma.pokemon.findMany({ select: { slug: true }});
+  const existingSlugs = new Set(existingPokemons.map(p => p.slug));
 
-  // 1. ポケモンマスターデータのUpsert & 画像チェック
+  let createdCount = 0;
+  let updatedCount = 0;
+
   for (const pokemon of pokemonMasterData) {
-    // 画像の存在チェック
-    const imagePath = path.join(process.cwd(), "public", pokemon.imageUrl.replace(/^\//, ""));
-    if (!fs.existsSync(imagePath)) {
-      console.warn(`\x1b[33m[WARNING] Image not found for ${pokemon.slug} at ${pokemon.imageUrl}\x1b[0m`);
+    if (existingSlugs.has(pokemon.slug)) {
+      // 既存なら更新のみ（シーケンスを消費しない＝IDが飛ばない）
+      await prisma.pokemon.update({
+        where: { slug: pokemon.slug },
+        data: {
+          nameJa: pokemon.nameJa,
+          nameEn: pokemon.nameEn,
+          damageClass: pokemon.damageClass,
+          rangeType: pokemon.rangeType,
+          battleStyle: pokemon.battleStyle,
+          imageUrl: pokemon.imageUrl,
+        }
+      });
+      updatedCount++;
+    } else {
+      // 新規なら作成（ここで初めてシーケンスが1つだけ消費される）
+      await prisma.pokemon.create({
+        data: pokemon
+      });
+      createdCount++;
     }
-
-    await prisma.pokemon.upsert({
-      where: { slug: pokemon.slug },
-      update: {
-        nameJa: pokemon.nameJa,
-        nameEn: pokemon.nameEn,
-        damageClass: pokemon.damageClass,
-        rangeType: pokemon.rangeType,
-        battleStyle: pokemon.battleStyle,
-        imageUrl: pokemon.imageUrl,
-      },
-      create: pokemon,
-    });
   }
 
-  console.log("Pokemon master data upserted successfully!");
+  console.log(`Pokemon master data synced successfully! (Created: ${createdCount}, Updated: ${updatedCount})`);
 
   // --- トレーナー名鑑データのシード ---
 
@@ -63,28 +67,34 @@ async function main() {
   console.log("Radar metrics inserted!");
 
   // 2. チーム (Teams)
+  // PUACL2026 出場チーム
   const teams = [
-    { name: "Secret Ship", shortName: "SS", region: "JP" },
-    { name: "Zeta Division", shortName: "ZETA", region: "JP" },
-    { name: "Fennel", shortName: "FL", region: "JP" },
-  ];
+    // 日本代表チーム
+    { name: "FENNEL", shortName: "FL", region: "JP", type: "pro" },
+    { name: "SCARZ", shortName: "SZ", region: "JP", type: "pro" },
+    { name: "REJECT", shortName: "RC", region: "JP", type: "pro" },
+    { name: "ENTER FORCE.36", shortName: "E36", region: "JP", type: "pro" },
+    // 日本5枠目は2月28日決定（KEIO CUP優勝チーム）
 
-  const teamRecords = [];
-  for (const team of teams) {
-    const record = await prisma.team.upsert({
-      where: { id: 0 }, // id自動生成のため本来はユニークキーが必要だが、今回はcreateMany的な用途で簡易的に処理（実運用ではnameにunique制約推奨だがMVPなのでスキップ）
-      update: {},
-      create: team,
-    });
-    // upsertはユニーク制約がないと使いにくいので、簡易的に既存チェックしてcreate
-    // ここでは簡易的に createMany を使うか、あるいは単純に create する
-  }
-  
-  // 上記upsertはid=0でマッチしないので毎回作られてしまう。
-  // MVPなので、一旦全削除して作り直すか、あるいはチェックしてから作る。
-  // 今回は既存データがない前提で createMany を使う。
-  // ただし id が必要なので、findFirst で探してから...などが丁寧だが、seed は何度回しても大丈夫なようにしたい。
-  // ここでは deleteMany してから createMany する。
+    // 東南アジア代表チーム
+    { name: "ONIC RISE", shortName: "ONIC", region: "ID", type: "pro" },
+    { name: "FULL SENSE", shortName: "FS", region: "TH", type: "pro" },
+    { name: "T1", shortName: "T1", region: "KR", type: "pro" },
+    { name: "Team Nemesis", shortName: "NMSS", region: "PH", type: "pro" },
+    { name: "Rival Esports", shortName: "RVL", region: "SG", type: "pro" },
+
+    // インド代表チーム
+    { name: "Reckoning Esports", shortName: "RCK", region: "IN", type: "pro" },
+    { name: "GodLike Esports", shortName: "GL", region: "IN", type: "pro" },
+
+    // LAIC代表チーム（ラテンアメリカ）
+    { name: "Dignitas", shortName: "DIG", region: "LATAM", type: "pro" },
+    { name: "CACM Esports", shortName: "CACM", region: "LATAM", type: "pro" },
+    { name: "Force Gaming", shortName: "FG", region: "LATAM", type: "pro" },
+
+    // 中国代表チーム
+    { name: "Dark Peach", shortName: "DP", region: "CN", type: "pro" },
+  ];
 
   await prisma.radarValue.deleteMany();
   await prisma.trainerRadarPost.deleteMany();
@@ -93,34 +103,74 @@ async function main() {
   await prisma.team.deleteMany();
   // metrics は upsert しているので消さなくて良いが、他は依存関係があるので消す順序に注意
 
+  // PostgreSQL の自動採番シーケンスをリセット
+  await prisma.$executeRawUnsafe(`ALTER SEQUENCE "Team_id_seq" RESTART WITH 1`);
+
   // Re-insert teams
   for (const team of teams) {
     await prisma.team.create({ data: team });
   }
   const allTeams = await prisma.team.findMany();
 
-  // 3. トレーナー (Trainers)
+  // 3. トレーナー (Trainers) - PUACL2026 出場プレイヤー
+  // PostgreSQL の自動採番シーケンスをリセット
+  await prisma.$executeRawUnsafe(
+    `ALTER SEQUENCE "Trainer_id_seq" RESTART WITH 1`,
+  );
+
   const trainers = [
-    { name: "Shin2", type: "pro", teamShort: "SS" },
-    { name: "Mame", type: "pro", teamShort: "SS" },
-    { name: "Yamada", type: "amateur", teamShort: null },
+    // FENNEL メンバー
+    { name: "ak1", type: "pro", teamShort: "FL" },
+    { name: "py1", type: "pro", teamShort: "FL" },
+    { name: "Ma・sh1o", type: "pro", teamShort: "FL" },
+    { name: "b1", type: "pro", teamShort: "FL" },
+    { name: "mame", type: "pro", teamShort: "FL" },
+    { name: "setsunai", type: "pro", teamShort: "FL" },
+
+    // SCARZ メンバー
+    { name: "shiganaki", type: "pro", teamShort: "SZ" },
+    { name: "kamenero", type: "pro", teamShort: "SZ" },
+    { name: "charu", type: "pro", teamShort: "SZ" },
+    { name: "kapio", type: "pro", teamShort: "SZ" },
+    { name: "kusamusi", type: "pro", teamShort: "SZ" },
+    { name: "okamoto", type: "pro", teamShort: "SZ" },
+
+    // REJECT メンバー
+    { name: "piui", type: "pro", teamShort: "RC" },
+    { name: "satake", type: "pro", teamShort: "RC" },
+    { name: "Overlord", type: "pro", teamShort: "RC" },
+    { name: "Häruto", type: "pro", teamShort: "RC" },
+    { name: "Pavóne", type: "pro", teamShort: "RC" },
+    { name: "yumenyan", type: "pro", teamShort: "RC" },
+
+    // ENTER FORCE.36 メンバー
+    { name: "Kota", type: "pro", teamShort: "E36" },
+    { name: "Nomu", type: "pro", teamShort: "E36" },
+    { name: "ISKW", type: "pro", teamShort: "E36" },
+    { name: "Chokol", type: "pro", teamShort: "E36" },
+    { name: "ResTA", type: "pro", teamShort: "E36" },
+    { name: "Dorap1n", type: "pro", teamShort: "E36" },
   ];
 
   for (const t of trainers) {
-    const team = t.teamShort ? allTeams.find(tm => tm.shortName === t.teamShort) : null;
-    
+    const team = t.teamShort
+      ? allTeams.find((tm) => tm.shortName === t.teamShort)
+      : null;
+
     await prisma.trainer.create({
       data: {
         name: t.name,
         type: t.type,
         currentTeamId: team ? team.id : null,
-        history: team ? {
-          create: {
-            teamId: team.id,
-            joinedAt: new Date(),
-          }
-        } : undefined
-      }
+        history: team
+          ? {
+              create: {
+                teamId: team.id,
+                joinedAt: new Date(),
+              },
+            }
+          : undefined,
+      },
     });
   }
   console.log("Teams and Trainers inserted!");

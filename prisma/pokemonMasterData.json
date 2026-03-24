@@ -351,6 +351,15 @@
     "imageUrl": "/pokemon/tyranitar.png"
   },
   {
+    "slug": "mew",
+    "nameJa": "ミュウ",
+    "nameEn": "Mew",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/mew.png"
+  },
+  {
     "slug": "dodrio",
     "nameJa": "ドードリオ",
     "nameEn": "Dodrio",
@@ -376,15 +385,6 @@
     "rangeType": "melee",
     "battleStyle": "all-rounder",
     "imageUrl": "/pokemon/scyther.png"
-  },
-  {
-    "slug": "mew",
-    "nameJa": "ミュウ",
-    "nameEn": "Mew",
-    "damageClass": "special",
-    "rangeType": "ranged",
-    "battleStyle": "attacker",
-    "imageUrl": "/pokemon/mew.png"
   },
   {
     "slug": "clefable",
@@ -664,5 +664,140 @@
     "rangeType": "ranged",
     "battleStyle": "attacker",
     "imageUrl": "/pokemon/raichu.png"
+  },
+  {
+    "slug": "alcremie",
+    "nameJa": "マホイップ",
+    "nameEn": "Alcremie",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/alcremie.png"
+  },
+  {
+    "slug": "latios",
+    "nameJa": "ラティオス",
+    "nameEn": "Latios",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/latios.png"
+  },
+  {
+    "slug": "latias",
+    "nameJa": "ラティアス",
+    "nameEn": "Latias",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/latias.png"
+  },
+  {
+    "slug": "pawmot",
+    "nameJa": "パーモット",
+    "nameEn": "Pawmot",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/pawmot.png"
+  },
+  {
+    "slug": "empoleon",
+    "nameJa": "エンペルト",
+    "nameEn": "Empoleon",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/empoleon.png"
+  },
+  {
+    "slug": "mega-lucario",
+    "nameJa": "メガルカリオ",
+    "nameEn": "Mega Lucario",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/mega-lucario.png"
+  },
+  {
+    "slug": "mega-charizard-x",
+    "nameJa": "メガリザードンX",
+    "nameEn": "Mega Charizard X",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/mega-charizard-x.png"
+  },
+  {
+    "slug": "dhelmise",
+    "nameJa": "ダダリン",
+    "nameEn": "Dhelmise",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/dhelmise.png"
+  },
+  {
+    "slug": "vaporeon",
+    "nameJa": "シャワーズ",
+    "nameEn": "Vaporeon",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/vaporeon.png"
+  },
+  {
+    "slug": "mega-gyarados",
+    "nameJa": "メガギャラドス",
+    "nameEn": "Mega Gyarados",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/mega-gyarados.png"
+  },
+  {
+    "slug": "mega-charizard-y",
+    "nameJa": "メガリザードンY",
+    "nameEn": "Mega Charizard Y",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/mega-charizard-y.png"
+  },
+  {
+    "slug": "meowth",
+    "nameJa": "ニャース",
+    "nameEn": "Meowth",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/meowth.png"
+  },
+  {
+    "slug": "sirfetchd",
+    "nameJa": "ネギガナイト",
+    "nameEn": "Sirfetch'd",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/sirfetchd.png"
+  },
+  {
+    "slug": "zapdos",
+    "nameJa": "サンダー",
+    "nameEn": "Zapdos",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/zapdos.png"
+  },
+  {
+    "slug": "moltres",
+    "nameJa": "ファイヤー",
+    "nameEn": "Moltres",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/moltres.png"
   }
 ]

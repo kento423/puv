@@ -6,6 +6,7 @@ import PokemonTabs from "./components/PokemonTabs";
 import ReverseCounterList from "./components/ReverseCounterList";
 import StatRadarChartTab from "./components/StatRadarChartTab";
 import { getUserId } from "@/lib/userId";
+import { Swords } from "lucide-react";
 
 interface Counter {
   id: number;
@@ -95,12 +96,26 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName, initia
         counters: (
           <>
             <div className="mb-6 md:mb-8">
-              <CandidateCardList
-                counters={sortedCounters}
-                locale={locale}
-                onVote={handleVote}
-                onEditReason={handleEditReason}
-              />
+              {sortedCounters.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-10 md:p-14 text-center bg-white/50 dark:bg-gray-800/40 rounded-3xl border border-dashed border-gray-200 dark:border-gray-700 shadow-sm backdrop-blur-sm">
+                  <div className="w-16 h-16 mb-5 rounded-2xl bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center shadow-inner">
+                    <Swords className="w-8 h-8 text-orange-500 dark:text-orange-400" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+                    まだ対策が投稿されていません
+                  </h3>
+                  <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-sm">
+                    最初の対策を投稿して、コミュニティにあなたの知見を共有しましょう！
+                  </p>
+                </div>
+              ) : (
+                <CandidateCardList
+                  counters={sortedCounters}
+                  locale={locale}
+                  onVote={handleVote}
+                  onEditReason={handleEditReason}
+                />
+              )}
             </div>
             <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
               <AddCounterForm slug={slug} locale={locale} onAdded={fetchCounters} />

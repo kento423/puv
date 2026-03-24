@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import CandidateCardList from "@/components/CandidateCardList";
 import { getUserId } from "@/lib/userId";
+import { Target, AlertCircle } from "lucide-react";
 
 interface ReverseCounter {
   id: number;
@@ -126,16 +127,30 @@ export default function ReverseCounterList({ slug }: ReverseCounterListProps) {
 
   if (error) {
     return (
-      <div className="text-center py-8 text-red-500 dark:text-red-400">
-        {error}
+      <div className="flex flex-col items-center justify-center p-10 md:p-14 text-center bg-red-50/50 dark:bg-red-900/10 rounded-3xl border border-dashed border-red-200 dark:border-red-800/30">
+        <AlertCircle className="w-12 h-12 text-red-400 mb-4" />
+        <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300 mb-2">
+          データの読み込みに失敗しました
+        </h3>
+        <p className="text-sm text-red-500 dark:text-red-400 max-w-sm">
+          システムエラーが発生したか、通信状況が不安定な可能性があります。時間をおいて再度お試しください。
+        </p>
       </div>
     );
   }
 
   if (counters.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-        対策できる相手がいません
+      <div className="flex flex-col items-center justify-center p-10 md:p-14 text-center bg-white/50 dark:bg-gray-800/40 rounded-3xl border border-dashed border-gray-200 dark:border-gray-700 shadow-sm backdrop-blur-sm">
+        <div className="w-16 h-16 mb-5 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center shadow-inner">
+          <Target className="w-8 h-8 text-purple-500 dark:text-purple-400" />
+        </div>
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+          有利な対面データがありません
+        </h3>
+        <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-sm">
+          このポケモンが有利に戦える相手の情報はまだ投稿されていません。
+        </p>
       </div>
     );
   }

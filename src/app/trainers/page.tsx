@@ -7,7 +7,7 @@ export const metadata = {
     description: 'ポケモンユナイトのプロ・アマ選手名鑑。プレイスタイルをレーダーチャートで評価。',
 };
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function TrainersPage() {
     let trainers: TrainerWithTeam[] = [];

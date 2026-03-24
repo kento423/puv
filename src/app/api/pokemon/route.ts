@@ -48,15 +48,17 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: "No Pokemon found" }, { status: 404 });
     }
 
-    // データをJSON形式で返す
-    return NextResponse.json(pokemons);
+    // データをJSON形式で返す（CDNキャッシュ活用）
+    return NextResponse.json(pokemons, {
+      headers: {
+        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+      },
+    });
   } catch (error) {
     console.error("Error fetching Pokemon data:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }

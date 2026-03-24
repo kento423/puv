@@ -46,7 +46,5 @@ export async function DELETE(
       { error: "タグの削除に失敗しました" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }

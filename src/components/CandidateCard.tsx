@@ -94,36 +94,54 @@ export default function CandidateCard({
     }
   };
 
+  const CounterBadge = ({ type, className }: { type: "hard" | "soft" | null | undefined, className?: string }) => {
+    if (type === "hard") {
+      return (
+        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-orange-100 text-orange-700 border border-orange-200 dark:bg-orange-900/40 dark:text-orange-300 dark:border-orange-800/50 ${className}`}>
+          <Swords size={12} className="shrink-0" />
+          ハードカウンター
+        </span>
+      );
+    }
+    if (type === "soft") {
+      return (
+        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-900/40 dark:text-purple-300 dark:border-purple-800/50 ${className}`}>
+          <Target size={12} className="shrink-0" />
+          ソフトカウンター
+        </span>
+      );
+    }
+    return null;
+  };
+
   return (
     <li className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center p-3 md:p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-md transition-shadow">
-      <Link href={`/pokemon/${slug}`} prefetch={false} className="hover:opacity-80 flex-shrink-0">
-        <Image
-          src={imageUrl}
-          alt={name}
-          width={56}
-          height={56}
-          className="rounded-full md:w-16 md:h-16 w-14 h-14 bg-gray-100 dark:bg-gray-700 object-cover"
-        />
-      </Link>
+      {/* 上部：アイコンと名前（スマホでは横並び、PCではアイコンのみ） */}
+      <div className="flex items-center gap-3 w-full md:w-auto">
+        <Link href={`/pokemon/${slug}`} prefetch={false} className="hover:opacity-80 flex-shrink-0">
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={56}
+            height={56}
+            className="rounded-full md:w-16 md:h-16 w-14 h-14 bg-gray-100 dark:bg-gray-700 object-cover border border-gray-100 dark:border-gray-700 shadow-sm"
+          />
+        </Link>
+        <div className="md:hidden flex-1 min-w-0">
+          <h3 className="font-bold text-base text-gray-900 dark:text-white mb-1 truncate">{name}</h3>
+          {!isEditing && <CounterBadge type={counterType} />}
+        </div>
+      </div>
+
       <div className="flex-1 w-full md:w-auto">
-        <div className="flex items-center gap-2 flex-wrap">
-          <h3 className="font-bold text-base md:text-lg text-gray-900 dark:text-white">{name}</h3>
-          {!isEditing && counterType === "hard" && (
-            <span className="flex items-center gap-1 px-2 py-0.5 md:py-1 rounded text-[10px] md:text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200 dark:bg-orange-900/40 dark:text-orange-300 dark:border-orange-800/50">
-              <Swords size={12} className="shrink-0" />
-              ハードカウンター
-            </span>
-          )}
-          {!isEditing && counterType === "soft" && (
-            <span className="flex items-center gap-1 px-2 py-0.5 md:py-1 rounded text-[10px] md:text-xs font-bold bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-900/40 dark:text-purple-300 dark:border-purple-800/50">
-              <Target size={12} className="shrink-0" />
-              ソフトカウンター
-            </span>
-          )}
+        {/* PC表示用の名前とバッジ */}
+        <div className="hidden md:flex items-center gap-2 mb-2 flex-wrap">
+          <h3 className="font-bold text-lg text-gray-900 dark:text-white">{name}</h3>
+          {!isEditing && <CounterBadge type={counterType} />}
         </div>
 
         {isEditing ? (
-          <div className="flex flex-col gap-3 mt-3">
+          <div className="flex flex-col gap-3">
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setEditCounterType(editCounterType === "hard" ? null : "hard")}
@@ -171,7 +189,7 @@ export default function CandidateCard({
             </div>
           </div>
         ) : (
-          <div className="flex items-start gap-2 mt-2">
+          <div className="flex items-start gap-2">
             <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 flex-1 break-words leading-relaxed whitespace-pre-wrap">
               {reason || <span className="text-gray-400 italic">理由はまだありません</span>}
             </p>
@@ -186,6 +204,7 @@ export default function CandidateCard({
           </div>
         )}
       </div>
+
       <div className="text-xs md:text-sm flex items-center gap-1 md:gap-2 flex-shrink-0 w-full md:w-auto mt-2 md:mt-0 pt-2 md:pt-0 border-t md:border-t-0 border-gray-100 dark:border-gray-700/50 justify-between md:justify-end">
         <div className="text-gray-500 dark:text-gray-400 text-xs font-medium md:hidden ml-1">評価</div>
         <div className="flex gap-1 md:gap-2">
@@ -218,5 +237,6 @@ export default function CandidateCard({
         </div>
       </div>
     </li>
+
   );
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function GET(req: Request) {
   return NextResponse.json({ message: "Counter API endpoint is working" });
@@ -16,9 +17,10 @@ export async function PATCH(req: Request) {
       );
     }
 
-    // counterId で PokemonCounter を直接検索
+    // counterId で PokemonCounter を検索（対象ポケモンのslug取得のため include 追加）
     const pokemonCounter = await prisma.pokemonCounter.findUnique({
       where: { id: counterId },
+      include: { targetPokemon: true }
     });
 
     if (!pokemonCounter) {
@@ -37,6 +39,8 @@ export async function PATCH(req: Request) {
       data: updateData,
     });
 
+    // キャッシュを破棄
+    revalidatePath(`/pokemon/${pokemonCounter.targetPokemon.slug}`);
     return NextResponse.json(updatedCounter);
   } catch (error) {
     console.error("Error updating counter reason:", error);

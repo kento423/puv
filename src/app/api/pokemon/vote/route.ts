@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function POST(req: Request) {
   try {
@@ -20,6 +21,7 @@ export async function POST(req: Request) {
 
     const pokemonCounter = await prisma.pokemonCounter.findUnique({
       where: { id: counterPokemonId },
+      include: { targetPokemon: true }
     });
 
     if (!pokemonCounter) {
@@ -66,6 +68,8 @@ export async function POST(req: Request) {
       },
     });
 
+    // キャッシュを破棄して最新の投票を表示
+    revalidatePath(`/pokemon/${pokemonCounter.targetPokemon.slug}`);
     return NextResponse.json(updatedCounter);
   } catch (error) {
     console.error("Error processing vote:", error);

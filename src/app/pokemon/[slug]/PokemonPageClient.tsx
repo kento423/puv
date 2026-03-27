@@ -82,8 +82,9 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName, initia
   };
 
   useEffect(() => {
-    fetchCounters();
-  }, [fetchCounters]);
+    // 初期表示はサーバーから渡された initialCounters を使用するため、
+    // マウント時の fetchCounters は冗長につき削除
+  }, []);
 
   const sortedCounters = [...counters].sort((a, b) => (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes));
 

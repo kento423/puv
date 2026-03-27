@@ -55,7 +55,5 @@ export async function POST(request: NextRequest) {
       { error: "タグの追加に失敗しました" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }

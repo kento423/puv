@@ -22,14 +22,16 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Pokemon not found" }, { status: 404 });
     }
 
-    return NextResponse.json(pokemon);
+    return NextResponse.json(pokemon, {
+      headers: {
+        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+      },
+    });
   } catch (error) {
     console.error("Error fetching Pokemon:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }

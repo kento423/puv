@@ -1,12 +1,12 @@
 [
   {
-    "slug": "pikachu",
-    "nameJa": "ピカチュウ",
-    "nameEn": "Pikachu",
+    "slug": "venusaur",
+    "nameJa": "フシギバナ",
+    "nameEn": "Venusaur",
     "damageClass": "special",
     "rangeType": "ranged",
     "battleStyle": "attacker",
-    "imageUrl": "/pokemon/pikachu.png"
+    "imageUrl": "/pokemon/venusaur.png"
   },
   {
     "slug": "charizard",
@@ -18,6 +18,78 @@
     "imageUrl": "/pokemon/charizard.png"
   },
   {
+    "slug": "eldegoss",
+    "nameJa": "ワタシラガ",
+    "nameEn": "Eldegoss",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/eldegoss.png"
+  },
+  {
+    "slug": "pikachu",
+    "nameJa": "ピカチュウ",
+    "nameEn": "Pikachu",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/pikachu.png"
+  },
+  {
+    "slug": "ninetales",
+    "nameJa": "アローラキュウコン",
+    "nameEn": "Alolan Ninetales",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/ninetales.png"
+  },
+  {
+    "slug": "wigglytuff",
+    "nameJa": "プクリン",
+    "nameEn": "Wigglytuff",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/wigglytuff.png"
+  },
+  {
+    "slug": "machamp",
+    "nameJa": "カイリキー",
+    "nameEn": "Machamp",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/machamp.png"
+  },
+  {
+    "slug": "slowbro",
+    "nameJa": "ヤドラン",
+    "nameEn": "Slowbro",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/slowbro.png"
+  },
+  {
+    "slug": "gengar",
+    "nameJa": "ゲンガー",
+    "nameEn": "Gengar",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/gengar.png"
+  },
+  {
+    "slug": "mr-mime",
+    "nameJa": "バリヤード",
+    "nameEn": "Mr. Mime",
+    "damageClass": "special",
+    "rangeType": "melee",
+    "battleStyle": "supporter",
+    "imageUrl": "/pokemon/mr-mime.png"
+  },
+  {
     "slug": "snorlax",
     "nameJa": "カビゴン",
     "nameEn": "Snorlax",
@@ -25,6 +97,42 @@
     "rangeType": "melee",
     "battleStyle": "defender",
     "imageUrl": "/pokemon/snorlax.png"
+  },
+  {
+    "slug": "cramorant",
+    "nameJa": "ウッウ",
+    "nameEn": "Cramorant",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/cramorant.png"
+  },
+  {
+    "slug": "absol",
+    "nameJa": "アブソル",
+    "nameEn": "Absol",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "speedster",
+    "imageUrl": "/pokemon/absol.png"
+  },
+  {
+    "slug": "garchomp",
+    "nameJa": "ガブリアス",
+    "nameEn": "Garchomp",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/garchomp.png"
+  },
+  {
+    "slug": "lucario",
+    "nameJa": "ルカリオ",
+    "nameEn": "Lucario",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/lucario.png"
   },
   {
     "slug": "crustle",
@@ -45,24 +153,6 @@
     "imageUrl": "/pokemon/greninja.png"
   },
   {
-    "slug": "lucario",
-    "nameJa": "ルカリオ",
-    "nameEn": "Lucario",
-    "damageClass": "physical",
-    "rangeType": "melee",
-    "battleStyle": "all-rounder",
-    "imageUrl": "/pokemon/lucario.png"
-  },
-  {
-    "slug": "venusaur",
-    "nameJa": "フシギバナ",
-    "nameEn": "Venusaur",
-    "damageClass": "special",
-    "rangeType": "ranged",
-    "battleStyle": "attacker",
-    "imageUrl": "/pokemon/venusaur.png"
-  },
-  {
     "slug": "talonflame",
     "nameJa": "ファイアロー",
     "nameEn": "Talonflame",
@@ -70,24 +160,6 @@
     "rangeType": "melee",
     "battleStyle": "speedster",
     "imageUrl": "/pokemon/talonflame.png"
-  },
-  {
-    "slug": "eldegoss",
-    "nameJa": "ワタシラガ",
-    "nameEn": "Eldegoss",
-    "damageClass": "special",
-    "rangeType": "ranged",
-    "battleStyle": "supporter",
-    "imageUrl": "/pokemon/eldegoss.png"
-  },
-  {
-    "slug": "mr-mime",
-    "nameJa": "バリヤード",
-    "nameEn": "Mr. Mime",
-    "damageClass": "special",
-    "rangeType": "melee",
-    "battleStyle": "supporter",
-    "imageUrl": "/pokemon/mr-mime.png"
   },
   {
     "slug": "zeraora",
@@ -106,78 +178,6 @@
     "rangeType": "ranged",
     "battleStyle": "attacker",
     "imageUrl": "/pokemon/cinderace.png"
-  },
-  {
-    "slug": "gengar",
-    "nameJa": "ゲンガー",
-    "nameEn": "Gengar",
-    "damageClass": "special",
-    "rangeType": "melee",
-    "battleStyle": "speedster",
-    "imageUrl": "/pokemon/gengar.png"
-  },
-  {
-    "slug": "ninetales",
-    "nameJa": "アローラキュウコン",
-    "nameEn": "Alolan Ninetales",
-    "damageClass": "special",
-    "rangeType": "ranged",
-    "battleStyle": "attacker",
-    "imageUrl": "/pokemon/ninetales.png"
-  },
-  {
-    "slug": "machamp",
-    "nameJa": "カイリキー",
-    "nameEn": "Machamp",
-    "damageClass": "physical",
-    "rangeType": "melee",
-    "battleStyle": "all-rounder",
-    "imageUrl": "/pokemon/machamp.png"
-  },
-  {
-    "slug": "cramorant",
-    "nameJa": "ウッウ",
-    "nameEn": "Cramorant",
-    "damageClass": "special",
-    "rangeType": "ranged",
-    "battleStyle": "attacker",
-    "imageUrl": "/pokemon/cramorant.png"
-  },
-  {
-    "slug": "wigglytuff",
-    "nameJa": "プクリン",
-    "nameEn": "Wigglytuff",
-    "damageClass": "special",
-    "rangeType": "melee",
-    "battleStyle": "defender",
-    "imageUrl": "/pokemon/wigglytuff.png"
-  },
-  {
-    "slug": "slowbro",
-    "nameJa": "ヤドラン",
-    "nameEn": "Slowbro",
-    "damageClass": "special",
-    "rangeType": "ranged",
-    "battleStyle": "defender",
-    "imageUrl": "/pokemon/slowbro.png"
-  },
-  {
-    "slug": "absol",
-    "nameJa": "アブソル",
-    "nameEn": "Absol",
-    "damageClass": "physical",
-    "rangeType": "melee",
-    "battleStyle": "speedster",
-    "imageUrl": "/pokemon/absol.png"
-  },
-  {
-    "slug": "garchomp",
-    "nameJa": "ガブリアス",
-    "nameEn": "Garchomp",
-    "damageClass": "physical",
-    "rangeType": "melee",
-    "battleStyle": "all-rounder",
-    "imageUrl": "/pokemon/garchomp.png"
   },
   {
     "slug": "gardevoir",

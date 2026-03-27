@@ -21,37 +21,38 @@ export async function GET(request: NextRequest) {
       },
     });
 
-    return NextResponse.json(
-      counters.map((counter) => ({
-        id: counter.id,
-        nameJa: counter.counterPokemon.nameJa,
-        nameEn: counter.counterPokemon.nameEn,
-        imageUrl: counter.counterPokemon.imageUrl,
-        slug: counter.counterPokemon.slug, // 追加: カウンターポケモンのslug
-        reason: counter.reason,
-        counterType: counter.counterType,
-        upvotes: counter.upvotes,
-        downvotes: counter.downvotes,
-      }))
-    );
+    const data = counters.map((counter) => ({
+      id: counter.id,
+      nameJa: counter.counterPokemon.nameJa,
+      nameEn: counter.counterPokemon.nameEn,
+      imageUrl: counter.counterPokemon.imageUrl,
+      slug: counter.counterPokemon.slug,
+      reason: counter.reason,
+      counterType: counter.counterType,
+      upvotes: counter.upvotes,
+      downvotes: counter.downvotes,
+    }));
+
+    return NextResponse.json(data, {
+      headers: {
+        "Cache-Control": "public, s-maxage=30, stale-while-revalidate=120",
+      },
+    });
   } catch (error) {
     console.error("Error fetching Pokemon counters:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const pathname = request.nextUrl.pathname; // 例: "/api/pokemon/pikachu/counters"
-    const slug = pathname.split("/")[3]; // "pikachu"
+    const pathname = request.nextUrl.pathname;
+    const slug = pathname.split("/")[3];
     const body = await request.json();
 
-    // 必要なデータが揃っているか確認
     const { selectedPokemonId, reason, counterType } = body;
     if (!selectedPokemonId || !reason) {
       return NextResponse.json(
@@ -60,7 +61,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // slug に対応する targetPokemonId を取得
     const targetPokemon = await prisma.pokemon.findUnique({
       where: { slug },
     });
@@ -72,7 +72,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // PokemonCounter レコードを作成
     const newCounter = await prisma.pokemonCounter.create({
       data: {
         targetPokemonId: targetPokemon.id,
@@ -89,7 +88,5 @@ export async function POST(request: NextRequest) {
       { error: "Internal Server Error" },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }

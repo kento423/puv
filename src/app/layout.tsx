@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import AdSense from "@/components/AdSense";
@@ -34,7 +35,7 @@ export default function RootLayout({
         <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
           <nav className="w-full mx-auto flex justify-between items-center px-4 py-3 md:px-6">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg md:text-xl text-blue-700 dark:text-blue-400">
-              <img src="/logo.png" alt="Unite Community Logo" className="w-8 h-8 md:w-10 md:h-10 rounded-lg shadow-sm" />
+              <Image src="/logo.png" alt="Unite Community Logo" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 rounded-lg shadow-sm" priority />
               <span>
                 <span className="text-orange-500">Unite</span>{" "}
                 <span className="text-purple-600">Community</span>

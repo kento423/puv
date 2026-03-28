@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 export async function POST(req: Request) {
   try {
@@ -70,12 +70,14 @@ export async function POST(req: Request) {
 
     // キャッシュを破棄して最新の投票を表示
     revalidatePath(`/pokemon/${pokemonCounter.targetPokemon.slug}`);
-    return NextResponse.json(updatedCounter);
+    revalidateTag(`pokemon-detail-${pokemonCounter.targetPokemon.slug}`, 'max');
+    revalidateTag(`pokemon-counters-${pokemonCounter.targetPokemon.id}`, 'max');
+    return NextResponse.json({ success: true, upvotes: updatedCounter.upvotes, downvotes: updatedCounter.downvotes });
   } catch (error) {
     console.error("Error processing vote:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

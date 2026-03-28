@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 export async function GET(request: NextRequest) {
   try {
@@ -81,6 +82,9 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    revalidatePath(`/pokemon/${slug}`);
+    revalidateTag(`pokemon-detail-${slug}`, 'max');
+    revalidateTag(`pokemon-counters-${targetPokemon.id}`, 'max');
     return NextResponse.json(newCounter, { status: 201 });
   } catch (error) {
     console.error("Error creating PokemonCounter:", error);

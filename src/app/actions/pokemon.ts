@@ -76,63 +76,73 @@ export const getPokemonList = unstable_cache(
 /**
  * slugからポケモン詳細を取得（カスタムタグとカウンターを一度に取得）
  */
-export const getPokemonBySlug = unstable_cache(
-  async (slug: string) => {
-    try {
-      const pokemon = await prisma.pokemon.findUnique({
-        where: { slug },
-        include: {
-          customTags: {
-            include: {
-              tag: true,
+export async function getPokemonBySlug(slug: string) {
+  return unstable_cache(
+    async () => {
+      try {
+        const pokemon = await prisma.pokemon.findUnique({
+          where: { slug },
+          include: {
+            customTags: {
+              include: {
+                tag: true,
+              },
+            },
+            targetOf: {
+              include: {
+                counterPokemon: true,
+              },
             },
           },
-          targetOf: {
-            include: {
-              counterPokemon: true,
-            },
-          },
-        },
-      });
-      return pokemon;
-    } catch (error) {
-      console.error(`Failed to fetch pokemon ${slug}:`, error);
-      return null;
+        });
+        return pokemon;
+      } catch (error) {
+        console.error(`Failed to fetch pokemon ${slug}:`, error);
+        return null;
+      }
+    },
+    ['pokemon-detail', slug],
+    { 
+      revalidate: 3600, 
+      tags: ['pokemon-detail', `pokemon-detail-${slug}`] 
     }
-  },
-  ['pokemon-detail'],
-  { revalidate: 3600, tags: ['pokemon-detail'] }
-);
+  )();
+}
 
 /**
  * ポケモンのカウンター一覧を取得（キャッシュ済み）
  */
-export const getPokemonCounters = unstable_cache(
-  async (pokemonId: number): Promise<PokemonCounterItem[]> => {
-    try {
-      const counters = await prisma.pokemonCounter.findMany({
-        where: { targetPokemonId: pokemonId },
-        include: {
-          counterPokemon: true,
-        },
-      });
+export async function getPokemonCounters(pokemonId: number): Promise<PokemonCounterItem[]> {
+  return unstable_cache(
+    async () => {
+      try {
+        const counters = await prisma.pokemonCounter.findMany({
+          where: { targetPokemonId: pokemonId },
+          include: {
+            counterPokemon: true,
+          },
+        });
 
-      return counters.map((counter) => ({
-        id: counter.id,
-        nameJa: counter.counterPokemon.nameJa,
-        nameEn: counter.counterPokemon.nameEn,
-        imageUrl: counter.counterPokemon.imageUrl ?? '',
-        slug: counter.counterPokemon.slug,
-        reason: counter.reason ?? '',
-        counterType: counter.counterType as 'hard' | 'soft' | null,
-        upvotes: counter.upvotes,
-        downvotes: counter.downvotes,
-      }));
-    } catch (error) {
-      console.error(`Failed to fetch counters for pokemon ${pokemonId}:`, error);
-      return [];
+        return counters.map((counter) => ({
+          id: counter.id,
+          nameJa: counter.counterPokemon.nameJa,
+          nameEn: counter.counterPokemon.nameEn,
+          imageUrl: counter.counterPokemon.imageUrl ?? '',
+          slug: counter.counterPokemon.slug,
+          reason: counter.reason ?? '',
+          counterType: counter.counterType as 'hard' | 'soft' | null,
+          upvotes: counter.upvotes,
+          downvotes: counter.downvotes,
+        }));
+      } catch (error) {
+        console.error(`Failed to fetch counters for pokemon ${pokemonId}:`, error);
+        return [];
+      }
+    },
+    ['pokemon-counters', pokemonId.toString()],
+    { 
+      revalidate: 3600, 
+      tags: ['pokemon-counters', `pokemon-counters-${pokemonId}`] 
     }
-  },
-  ['pokemon-counters'],
-  { revalidate: 3600, tags: ['pokemon-counters'] }
-);
+  )();
+}

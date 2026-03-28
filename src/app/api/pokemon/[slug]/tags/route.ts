@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 // POST: カスタムタグを追加
 export async function POST(request: NextRequest) {
@@ -48,6 +49,8 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    revalidatePath(`/pokemon/${slug}`);
+    revalidateTag(`pokemon-detail-${slug}`, 'max');
     return NextResponse.json(customTag, { status: 201 });
   } catch (error) {
     console.error("Error adding custom tag:", error);

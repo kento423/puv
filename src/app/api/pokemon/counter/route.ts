@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 export async function GET(req: Request) {
   return NextResponse.json({ message: "Counter API endpoint is working" });
@@ -40,7 +40,11 @@ export async function PATCH(req: Request) {
     });
 
     // キャッシュを破棄
-    revalidatePath(`/pokemon/${pokemonCounter.targetPokemon.slug}`);
+    const slug = pokemonCounter.targetPokemon.slug;
+    const pokemonId = pokemonCounter.targetPokemon.id;
+    revalidatePath(`/pokemon/${slug}`);
+    revalidateTag(`pokemon-detail-${slug}`, 'max');
+    revalidateTag(`pokemon-counters-${pokemonId}`, 'max');
     return NextResponse.json(updatedCounter);
   } catch (error) {
     console.error("Error updating counter reason:", error);

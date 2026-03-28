@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 // DELETE: カスタムタグを削除
 export async function DELETE(
@@ -39,6 +40,8 @@ export async function DELETE(
       },
     });
 
+    revalidatePath(`/pokemon/${slug}`);
+    revalidateTag(`pokemon-detail-${slug}`, 'max');
     return NextResponse.json({ message: "タグを削除しました" });
   } catch (error) {
     console.error("Error deleting custom tag:", error);

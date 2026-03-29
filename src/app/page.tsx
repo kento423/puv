@@ -38,7 +38,7 @@ export default function Home() {
     },
     {
       title: "構成メーカー",
-      description: "俺の考える最強のチーム構成やビルドをシミュレーション。",
+      description: "自分の考えるチーム構成を共有。",
       href: "#",
       status: "coming-soon" as const,
       icon: <Wrench className="w-6 h-6" />,

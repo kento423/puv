@@ -154,7 +154,9 @@ exports.Prisma.PokemonCounterScalarFieldEnum = {
   reason: 'reason',
   counterType: 'counterType',
   upvotes: 'upvotes',
-  downvotes: 'downvotes'
+  downvotes: 'downvotes',
+  userId: 'userId',
+  guestId: 'guestId'
 };
 
 exports.Prisma.VoteScalarFieldEnum = {
@@ -233,6 +235,7 @@ exports.Prisma.TrainerRadarPostScalarFieldEnum = {
   id: 'id',
   trainerId: 'trainerId',
   authorToken: 'authorToken',
+  userId: 'userId',
   comment: 'comment',
   createdAt: 'createdAt'
 };
@@ -242,6 +245,46 @@ exports.Prisma.RadarValueScalarFieldEnum = {
   postId: 'postId',
   metricId: 'metricId',
   value: 'value'
+};
+
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  emailVerified: 'emailVerified',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AccountScalarFieldEnum = {
+  userId: 'userId',
+  type: 'type',
+  provider: 'provider',
+  providerAccountId: 'providerAccountId',
+  refresh_token: 'refresh_token',
+  access_token: 'access_token',
+  expires_at: 'expires_at',
+  token_type: 'token_type',
+  scope: 'scope',
+  id_token: 'id_token',
+  session_state: 'session_state',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  sessionToken: 'sessionToken',
+  userId: 'userId',
+  expires: 'expires',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.VerificationTokenScalarFieldEnum = {
+  identifier: 'identifier',
+  token: 'token',
+  expires: 'expires'
 };
 
 exports.Prisma.SortOrder = {
@@ -274,7 +317,11 @@ exports.Prisma.ModelName = {
   TrainerTeamHistory: 'TrainerTeamHistory',
   RadarMetric: 'RadarMetric',
   TrainerRadarPost: 'TrainerRadarPost',
-  RadarValue: 'RadarValue'
+  RadarValue: 'RadarValue',
+  User: 'User',
+  Account: 'Account',
+  Session: 'Session',
+  VerificationToken: 'VerificationToken'
 };
 
 /**

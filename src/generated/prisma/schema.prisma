@@ -63,10 +63,15 @@ model PokemonCounter {
   upvotes          Int     @default(0)
   downvotes        Int     @default(0)
 
+  // 投稿者情報
+  userId  String? // ログインユーザーの場合
+  guestId String? // 匿名ユーザー（未ログイン）の場合
+
   // リレーション
   targetPokemon  Pokemon @relation("TargetPokemon", fields: [targetPokemonId], references: [id])
   counterPokemon Pokemon @relation("CounterPokemon", fields: [counterPokemonId], references: [id])
   votes          Vote[] // 投票履歴
+  user           User?   @relation(fields: [userId], references: [id])
 }
 
 model Vote {
@@ -181,13 +186,15 @@ model RadarMetric {
 model TrainerRadarPost {
   id          Int      @id @default(autoincrement())
   trainerId   Int
-  authorToken String // 投稿者の識別子（UUID等）
+  authorToken String? // 投稿者の識別子（UUID等・匿名用）
+  userId      String? // ログインユーザーの場合のID
   comment     String? // 任意コメント
   createdAt   DateTime @default(now())
 
   // リレーション
   trainer     Trainer      @relation(fields: [trainerId], references: [id])
   radarValues RadarValue[]
+  user        User?        @relation(fields: [userId], references: [id])
 }
 
 model RadarValue {
@@ -201,4 +208,63 @@ model RadarValue {
   metric RadarMetric      @relation(fields: [metricId], references: [id])
 
   @@unique([postId, metricId]) // 1つの投稿内で同じ項目の重複を防ぐ
+}
+
+// --- NextAuth (Auth.js) モデル ---
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  accounts Account[]
+  sessions Session[]
+
+  // アプリケーション独自のリレーション
+  pokemonCounters   PokemonCounter[]
+  trainerRadarPosts TrainerRadarPost[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
 }

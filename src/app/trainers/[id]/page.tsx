@@ -163,7 +163,9 @@ export default async function TrainerDetailPage(props: Props) {
                                         <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-50 dark:border-gray-800">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-[10px] font-black text-gray-400 italic">ID</div>
-                                                <span className="text-[10px] font-black tracking-widest text-gray-400">#{post.authorToken.slice(0, 6)}</span>
+                                                {post.authorToken && (
+                          <span className="text-[10px] font-black tracking-widest text-gray-400">#{post.authorToken.slice(0, 6)}</span>
+                        )}
                                             </div>
                                             <span className="text-[10px] font-bold text-gray-400 bg-gray-50 dark:bg-gray-900 px-2 py-1 rounded-md">{formatDateSimple(post.createdAt)}</span>
                                         </div>

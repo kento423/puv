@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import { ThumbsUp, ThumbsDown, SquarePen, Swords, Target } from "lucide-react";
+import { ThumbsUp, ThumbsDown, SquarePen, Swords, Target, MoreHorizontal, Trash2, Edit3, Share2 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { getUserId } from "@/lib/userId";
 
 interface CandidateCardProps {
   name: string;
@@ -13,6 +15,14 @@ interface CandidateCardProps {
   downvotes: number;
   onVote: (voteType: "upvote" | "downvote") => Promise<void>;
   onEditReason: (newReason: string, newCounterType?: "hard" | "soft" | null) => Promise<void>;
+  onDelete?: () => Promise<void> | void;
+  userId?: string | null;
+  guestId?: string | null;
+  user?: {
+    id: string;
+    name: string | null;
+    image: string | null;
+  } | null;
 }
 
 export default function CandidateCard({
@@ -24,7 +34,11 @@ export default function CandidateCard({
   downvotes,
   onVote,
   onEditReason,
+  onDelete,
   slug,
+  userId,
+  guestId,
+  user,
 }: CandidateCardProps & { slug: string }) {
   const [activeVote, setActiveVote] = useState<"upvote" | "downvote" | null>(null);
   const [displayUpvotes, setDisplayUpvotes] = useState(upvotes);
@@ -36,10 +50,37 @@ export default function CandidateCard({
     counterType || null
   );
   const [isEditSaving, setIsEditSaving] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const { data: session } = useSession();
+  const currentGuestId = typeof window !== "undefined" ? getUserId() : null;
+
+  const isOwner = session?.user?.id 
+    ? session.user.id === userId 
+    : currentGuestId === guestId;
 
   const isUpvoted = activeVote === "upvote";
   const isDownvoted = activeVote === "downvote";
   const hasVoted = activeVote !== null;
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const handleVote = async (voteType: "upvote" | "downvote") => {
     if (isVoting || hasVoted) return;
@@ -115,8 +156,79 @@ export default function CandidateCard({
   };
 
   return (
-    <li className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center p-3 md:p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-md transition-shadow">
-      {/* 上部：アイコンと名前（スマホでは横並び、PCではアイコンのみ） */}
+    <li className="flex flex-col gap-3 p-3 md:p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-md transition-shadow relative">
+      {/* 投稿者情報とメニュー（上部） */}
+      <div className="flex items-center justify-between w-full">
+        <div className="flex items-center gap-2">
+          {user?.image ? (
+            <Image
+              src={user.image}
+              alt={user.name || "ユーザー"}
+              width={24}
+              height={24}
+              className="w-6 h-6 rounded-full"
+            />
+          ) : (
+            <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs text-gray-500">
+              ?
+            </div>
+          )}
+          <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+            {user?.name || "名無し"}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name}の対策を投稿・確認しました！\n#ポケモンユナイト\n`)}&url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+            title="Xでシェア"
+          >
+            <Share2 size={16} />
+          </a>
+          
+          {isOwner && (
+            <div className="relative" ref={menuRef}>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              >
+                <MoreHorizontal size={18} />
+              </button>
+              
+              {isMenuOpen && (
+                <div className="absolute right-0 top-full mt-1 w-32 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden z-10">
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      handleEditClick();
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                  >
+                    <Edit3 size={14} />
+                    <span>編集</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      if (onDelete) onDelete();
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors"
+                  >
+                    <Trash2 size={14} />
+                    <span>削除</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+      {/* アイコンと名前（スマホでは横並び、PCではアイコンのみ） */}
       <div className="flex items-center gap-3 w-full md:w-auto">
         <Link href={`/pokemon/${slug}`} prefetch={false} className="hover:opacity-80 flex-shrink-0">
           <Image
@@ -193,14 +305,6 @@ export default function CandidateCard({
             <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 flex-1 break-words leading-relaxed whitespace-pre-wrap">
               {reason || <span className="text-gray-400 italic">理由はまだありません</span>}
             </p>
-            <button
-              className="p-1.5 md:p-2 text-gray-400 hover:text-blue-600 dark:text-gray-500 dark:hover:text-blue-400 bg-gray-50 hover:bg-blue-50 dark:bg-gray-800/50 dark:hover:bg-gray-700 rounded transition-all flex-shrink-0 group"
-              onClick={handleEditClick}
-              title="編集する"
-              aria-label="理由と種類を編集"
-            >
-              <SquarePen size={18} className="md:w-5 md:h-5 group-hover:scale-110 transition-transform" />
-            </button>
           </div>
         )}
       </div>
@@ -235,6 +339,7 @@ export default function CandidateCard({
             <span>{displayDownvotes}</span>
           </button>
         </div>
+      </div>
       </div>
     </li>
 

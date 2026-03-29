@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath, revalidateTag } from "next/cache";
+import { auth } from "@/auth";
 
 export async function GET(request: NextRequest) {
   try {
@@ -19,6 +20,13 @@ export async function GET(request: NextRequest) {
       where: { targetPokemonId: pokemon.id },
       include: {
         counterPokemon: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            image: true,
+          }
+        }
       },
     });
 
@@ -32,6 +40,9 @@ export async function GET(request: NextRequest) {
       counterType: counter.counterType,
       upvotes: counter.upvotes,
       downvotes: counter.downvotes,
+      userId: counter.userId,
+      guestId: counter.guestId,
+      user: counter.user,
     }));
 
     return NextResponse.json(data, {
@@ -54,13 +65,16 @@ export async function POST(request: NextRequest) {
     const slug = pathname.split("/")[3];
     const body = await request.json();
 
-    const { selectedPokemonId, reason, counterType } = body;
+    const { selectedPokemonId, reason, counterType, guestId } = body;
     if (!selectedPokemonId || !reason) {
       return NextResponse.json(
         { error: "selectedPokemonId and reason are required" },
         { status: 400 }
       );
     }
+
+    const session = await auth();
+    const userId = session?.user?.id || null;
 
     const targetPokemon = await prisma.pokemon.findUnique({
       where: { slug },
@@ -79,6 +93,8 @@ export async function POST(request: NextRequest) {
         counterPokemonId: parseInt(selectedPokemonId, 10),
         reason,
         counterType: counterType || null,
+        userId,
+        guestId: userId ? null : guestId || null, // ログイン時はguestIdは不要とする
       },
     });
 

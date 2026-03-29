@@ -15,6 +15,13 @@ interface ReverseCounter {
   upvotes: number;
   downvotes: number;
   slug: string;
+  userId: string | null;
+  guestId: string | null;
+  user: {
+    id: string;
+    name: string | null;
+    image: string | null;
+  } | null;
 }
 
 interface ReverseCounterListProps {

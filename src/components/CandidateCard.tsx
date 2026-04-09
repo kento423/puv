@@ -51,6 +51,7 @@ export default function CandidateCard({
   );
   const [isEditSaving, setIsEditSaving] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [shareUrl, setShareUrl] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
 
   const { data: session } = useSession();
@@ -63,6 +64,10 @@ export default function CandidateCard({
   const isUpvoted = activeVote === "upvote";
   const isDownvoted = activeVote === "downvote";
   const hasVoted = activeVote !== null;
+
+  useEffect(() => {
+    setShareUrl(window.location.href);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -180,7 +185,7 @@ export default function CandidateCard({
 
         <div className="flex items-center gap-2">
           <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name}の対策を投稿・確認しました！\n#ポケモンユナイト\n`)}&url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name}の対策を投稿・確認しました！\n#ポケモンユナイト\n`)}&url=${encodeURIComponent(shareUrl)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="p-1.5 text-gray-400 hover:text-black dark:hover:text-white transition-colors"

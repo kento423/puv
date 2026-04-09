@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
-import { ThumbsUp, ThumbsDown, SquarePen, Swords, Target, MoreHorizontal, Trash2, Edit3, Share2 } from "lucide-react";
+import { ThumbsUp, ThumbsDown, Swords, Target, MoreHorizontal, Trash2, Edit3, Share2 } from "lucide-react";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import { getUserId } from "@/lib/userId";
 
 interface CandidateCardProps {
@@ -16,13 +15,8 @@ interface CandidateCardProps {
   onVote: (voteType: "upvote" | "downvote") => Promise<void>;
   onEditReason: (newReason: string, newCounterType?: "hard" | "soft" | null) => Promise<void>;
   onDelete?: () => Promise<void> | void;
-  userId?: string | null;
   guestId?: string | null;
-  user?: {
-    id: string;
-    name: string | null;
-    image: string | null;
-  } | null;
+  targetPokemonName?: string;
 }
 
 export default function CandidateCard({
@@ -36,9 +30,8 @@ export default function CandidateCard({
   onEditReason,
   onDelete,
   slug,
-  userId,
   guestId,
-  user,
+  targetPokemonName,
 }: CandidateCardProps & { slug: string }) {
   const [activeVote, setActiveVote] = useState<"upvote" | "downvote" | null>(null);
   const [displayUpvotes, setDisplayUpvotes] = useState(upvotes);
@@ -54,12 +47,8 @@ export default function CandidateCard({
   const [shareUrl, setShareUrl] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const { data: session } = useSession();
   const currentGuestId = typeof window !== "undefined" ? getUserId() : null;
-
-  const isOwner = session?.user?.id 
-    ? session.user.id === userId 
-    : currentGuestId === guestId;
+  const isOwner = currentGuestId != null && currentGuestId === guestId;
 
   const isUpvoted = activeVote === "upvote";
   const isDownvoted = activeVote === "downvote";
@@ -162,47 +151,25 @@ export default function CandidateCard({
 
   return (
     <li className="flex flex-col gap-3 p-3 md:p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:shadow-md transition-shadow relative">
-      {/* 投稿者情報とメニュー（上部） */}
-      <div className="flex items-center justify-between w-full">
-        <div className="flex items-center gap-2">
-          {user?.image ? (
-            <Image
-              src={user.image}
-              alt={user.name || "ユーザー"}
-              width={24}
-              height={24}
-              className="w-6 h-6 rounded-full"
-            />
-          ) : (
-            <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xs text-gray-500">
-              ?
-            </div>
-          )}
-          <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
-            {user?.name || "名無し"}
-          </span>
-        </div>
-
-        <div className="flex items-center gap-2">
+      {/* シェア・メニュー（右上に絶対配置） */}
+      <div className="absolute top-2 right-2 flex items-center gap-0.5 z-[5]">
           <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${name}の対策を投稿・確認しました！\n#ポケモンユナイト\n`)}&url=${encodeURIComponent(shareUrl)}`}
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${targetPokemonName || ""}のカウンターに${name}を提案！\n#ポケモンユナイト #UniteCounterGuide\n`)}&url=${encodeURIComponent(shareUrl)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="p-1.5 text-gray-400 hover:text-black dark:hover:text-white transition-colors"
             title="Xでシェア"
           >
-            <Share2 size={16} />
+            <Share2 size={14} />
           </a>
-          
           {isOwner && (
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"
               >
-                <MoreHorizontal size={18} />
+                <MoreHorizontal size={16} />
               </button>
-              
               {isMenuOpen && (
                 <div className="absolute right-0 top-full mt-1 w-32 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden z-10">
                   <button
@@ -229,7 +196,6 @@ export default function CandidateCard({
               )}
             </div>
           )}
-        </div>
       </div>
 
       <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">

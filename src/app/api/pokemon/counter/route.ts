@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath, revalidateTag } from "next/cache";
-import { auth } from "@/auth";
 
 export async function GET(req: Request) {
   return NextResponse.json({ message: "Counter API endpoint is working" });
@@ -28,13 +27,8 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ error: "Counter not found" }, { status: 404 });
     }
 
-    const session = await auth();
-    const currentUserId = session?.user?.id;
-
-    // 権限チェック
-    const isOwner = currentUserId 
-      ? currentUserId === pokemonCounter.userId 
-      : guestId && guestId === pokemonCounter.guestId;
+    // 権限チェック（guestIdベース）
+    const isOwner = guestId && guestId === pokemonCounter.guestId;
 
     if (!isOwner) {
       return NextResponse.json(
@@ -95,13 +89,8 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: "Counter not found" }, { status: 404 });
     }
 
-    const session = await auth();
-    const currentUserId = session?.user?.id;
-
-    // 権限チェック
-    const isOwner = currentUserId 
-      ? currentUserId === pokemonCounter.userId 
-      : guestId && guestId === pokemonCounter.guestId;
+    // 権限チェック（guestIdベース）
+    const isOwner = guestId && guestId === pokemonCounter.guestId;
 
     if (!isOwner) {
       return NextResponse.json(

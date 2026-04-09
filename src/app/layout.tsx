@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import Providers from "@/components/Providers";
-import UserMenu from "@/components/UserMenu";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import AdSense from "@/components/AdSense";
@@ -33,7 +31,6 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-gray-900 min-h-screen flex flex-col`}>
-        <Providers>
         {/* ヘッダー */}
         <header className="w-full border-b bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
           <nav className="w-full mx-auto flex justify-between items-center px-4 py-3 md:px-6">
@@ -44,9 +41,6 @@ export default function RootLayout({
                 <span className="text-purple-600">Community</span>
               </span>
             </Link>
-            <div className="flex items-center gap-4">
-              <UserMenu />
-            </div>
           </nav>
         </header>
         {/* メインコンテンツ */}
@@ -70,7 +64,6 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-        </Providers>
       </body>
     </html>
   );

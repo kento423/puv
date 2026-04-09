@@ -18,13 +18,7 @@ interface Counter {
   upvotes: number;
   downvotes: number;
   slug: string;
-  userId: string | null;
   guestId: string | null;
-  user: {
-    id: string;
-    name: string | null;
-    image: string | null;
-  } | null;
 }
 
 export default function PokemonPageClient({ pokemonId, slug, pokemonName, initialCounters }: { pokemonId: number, slug: string, pokemonName: string, initialCounters: Counter[] }) {
@@ -139,6 +133,7 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName, initia
                 <CandidateCardList
                   counters={sortedCounters}
                   locale={locale}
+                  targetPokemonName={pokemonName}
                   onVote={handleVote}
                   onEditReason={handleEditReason}
                   onDelete={handleDeleteCounter}

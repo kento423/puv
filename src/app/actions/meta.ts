@@ -26,8 +26,9 @@ export const getMetaPosts = unstable_cache(
       const posts = await prisma.metaPost.findMany({
         where: { patchId },
         orderBy: [
-          { tier: 'desc' }, // upvotesでソート
-          { upvotes: 'desc' }
+          { upvotes: 'desc' },
+          { tier: 'desc' },
+          { createdAt: 'desc' }
         ],
         include: {
           pokemon: true
@@ -70,9 +71,10 @@ export const getBugReports = unstable_cache(
     try {
       const reports = await prisma.bugReport.findMany({
         where: { patchId },
-        orderBy: {
-          createdAt: 'desc' // 新しい順
-        },
+        orderBy: [
+          { upvotes: 'desc' },
+          { createdAt: 'desc' }
+        ],
         include: {
           pokemon: true
         }

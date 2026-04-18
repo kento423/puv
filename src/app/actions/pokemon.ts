@@ -77,7 +77,7 @@ export const getPokemonList = unstable_cache(
     }
   },
   ['pokemon-list'],
-  { revalidate: 3600, tags: ['pokemon-list'] }
+  { revalidate: 60, tags: ['pokemon-list'] }
 );
 
 /**

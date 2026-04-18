@@ -154,7 +154,9 @@ exports.Prisma.PokemonCounterScalarFieldEnum = {
   reason: 'reason',
   counterType: 'counterType',
   upvotes: 'upvotes',
-  downvotes: 'downvotes'
+  downvotes: 'downvotes',
+  userId: 'userId',
+  guestId: 'guestId'
 };
 
 exports.Prisma.VoteScalarFieldEnum = {
@@ -233,6 +235,7 @@ exports.Prisma.TrainerRadarPostScalarFieldEnum = {
   id: 'id',
   trainerId: 'trainerId',
   authorToken: 'authorToken',
+  userId: 'userId',
   comment: 'comment',
   createdAt: 'createdAt'
 };
@@ -242,6 +245,120 @@ exports.Prisma.RadarValueScalarFieldEnum = {
   postId: 'postId',
   metricId: 'metricId',
   value: 'value'
+};
+
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  emailVerified: 'emailVerified',
+  image: 'image',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AccountScalarFieldEnum = {
+  userId: 'userId',
+  type: 'type',
+  provider: 'provider',
+  providerAccountId: 'providerAccountId',
+  refresh_token: 'refresh_token',
+  access_token: 'access_token',
+  expires_at: 'expires_at',
+  token_type: 'token_type',
+  scope: 'scope',
+  id_token: 'id_token',
+  session_state: 'session_state',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SessionScalarFieldEnum = {
+  sessionToken: 'sessionToken',
+  userId: 'userId',
+  expires: 'expires',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.VerificationTokenScalarFieldEnum = {
+  identifier: 'identifier',
+  token: 'token',
+  expires: 'expires'
+};
+
+exports.Prisma.GamePatchScalarFieldEnum = {
+  id: 'id',
+  version: 'version',
+  releasedAt: 'releasedAt',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.MetaPostScalarFieldEnum = {
+  id: 'id',
+  patchId: 'patchId',
+  pokemonId: 'pokemonId',
+  reason: 'reason',
+  tier: 'tier',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BanPickScalarFieldEnum = {
+  id: 'id',
+  patchId: 'patchId',
+  pokemonId: 'pokemonId',
+  side: 'side',
+  reason: 'reason',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BugReportScalarFieldEnum = {
+  id: 'id',
+  patchId: 'patchId',
+  title: 'title',
+  description: 'description',
+  category: 'category',
+  pokemonId: 'pokemonId',
+  severity: 'severity',
+  status: 'status',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MetaVoteScalarFieldEnum = {
+  id: 'id',
+  metaPostId: 'metaPostId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BanVoteScalarFieldEnum = {
+  id: 'id',
+  banPickId: 'banPickId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BugVoteScalarFieldEnum = {
+  id: 'id',
+  bugReportId: 'bugReportId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -274,7 +391,18 @@ exports.Prisma.ModelName = {
   TrainerTeamHistory: 'TrainerTeamHistory',
   RadarMetric: 'RadarMetric',
   TrainerRadarPost: 'TrainerRadarPost',
-  RadarValue: 'RadarValue'
+  RadarValue: 'RadarValue',
+  User: 'User',
+  Account: 'Account',
+  Session: 'Session',
+  VerificationToken: 'VerificationToken',
+  GamePatch: 'GamePatch',
+  MetaPost: 'MetaPost',
+  BanPick: 'BanPick',
+  BugReport: 'BugReport',
+  MetaVote: 'MetaVote',
+  BanVote: 'BanVote',
+  BugVote: 'BugVote'
 };
 
 /**

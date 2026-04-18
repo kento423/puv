@@ -27,6 +27,13 @@ export async function GET(
       },
       include: {
         targetPokemon: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            image: true,
+          }
+        }
       },
       orderBy: [{ upvotes: "desc" }, { downvotes: "asc" }],
     });
@@ -42,6 +49,9 @@ export async function GET(
       upvotes: counter.upvotes,
       downvotes: counter.downvotes,
       slug: counter.targetPokemon.slug,
+      userId: counter.userId,
+      guestId: counter.guestId,
+      user: counter.user,
     }));
 
     return NextResponse.json(formattedCounters);

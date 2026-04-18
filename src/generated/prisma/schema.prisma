@@ -32,6 +32,9 @@ model Pokemon {
   targetOf   PokemonCounter[]   @relation("TargetPokemon") // 対策される側
   counterFor PokemonCounter[]   @relation("CounterPokemon") // カウンター側
   customTags PokemonCustomTag[] // カスタムタグとのリレーション
+  metaPosts  MetaPost[] // 環境ポケモン投稿
+  banPicks   BanPick[] // BAN候補投稿
+  bugReports BugReport[] // バグ報告
 }
 
 model Stat {
@@ -63,10 +66,15 @@ model PokemonCounter {
   upvotes          Int     @default(0)
   downvotes        Int     @default(0)
 
+  // 投稿者情報
+  userId  String? // ログインユーザーの場合
+  guestId String? // 匿名ユーザー（未ログイン）の場合
+
   // リレーション
   targetPokemon  Pokemon @relation("TargetPokemon", fields: [targetPokemonId], references: [id])
   counterPokemon Pokemon @relation("CounterPokemon", fields: [counterPokemonId], references: [id])
   votes          Vote[] // 投票履歴
+  user           User?   @relation(fields: [userId], references: [id])
 }
 
 model Vote {
@@ -181,13 +189,15 @@ model RadarMetric {
 model TrainerRadarPost {
   id          Int      @id @default(autoincrement())
   trainerId   Int
-  authorToken String // 投稿者の識別子（UUID等）
+  authorToken String? // 投稿者の識別子（UUID等・匿名用）
+  userId      String? // ログインユーザーの場合のID
   comment     String? // 任意コメント
   createdAt   DateTime @default(now())
 
   // リレーション
   trainer     Trainer      @relation(fields: [trainerId], references: [id])
   radarValues RadarValue[]
+  user        User?        @relation(fields: [userId], references: [id])
 }
 
 model RadarValue {
@@ -201,4 +211,167 @@ model RadarValue {
   metric RadarMetric      @relation(fields: [metricId], references: [id])
 
   @@unique([postId, metricId]) // 1つの投稿内で同じ項目の重複を防ぐ
+}
+
+// --- NextAuth (Auth.js) モデル ---
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  accounts Account[]
+  sessions Session[]
+
+  // アプリケーション独自のリレーション
+  pokemonCounters   PokemonCounter[]
+  trainerRadarPosts TrainerRadarPost[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+// --- アプデ後情報掲示板 (Meta Board) モデル ---
+
+model GamePatch {
+  id         Int      @id @default(autoincrement())
+  version    String // 例: "1.14.1.2" または "2026-04-15アップデート"
+  releasedAt DateTime // アプデ日時
+  isActive   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  metaPosts  MetaPost[]
+  banPicks   BanPick[]
+  bugReports BugReport[]
+}
+
+model MetaPost {
+  id        Int      @id @default(autoincrement())
+  patchId   Int
+  pokemonId Int
+  reason    String? // OPだと思う理由
+  tier      String   @default("op") // "op", "strong", "rising" 
+  upvotes   Int      @default(0)
+  downvotes Int      @default(0)
+  guestId   String? // 匿名ユーザー識別
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  patch   GamePatch  @relation(fields: [patchId], references: [id], onDelete: Cascade)
+  pokemon Pokemon    @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  votes   MetaVote[]
+}
+
+model BanPick {
+  id        Int      @id @default(autoincrement())
+  patchId   Int
+  pokemonId Int
+  side      String // "first" (先攻) or "second" (後攻)
+  reason    String? // BAN理由
+  upvotes   Int      @default(0)
+  downvotes Int      @default(0)
+  guestId   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  patch   GamePatch @relation(fields: [patchId], references: [id], onDelete: Cascade)
+  pokemon Pokemon   @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  votes   BanVote[]
+}
+
+model BugReport {
+  id          Int      @id @default(autoincrement())
+  patchId     Int
+  title       String // バグの概要タイトル
+  description String? // 詳細説明
+  category    String // "system" (システム), "pokemon" (ポケモン), "item" (もちもの), "other" (その他)
+  pokemonId   Int? // ポケモン関連バグの場合
+  severity    String   @default("normal") // "critical", "normal", "minor"
+  status      String   @default("open") // "open", "confirmed", "fixed"
+  upvotes     Int      @default(0)
+  downvotes   Int      @default(0)
+  guestId     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  patch   GamePatch @relation(fields: [patchId], references: [id], onDelete: Cascade)
+  pokemon Pokemon?  @relation(fields: [pokemonId], references: [id], onDelete: SetNull)
+  votes   BugVote[]
+}
+
+model MetaVote {
+  id         Int      @id @default(autoincrement())
+  metaPostId Int
+  userId     String // ブラウザ生成UUID
+  voteType   String // "upvote" or "downvote"
+  createdAt  DateTime @default(now())
+
+  metaPost MetaPost @relation(fields: [metaPostId], references: [id], onDelete: Cascade)
+
+  @@unique([metaPostId, userId])
+}
+
+model BanVote {
+  id        Int      @id @default(autoincrement())
+  banPickId Int
+  userId    String
+  voteType  String
+  createdAt DateTime @default(now())
+
+  banPick BanPick @relation(fields: [banPickId], references: [id], onDelete: Cascade)
+
+  @@unique([banPickId, userId])
+}
+
+model BugVote {
+  id          Int      @id @default(autoincrement())
+  bugReportId Int
+  userId      String
+  voteType    String
+  createdAt   DateTime @default(now())
+
+  bugReport BugReport @relation(fields: [bugReportId], references: [id], onDelete: Cascade)
+
+  @@unique([bugReportId, userId])
 }

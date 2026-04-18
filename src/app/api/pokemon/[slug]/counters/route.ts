@@ -32,6 +32,7 @@ export async function GET(request: NextRequest) {
       counterType: counter.counterType,
       upvotes: counter.upvotes,
       downvotes: counter.downvotes,
+      guestId: counter.guestId,
     }));
 
     return NextResponse.json(data, {
@@ -54,7 +55,7 @@ export async function POST(request: NextRequest) {
     const slug = pathname.split("/")[3];
     const body = await request.json();
 
-    const { selectedPokemonId, reason, counterType } = body;
+    const { selectedPokemonId, reason, counterType, guestId } = body;
     if (!selectedPokemonId || !reason) {
       return NextResponse.json(
         { error: "selectedPokemonId and reason are required" },
@@ -79,6 +80,7 @@ export async function POST(request: NextRequest) {
         counterPokemonId: parseInt(selectedPokemonId, 10),
         reason,
         counterType: counterType || null,
+        guestId: guestId || null,
       },
     });
 

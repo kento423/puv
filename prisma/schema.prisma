@@ -29,9 +29,12 @@ model Pokemon {
 
   // リレーション
   stats      PokemonStat[] // PokemonStat モデルとのリレーション
-  targetOf   PokemonCounter[] @relation("TargetPokemon") // 対策される側
-  counterFor PokemonCounter[] @relation("CounterPokemon") // カウンター側
+  targetOf   PokemonCounter[]   @relation("TargetPokemon") // 対策される側
+  counterFor PokemonCounter[]   @relation("CounterPokemon") // カウンター側
   customTags PokemonCustomTag[] // カスタムタグとのリレーション
+  metaPosts  MetaPost[]         // 環境ポケモン投稿
+  banPicks   BanPick[]          // BAN候補投稿
+  bugReports BugReport[]        // バグ報告
 }
 
 model Stat {
@@ -60,33 +63,38 @@ model PokemonCounter {
   counterPokemonId Int // カウンター側のポケモンID
   reason           String? // 任意: 解説やメモ
   counterType      String? // "hard" または "soft" または null
-  upvotes   Int      @default(0)
-  downvotes Int      @default(0)
+  upvotes          Int     @default(0)
+  downvotes        Int     @default(0)
+
+  // 投稿者情報
+  userId  String? // ログインユーザーの場合
+  guestId String? // 匿名ユーザー（未ログイン）の場合
 
   // リレーション
   targetPokemon  Pokemon @relation("TargetPokemon", fields: [targetPokemonId], references: [id])
   counterPokemon Pokemon @relation("CounterPokemon", fields: [counterPokemonId], references: [id])
   votes          Vote[] // 投票履歴
+  user           User?   @relation(fields: [userId], references: [id])
 }
 
 model Vote {
-  id                 Int     @id @default(autoincrement()) // 主キー
-  pokemonCounterId   Int // PokemonCounter モデルへの外部キー
-  userId             String // ユーザーID（ブラウザで生成された一意のID）
-  voteType           String // "upvote" または "downvote"
-  createdAt          DateTime @default(now())
+  id               Int      @id @default(autoincrement()) // 主キー
+  pokemonCounterId Int // PokemonCounter モデルへの外部キー
+  userId           String // ユーザーID（ブラウザで生成された一意のID）
+  voteType         String // "upvote" または "downvote"
+  createdAt        DateTime @default(now())
 
   // リレーション
-  pokemonCounter     PokemonCounter @relation(fields: [pokemonCounterId], references: [id], onDelete: Cascade)
+  pokemonCounter PokemonCounter @relation(fields: [pokemonCounterId], references: [id], onDelete: Cascade)
 
   // ユニーク制約: 同じユーザーが同じカウンターに複数回投票できないようにする
   @@unique([pokemonCounterId, userId])
 }
 
 model Tag {
-  id        Int    @id @default(autoincrement()) // 主キー
-  name      String @unique // タグ名（例: "高速"）
-  color     String @default("gray") // タグの色（Tailwindカラー）
+  id        Int      @id @default(autoincrement()) // 主キー
+  name      String   @unique // タグ名（例: "高速"）
+  color     String   @default("gray") // タグの色（Tailwindカラー）
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -100,8 +108,8 @@ model PokemonCustomTag {
   createdAt DateTime @default(now())
 
   // リレーション
-  pokemon   Pokemon @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
-  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  pokemon Pokemon @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   // 複合主キー: 同じポケモンに同じタグは一度だけ付与可能
   @@id([pokemonId, tagId])
@@ -110,95 +118,260 @@ model PokemonCustomTag {
 // --- トレーナー名鑑機能 (Trainer Directory) ---
 
 model Team {
-  id        Int      @id @default(autoincrement())
-  name      String   // チーム名（例: "Secret Ship"）
-  shortName String?  // 略称（例: "SS"）
-  type      String   @default("pro") // "pro" or "amateur"
-  region    String?  // 地域（例: "JP"）
-  logoUrl   String?  // チームロゴURL
-  twitterUrl  String? // チームの公式X(Twitter)URL
-  websiteUrl  String? // 公式WebサイトURL
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  name       String // チーム名（例: "Secret Ship"）
+  shortName  String? // 略称（例: "SS"）
+  type       String   @default("pro") // "pro" or "amateur"
+  region     String? // 地域（例: "JP"）
+  logoUrl    String? // チームロゴURL
+  twitterUrl String? // チームの公式X(Twitter)URL
+  websiteUrl String? // 公式WebサイトURL
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   // リレーション
-  trainers  Trainer[]
-  history   TrainerTeamHistory[]
-  sponsors  TeamSponsor[]
+  trainers Trainer[]
+  history  TrainerTeamHistory[]
+  sponsors TeamSponsor[]
 }
 
 model TeamSponsor {
-  id        Int      @id @default(autoincrement())
-  teamId    Int
-  name      String   // スポンサー名
-  logoUrl   String?  // スポンサーロゴURL
-  url       String?  // リンク先URL
+  id      Int     @id @default(autoincrement())
+  teamId  Int
+  name    String // スポンサー名
+  logoUrl String? // スポンサーロゴURL
+  url     String? // リンク先URL
 
-  team      Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
 }
 
 model Trainer {
-  id        Int      @id @default(autoincrement())
-  name      String   // トレーナー名
-  type      String   @default("amateur") // "pro" or "amateur"
+  id            Int      @id @default(autoincrement())
+  name          String // トレーナー名
+  type          String   @default("amateur") // "pro" or "amateur"
   currentTeamId Int?
-  status    String   @default("active") // "active", "inactive"
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  status        String   @default("active") // "active", "inactive"
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   // リレーション
-  team      Team?    @relation(fields: [currentTeamId], references: [id])
-  history   TrainerTeamHistory[]
+  team       Team?                @relation(fields: [currentTeamId], references: [id])
+  history    TrainerTeamHistory[]
   radarPosts TrainerRadarPost[]
 }
 
 model TrainerTeamHistory {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   trainerId Int
   teamId    Int
   joinedAt  DateTime
   leftAt    DateTime? // null = 現所属
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
 
   // リレーション
-  trainer   Trainer @relation(fields: [trainerId], references: [id])
-  team      Team    @relation(fields: [teamId], references: [id])
+  trainer Trainer @relation(fields: [trainerId], references: [id])
+  team    Team    @relation(fields: [teamId], references: [id])
 }
 
 model RadarMetric {
-  id        Int      @id @default(autoincrement())
-  key       String   @unique // コード上の識別子（例: "macro"）
-  label     String   // 表示名（例: "マクロ判断"）
-  minValue  Int      @default(1)
-  maxValue  Int      @default(10)
-  sortOrder Int      @default(0)
-  active    Boolean  @default(true)
+  id        Int     @id @default(autoincrement())
+  key       String  @unique // コード上の識別子（例: "macro"）
+  label     String // 表示名（例: "マクロ判断"）
+  minValue  Int     @default(1)
+  maxValue  Int     @default(10)
+  sortOrder Int     @default(0)
+  active    Boolean @default(true)
 
   // リレーション
-  values    RadarValue[]
+  values RadarValue[]
 }
 
 model TrainerRadarPost {
   id          Int      @id @default(autoincrement())
   trainerId   Int
-  authorToken String   // 投稿者の識別子（UUID等）
-  comment     String?  // 任意コメント
+  authorToken String? // 投稿者の識別子（UUID等・匿名用）
+  userId      String? // ログインユーザーの場合のID
+  comment     String? // 任意コメント
   createdAt   DateTime @default(now())
 
   // リレーション
-  trainer     Trainer  @relation(fields: [trainerId], references: [id])
+  trainer     Trainer      @relation(fields: [trainerId], references: [id])
   radarValues RadarValue[]
+  user        User?        @relation(fields: [userId], references: [id])
 }
 
 model RadarValue {
-  id          Int @id @default(autoincrement())
-  postId      Int
-  metricId    Int
-  value       Int // 1-10
+  id       Int @id @default(autoincrement())
+  postId   Int
+  metricId Int
+  value    Int // 1-10
 
   // リレーション
-  post        TrainerRadarPost @relation(fields: [postId], references: [id], onDelete: Cascade)
-  metric      RadarMetric      @relation(fields: [metricId], references: [id])
+  post   TrainerRadarPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  metric RadarMetric      @relation(fields: [metricId], references: [id])
 
   @@unique([postId, metricId]) // 1つの投稿内で同じ項目の重複を防ぐ
+}
+
+// --- NextAuth (Auth.js) モデル ---
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  accounts Account[]
+  sessions Session[]
+
+  // アプリケーション独自のリレーション
+  pokemonCounters   PokemonCounter[]
+  trainerRadarPosts TrainerRadarPost[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+// --- アプデ後情報掲示板 (Meta Board) モデル ---
+
+model GamePatch {
+  id         Int      @id @default(autoincrement())
+  version    String   // 例: "1.14.1.2" または "2026-04-15アップデート"
+  releasedAt DateTime // アプデ日時
+  isActive   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  metaPosts  MetaPost[]
+  banPicks   BanPick[]
+  bugReports BugReport[]
+}
+
+model MetaPost {
+  id          Int      @id @default(autoincrement())
+  patchId     Int
+  pokemonId   Int
+  reason      String?   // OPだと思う理由
+  tier        String    @default("op") // "op", "strong", "rising" 
+  upvotes     Int       @default(0)
+  downvotes   Int       @default(0)
+  guestId     String?   // 匿名ユーザー識別
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  patch       GamePatch @relation(fields: [patchId], references: [id], onDelete: Cascade)
+  pokemon     Pokemon   @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  votes       MetaVote[]
+}
+
+model BanPick {
+  id          Int      @id @default(autoincrement())
+  patchId     Int
+  pokemonId   Int
+  side        String   // "first" (先攻) or "second" (後攻)
+  reason      String?  // BAN理由
+  upvotes     Int      @default(0)
+  downvotes   Int      @default(0)
+  guestId     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  patch       GamePatch @relation(fields: [patchId], references: [id], onDelete: Cascade)
+  pokemon     Pokemon  @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  votes       BanVote[]
+}
+
+model BugReport {
+  id          Int      @id @default(autoincrement())
+  patchId     Int
+  title       String   // バグの概要タイトル
+  description String?  // 詳細説明
+  category    String   // "system" (システム), "pokemon" (ポケモン), "item" (もちもの), "other" (その他)
+  pokemonId   Int?     // ポケモン関連バグの場合
+  severity    String   @default("normal") // "critical", "normal", "minor"
+  status      String   @default("open") // "open", "confirmed", "fixed"
+  upvotes     Int      @default(0)
+  downvotes   Int      @default(0)
+  guestId     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  patch       GamePatch @relation(fields: [patchId], references: [id], onDelete: Cascade)
+  pokemon     Pokemon? @relation(fields: [pokemonId], references: [id], onDelete: SetNull)
+  votes       BugVote[]
+}
+
+model MetaVote {
+  id         Int      @id @default(autoincrement())
+  metaPostId Int
+  userId     String   // ブラウザ生成UUID
+  voteType   String   // "upvote" or "downvote"
+  createdAt  DateTime @default(now())
+
+  metaPost   MetaPost @relation(fields: [metaPostId], references: [id], onDelete: Cascade)
+
+  @@unique([metaPostId, userId])
+}
+
+model BanVote {
+  id        Int      @id @default(autoincrement())
+  banPickId Int
+  userId    String
+  voteType  String
+  createdAt DateTime @default(now())
+
+  banPick   BanPick @relation(fields: [banPickId], references: [id], onDelete: Cascade)
+
+  @@unique([banPickId, userId])
+}
+
+model BugVote {
+  id          Int      @id @default(autoincrement())
+  bugReportId Int
+  userId      String
+  voteType    String
+  createdAt   DateTime @default(now())
+
+  bugReport   BugReport @relation(fields: [bugReportId], references: [id], onDelete: Cascade)
+
+  @@unique([bugReportId, userId])
 }

@@ -83,6 +83,61 @@ export type TrainerRadarPost = $Result.DefaultSelection<Prisma.$TrainerRadarPost
  * 
  */
 export type RadarValue = $Result.DefaultSelection<Prisma.$RadarValuePayload>
+/**
+ * Model User
+ * 
+ */
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model Account
+ * 
+ */
+export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
+/**
+ * Model Session
+ * 
+ */
+export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
+/**
+ * Model VerificationToken
+ * 
+ */
+export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model GamePatch
+ * 
+ */
+export type GamePatch = $Result.DefaultSelection<Prisma.$GamePatchPayload>
+/**
+ * Model MetaPost
+ * 
+ */
+export type MetaPost = $Result.DefaultSelection<Prisma.$MetaPostPayload>
+/**
+ * Model BanPick
+ * 
+ */
+export type BanPick = $Result.DefaultSelection<Prisma.$BanPickPayload>
+/**
+ * Model BugReport
+ * 
+ */
+export type BugReport = $Result.DefaultSelection<Prisma.$BugReportPayload>
+/**
+ * Model MetaVote
+ * 
+ */
+export type MetaVote = $Result.DefaultSelection<Prisma.$MetaVotePayload>
+/**
+ * Model BanVote
+ * 
+ */
+export type BanVote = $Result.DefaultSelection<Prisma.$BanVotePayload>
+/**
+ * Model BugVote
+ * 
+ */
+export type BugVote = $Result.DefaultSelection<Prisma.$BugVotePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -341,6 +396,116 @@ export class PrismaClient<
     * ```
     */
   get radarValue(): Prisma.RadarValueDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.account`: Exposes CRUD operations for the **Account** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Accounts
+    * const accounts = await prisma.account.findMany()
+    * ```
+    */
+  get account(): Prisma.AccountDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.session`: Exposes CRUD operations for the **Session** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sessions
+    * const sessions = await prisma.session.findMany()
+    * ```
+    */
+  get session(): Prisma.SessionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.verificationToken`: Exposes CRUD operations for the **VerificationToken** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more VerificationTokens
+    * const verificationTokens = await prisma.verificationToken.findMany()
+    * ```
+    */
+  get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.gamePatch`: Exposes CRUD operations for the **GamePatch** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GamePatches
+    * const gamePatches = await prisma.gamePatch.findMany()
+    * ```
+    */
+  get gamePatch(): Prisma.GamePatchDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.metaPost`: Exposes CRUD operations for the **MetaPost** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MetaPosts
+    * const metaPosts = await prisma.metaPost.findMany()
+    * ```
+    */
+  get metaPost(): Prisma.MetaPostDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.banPick`: Exposes CRUD operations for the **BanPick** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BanPicks
+    * const banPicks = await prisma.banPick.findMany()
+    * ```
+    */
+  get banPick(): Prisma.BanPickDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bugReport`: Exposes CRUD operations for the **BugReport** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BugReports
+    * const bugReports = await prisma.bugReport.findMany()
+    * ```
+    */
+  get bugReport(): Prisma.BugReportDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.metaVote`: Exposes CRUD operations for the **MetaVote** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MetaVotes
+    * const metaVotes = await prisma.metaVote.findMany()
+    * ```
+    */
+  get metaVote(): Prisma.MetaVoteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.banVote`: Exposes CRUD operations for the **BanVote** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BanVotes
+    * const banVotes = await prisma.banVote.findMany()
+    * ```
+    */
+  get banVote(): Prisma.BanVoteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bugVote`: Exposes CRUD operations for the **BugVote** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BugVotes
+    * const bugVotes = await prisma.bugVote.findMany()
+    * ```
+    */
+  get bugVote(): Prisma.BugVoteDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -795,7 +960,18 @@ export namespace Prisma {
     TrainerTeamHistory: 'TrainerTeamHistory',
     RadarMetric: 'RadarMetric',
     TrainerRadarPost: 'TrainerRadarPost',
-    RadarValue: 'RadarValue'
+    RadarValue: 'RadarValue',
+    User: 'User',
+    Account: 'Account',
+    Session: 'Session',
+    VerificationToken: 'VerificationToken',
+    GamePatch: 'GamePatch',
+    MetaPost: 'MetaPost',
+    BanPick: 'BanPick',
+    BugReport: 'BugReport',
+    MetaVote: 'MetaVote',
+    BanVote: 'BanVote',
+    BugVote: 'BugVote'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -814,7 +990,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "team" | "teamSponsor" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue"
+      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "team" | "teamSponsor" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue" | "user" | "account" | "session" | "verificationToken" | "gamePatch" | "metaPost" | "banPick" | "bugReport" | "metaVote" | "banVote" | "bugVote"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1854,6 +2030,820 @@ export namespace Prisma {
           }
         }
       }
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findFirst: {
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          findMany: {
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          create: {
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          createMany: {
+            args: Prisma.UserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          delete: {
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          update: {
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          deleteMany: {
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+          }
+          upsert: {
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+          }
+          aggregate: {
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
+          }
+          groupBy: {
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      Account: {
+        payload: Prisma.$AccountPayload<ExtArgs>
+        fields: Prisma.AccountFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AccountFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AccountFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+          }
+          findFirst: {
+            args: Prisma.AccountFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AccountFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+          }
+          findMany: {
+            args: Prisma.AccountFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
+          }
+          create: {
+            args: Prisma.AccountCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+          }
+          createMany: {
+            args: Prisma.AccountCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AccountCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
+          }
+          delete: {
+            args: Prisma.AccountDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+          }
+          update: {
+            args: Prisma.AccountUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+          }
+          deleteMany: {
+            args: Prisma.AccountDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AccountUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AccountUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
+          }
+          upsert: {
+            args: Prisma.AccountUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+          }
+          aggregate: {
+            args: Prisma.AccountAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAccount>
+          }
+          groupBy: {
+            args: Prisma.AccountGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AccountGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AccountCountArgs<ExtArgs>
+            result: $Utils.Optional<AccountCountAggregateOutputType> | number
+          }
+        }
+      }
+      Session: {
+        payload: Prisma.$SessionPayload<ExtArgs>
+        fields: Prisma.SessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SessionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SessionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          findFirst: {
+            args: Prisma.SessionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SessionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          findMany: {
+            args: Prisma.SessionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>[]
+          }
+          create: {
+            args: Prisma.SessionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          createMany: {
+            args: Prisma.SessionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SessionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>[]
+          }
+          delete: {
+            args: Prisma.SessionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          update: {
+            args: Prisma.SessionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.SessionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SessionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SessionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>[]
+          }
+          upsert: {
+            args: Prisma.SessionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SessionPayload>
+          }
+          aggregate: {
+            args: Prisma.SessionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSession>
+          }
+          groupBy: {
+            args: Prisma.SessionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SessionCountArgs<ExtArgs>
+            result: $Utils.Optional<SessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      VerificationToken: {
+        payload: Prisma.$VerificationTokenPayload<ExtArgs>
+        fields: Prisma.VerificationTokenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VerificationTokenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VerificationTokenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>
+          }
+          findFirst: {
+            args: Prisma.VerificationTokenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VerificationTokenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>
+          }
+          findMany: {
+            args: Prisma.VerificationTokenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>[]
+          }
+          create: {
+            args: Prisma.VerificationTokenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>
+          }
+          createMany: {
+            args: Prisma.VerificationTokenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.VerificationTokenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>[]
+          }
+          delete: {
+            args: Prisma.VerificationTokenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>
+          }
+          update: {
+            args: Prisma.VerificationTokenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>
+          }
+          deleteMany: {
+            args: Prisma.VerificationTokenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VerificationTokenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.VerificationTokenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>[]
+          }
+          upsert: {
+            args: Prisma.VerificationTokenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VerificationTokenPayload>
+          }
+          aggregate: {
+            args: Prisma.VerificationTokenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVerificationToken>
+          }
+          groupBy: {
+            args: Prisma.VerificationTokenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VerificationTokenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VerificationTokenCountArgs<ExtArgs>
+            result: $Utils.Optional<VerificationTokenCountAggregateOutputType> | number
+          }
+        }
+      }
+      GamePatch: {
+        payload: Prisma.$GamePatchPayload<ExtArgs>
+        fields: Prisma.GamePatchFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GamePatchFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GamePatchFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>
+          }
+          findFirst: {
+            args: Prisma.GamePatchFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GamePatchFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>
+          }
+          findMany: {
+            args: Prisma.GamePatchFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>[]
+          }
+          create: {
+            args: Prisma.GamePatchCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>
+          }
+          createMany: {
+            args: Prisma.GamePatchCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.GamePatchCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>[]
+          }
+          delete: {
+            args: Prisma.GamePatchDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>
+          }
+          update: {
+            args: Prisma.GamePatchUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>
+          }
+          deleteMany: {
+            args: Prisma.GamePatchDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GamePatchUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.GamePatchUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>[]
+          }
+          upsert: {
+            args: Prisma.GamePatchUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePatchPayload>
+          }
+          aggregate: {
+            args: Prisma.GamePatchAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGamePatch>
+          }
+          groupBy: {
+            args: Prisma.GamePatchGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GamePatchGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GamePatchCountArgs<ExtArgs>
+            result: $Utils.Optional<GamePatchCountAggregateOutputType> | number
+          }
+        }
+      }
+      MetaPost: {
+        payload: Prisma.$MetaPostPayload<ExtArgs>
+        fields: Prisma.MetaPostFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MetaPostFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MetaPostFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>
+          }
+          findFirst: {
+            args: Prisma.MetaPostFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MetaPostFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>
+          }
+          findMany: {
+            args: Prisma.MetaPostFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>[]
+          }
+          create: {
+            args: Prisma.MetaPostCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>
+          }
+          createMany: {
+            args: Prisma.MetaPostCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MetaPostCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>[]
+          }
+          delete: {
+            args: Prisma.MetaPostDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>
+          }
+          update: {
+            args: Prisma.MetaPostUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>
+          }
+          deleteMany: {
+            args: Prisma.MetaPostDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MetaPostUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MetaPostUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>[]
+          }
+          upsert: {
+            args: Prisma.MetaPostUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaPostPayload>
+          }
+          aggregate: {
+            args: Prisma.MetaPostAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMetaPost>
+          }
+          groupBy: {
+            args: Prisma.MetaPostGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MetaPostGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MetaPostCountArgs<ExtArgs>
+            result: $Utils.Optional<MetaPostCountAggregateOutputType> | number
+          }
+        }
+      }
+      BanPick: {
+        payload: Prisma.$BanPickPayload<ExtArgs>
+        fields: Prisma.BanPickFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BanPickFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BanPickFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>
+          }
+          findFirst: {
+            args: Prisma.BanPickFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BanPickFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>
+          }
+          findMany: {
+            args: Prisma.BanPickFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>[]
+          }
+          create: {
+            args: Prisma.BanPickCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>
+          }
+          createMany: {
+            args: Prisma.BanPickCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BanPickCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>[]
+          }
+          delete: {
+            args: Prisma.BanPickDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>
+          }
+          update: {
+            args: Prisma.BanPickUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>
+          }
+          deleteMany: {
+            args: Prisma.BanPickDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BanPickUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BanPickUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>[]
+          }
+          upsert: {
+            args: Prisma.BanPickUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanPickPayload>
+          }
+          aggregate: {
+            args: Prisma.BanPickAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBanPick>
+          }
+          groupBy: {
+            args: Prisma.BanPickGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BanPickGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BanPickCountArgs<ExtArgs>
+            result: $Utils.Optional<BanPickCountAggregateOutputType> | number
+          }
+        }
+      }
+      BugReport: {
+        payload: Prisma.$BugReportPayload<ExtArgs>
+        fields: Prisma.BugReportFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BugReportFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BugReportFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>
+          }
+          findFirst: {
+            args: Prisma.BugReportFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BugReportFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>
+          }
+          findMany: {
+            args: Prisma.BugReportFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>[]
+          }
+          create: {
+            args: Prisma.BugReportCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>
+          }
+          createMany: {
+            args: Prisma.BugReportCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BugReportCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>[]
+          }
+          delete: {
+            args: Prisma.BugReportDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>
+          }
+          update: {
+            args: Prisma.BugReportUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>
+          }
+          deleteMany: {
+            args: Prisma.BugReportDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BugReportUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BugReportUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>[]
+          }
+          upsert: {
+            args: Prisma.BugReportUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugReportPayload>
+          }
+          aggregate: {
+            args: Prisma.BugReportAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBugReport>
+          }
+          groupBy: {
+            args: Prisma.BugReportGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BugReportGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BugReportCountArgs<ExtArgs>
+            result: $Utils.Optional<BugReportCountAggregateOutputType> | number
+          }
+        }
+      }
+      MetaVote: {
+        payload: Prisma.$MetaVotePayload<ExtArgs>
+        fields: Prisma.MetaVoteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MetaVoteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MetaVoteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>
+          }
+          findFirst: {
+            args: Prisma.MetaVoteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MetaVoteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>
+          }
+          findMany: {
+            args: Prisma.MetaVoteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>[]
+          }
+          create: {
+            args: Prisma.MetaVoteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>
+          }
+          createMany: {
+            args: Prisma.MetaVoteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MetaVoteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>[]
+          }
+          delete: {
+            args: Prisma.MetaVoteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>
+          }
+          update: {
+            args: Prisma.MetaVoteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>
+          }
+          deleteMany: {
+            args: Prisma.MetaVoteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MetaVoteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MetaVoteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>[]
+          }
+          upsert: {
+            args: Prisma.MetaVoteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MetaVotePayload>
+          }
+          aggregate: {
+            args: Prisma.MetaVoteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMetaVote>
+          }
+          groupBy: {
+            args: Prisma.MetaVoteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MetaVoteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MetaVoteCountArgs<ExtArgs>
+            result: $Utils.Optional<MetaVoteCountAggregateOutputType> | number
+          }
+        }
+      }
+      BanVote: {
+        payload: Prisma.$BanVotePayload<ExtArgs>
+        fields: Prisma.BanVoteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BanVoteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BanVoteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>
+          }
+          findFirst: {
+            args: Prisma.BanVoteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BanVoteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>
+          }
+          findMany: {
+            args: Prisma.BanVoteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>[]
+          }
+          create: {
+            args: Prisma.BanVoteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>
+          }
+          createMany: {
+            args: Prisma.BanVoteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BanVoteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>[]
+          }
+          delete: {
+            args: Prisma.BanVoteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>
+          }
+          update: {
+            args: Prisma.BanVoteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>
+          }
+          deleteMany: {
+            args: Prisma.BanVoteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BanVoteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BanVoteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>[]
+          }
+          upsert: {
+            args: Prisma.BanVoteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BanVotePayload>
+          }
+          aggregate: {
+            args: Prisma.BanVoteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBanVote>
+          }
+          groupBy: {
+            args: Prisma.BanVoteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BanVoteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BanVoteCountArgs<ExtArgs>
+            result: $Utils.Optional<BanVoteCountAggregateOutputType> | number
+          }
+        }
+      }
+      BugVote: {
+        payload: Prisma.$BugVotePayload<ExtArgs>
+        fields: Prisma.BugVoteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BugVoteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BugVoteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>
+          }
+          findFirst: {
+            args: Prisma.BugVoteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BugVoteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>
+          }
+          findMany: {
+            args: Prisma.BugVoteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>[]
+          }
+          create: {
+            args: Prisma.BugVoteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>
+          }
+          createMany: {
+            args: Prisma.BugVoteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BugVoteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>[]
+          }
+          delete: {
+            args: Prisma.BugVoteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>
+          }
+          update: {
+            args: Prisma.BugVoteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>
+          }
+          deleteMany: {
+            args: Prisma.BugVoteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BugVoteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BugVoteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>[]
+          }
+          upsert: {
+            args: Prisma.BugVoteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BugVotePayload>
+          }
+          aggregate: {
+            args: Prisma.BugVoteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBugVote>
+          }
+          groupBy: {
+            args: Prisma.BugVoteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BugVoteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BugVoteCountArgs<ExtArgs>
+            result: $Utils.Optional<BugVoteCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1964,6 +2954,17 @@ export namespace Prisma {
     radarMetric?: RadarMetricOmit
     trainerRadarPost?: TrainerRadarPostOmit
     radarValue?: RadarValueOmit
+    user?: UserOmit
+    account?: AccountOmit
+    session?: SessionOmit
+    verificationToken?: VerificationTokenOmit
+    gamePatch?: GamePatchOmit
+    metaPost?: MetaPostOmit
+    banPick?: BanPickOmit
+    bugReport?: BugReportOmit
+    metaVote?: MetaVoteOmit
+    banVote?: BanVoteOmit
+    bugVote?: BugVoteOmit
   }
 
   /* Types for Logging */
@@ -2048,6 +3049,9 @@ export namespace Prisma {
     targetOf: number
     counterFor: number
     customTags: number
+    metaPosts: number
+    banPicks: number
+    bugReports: number
   }
 
   export type PokemonCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2055,6 +3059,9 @@ export namespace Prisma {
     targetOf?: boolean | PokemonCountOutputTypeCountTargetOfArgs
     counterFor?: boolean | PokemonCountOutputTypeCountCounterForArgs
     customTags?: boolean | PokemonCountOutputTypeCountCustomTagsArgs
+    metaPosts?: boolean | PokemonCountOutputTypeCountMetaPostsArgs
+    banPicks?: boolean | PokemonCountOutputTypeCountBanPicksArgs
+    bugReports?: boolean | PokemonCountOutputTypeCountBugReportsArgs
   }
 
   // Custom InputTypes
@@ -2094,6 +3101,27 @@ export namespace Prisma {
    */
   export type PokemonCountOutputTypeCountCustomTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PokemonCustomTagWhereInput
+  }
+
+  /**
+   * PokemonCountOutputType without action
+   */
+  export type PokemonCountOutputTypeCountMetaPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MetaPostWhereInput
+  }
+
+  /**
+   * PokemonCountOutputType without action
+   */
+  export type PokemonCountOutputTypeCountBanPicksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BanPickWhereInput
+  }
+
+  /**
+   * PokemonCountOutputType without action
+   */
+  export type PokemonCountOutputTypeCountBugReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BugReportWhereInput
   }
 
 
@@ -2338,6 +3366,206 @@ export namespace Prisma {
    */
   export type TrainerRadarPostCountOutputTypeCountRadarValuesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: RadarValueWhereInput
+  }
+
+
+  /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    accounts: number
+    sessions: number
+    pokemonCounters: number
+    trainerRadarPosts: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    accounts?: boolean | UserCountOutputTypeCountAccountsArgs
+    sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    pokemonCounters?: boolean | UserCountOutputTypeCountPokemonCountersArgs
+    trainerRadarPosts?: boolean | UserCountOutputTypeCountTrainerRadarPostsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPokemonCountersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PokemonCounterWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountTrainerRadarPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TrainerRadarPostWhereInput
+  }
+
+
+  /**
+   * Count Type GamePatchCountOutputType
+   */
+
+  export type GamePatchCountOutputType = {
+    metaPosts: number
+    banPicks: number
+    bugReports: number
+  }
+
+  export type GamePatchCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    metaPosts?: boolean | GamePatchCountOutputTypeCountMetaPostsArgs
+    banPicks?: boolean | GamePatchCountOutputTypeCountBanPicksArgs
+    bugReports?: boolean | GamePatchCountOutputTypeCountBugReportsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * GamePatchCountOutputType without action
+   */
+  export type GamePatchCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatchCountOutputType
+     */
+    select?: GamePatchCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * GamePatchCountOutputType without action
+   */
+  export type GamePatchCountOutputTypeCountMetaPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MetaPostWhereInput
+  }
+
+  /**
+   * GamePatchCountOutputType without action
+   */
+  export type GamePatchCountOutputTypeCountBanPicksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BanPickWhereInput
+  }
+
+  /**
+   * GamePatchCountOutputType without action
+   */
+  export type GamePatchCountOutputTypeCountBugReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BugReportWhereInput
+  }
+
+
+  /**
+   * Count Type MetaPostCountOutputType
+   */
+
+  export type MetaPostCountOutputType = {
+    votes: number
+  }
+
+  export type MetaPostCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    votes?: boolean | MetaPostCountOutputTypeCountVotesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MetaPostCountOutputType without action
+   */
+  export type MetaPostCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPostCountOutputType
+     */
+    select?: MetaPostCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MetaPostCountOutputType without action
+   */
+  export type MetaPostCountOutputTypeCountVotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MetaVoteWhereInput
+  }
+
+
+  /**
+   * Count Type BanPickCountOutputType
+   */
+
+  export type BanPickCountOutputType = {
+    votes: number
+  }
+
+  export type BanPickCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    votes?: boolean | BanPickCountOutputTypeCountVotesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BanPickCountOutputType without action
+   */
+  export type BanPickCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPickCountOutputType
+     */
+    select?: BanPickCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BanPickCountOutputType without action
+   */
+  export type BanPickCountOutputTypeCountVotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BanVoteWhereInput
+  }
+
+
+  /**
+   * Count Type BugReportCountOutputType
+   */
+
+  export type BugReportCountOutputType = {
+    votes: number
+  }
+
+  export type BugReportCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    votes?: boolean | BugReportCountOutputTypeCountVotesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BugReportCountOutputType without action
+   */
+  export type BugReportCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReportCountOutputType
+     */
+    select?: BugReportCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BugReportCountOutputType without action
+   */
+  export type BugReportCountOutputTypeCountVotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BugVoteWhereInput
   }
 
 
@@ -2587,6 +3815,9 @@ export namespace Prisma {
     targetOf?: boolean | Pokemon$targetOfArgs<ExtArgs>
     counterFor?: boolean | Pokemon$counterForArgs<ExtArgs>
     customTags?: boolean | Pokemon$customTagsArgs<ExtArgs>
+    metaPosts?: boolean | Pokemon$metaPostsArgs<ExtArgs>
+    banPicks?: boolean | Pokemon$banPicksArgs<ExtArgs>
+    bugReports?: boolean | Pokemon$bugReportsArgs<ExtArgs>
     _count?: boolean | PokemonCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemon"]>
 
@@ -2635,6 +3866,9 @@ export namespace Prisma {
     targetOf?: boolean | Pokemon$targetOfArgs<ExtArgs>
     counterFor?: boolean | Pokemon$counterForArgs<ExtArgs>
     customTags?: boolean | Pokemon$customTagsArgs<ExtArgs>
+    metaPosts?: boolean | Pokemon$metaPostsArgs<ExtArgs>
+    banPicks?: boolean | Pokemon$banPicksArgs<ExtArgs>
+    bugReports?: boolean | Pokemon$bugReportsArgs<ExtArgs>
     _count?: boolean | PokemonCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PokemonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2647,6 +3881,9 @@ export namespace Prisma {
       targetOf: Prisma.$PokemonCounterPayload<ExtArgs>[]
       counterFor: Prisma.$PokemonCounterPayload<ExtArgs>[]
       customTags: Prisma.$PokemonCustomTagPayload<ExtArgs>[]
+      metaPosts: Prisma.$MetaPostPayload<ExtArgs>[]
+      banPicks: Prisma.$BanPickPayload<ExtArgs>[]
+      bugReports: Prisma.$BugReportPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3057,6 +4294,9 @@ export namespace Prisma {
     targetOf<T extends Pokemon$targetOfArgs<ExtArgs> = {}>(args?: Subset<T, Pokemon$targetOfArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonCounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     counterFor<T extends Pokemon$counterForArgs<ExtArgs> = {}>(args?: Subset<T, Pokemon$counterForArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonCounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     customTags<T extends Pokemon$customTagsArgs<ExtArgs> = {}>(args?: Subset<T, Pokemon$customTagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonCustomTagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    metaPosts<T extends Pokemon$metaPostsArgs<ExtArgs> = {}>(args?: Subset<T, Pokemon$metaPostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    banPicks<T extends Pokemon$banPicksArgs<ExtArgs> = {}>(args?: Subset<T, Pokemon$banPicksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    bugReports<T extends Pokemon$bugReportsArgs<ExtArgs> = {}>(args?: Subset<T, Pokemon$bugReportsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3577,6 +4817,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PokemonCustomTagScalarFieldEnum | PokemonCustomTagScalarFieldEnum[]
+  }
+
+  /**
+   * Pokemon.metaPosts
+   */
+  export type Pokemon$metaPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    where?: MetaPostWhereInput
+    orderBy?: MetaPostOrderByWithRelationInput | MetaPostOrderByWithRelationInput[]
+    cursor?: MetaPostWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MetaPostScalarFieldEnum | MetaPostScalarFieldEnum[]
+  }
+
+  /**
+   * Pokemon.banPicks
+   */
+  export type Pokemon$banPicksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    where?: BanPickWhereInput
+    orderBy?: BanPickOrderByWithRelationInput | BanPickOrderByWithRelationInput[]
+    cursor?: BanPickWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BanPickScalarFieldEnum | BanPickScalarFieldEnum[]
+  }
+
+  /**
+   * Pokemon.bugReports
+   */
+  export type Pokemon$bugReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    where?: BugReportWhereInput
+    orderBy?: BugReportOrderByWithRelationInput | BugReportOrderByWithRelationInput[]
+    cursor?: BugReportWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BugReportScalarFieldEnum | BugReportScalarFieldEnum[]
   }
 
   /**
@@ -5815,6 +7127,8 @@ export namespace Prisma {
     counterType: string | null
     upvotes: number | null
     downvotes: number | null
+    userId: string | null
+    guestId: string | null
   }
 
   export type PokemonCounterMaxAggregateOutputType = {
@@ -5825,6 +7139,8 @@ export namespace Prisma {
     counterType: string | null
     upvotes: number | null
     downvotes: number | null
+    userId: string | null
+    guestId: string | null
   }
 
   export type PokemonCounterCountAggregateOutputType = {
@@ -5835,6 +7151,8 @@ export namespace Prisma {
     counterType: number
     upvotes: number
     downvotes: number
+    userId: number
+    guestId: number
     _all: number
   }
 
@@ -5863,6 +7181,8 @@ export namespace Prisma {
     counterType?: true
     upvotes?: true
     downvotes?: true
+    userId?: true
+    guestId?: true
   }
 
   export type PokemonCounterMaxAggregateInputType = {
@@ -5873,6 +7193,8 @@ export namespace Prisma {
     counterType?: true
     upvotes?: true
     downvotes?: true
+    userId?: true
+    guestId?: true
   }
 
   export type PokemonCounterCountAggregateInputType = {
@@ -5883,6 +7205,8 @@ export namespace Prisma {
     counterType?: true
     upvotes?: true
     downvotes?: true
+    userId?: true
+    guestId?: true
     _all?: true
   }
 
@@ -5980,6 +7304,8 @@ export namespace Prisma {
     counterType: string | null
     upvotes: number
     downvotes: number
+    userId: string | null
+    guestId: string | null
     _count: PokemonCounterCountAggregateOutputType | null
     _avg: PokemonCounterAvgAggregateOutputType | null
     _sum: PokemonCounterSumAggregateOutputType | null
@@ -6009,9 +7335,12 @@ export namespace Prisma {
     counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
+    userId?: boolean
+    guestId?: boolean
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     votes?: boolean | PokemonCounter$votesArgs<ExtArgs>
+    user?: boolean | PokemonCounter$userArgs<ExtArgs>
     _count?: boolean | PokemonCounterCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonCounter"]>
 
@@ -6023,8 +7352,11 @@ export namespace Prisma {
     counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
+    userId?: boolean
+    guestId?: boolean
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    user?: boolean | PokemonCounter$userArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonCounter"]>
 
   export type PokemonCounterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6035,8 +7367,11 @@ export namespace Prisma {
     counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
+    userId?: boolean
+    guestId?: boolean
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    user?: boolean | PokemonCounter$userArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonCounter"]>
 
   export type PokemonCounterSelectScalar = {
@@ -6047,22 +7382,27 @@ export namespace Prisma {
     counterType?: boolean
     upvotes?: boolean
     downvotes?: boolean
+    userId?: boolean
+    guestId?: boolean
   }
 
-  export type PokemonCounterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetPokemonId" | "counterPokemonId" | "reason" | "counterType" | "upvotes" | "downvotes", ExtArgs["result"]["pokemonCounter"]>
+  export type PokemonCounterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "targetPokemonId" | "counterPokemonId" | "reason" | "counterType" | "upvotes" | "downvotes" | "userId" | "guestId", ExtArgs["result"]["pokemonCounter"]>
   export type PokemonCounterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     votes?: boolean | PokemonCounter$votesArgs<ExtArgs>
+    user?: boolean | PokemonCounter$userArgs<ExtArgs>
     _count?: boolean | PokemonCounterCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PokemonCounterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    user?: boolean | PokemonCounter$userArgs<ExtArgs>
   }
   export type PokemonCounterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     targetPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     counterPokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    user?: boolean | PokemonCounter$userArgs<ExtArgs>
   }
 
   export type $PokemonCounterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6071,6 +7411,7 @@ export namespace Prisma {
       targetPokemon: Prisma.$PokemonPayload<ExtArgs>
       counterPokemon: Prisma.$PokemonPayload<ExtArgs>
       votes: Prisma.$VotePayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6080,6 +7421,8 @@ export namespace Prisma {
       counterType: string | null
       upvotes: number
       downvotes: number
+      userId: string | null
+      guestId: string | null
     }, ExtArgs["result"]["pokemonCounter"]>
     composites: {}
   }
@@ -6477,6 +7820,7 @@ export namespace Prisma {
     targetPokemon<T extends PokemonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PokemonDefaultArgs<ExtArgs>>): Prisma__PokemonClient<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     counterPokemon<T extends PokemonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PokemonDefaultArgs<ExtArgs>>): Prisma__PokemonClient<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     votes<T extends PokemonCounter$votesArgs<ExtArgs> = {}>(args?: Subset<T, PokemonCounter$votesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends PokemonCounter$userArgs<ExtArgs> = {}>(args?: Subset<T, PokemonCounter$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6513,6 +7857,8 @@ export namespace Prisma {
     readonly counterType: FieldRef<"PokemonCounter", 'String'>
     readonly upvotes: FieldRef<"PokemonCounter", 'Int'>
     readonly downvotes: FieldRef<"PokemonCounter", 'Int'>
+    readonly userId: FieldRef<"PokemonCounter", 'String'>
+    readonly guestId: FieldRef<"PokemonCounter", 'String'>
   }
     
 
@@ -6930,6 +8276,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: VoteScalarFieldEnum | VoteScalarFieldEnum[]
+  }
+
+  /**
+   * PokemonCounter.user
+   */
+  export type PokemonCounter$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
   }
 
   /**
@@ -16038,6 +17403,7 @@ export namespace Prisma {
     id: number | null
     trainerId: number | null
     authorToken: string | null
+    userId: string | null
     comment: string | null
     createdAt: Date | null
   }
@@ -16046,6 +17412,7 @@ export namespace Prisma {
     id: number | null
     trainerId: number | null
     authorToken: string | null
+    userId: string | null
     comment: string | null
     createdAt: Date | null
   }
@@ -16054,6 +17421,7 @@ export namespace Prisma {
     id: number
     trainerId: number
     authorToken: number
+    userId: number
     comment: number
     createdAt: number
     _all: number
@@ -16074,6 +17442,7 @@ export namespace Prisma {
     id?: true
     trainerId?: true
     authorToken?: true
+    userId?: true
     comment?: true
     createdAt?: true
   }
@@ -16082,6 +17451,7 @@ export namespace Prisma {
     id?: true
     trainerId?: true
     authorToken?: true
+    userId?: true
     comment?: true
     createdAt?: true
   }
@@ -16090,6 +17460,7 @@ export namespace Prisma {
     id?: true
     trainerId?: true
     authorToken?: true
+    userId?: true
     comment?: true
     createdAt?: true
     _all?: true
@@ -16184,7 +17555,8 @@ export namespace Prisma {
   export type TrainerRadarPostGroupByOutputType = {
     id: number
     trainerId: number
-    authorToken: string
+    authorToken: string | null
+    userId: string | null
     comment: string | null
     createdAt: Date
     _count: TrainerRadarPostCountAggregateOutputType | null
@@ -16212,10 +17584,12 @@ export namespace Prisma {
     id?: boolean
     trainerId?: boolean
     authorToken?: boolean
+    userId?: boolean
     comment?: boolean
     createdAt?: boolean
     trainer?: boolean | TrainerDefaultArgs<ExtArgs>
     radarValues?: boolean | TrainerRadarPost$radarValuesArgs<ExtArgs>
+    user?: boolean | TrainerRadarPost$userArgs<ExtArgs>
     _count?: boolean | TrainerRadarPostCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["trainerRadarPost"]>
 
@@ -16223,39 +17597,47 @@ export namespace Prisma {
     id?: boolean
     trainerId?: boolean
     authorToken?: boolean
+    userId?: boolean
     comment?: boolean
     createdAt?: boolean
     trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    user?: boolean | TrainerRadarPost$userArgs<ExtArgs>
   }, ExtArgs["result"]["trainerRadarPost"]>
 
   export type TrainerRadarPostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     trainerId?: boolean
     authorToken?: boolean
+    userId?: boolean
     comment?: boolean
     createdAt?: boolean
     trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    user?: boolean | TrainerRadarPost$userArgs<ExtArgs>
   }, ExtArgs["result"]["trainerRadarPost"]>
 
   export type TrainerRadarPostSelectScalar = {
     id?: boolean
     trainerId?: boolean
     authorToken?: boolean
+    userId?: boolean
     comment?: boolean
     createdAt?: boolean
   }
 
-  export type TrainerRadarPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "trainerId" | "authorToken" | "comment" | "createdAt", ExtArgs["result"]["trainerRadarPost"]>
+  export type TrainerRadarPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "trainerId" | "authorToken" | "userId" | "comment" | "createdAt", ExtArgs["result"]["trainerRadarPost"]>
   export type TrainerRadarPostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trainer?: boolean | TrainerDefaultArgs<ExtArgs>
     radarValues?: boolean | TrainerRadarPost$radarValuesArgs<ExtArgs>
+    user?: boolean | TrainerRadarPost$userArgs<ExtArgs>
     _count?: boolean | TrainerRadarPostCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TrainerRadarPostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    user?: boolean | TrainerRadarPost$userArgs<ExtArgs>
   }
   export type TrainerRadarPostIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     trainer?: boolean | TrainerDefaultArgs<ExtArgs>
+    user?: boolean | TrainerRadarPost$userArgs<ExtArgs>
   }
 
   export type $TrainerRadarPostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -16263,11 +17645,13 @@ export namespace Prisma {
     objects: {
       trainer: Prisma.$TrainerPayload<ExtArgs>
       radarValues: Prisma.$RadarValuePayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       trainerId: number
-      authorToken: string
+      authorToken: string | null
+      userId: string | null
       comment: string | null
       createdAt: Date
     }, ExtArgs["result"]["trainerRadarPost"]>
@@ -16666,6 +18050,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     trainer<T extends TrainerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TrainerDefaultArgs<ExtArgs>>): Prisma__TrainerClient<$Result.GetResult<Prisma.$TrainerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     radarValues<T extends TrainerRadarPost$radarValuesArgs<ExtArgs> = {}>(args?: Subset<T, TrainerRadarPost$radarValuesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RadarValuePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends TrainerRadarPost$userArgs<ExtArgs> = {}>(args?: Subset<T, TrainerRadarPost$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -16698,6 +18083,7 @@ export namespace Prisma {
     readonly id: FieldRef<"TrainerRadarPost", 'Int'>
     readonly trainerId: FieldRef<"TrainerRadarPost", 'Int'>
     readonly authorToken: FieldRef<"TrainerRadarPost", 'String'>
+    readonly userId: FieldRef<"TrainerRadarPost", 'String'>
     readonly comment: FieldRef<"TrainerRadarPost", 'String'>
     readonly createdAt: FieldRef<"TrainerRadarPost", 'DateTime'>
   }
@@ -17117,6 +18503,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: RadarValueScalarFieldEnum | RadarValueScalarFieldEnum[]
+  }
+
+  /**
+   * TrainerRadarPost.user
+   */
+  export type TrainerRadarPost$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
   }
 
   /**
@@ -18238,6 +19643,12548 @@ export namespace Prisma {
 
 
   /**
+   * Model User
+   */
+
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  export type UserMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    emailVerified: Date | null
+    image: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    emailVerified: Date | null
+    image: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type UserCountAggregateOutputType = {
+    id: number
+    name: number
+    email: number
+    emailVerified: number
+    image: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type UserMinAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    emailVerified?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserMaxAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    emailVerified?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type UserCountAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    emailVerified?: true
+    image?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which User to aggregate.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Users
+    **/
+    _count?: true | UserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
+  }
+
+
+
+
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UserCountAggregateInputType | true
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
+  }
+
+  export type UserGroupByOutputType = {
+    id: string
+    name: string | null
+    email: string | null
+    emailVerified: Date | null
+    image: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: UserCountAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
+  }
+
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    emailVerified?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    accounts?: boolean | User$accountsArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    pokemonCounters?: boolean | User$pokemonCountersArgs<ExtArgs>
+    trainerRadarPosts?: boolean | User$trainerRadarPostsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    emailVerified?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    emailVerified?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["user"]>
+
+  export type UserSelectScalar = {
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    emailVerified?: boolean
+    image?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    accounts?: boolean | User$accountsArgs<ExtArgs>
+    sessions?: boolean | User$sessionsArgs<ExtArgs>
+    pokemonCounters?: boolean | User$pokemonCountersArgs<ExtArgs>
+    trainerRadarPosts?: boolean | User$trainerRadarPostsArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
+    objects: {
+      accounts: Prisma.$AccountPayload<ExtArgs>[]
+      sessions: Prisma.$SessionPayload<ExtArgs>[]
+      pokemonCounters: Prisma.$PokemonCounterPayload<ExtArgs>[]
+      trainerRadarPosts: Prisma.$TrainerRadarPostPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string | null
+      email: string | null
+      emailVerified: Date | null
+      image: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["user"]>
+    composites: {}
+  }
+
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserCountAggregateInputType | true
+    }
+
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+    /**
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one User that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first User that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @example
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Users that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Users
+     * const users = await prisma.user.findMany()
+     * 
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
+     * @example
+     * // Create one User
+     * const User = await prisma.user.create({
+     *   data: {
+     *     // ... data to create a User
+     *   }
+     * })
+     * 
+     */
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Users and returns the data saved in the database.
+     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * @example
+     * // Create many Users
+     * const user = await prisma.user.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * @example
+     * // Delete one User
+     * const User = await prisma.user.delete({
+     *   where: {
+     *     // ... filter to delete one User
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * @example
+     * // Update one User
+     * const user = await prisma.user.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * @example
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users and returns the data updated in the database.
+     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
+     * @example
+     * // Update many Users
+     * const user = await prisma.user.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Users and only return the `id`
+     * const userWithIdOnly = await prisma.user.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @example
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
+     *   create: {
+     *     // ... data to create a User
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the User we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Users.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @example
+     * // Count the number of Users
+     * const count = await prisma.user.count({
+     *   where: {
+     *     // ... the filter for the Users we want to count
+     *   }
+     * })
+    **/
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+
+    /**
+     * Group by User.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the User model
+   */
+  readonly fields: UserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for User.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    pokemonCounters<T extends User$pokemonCountersArgs<ExtArgs> = {}>(args?: Subset<T, User$pokemonCountersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PokemonCounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    trainerRadarPosts<T extends User$trainerRadarPostsArgs<ExtArgs> = {}>(args?: Subset<T, User$trainerRadarPostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TrainerRadarPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the User model
+   */
+  interface UserFieldRefs {
+    readonly id: FieldRef<"User", 'String'>
+    readonly name: FieldRef<"User", 'String'>
+    readonly email: FieldRef<"User", 'String'>
+    readonly emailVerified: FieldRef<"User", 'DateTime'>
+    readonly image: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * User findUnique
+   */
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findUniqueOrThrow
+   */
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User findFirst
+   */
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findFirstOrThrow
+   */
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which User to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Users.
+     */
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User findMany
+   */
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter, which Users to fetch.
+     */
+    where?: UserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Users to fetch.
+     */
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Users.
+     */
+    cursor?: UserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Users from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Users.
+     */
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * User create
+   */
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a User.
+     */
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+  }
+
+  /**
+   * User createMany
+   */
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User createManyAndReturn
+   */
+  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * The data used to create many Users.
+     */
+    data: UserCreateManyInput | UserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * User update
+   */
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a User.
+     */
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    /**
+     * Choose, which User to update.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User updateMany
+   */
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User updateManyAndReturn
+   */
+  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * The data used to update Users.
+     */
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    /**
+     * Filter which Users to update
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * User upsert
+   */
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the User to update in case it exists.
+     */
+    where: UserWhereUniqueInput
+    /**
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     */
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    /**
+     * In case the User was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+  }
+
+  /**
+   * User delete
+   */
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
+     * Filter which User to delete.
+     */
+    where: UserWhereUniqueInput
+  }
+
+  /**
+   * User deleteMany
+   */
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Users to delete
+     */
+    where?: UserWhereInput
+    /**
+     * Limit how many Users to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * User.accounts
+   */
+  export type User$accountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    cursor?: AccountWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * User.sessions
+   */
+  export type User$sessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    cursor?: SessionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.pokemonCounters
+   */
+  export type User$pokemonCountersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PokemonCounter
+     */
+    select?: PokemonCounterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PokemonCounter
+     */
+    omit?: PokemonCounterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PokemonCounterInclude<ExtArgs> | null
+    where?: PokemonCounterWhereInput
+    orderBy?: PokemonCounterOrderByWithRelationInput | PokemonCounterOrderByWithRelationInput[]
+    cursor?: PokemonCounterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PokemonCounterScalarFieldEnum | PokemonCounterScalarFieldEnum[]
+  }
+
+  /**
+   * User.trainerRadarPosts
+   */
+  export type User$trainerRadarPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrainerRadarPost
+     */
+    select?: TrainerRadarPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TrainerRadarPost
+     */
+    omit?: TrainerRadarPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TrainerRadarPostInclude<ExtArgs> | null
+    where?: TrainerRadarPostWhereInput
+    orderBy?: TrainerRadarPostOrderByWithRelationInput | TrainerRadarPostOrderByWithRelationInput[]
+    cursor?: TrainerRadarPostWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TrainerRadarPostScalarFieldEnum | TrainerRadarPostScalarFieldEnum[]
+  }
+
+  /**
+   * User without action
+   */
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Account
+   */
+
+  export type AggregateAccount = {
+    _count: AccountCountAggregateOutputType | null
+    _avg: AccountAvgAggregateOutputType | null
+    _sum: AccountSumAggregateOutputType | null
+    _min: AccountMinAggregateOutputType | null
+    _max: AccountMaxAggregateOutputType | null
+  }
+
+  export type AccountAvgAggregateOutputType = {
+    expires_at: number | null
+  }
+
+  export type AccountSumAggregateOutputType = {
+    expires_at: number | null
+  }
+
+  export type AccountMinAggregateOutputType = {
+    userId: string | null
+    type: string | null
+    provider: string | null
+    providerAccountId: string | null
+    refresh_token: string | null
+    access_token: string | null
+    expires_at: number | null
+    token_type: string | null
+    scope: string | null
+    id_token: string | null
+    session_state: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AccountMaxAggregateOutputType = {
+    userId: string | null
+    type: string | null
+    provider: string | null
+    providerAccountId: string | null
+    refresh_token: string | null
+    access_token: string | null
+    expires_at: number | null
+    token_type: string | null
+    scope: string | null
+    id_token: string | null
+    session_state: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AccountCountAggregateOutputType = {
+    userId: number
+    type: number
+    provider: number
+    providerAccountId: number
+    refresh_token: number
+    access_token: number
+    expires_at: number
+    token_type: number
+    scope: number
+    id_token: number
+    session_state: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AccountAvgAggregateInputType = {
+    expires_at?: true
+  }
+
+  export type AccountSumAggregateInputType = {
+    expires_at?: true
+  }
+
+  export type AccountMinAggregateInputType = {
+    userId?: true
+    type?: true
+    provider?: true
+    providerAccountId?: true
+    refresh_token?: true
+    access_token?: true
+    expires_at?: true
+    token_type?: true
+    scope?: true
+    id_token?: true
+    session_state?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AccountMaxAggregateInputType = {
+    userId?: true
+    type?: true
+    provider?: true
+    providerAccountId?: true
+    refresh_token?: true
+    access_token?: true
+    expires_at?: true
+    token_type?: true
+    scope?: true
+    id_token?: true
+    session_state?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AccountCountAggregateInputType = {
+    userId?: true
+    type?: true
+    provider?: true
+    providerAccountId?: true
+    refresh_token?: true
+    access_token?: true
+    expires_at?: true
+    token_type?: true
+    scope?: true
+    id_token?: true
+    session_state?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AccountAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Account to aggregate.
+     */
+    where?: AccountWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AccountWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Accounts
+    **/
+    _count?: true | AccountCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AccountAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AccountSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AccountMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AccountMaxAggregateInputType
+  }
+
+  export type GetAccountAggregateType<T extends AccountAggregateArgs> = {
+        [P in keyof T & keyof AggregateAccount]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAccount[P]>
+      : GetScalarType<T[P], AggregateAccount[P]>
+  }
+
+
+
+
+  export type AccountGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountWhereInput
+    orderBy?: AccountOrderByWithAggregationInput | AccountOrderByWithAggregationInput[]
+    by: AccountScalarFieldEnum[] | AccountScalarFieldEnum
+    having?: AccountScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AccountCountAggregateInputType | true
+    _avg?: AccountAvgAggregateInputType
+    _sum?: AccountSumAggregateInputType
+    _min?: AccountMinAggregateInputType
+    _max?: AccountMaxAggregateInputType
+  }
+
+  export type AccountGroupByOutputType = {
+    userId: string
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token: string | null
+    access_token: string | null
+    expires_at: number | null
+    token_type: string | null
+    scope: string | null
+    id_token: string | null
+    session_state: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: AccountCountAggregateOutputType | null
+    _avg: AccountAvgAggregateOutputType | null
+    _sum: AccountSumAggregateOutputType | null
+    _min: AccountMinAggregateOutputType | null
+    _max: AccountMaxAggregateOutputType | null
+  }
+
+  type GetAccountGroupByPayload<T extends AccountGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AccountGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AccountGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AccountGroupByOutputType[P]>
+            : GetScalarType<T[P], AccountGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AccountSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    type?: boolean
+    provider?: boolean
+    providerAccountId?: boolean
+    refresh_token?: boolean
+    access_token?: boolean
+    expires_at?: boolean
+    token_type?: boolean
+    scope?: boolean
+    id_token?: boolean
+    session_state?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["account"]>
+
+  export type AccountSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    type?: boolean
+    provider?: boolean
+    providerAccountId?: boolean
+    refresh_token?: boolean
+    access_token?: boolean
+    expires_at?: boolean
+    token_type?: boolean
+    scope?: boolean
+    id_token?: boolean
+    session_state?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["account"]>
+
+  export type AccountSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    userId?: boolean
+    type?: boolean
+    provider?: boolean
+    providerAccountId?: boolean
+    refresh_token?: boolean
+    access_token?: boolean
+    expires_at?: boolean
+    token_type?: boolean
+    scope?: boolean
+    id_token?: boolean
+    session_state?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["account"]>
+
+  export type AccountSelectScalar = {
+    userId?: boolean
+    type?: boolean
+    provider?: boolean
+    providerAccountId?: boolean
+    refresh_token?: boolean
+    access_token?: boolean
+    expires_at?: boolean
+    token_type?: boolean
+    scope?: boolean
+    id_token?: boolean
+    session_state?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"userId" | "type" | "provider" | "providerAccountId" | "refresh_token" | "access_token" | "expires_at" | "token_type" | "scope" | "id_token" | "session_state" | "createdAt" | "updatedAt", ExtArgs["result"]["account"]>
+  export type AccountInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type AccountIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type AccountIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $AccountPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Account"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      userId: string
+      type: string
+      provider: string
+      providerAccountId: string
+      refresh_token: string | null
+      access_token: string | null
+      expires_at: number | null
+      token_type: string | null
+      scope: string | null
+      id_token: string | null
+      session_state: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["account"]>
+    composites: {}
+  }
+
+  type AccountGetPayload<S extends boolean | null | undefined | AccountDefaultArgs> = $Result.GetResult<Prisma.$AccountPayload, S>
+
+  type AccountCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AccountCountAggregateInputType | true
+    }
+
+  export interface AccountDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Account'], meta: { name: 'Account' } }
+    /**
+     * Find zero or one Account that matches the filter.
+     * @param {AccountFindUniqueArgs} args - Arguments to find a Account
+     * @example
+     * // Get one Account
+     * const account = await prisma.account.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AccountFindUniqueArgs>(args: SelectSubset<T, AccountFindUniqueArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Account that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AccountFindUniqueOrThrowArgs} args - Arguments to find a Account
+     * @example
+     * // Get one Account
+     * const account = await prisma.account.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AccountFindUniqueOrThrowArgs>(args: SelectSubset<T, AccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Account that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountFindFirstArgs} args - Arguments to find a Account
+     * @example
+     * // Get one Account
+     * const account = await prisma.account.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AccountFindFirstArgs>(args?: SelectSubset<T, AccountFindFirstArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Account that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountFindFirstOrThrowArgs} args - Arguments to find a Account
+     * @example
+     * // Get one Account
+     * const account = await prisma.account.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AccountFindFirstOrThrowArgs>(args?: SelectSubset<T, AccountFindFirstOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Accounts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Accounts
+     * const accounts = await prisma.account.findMany()
+     * 
+     * // Get first 10 Accounts
+     * const accounts = await prisma.account.findMany({ take: 10 })
+     * 
+     * // Only select the `userId`
+     * const accountWithUserIdOnly = await prisma.account.findMany({ select: { userId: true } })
+     * 
+     */
+    findMany<T extends AccountFindManyArgs>(args?: SelectSubset<T, AccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Account.
+     * @param {AccountCreateArgs} args - Arguments to create a Account.
+     * @example
+     * // Create one Account
+     * const Account = await prisma.account.create({
+     *   data: {
+     *     // ... data to create a Account
+     *   }
+     * })
+     * 
+     */
+    create<T extends AccountCreateArgs>(args: SelectSubset<T, AccountCreateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Accounts.
+     * @param {AccountCreateManyArgs} args - Arguments to create many Accounts.
+     * @example
+     * // Create many Accounts
+     * const account = await prisma.account.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AccountCreateManyArgs>(args?: SelectSubset<T, AccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Accounts and returns the data saved in the database.
+     * @param {AccountCreateManyAndReturnArgs} args - Arguments to create many Accounts.
+     * @example
+     * // Create many Accounts
+     * const account = await prisma.account.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Accounts and only return the `userId`
+     * const accountWithUserIdOnly = await prisma.account.createManyAndReturn({
+     *   select: { userId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AccountCreateManyAndReturnArgs>(args?: SelectSubset<T, AccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Account.
+     * @param {AccountDeleteArgs} args - Arguments to delete one Account.
+     * @example
+     * // Delete one Account
+     * const Account = await prisma.account.delete({
+     *   where: {
+     *     // ... filter to delete one Account
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AccountDeleteArgs>(args: SelectSubset<T, AccountDeleteArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Account.
+     * @param {AccountUpdateArgs} args - Arguments to update one Account.
+     * @example
+     * // Update one Account
+     * const account = await prisma.account.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AccountUpdateArgs>(args: SelectSubset<T, AccountUpdateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Accounts.
+     * @param {AccountDeleteManyArgs} args - Arguments to filter Accounts to delete.
+     * @example
+     * // Delete a few Accounts
+     * const { count } = await prisma.account.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AccountDeleteManyArgs>(args?: SelectSubset<T, AccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Accounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Accounts
+     * const account = await prisma.account.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AccountUpdateManyArgs>(args: SelectSubset<T, AccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Accounts and returns the data updated in the database.
+     * @param {AccountUpdateManyAndReturnArgs} args - Arguments to update many Accounts.
+     * @example
+     * // Update many Accounts
+     * const account = await prisma.account.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Accounts and only return the `userId`
+     * const accountWithUserIdOnly = await prisma.account.updateManyAndReturn({
+     *   select: { userId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AccountUpdateManyAndReturnArgs>(args: SelectSubset<T, AccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Account.
+     * @param {AccountUpsertArgs} args - Arguments to update or create a Account.
+     * @example
+     * // Update or create a Account
+     * const account = await prisma.account.upsert({
+     *   create: {
+     *     // ... data to create a Account
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Account we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AccountUpsertArgs>(args: SelectSubset<T, AccountUpsertArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Accounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountCountArgs} args - Arguments to filter Accounts to count.
+     * @example
+     * // Count the number of Accounts
+     * const count = await prisma.account.count({
+     *   where: {
+     *     // ... the filter for the Accounts we want to count
+     *   }
+     * })
+    **/
+    count<T extends AccountCountArgs>(
+      args?: Subset<T, AccountCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AccountCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Account.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AccountAggregateArgs>(args: Subset<T, AccountAggregateArgs>): Prisma.PrismaPromise<GetAccountAggregateType<T>>
+
+    /**
+     * Group by Account.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AccountGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AccountGroupByArgs['orderBy'] }
+        : { orderBy?: AccountGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Account model
+   */
+  readonly fields: AccountFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Account.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AccountClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Account model
+   */
+  interface AccountFieldRefs {
+    readonly userId: FieldRef<"Account", 'String'>
+    readonly type: FieldRef<"Account", 'String'>
+    readonly provider: FieldRef<"Account", 'String'>
+    readonly providerAccountId: FieldRef<"Account", 'String'>
+    readonly refresh_token: FieldRef<"Account", 'String'>
+    readonly access_token: FieldRef<"Account", 'String'>
+    readonly expires_at: FieldRef<"Account", 'Int'>
+    readonly token_type: FieldRef<"Account", 'String'>
+    readonly scope: FieldRef<"Account", 'String'>
+    readonly id_token: FieldRef<"Account", 'String'>
+    readonly session_state: FieldRef<"Account", 'String'>
+    readonly createdAt: FieldRef<"Account", 'DateTime'>
+    readonly updatedAt: FieldRef<"Account", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Account findUnique
+   */
+  export type AccountFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * Filter, which Account to fetch.
+     */
+    where: AccountWhereUniqueInput
+  }
+
+  /**
+   * Account findUniqueOrThrow
+   */
+  export type AccountFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * Filter, which Account to fetch.
+     */
+    where: AccountWhereUniqueInput
+  }
+
+  /**
+   * Account findFirst
+   */
+  export type AccountFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * Filter, which Account to fetch.
+     */
+    where?: AccountWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Accounts.
+     */
+    cursor?: AccountWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Accounts.
+     */
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * Account findFirstOrThrow
+   */
+  export type AccountFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * Filter, which Account to fetch.
+     */
+    where?: AccountWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Accounts.
+     */
+    cursor?: AccountWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Accounts.
+     */
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * Account findMany
+   */
+  export type AccountFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * Filter, which Accounts to fetch.
+     */
+    where?: AccountWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Accounts.
+     */
+    cursor?: AccountWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * Account create
+   */
+  export type AccountCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Account.
+     */
+    data: XOR<AccountCreateInput, AccountUncheckedCreateInput>
+  }
+
+  /**
+   * Account createMany
+   */
+  export type AccountCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Accounts.
+     */
+    data: AccountCreateManyInput | AccountCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Account createManyAndReturn
+   */
+  export type AccountCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * The data used to create many Accounts.
+     */
+    data: AccountCreateManyInput | AccountCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Account update
+   */
+  export type AccountUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Account.
+     */
+    data: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
+    /**
+     * Choose, which Account to update.
+     */
+    where: AccountWhereUniqueInput
+  }
+
+  /**
+   * Account updateMany
+   */
+  export type AccountUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Accounts.
+     */
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
+    /**
+     * Filter which Accounts to update
+     */
+    where?: AccountWhereInput
+    /**
+     * Limit how many Accounts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Account updateManyAndReturn
+   */
+  export type AccountUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * The data used to update Accounts.
+     */
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
+    /**
+     * Filter which Accounts to update
+     */
+    where?: AccountWhereInput
+    /**
+     * Limit how many Accounts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Account upsert
+   */
+  export type AccountUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Account to update in case it exists.
+     */
+    where: AccountWhereUniqueInput
+    /**
+     * In case the Account found by the `where` argument doesn't exist, create a new Account with this data.
+     */
+    create: XOR<AccountCreateInput, AccountUncheckedCreateInput>
+    /**
+     * In case the Account was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
+  }
+
+  /**
+   * Account delete
+   */
+  export type AccountDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+    /**
+     * Filter which Account to delete.
+     */
+    where: AccountWhereUniqueInput
+  }
+
+  /**
+   * Account deleteMany
+   */
+  export type AccountDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Accounts to delete
+     */
+    where?: AccountWhereInput
+    /**
+     * Limit how many Accounts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Account without action
+   */
+  export type AccountDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Account
+     */
+    select?: AccountSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Account
+     */
+    omit?: AccountOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Session
+   */
+
+  export type AggregateSession = {
+    _count: SessionCountAggregateOutputType | null
+    _min: SessionMinAggregateOutputType | null
+    _max: SessionMaxAggregateOutputType | null
+  }
+
+  export type SessionMinAggregateOutputType = {
+    sessionToken: string | null
+    userId: string | null
+    expires: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SessionMaxAggregateOutputType = {
+    sessionToken: string | null
+    userId: string | null
+    expires: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SessionCountAggregateOutputType = {
+    sessionToken: number
+    userId: number
+    expires: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SessionMinAggregateInputType = {
+    sessionToken?: true
+    userId?: true
+    expires?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SessionMaxAggregateInputType = {
+    sessionToken?: true
+    userId?: true
+    expires?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SessionCountAggregateInputType = {
+    sessionToken?: true
+    userId?: true
+    expires?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Session to aggregate.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sessions
+    **/
+    _count?: true | SessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SessionMaxAggregateInputType
+  }
+
+  export type GetSessionAggregateType<T extends SessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateSession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSession[P]>
+      : GetScalarType<T[P], AggregateSession[P]>
+  }
+
+
+
+
+  export type SessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SessionWhereInput
+    orderBy?: SessionOrderByWithAggregationInput | SessionOrderByWithAggregationInput[]
+    by: SessionScalarFieldEnum[] | SessionScalarFieldEnum
+    having?: SessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SessionCountAggregateInputType | true
+    _min?: SessionMinAggregateInputType
+    _max?: SessionMaxAggregateInputType
+  }
+
+  export type SessionGroupByOutputType = {
+    sessionToken: string
+    userId: string
+    expires: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: SessionCountAggregateOutputType | null
+    _min: SessionMinAggregateOutputType | null
+    _max: SessionMaxAggregateOutputType | null
+  }
+
+  type GetSessionGroupByPayload<T extends SessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SessionGroupByOutputType[P]>
+            : GetScalarType<T[P], SessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    sessionToken?: boolean
+    userId?: boolean
+    expires?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["session"]>
+
+  export type SessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    sessionToken?: boolean
+    userId?: boolean
+    expires?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["session"]>
+
+  export type SessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    sessionToken?: boolean
+    userId?: boolean
+    expires?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["session"]>
+
+  export type SessionSelectScalar = {
+    sessionToken?: boolean
+    userId?: boolean
+    expires?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"sessionToken" | "userId" | "expires" | "createdAt" | "updatedAt", ExtArgs["result"]["session"]>
+  export type SessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type SessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type SessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $SessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Session"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      sessionToken: string
+      userId: string
+      expires: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["session"]>
+    composites: {}
+  }
+
+  type SessionGetPayload<S extends boolean | null | undefined | SessionDefaultArgs> = $Result.GetResult<Prisma.$SessionPayload, S>
+
+  type SessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SessionCountAggregateInputType | true
+    }
+
+  export interface SessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Session'], meta: { name: 'Session' } }
+    /**
+     * Find zero or one Session that matches the filter.
+     * @param {SessionFindUniqueArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SessionFindUniqueArgs>(args: SelectSubset<T, SessionFindUniqueArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Session that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SessionFindUniqueOrThrowArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SessionFindUniqueOrThrowArgs>(args: SelectSubset<T, SessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Session that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionFindFirstArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SessionFindFirstArgs>(args?: SelectSubset<T, SessionFindFirstArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Session that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionFindFirstOrThrowArgs} args - Arguments to find a Session
+     * @example
+     * // Get one Session
+     * const session = await prisma.session.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SessionFindFirstOrThrowArgs>(args?: SelectSubset<T, SessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sessions
+     * const sessions = await prisma.session.findMany()
+     * 
+     * // Get first 10 Sessions
+     * const sessions = await prisma.session.findMany({ take: 10 })
+     * 
+     * // Only select the `sessionToken`
+     * const sessionWithSessionTokenOnly = await prisma.session.findMany({ select: { sessionToken: true } })
+     * 
+     */
+    findMany<T extends SessionFindManyArgs>(args?: SelectSubset<T, SessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Session.
+     * @param {SessionCreateArgs} args - Arguments to create a Session.
+     * @example
+     * // Create one Session
+     * const Session = await prisma.session.create({
+     *   data: {
+     *     // ... data to create a Session
+     *   }
+     * })
+     * 
+     */
+    create<T extends SessionCreateArgs>(args: SelectSubset<T, SessionCreateArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sessions.
+     * @param {SessionCreateManyArgs} args - Arguments to create many Sessions.
+     * @example
+     * // Create many Sessions
+     * const session = await prisma.session.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SessionCreateManyArgs>(args?: SelectSubset<T, SessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sessions and returns the data saved in the database.
+     * @param {SessionCreateManyAndReturnArgs} args - Arguments to create many Sessions.
+     * @example
+     * // Create many Sessions
+     * const session = await prisma.session.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sessions and only return the `sessionToken`
+     * const sessionWithSessionTokenOnly = await prisma.session.createManyAndReturn({
+     *   select: { sessionToken: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SessionCreateManyAndReturnArgs>(args?: SelectSubset<T, SessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Session.
+     * @param {SessionDeleteArgs} args - Arguments to delete one Session.
+     * @example
+     * // Delete one Session
+     * const Session = await prisma.session.delete({
+     *   where: {
+     *     // ... filter to delete one Session
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SessionDeleteArgs>(args: SelectSubset<T, SessionDeleteArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Session.
+     * @param {SessionUpdateArgs} args - Arguments to update one Session.
+     * @example
+     * // Update one Session
+     * const session = await prisma.session.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SessionUpdateArgs>(args: SelectSubset<T, SessionUpdateArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sessions.
+     * @param {SessionDeleteManyArgs} args - Arguments to filter Sessions to delete.
+     * @example
+     * // Delete a few Sessions
+     * const { count } = await prisma.session.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SessionDeleteManyArgs>(args?: SelectSubset<T, SessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sessions
+     * const session = await prisma.session.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SessionUpdateManyArgs>(args: SelectSubset<T, SessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sessions and returns the data updated in the database.
+     * @param {SessionUpdateManyAndReturnArgs} args - Arguments to update many Sessions.
+     * @example
+     * // Update many Sessions
+     * const session = await prisma.session.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sessions and only return the `sessionToken`
+     * const sessionWithSessionTokenOnly = await prisma.session.updateManyAndReturn({
+     *   select: { sessionToken: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SessionUpdateManyAndReturnArgs>(args: SelectSubset<T, SessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Session.
+     * @param {SessionUpsertArgs} args - Arguments to update or create a Session.
+     * @example
+     * // Update or create a Session
+     * const session = await prisma.session.upsert({
+     *   create: {
+     *     // ... data to create a Session
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Session we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SessionUpsertArgs>(args: SelectSubset<T, SessionUpsertArgs<ExtArgs>>): Prisma__SessionClient<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionCountArgs} args - Arguments to filter Sessions to count.
+     * @example
+     * // Count the number of Sessions
+     * const count = await prisma.session.count({
+     *   where: {
+     *     // ... the filter for the Sessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends SessionCountArgs>(
+      args?: Subset<T, SessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Session.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SessionAggregateArgs>(args: Subset<T, SessionAggregateArgs>): Prisma.PrismaPromise<GetSessionAggregateType<T>>
+
+    /**
+     * Group by Session.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SessionGroupByArgs['orderBy'] }
+        : { orderBy?: SessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Session model
+   */
+  readonly fields: SessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Session.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Session model
+   */
+  interface SessionFieldRefs {
+    readonly sessionToken: FieldRef<"Session", 'String'>
+    readonly userId: FieldRef<"Session", 'String'>
+    readonly expires: FieldRef<"Session", 'DateTime'>
+    readonly createdAt: FieldRef<"Session", 'DateTime'>
+    readonly updatedAt: FieldRef<"Session", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Session findUnique
+   */
+  export type SessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session findUniqueOrThrow
+   */
+  export type SessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session findFirst
+   */
+  export type SessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sessions.
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sessions.
+     */
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * Session findFirstOrThrow
+   */
+  export type SessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Session to fetch.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sessions.
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sessions.
+     */
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * Session findMany
+   */
+  export type SessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter, which Sessions to fetch.
+     */
+    where?: SessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sessions to fetch.
+     */
+    orderBy?: SessionOrderByWithRelationInput | SessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sessions.
+     */
+    cursor?: SessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sessions.
+     */
+    skip?: number
+    distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * Session create
+   */
+  export type SessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Session.
+     */
+    data: XOR<SessionCreateInput, SessionUncheckedCreateInput>
+  }
+
+  /**
+   * Session createMany
+   */
+  export type SessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sessions.
+     */
+    data: SessionCreateManyInput | SessionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Session createManyAndReturn
+   */
+  export type SessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sessions.
+     */
+    data: SessionCreateManyInput | SessionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Session update
+   */
+  export type SessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Session.
+     */
+    data: XOR<SessionUpdateInput, SessionUncheckedUpdateInput>
+    /**
+     * Choose, which Session to update.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session updateMany
+   */
+  export type SessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sessions.
+     */
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyInput>
+    /**
+     * Filter which Sessions to update
+     */
+    where?: SessionWhereInput
+    /**
+     * Limit how many Sessions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Session updateManyAndReturn
+   */
+  export type SessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * The data used to update Sessions.
+     */
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyInput>
+    /**
+     * Filter which Sessions to update
+     */
+    where?: SessionWhereInput
+    /**
+     * Limit how many Sessions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Session upsert
+   */
+  export type SessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Session to update in case it exists.
+     */
+    where: SessionWhereUniqueInput
+    /**
+     * In case the Session found by the `where` argument doesn't exist, create a new Session with this data.
+     */
+    create: XOR<SessionCreateInput, SessionUncheckedCreateInput>
+    /**
+     * In case the Session was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SessionUpdateInput, SessionUncheckedUpdateInput>
+  }
+
+  /**
+   * Session delete
+   */
+  export type SessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+    /**
+     * Filter which Session to delete.
+     */
+    where: SessionWhereUniqueInput
+  }
+
+  /**
+   * Session deleteMany
+   */
+  export type SessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sessions to delete
+     */
+    where?: SessionWhereInput
+    /**
+     * Limit how many Sessions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Session without action
+   */
+  export type SessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Session
+     */
+    select?: SessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Session
+     */
+    omit?: SessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model VerificationToken
+   */
+
+  export type AggregateVerificationToken = {
+    _count: VerificationTokenCountAggregateOutputType | null
+    _min: VerificationTokenMinAggregateOutputType | null
+    _max: VerificationTokenMaxAggregateOutputType | null
+  }
+
+  export type VerificationTokenMinAggregateOutputType = {
+    identifier: string | null
+    token: string | null
+    expires: Date | null
+  }
+
+  export type VerificationTokenMaxAggregateOutputType = {
+    identifier: string | null
+    token: string | null
+    expires: Date | null
+  }
+
+  export type VerificationTokenCountAggregateOutputType = {
+    identifier: number
+    token: number
+    expires: number
+    _all: number
+  }
+
+
+  export type VerificationTokenMinAggregateInputType = {
+    identifier?: true
+    token?: true
+    expires?: true
+  }
+
+  export type VerificationTokenMaxAggregateInputType = {
+    identifier?: true
+    token?: true
+    expires?: true
+  }
+
+  export type VerificationTokenCountAggregateInputType = {
+    identifier?: true
+    token?: true
+    expires?: true
+    _all?: true
+  }
+
+  export type VerificationTokenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VerificationToken to aggregate.
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VerificationTokens to fetch.
+     */
+    orderBy?: VerificationTokenOrderByWithRelationInput | VerificationTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VerificationTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VerificationTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VerificationTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned VerificationTokens
+    **/
+    _count?: true | VerificationTokenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VerificationTokenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VerificationTokenMaxAggregateInputType
+  }
+
+  export type GetVerificationTokenAggregateType<T extends VerificationTokenAggregateArgs> = {
+        [P in keyof T & keyof AggregateVerificationToken]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVerificationToken[P]>
+      : GetScalarType<T[P], AggregateVerificationToken[P]>
+  }
+
+
+
+
+  export type VerificationTokenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VerificationTokenWhereInput
+    orderBy?: VerificationTokenOrderByWithAggregationInput | VerificationTokenOrderByWithAggregationInput[]
+    by: VerificationTokenScalarFieldEnum[] | VerificationTokenScalarFieldEnum
+    having?: VerificationTokenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VerificationTokenCountAggregateInputType | true
+    _min?: VerificationTokenMinAggregateInputType
+    _max?: VerificationTokenMaxAggregateInputType
+  }
+
+  export type VerificationTokenGroupByOutputType = {
+    identifier: string
+    token: string
+    expires: Date
+    _count: VerificationTokenCountAggregateOutputType | null
+    _min: VerificationTokenMinAggregateOutputType | null
+    _max: VerificationTokenMaxAggregateOutputType | null
+  }
+
+  type GetVerificationTokenGroupByPayload<T extends VerificationTokenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VerificationTokenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VerificationTokenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VerificationTokenGroupByOutputType[P]>
+            : GetScalarType<T[P], VerificationTokenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VerificationTokenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    identifier?: boolean
+    token?: boolean
+    expires?: boolean
+  }, ExtArgs["result"]["verificationToken"]>
+
+  export type VerificationTokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    identifier?: boolean
+    token?: boolean
+    expires?: boolean
+  }, ExtArgs["result"]["verificationToken"]>
+
+  export type VerificationTokenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    identifier?: boolean
+    token?: boolean
+    expires?: boolean
+  }, ExtArgs["result"]["verificationToken"]>
+
+  export type VerificationTokenSelectScalar = {
+    identifier?: boolean
+    token?: boolean
+    expires?: boolean
+  }
+
+  export type VerificationTokenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"identifier" | "token" | "expires", ExtArgs["result"]["verificationToken"]>
+
+  export type $VerificationTokenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "VerificationToken"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      identifier: string
+      token: string
+      expires: Date
+    }, ExtArgs["result"]["verificationToken"]>
+    composites: {}
+  }
+
+  type VerificationTokenGetPayload<S extends boolean | null | undefined | VerificationTokenDefaultArgs> = $Result.GetResult<Prisma.$VerificationTokenPayload, S>
+
+  type VerificationTokenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VerificationTokenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VerificationTokenCountAggregateInputType | true
+    }
+
+  export interface VerificationTokenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['VerificationToken'], meta: { name: 'VerificationToken' } }
+    /**
+     * Find zero or one VerificationToken that matches the filter.
+     * @param {VerificationTokenFindUniqueArgs} args - Arguments to find a VerificationToken
+     * @example
+     * // Get one VerificationToken
+     * const verificationToken = await prisma.verificationToken.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VerificationTokenFindUniqueArgs>(args: SelectSubset<T, VerificationTokenFindUniqueArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one VerificationToken that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VerificationTokenFindUniqueOrThrowArgs} args - Arguments to find a VerificationToken
+     * @example
+     * // Get one VerificationToken
+     * const verificationToken = await prisma.verificationToken.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VerificationTokenFindUniqueOrThrowArgs>(args: SelectSubset<T, VerificationTokenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first VerificationToken that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenFindFirstArgs} args - Arguments to find a VerificationToken
+     * @example
+     * // Get one VerificationToken
+     * const verificationToken = await prisma.verificationToken.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VerificationTokenFindFirstArgs>(args?: SelectSubset<T, VerificationTokenFindFirstArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first VerificationToken that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenFindFirstOrThrowArgs} args - Arguments to find a VerificationToken
+     * @example
+     * // Get one VerificationToken
+     * const verificationToken = await prisma.verificationToken.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VerificationTokenFindFirstOrThrowArgs>(args?: SelectSubset<T, VerificationTokenFindFirstOrThrowArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more VerificationTokens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all VerificationTokens
+     * const verificationTokens = await prisma.verificationToken.findMany()
+     * 
+     * // Get first 10 VerificationTokens
+     * const verificationTokens = await prisma.verificationToken.findMany({ take: 10 })
+     * 
+     * // Only select the `identifier`
+     * const verificationTokenWithIdentifierOnly = await prisma.verificationToken.findMany({ select: { identifier: true } })
+     * 
+     */
+    findMany<T extends VerificationTokenFindManyArgs>(args?: SelectSubset<T, VerificationTokenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a VerificationToken.
+     * @param {VerificationTokenCreateArgs} args - Arguments to create a VerificationToken.
+     * @example
+     * // Create one VerificationToken
+     * const VerificationToken = await prisma.verificationToken.create({
+     *   data: {
+     *     // ... data to create a VerificationToken
+     *   }
+     * })
+     * 
+     */
+    create<T extends VerificationTokenCreateArgs>(args: SelectSubset<T, VerificationTokenCreateArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many VerificationTokens.
+     * @param {VerificationTokenCreateManyArgs} args - Arguments to create many VerificationTokens.
+     * @example
+     * // Create many VerificationTokens
+     * const verificationToken = await prisma.verificationToken.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VerificationTokenCreateManyArgs>(args?: SelectSubset<T, VerificationTokenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many VerificationTokens and returns the data saved in the database.
+     * @param {VerificationTokenCreateManyAndReturnArgs} args - Arguments to create many VerificationTokens.
+     * @example
+     * // Create many VerificationTokens
+     * const verificationToken = await prisma.verificationToken.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many VerificationTokens and only return the `identifier`
+     * const verificationTokenWithIdentifierOnly = await prisma.verificationToken.createManyAndReturn({
+     *   select: { identifier: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends VerificationTokenCreateManyAndReturnArgs>(args?: SelectSubset<T, VerificationTokenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a VerificationToken.
+     * @param {VerificationTokenDeleteArgs} args - Arguments to delete one VerificationToken.
+     * @example
+     * // Delete one VerificationToken
+     * const VerificationToken = await prisma.verificationToken.delete({
+     *   where: {
+     *     // ... filter to delete one VerificationToken
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VerificationTokenDeleteArgs>(args: SelectSubset<T, VerificationTokenDeleteArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one VerificationToken.
+     * @param {VerificationTokenUpdateArgs} args - Arguments to update one VerificationToken.
+     * @example
+     * // Update one VerificationToken
+     * const verificationToken = await prisma.verificationToken.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VerificationTokenUpdateArgs>(args: SelectSubset<T, VerificationTokenUpdateArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more VerificationTokens.
+     * @param {VerificationTokenDeleteManyArgs} args - Arguments to filter VerificationTokens to delete.
+     * @example
+     * // Delete a few VerificationTokens
+     * const { count } = await prisma.verificationToken.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VerificationTokenDeleteManyArgs>(args?: SelectSubset<T, VerificationTokenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VerificationTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many VerificationTokens
+     * const verificationToken = await prisma.verificationToken.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VerificationTokenUpdateManyArgs>(args: SelectSubset<T, VerificationTokenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VerificationTokens and returns the data updated in the database.
+     * @param {VerificationTokenUpdateManyAndReturnArgs} args - Arguments to update many VerificationTokens.
+     * @example
+     * // Update many VerificationTokens
+     * const verificationToken = await prisma.verificationToken.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more VerificationTokens and only return the `identifier`
+     * const verificationTokenWithIdentifierOnly = await prisma.verificationToken.updateManyAndReturn({
+     *   select: { identifier: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends VerificationTokenUpdateManyAndReturnArgs>(args: SelectSubset<T, VerificationTokenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one VerificationToken.
+     * @param {VerificationTokenUpsertArgs} args - Arguments to update or create a VerificationToken.
+     * @example
+     * // Update or create a VerificationToken
+     * const verificationToken = await prisma.verificationToken.upsert({
+     *   create: {
+     *     // ... data to create a VerificationToken
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the VerificationToken we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VerificationTokenUpsertArgs>(args: SelectSubset<T, VerificationTokenUpsertArgs<ExtArgs>>): Prisma__VerificationTokenClient<$Result.GetResult<Prisma.$VerificationTokenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of VerificationTokens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenCountArgs} args - Arguments to filter VerificationTokens to count.
+     * @example
+     * // Count the number of VerificationTokens
+     * const count = await prisma.verificationToken.count({
+     *   where: {
+     *     // ... the filter for the VerificationTokens we want to count
+     *   }
+     * })
+    **/
+    count<T extends VerificationTokenCountArgs>(
+      args?: Subset<T, VerificationTokenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VerificationTokenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a VerificationToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VerificationTokenAggregateArgs>(args: Subset<T, VerificationTokenAggregateArgs>): Prisma.PrismaPromise<GetVerificationTokenAggregateType<T>>
+
+    /**
+     * Group by VerificationToken.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VerificationTokenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VerificationTokenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VerificationTokenGroupByArgs['orderBy'] }
+        : { orderBy?: VerificationTokenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VerificationTokenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVerificationTokenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the VerificationToken model
+   */
+  readonly fields: VerificationTokenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for VerificationToken.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VerificationTokenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the VerificationToken model
+   */
+  interface VerificationTokenFieldRefs {
+    readonly identifier: FieldRef<"VerificationToken", 'String'>
+    readonly token: FieldRef<"VerificationToken", 'String'>
+    readonly expires: FieldRef<"VerificationToken", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * VerificationToken findUnique
+   */
+  export type VerificationTokenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which VerificationToken to fetch.
+     */
+    where: VerificationTokenWhereUniqueInput
+  }
+
+  /**
+   * VerificationToken findUniqueOrThrow
+   */
+  export type VerificationTokenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which VerificationToken to fetch.
+     */
+    where: VerificationTokenWhereUniqueInput
+  }
+
+  /**
+   * VerificationToken findFirst
+   */
+  export type VerificationTokenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which VerificationToken to fetch.
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VerificationTokens to fetch.
+     */
+    orderBy?: VerificationTokenOrderByWithRelationInput | VerificationTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VerificationTokens.
+     */
+    cursor?: VerificationTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VerificationTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VerificationTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VerificationTokens.
+     */
+    distinct?: VerificationTokenScalarFieldEnum | VerificationTokenScalarFieldEnum[]
+  }
+
+  /**
+   * VerificationToken findFirstOrThrow
+   */
+  export type VerificationTokenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which VerificationToken to fetch.
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VerificationTokens to fetch.
+     */
+    orderBy?: VerificationTokenOrderByWithRelationInput | VerificationTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VerificationTokens.
+     */
+    cursor?: VerificationTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VerificationTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VerificationTokens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VerificationTokens.
+     */
+    distinct?: VerificationTokenScalarFieldEnum | VerificationTokenScalarFieldEnum[]
+  }
+
+  /**
+   * VerificationToken findMany
+   */
+  export type VerificationTokenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * Filter, which VerificationTokens to fetch.
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VerificationTokens to fetch.
+     */
+    orderBy?: VerificationTokenOrderByWithRelationInput | VerificationTokenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing VerificationTokens.
+     */
+    cursor?: VerificationTokenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VerificationTokens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VerificationTokens.
+     */
+    skip?: number
+    distinct?: VerificationTokenScalarFieldEnum | VerificationTokenScalarFieldEnum[]
+  }
+
+  /**
+   * VerificationToken create
+   */
+  export type VerificationTokenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * The data needed to create a VerificationToken.
+     */
+    data: XOR<VerificationTokenCreateInput, VerificationTokenUncheckedCreateInput>
+  }
+
+  /**
+   * VerificationToken createMany
+   */
+  export type VerificationTokenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many VerificationTokens.
+     */
+    data: VerificationTokenCreateManyInput | VerificationTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * VerificationToken createManyAndReturn
+   */
+  export type VerificationTokenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * The data used to create many VerificationTokens.
+     */
+    data: VerificationTokenCreateManyInput | VerificationTokenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * VerificationToken update
+   */
+  export type VerificationTokenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * The data needed to update a VerificationToken.
+     */
+    data: XOR<VerificationTokenUpdateInput, VerificationTokenUncheckedUpdateInput>
+    /**
+     * Choose, which VerificationToken to update.
+     */
+    where: VerificationTokenWhereUniqueInput
+  }
+
+  /**
+   * VerificationToken updateMany
+   */
+  export type VerificationTokenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update VerificationTokens.
+     */
+    data: XOR<VerificationTokenUpdateManyMutationInput, VerificationTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which VerificationTokens to update
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * Limit how many VerificationTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * VerificationToken updateManyAndReturn
+   */
+  export type VerificationTokenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * The data used to update VerificationTokens.
+     */
+    data: XOR<VerificationTokenUpdateManyMutationInput, VerificationTokenUncheckedUpdateManyInput>
+    /**
+     * Filter which VerificationTokens to update
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * Limit how many VerificationTokens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * VerificationToken upsert
+   */
+  export type VerificationTokenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * The filter to search for the VerificationToken to update in case it exists.
+     */
+    where: VerificationTokenWhereUniqueInput
+    /**
+     * In case the VerificationToken found by the `where` argument doesn't exist, create a new VerificationToken with this data.
+     */
+    create: XOR<VerificationTokenCreateInput, VerificationTokenUncheckedCreateInput>
+    /**
+     * In case the VerificationToken was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VerificationTokenUpdateInput, VerificationTokenUncheckedUpdateInput>
+  }
+
+  /**
+   * VerificationToken delete
+   */
+  export type VerificationTokenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+    /**
+     * Filter which VerificationToken to delete.
+     */
+    where: VerificationTokenWhereUniqueInput
+  }
+
+  /**
+   * VerificationToken deleteMany
+   */
+  export type VerificationTokenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VerificationTokens to delete
+     */
+    where?: VerificationTokenWhereInput
+    /**
+     * Limit how many VerificationTokens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * VerificationToken without action
+   */
+  export type VerificationTokenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VerificationToken
+     */
+    select?: VerificationTokenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VerificationToken
+     */
+    omit?: VerificationTokenOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GamePatch
+   */
+
+  export type AggregateGamePatch = {
+    _count: GamePatchCountAggregateOutputType | null
+    _avg: GamePatchAvgAggregateOutputType | null
+    _sum: GamePatchSumAggregateOutputType | null
+    _min: GamePatchMinAggregateOutputType | null
+    _max: GamePatchMaxAggregateOutputType | null
+  }
+
+  export type GamePatchAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type GamePatchSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type GamePatchMinAggregateOutputType = {
+    id: number | null
+    version: string | null
+    releasedAt: Date | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type GamePatchMaxAggregateOutputType = {
+    id: number | null
+    version: string | null
+    releasedAt: Date | null
+    isActive: boolean | null
+    createdAt: Date | null
+  }
+
+  export type GamePatchCountAggregateOutputType = {
+    id: number
+    version: number
+    releasedAt: number
+    isActive: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type GamePatchAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type GamePatchSumAggregateInputType = {
+    id?: true
+  }
+
+  export type GamePatchMinAggregateInputType = {
+    id?: true
+    version?: true
+    releasedAt?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type GamePatchMaxAggregateInputType = {
+    id?: true
+    version?: true
+    releasedAt?: true
+    isActive?: true
+    createdAt?: true
+  }
+
+  export type GamePatchCountAggregateInputType = {
+    id?: true
+    version?: true
+    releasedAt?: true
+    isActive?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type GamePatchAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GamePatch to aggregate.
+     */
+    where?: GamePatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GamePatches to fetch.
+     */
+    orderBy?: GamePatchOrderByWithRelationInput | GamePatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GamePatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GamePatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GamePatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GamePatches
+    **/
+    _count?: true | GamePatchCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GamePatchAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GamePatchSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GamePatchMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GamePatchMaxAggregateInputType
+  }
+
+  export type GetGamePatchAggregateType<T extends GamePatchAggregateArgs> = {
+        [P in keyof T & keyof AggregateGamePatch]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGamePatch[P]>
+      : GetScalarType<T[P], AggregateGamePatch[P]>
+  }
+
+
+
+
+  export type GamePatchGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GamePatchWhereInput
+    orderBy?: GamePatchOrderByWithAggregationInput | GamePatchOrderByWithAggregationInput[]
+    by: GamePatchScalarFieldEnum[] | GamePatchScalarFieldEnum
+    having?: GamePatchScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GamePatchCountAggregateInputType | true
+    _avg?: GamePatchAvgAggregateInputType
+    _sum?: GamePatchSumAggregateInputType
+    _min?: GamePatchMinAggregateInputType
+    _max?: GamePatchMaxAggregateInputType
+  }
+
+  export type GamePatchGroupByOutputType = {
+    id: number
+    version: string
+    releasedAt: Date
+    isActive: boolean
+    createdAt: Date
+    _count: GamePatchCountAggregateOutputType | null
+    _avg: GamePatchAvgAggregateOutputType | null
+    _sum: GamePatchSumAggregateOutputType | null
+    _min: GamePatchMinAggregateOutputType | null
+    _max: GamePatchMaxAggregateOutputType | null
+  }
+
+  type GetGamePatchGroupByPayload<T extends GamePatchGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GamePatchGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GamePatchGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GamePatchGroupByOutputType[P]>
+            : GetScalarType<T[P], GamePatchGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GamePatchSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    version?: boolean
+    releasedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    metaPosts?: boolean | GamePatch$metaPostsArgs<ExtArgs>
+    banPicks?: boolean | GamePatch$banPicksArgs<ExtArgs>
+    bugReports?: boolean | GamePatch$bugReportsArgs<ExtArgs>
+    _count?: boolean | GamePatchCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gamePatch"]>
+
+  export type GamePatchSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    version?: boolean
+    releasedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["gamePatch"]>
+
+  export type GamePatchSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    version?: boolean
+    releasedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["gamePatch"]>
+
+  export type GamePatchSelectScalar = {
+    id?: boolean
+    version?: boolean
+    releasedAt?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+  }
+
+  export type GamePatchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "version" | "releasedAt" | "isActive" | "createdAt", ExtArgs["result"]["gamePatch"]>
+  export type GamePatchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    metaPosts?: boolean | GamePatch$metaPostsArgs<ExtArgs>
+    banPicks?: boolean | GamePatch$banPicksArgs<ExtArgs>
+    bugReports?: boolean | GamePatch$bugReportsArgs<ExtArgs>
+    _count?: boolean | GamePatchCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type GamePatchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type GamePatchIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $GamePatchPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GamePatch"
+    objects: {
+      metaPosts: Prisma.$MetaPostPayload<ExtArgs>[]
+      banPicks: Prisma.$BanPickPayload<ExtArgs>[]
+      bugReports: Prisma.$BugReportPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      version: string
+      releasedAt: Date
+      isActive: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["gamePatch"]>
+    composites: {}
+  }
+
+  type GamePatchGetPayload<S extends boolean | null | undefined | GamePatchDefaultArgs> = $Result.GetResult<Prisma.$GamePatchPayload, S>
+
+  type GamePatchCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GamePatchFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GamePatchCountAggregateInputType | true
+    }
+
+  export interface GamePatchDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GamePatch'], meta: { name: 'GamePatch' } }
+    /**
+     * Find zero or one GamePatch that matches the filter.
+     * @param {GamePatchFindUniqueArgs} args - Arguments to find a GamePatch
+     * @example
+     * // Get one GamePatch
+     * const gamePatch = await prisma.gamePatch.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GamePatchFindUniqueArgs>(args: SelectSubset<T, GamePatchFindUniqueArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GamePatch that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GamePatchFindUniqueOrThrowArgs} args - Arguments to find a GamePatch
+     * @example
+     * // Get one GamePatch
+     * const gamePatch = await prisma.gamePatch.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GamePatchFindUniqueOrThrowArgs>(args: SelectSubset<T, GamePatchFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GamePatch that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchFindFirstArgs} args - Arguments to find a GamePatch
+     * @example
+     * // Get one GamePatch
+     * const gamePatch = await prisma.gamePatch.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GamePatchFindFirstArgs>(args?: SelectSubset<T, GamePatchFindFirstArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GamePatch that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchFindFirstOrThrowArgs} args - Arguments to find a GamePatch
+     * @example
+     * // Get one GamePatch
+     * const gamePatch = await prisma.gamePatch.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GamePatchFindFirstOrThrowArgs>(args?: SelectSubset<T, GamePatchFindFirstOrThrowArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GamePatches that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GamePatches
+     * const gamePatches = await prisma.gamePatch.findMany()
+     * 
+     * // Get first 10 GamePatches
+     * const gamePatches = await prisma.gamePatch.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const gamePatchWithIdOnly = await prisma.gamePatch.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GamePatchFindManyArgs>(args?: SelectSubset<T, GamePatchFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GamePatch.
+     * @param {GamePatchCreateArgs} args - Arguments to create a GamePatch.
+     * @example
+     * // Create one GamePatch
+     * const GamePatch = await prisma.gamePatch.create({
+     *   data: {
+     *     // ... data to create a GamePatch
+     *   }
+     * })
+     * 
+     */
+    create<T extends GamePatchCreateArgs>(args: SelectSubset<T, GamePatchCreateArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GamePatches.
+     * @param {GamePatchCreateManyArgs} args - Arguments to create many GamePatches.
+     * @example
+     * // Create many GamePatches
+     * const gamePatch = await prisma.gamePatch.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GamePatchCreateManyArgs>(args?: SelectSubset<T, GamePatchCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many GamePatches and returns the data saved in the database.
+     * @param {GamePatchCreateManyAndReturnArgs} args - Arguments to create many GamePatches.
+     * @example
+     * // Create many GamePatches
+     * const gamePatch = await prisma.gamePatch.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many GamePatches and only return the `id`
+     * const gamePatchWithIdOnly = await prisma.gamePatch.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends GamePatchCreateManyAndReturnArgs>(args?: SelectSubset<T, GamePatchCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a GamePatch.
+     * @param {GamePatchDeleteArgs} args - Arguments to delete one GamePatch.
+     * @example
+     * // Delete one GamePatch
+     * const GamePatch = await prisma.gamePatch.delete({
+     *   where: {
+     *     // ... filter to delete one GamePatch
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GamePatchDeleteArgs>(args: SelectSubset<T, GamePatchDeleteArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GamePatch.
+     * @param {GamePatchUpdateArgs} args - Arguments to update one GamePatch.
+     * @example
+     * // Update one GamePatch
+     * const gamePatch = await prisma.gamePatch.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GamePatchUpdateArgs>(args: SelectSubset<T, GamePatchUpdateArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GamePatches.
+     * @param {GamePatchDeleteManyArgs} args - Arguments to filter GamePatches to delete.
+     * @example
+     * // Delete a few GamePatches
+     * const { count } = await prisma.gamePatch.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GamePatchDeleteManyArgs>(args?: SelectSubset<T, GamePatchDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GamePatches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GamePatches
+     * const gamePatch = await prisma.gamePatch.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GamePatchUpdateManyArgs>(args: SelectSubset<T, GamePatchUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GamePatches and returns the data updated in the database.
+     * @param {GamePatchUpdateManyAndReturnArgs} args - Arguments to update many GamePatches.
+     * @example
+     * // Update many GamePatches
+     * const gamePatch = await prisma.gamePatch.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more GamePatches and only return the `id`
+     * const gamePatchWithIdOnly = await prisma.gamePatch.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends GamePatchUpdateManyAndReturnArgs>(args: SelectSubset<T, GamePatchUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one GamePatch.
+     * @param {GamePatchUpsertArgs} args - Arguments to update or create a GamePatch.
+     * @example
+     * // Update or create a GamePatch
+     * const gamePatch = await prisma.gamePatch.upsert({
+     *   create: {
+     *     // ... data to create a GamePatch
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GamePatch we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GamePatchUpsertArgs>(args: SelectSubset<T, GamePatchUpsertArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GamePatches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchCountArgs} args - Arguments to filter GamePatches to count.
+     * @example
+     * // Count the number of GamePatches
+     * const count = await prisma.gamePatch.count({
+     *   where: {
+     *     // ... the filter for the GamePatches we want to count
+     *   }
+     * })
+    **/
+    count<T extends GamePatchCountArgs>(
+      args?: Subset<T, GamePatchCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GamePatchCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GamePatch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GamePatchAggregateArgs>(args: Subset<T, GamePatchAggregateArgs>): Prisma.PrismaPromise<GetGamePatchAggregateType<T>>
+
+    /**
+     * Group by GamePatch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamePatchGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GamePatchGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GamePatchGroupByArgs['orderBy'] }
+        : { orderBy?: GamePatchGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GamePatchGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGamePatchGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GamePatch model
+   */
+  readonly fields: GamePatchFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GamePatch.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GamePatchClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    metaPosts<T extends GamePatch$metaPostsArgs<ExtArgs> = {}>(args?: Subset<T, GamePatch$metaPostsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    banPicks<T extends GamePatch$banPicksArgs<ExtArgs> = {}>(args?: Subset<T, GamePatch$banPicksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    bugReports<T extends GamePatch$bugReportsArgs<ExtArgs> = {}>(args?: Subset<T, GamePatch$bugReportsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GamePatch model
+   */
+  interface GamePatchFieldRefs {
+    readonly id: FieldRef<"GamePatch", 'Int'>
+    readonly version: FieldRef<"GamePatch", 'String'>
+    readonly releasedAt: FieldRef<"GamePatch", 'DateTime'>
+    readonly isActive: FieldRef<"GamePatch", 'Boolean'>
+    readonly createdAt: FieldRef<"GamePatch", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GamePatch findUnique
+   */
+  export type GamePatchFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * Filter, which GamePatch to fetch.
+     */
+    where: GamePatchWhereUniqueInput
+  }
+
+  /**
+   * GamePatch findUniqueOrThrow
+   */
+  export type GamePatchFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * Filter, which GamePatch to fetch.
+     */
+    where: GamePatchWhereUniqueInput
+  }
+
+  /**
+   * GamePatch findFirst
+   */
+  export type GamePatchFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * Filter, which GamePatch to fetch.
+     */
+    where?: GamePatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GamePatches to fetch.
+     */
+    orderBy?: GamePatchOrderByWithRelationInput | GamePatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GamePatches.
+     */
+    cursor?: GamePatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GamePatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GamePatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GamePatches.
+     */
+    distinct?: GamePatchScalarFieldEnum | GamePatchScalarFieldEnum[]
+  }
+
+  /**
+   * GamePatch findFirstOrThrow
+   */
+  export type GamePatchFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * Filter, which GamePatch to fetch.
+     */
+    where?: GamePatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GamePatches to fetch.
+     */
+    orderBy?: GamePatchOrderByWithRelationInput | GamePatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GamePatches.
+     */
+    cursor?: GamePatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GamePatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GamePatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GamePatches.
+     */
+    distinct?: GamePatchScalarFieldEnum | GamePatchScalarFieldEnum[]
+  }
+
+  /**
+   * GamePatch findMany
+   */
+  export type GamePatchFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * Filter, which GamePatches to fetch.
+     */
+    where?: GamePatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GamePatches to fetch.
+     */
+    orderBy?: GamePatchOrderByWithRelationInput | GamePatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GamePatches.
+     */
+    cursor?: GamePatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GamePatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GamePatches.
+     */
+    skip?: number
+    distinct?: GamePatchScalarFieldEnum | GamePatchScalarFieldEnum[]
+  }
+
+  /**
+   * GamePatch create
+   */
+  export type GamePatchCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GamePatch.
+     */
+    data: XOR<GamePatchCreateInput, GamePatchUncheckedCreateInput>
+  }
+
+  /**
+   * GamePatch createMany
+   */
+  export type GamePatchCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GamePatches.
+     */
+    data: GamePatchCreateManyInput | GamePatchCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GamePatch createManyAndReturn
+   */
+  export type GamePatchCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * The data used to create many GamePatches.
+     */
+    data: GamePatchCreateManyInput | GamePatchCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GamePatch update
+   */
+  export type GamePatchUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GamePatch.
+     */
+    data: XOR<GamePatchUpdateInput, GamePatchUncheckedUpdateInput>
+    /**
+     * Choose, which GamePatch to update.
+     */
+    where: GamePatchWhereUniqueInput
+  }
+
+  /**
+   * GamePatch updateMany
+   */
+  export type GamePatchUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GamePatches.
+     */
+    data: XOR<GamePatchUpdateManyMutationInput, GamePatchUncheckedUpdateManyInput>
+    /**
+     * Filter which GamePatches to update
+     */
+    where?: GamePatchWhereInput
+    /**
+     * Limit how many GamePatches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GamePatch updateManyAndReturn
+   */
+  export type GamePatchUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * The data used to update GamePatches.
+     */
+    data: XOR<GamePatchUpdateManyMutationInput, GamePatchUncheckedUpdateManyInput>
+    /**
+     * Filter which GamePatches to update
+     */
+    where?: GamePatchWhereInput
+    /**
+     * Limit how many GamePatches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GamePatch upsert
+   */
+  export type GamePatchUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GamePatch to update in case it exists.
+     */
+    where: GamePatchWhereUniqueInput
+    /**
+     * In case the GamePatch found by the `where` argument doesn't exist, create a new GamePatch with this data.
+     */
+    create: XOR<GamePatchCreateInput, GamePatchUncheckedCreateInput>
+    /**
+     * In case the GamePatch was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GamePatchUpdateInput, GamePatchUncheckedUpdateInput>
+  }
+
+  /**
+   * GamePatch delete
+   */
+  export type GamePatchDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+    /**
+     * Filter which GamePatch to delete.
+     */
+    where: GamePatchWhereUniqueInput
+  }
+
+  /**
+   * GamePatch deleteMany
+   */
+  export type GamePatchDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GamePatches to delete
+     */
+    where?: GamePatchWhereInput
+    /**
+     * Limit how many GamePatches to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GamePatch.metaPosts
+   */
+  export type GamePatch$metaPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    where?: MetaPostWhereInput
+    orderBy?: MetaPostOrderByWithRelationInput | MetaPostOrderByWithRelationInput[]
+    cursor?: MetaPostWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MetaPostScalarFieldEnum | MetaPostScalarFieldEnum[]
+  }
+
+  /**
+   * GamePatch.banPicks
+   */
+  export type GamePatch$banPicksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    where?: BanPickWhereInput
+    orderBy?: BanPickOrderByWithRelationInput | BanPickOrderByWithRelationInput[]
+    cursor?: BanPickWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BanPickScalarFieldEnum | BanPickScalarFieldEnum[]
+  }
+
+  /**
+   * GamePatch.bugReports
+   */
+  export type GamePatch$bugReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    where?: BugReportWhereInput
+    orderBy?: BugReportOrderByWithRelationInput | BugReportOrderByWithRelationInput[]
+    cursor?: BugReportWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BugReportScalarFieldEnum | BugReportScalarFieldEnum[]
+  }
+
+  /**
+   * GamePatch without action
+   */
+  export type GamePatchDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamePatch
+     */
+    select?: GamePatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GamePatch
+     */
+    omit?: GamePatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GamePatchInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MetaPost
+   */
+
+  export type AggregateMetaPost = {
+    _count: MetaPostCountAggregateOutputType | null
+    _avg: MetaPostAvgAggregateOutputType | null
+    _sum: MetaPostSumAggregateOutputType | null
+    _min: MetaPostMinAggregateOutputType | null
+    _max: MetaPostMaxAggregateOutputType | null
+  }
+
+  export type MetaPostAvgAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    upvotes: number | null
+    downvotes: number | null
+  }
+
+  export type MetaPostSumAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    upvotes: number | null
+    downvotes: number | null
+  }
+
+  export type MetaPostMinAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    reason: string | null
+    tier: string | null
+    upvotes: number | null
+    downvotes: number | null
+    guestId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MetaPostMaxAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    reason: string | null
+    tier: string | null
+    upvotes: number | null
+    downvotes: number | null
+    guestId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MetaPostCountAggregateOutputType = {
+    id: number
+    patchId: number
+    pokemonId: number
+    reason: number
+    tier: number
+    upvotes: number
+    downvotes: number
+    guestId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MetaPostAvgAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    upvotes?: true
+    downvotes?: true
+  }
+
+  export type MetaPostSumAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    upvotes?: true
+    downvotes?: true
+  }
+
+  export type MetaPostMinAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    reason?: true
+    tier?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MetaPostMaxAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    reason?: true
+    tier?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MetaPostCountAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    reason?: true
+    tier?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MetaPostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MetaPost to aggregate.
+     */
+    where?: MetaPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaPosts to fetch.
+     */
+    orderBy?: MetaPostOrderByWithRelationInput | MetaPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MetaPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaPosts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MetaPosts
+    **/
+    _count?: true | MetaPostCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MetaPostAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MetaPostSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MetaPostMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MetaPostMaxAggregateInputType
+  }
+
+  export type GetMetaPostAggregateType<T extends MetaPostAggregateArgs> = {
+        [P in keyof T & keyof AggregateMetaPost]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMetaPost[P]>
+      : GetScalarType<T[P], AggregateMetaPost[P]>
+  }
+
+
+
+
+  export type MetaPostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MetaPostWhereInput
+    orderBy?: MetaPostOrderByWithAggregationInput | MetaPostOrderByWithAggregationInput[]
+    by: MetaPostScalarFieldEnum[] | MetaPostScalarFieldEnum
+    having?: MetaPostScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MetaPostCountAggregateInputType | true
+    _avg?: MetaPostAvgAggregateInputType
+    _sum?: MetaPostSumAggregateInputType
+    _min?: MetaPostMinAggregateInputType
+    _max?: MetaPostMaxAggregateInputType
+  }
+
+  export type MetaPostGroupByOutputType = {
+    id: number
+    patchId: number
+    pokemonId: number
+    reason: string | null
+    tier: string
+    upvotes: number
+    downvotes: number
+    guestId: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: MetaPostCountAggregateOutputType | null
+    _avg: MetaPostAvgAggregateOutputType | null
+    _sum: MetaPostSumAggregateOutputType | null
+    _min: MetaPostMinAggregateOutputType | null
+    _max: MetaPostMaxAggregateOutputType | null
+  }
+
+  type GetMetaPostGroupByPayload<T extends MetaPostGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MetaPostGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MetaPostGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MetaPostGroupByOutputType[P]>
+            : GetScalarType<T[P], MetaPostGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MetaPostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    reason?: boolean
+    tier?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    votes?: boolean | MetaPost$votesArgs<ExtArgs>
+    _count?: boolean | MetaPostCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["metaPost"]>
+
+  export type MetaPostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    reason?: boolean
+    tier?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["metaPost"]>
+
+  export type MetaPostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    reason?: boolean
+    tier?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["metaPost"]>
+
+  export type MetaPostSelectScalar = {
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    reason?: boolean
+    tier?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MetaPostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patchId" | "pokemonId" | "reason" | "tier" | "upvotes" | "downvotes" | "guestId" | "createdAt" | "updatedAt", ExtArgs["result"]["metaPost"]>
+  export type MetaPostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    votes?: boolean | MetaPost$votesArgs<ExtArgs>
+    _count?: boolean | MetaPostCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type MetaPostIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }
+  export type MetaPostIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }
+
+  export type $MetaPostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MetaPost"
+    objects: {
+      patch: Prisma.$GamePatchPayload<ExtArgs>
+      pokemon: Prisma.$PokemonPayload<ExtArgs>
+      votes: Prisma.$MetaVotePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      patchId: number
+      pokemonId: number
+      reason: string | null
+      tier: string
+      upvotes: number
+      downvotes: number
+      guestId: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["metaPost"]>
+    composites: {}
+  }
+
+  type MetaPostGetPayload<S extends boolean | null | undefined | MetaPostDefaultArgs> = $Result.GetResult<Prisma.$MetaPostPayload, S>
+
+  type MetaPostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MetaPostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MetaPostCountAggregateInputType | true
+    }
+
+  export interface MetaPostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MetaPost'], meta: { name: 'MetaPost' } }
+    /**
+     * Find zero or one MetaPost that matches the filter.
+     * @param {MetaPostFindUniqueArgs} args - Arguments to find a MetaPost
+     * @example
+     * // Get one MetaPost
+     * const metaPost = await prisma.metaPost.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MetaPostFindUniqueArgs>(args: SelectSubset<T, MetaPostFindUniqueArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MetaPost that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MetaPostFindUniqueOrThrowArgs} args - Arguments to find a MetaPost
+     * @example
+     * // Get one MetaPost
+     * const metaPost = await prisma.metaPost.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MetaPostFindUniqueOrThrowArgs>(args: SelectSubset<T, MetaPostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MetaPost that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostFindFirstArgs} args - Arguments to find a MetaPost
+     * @example
+     * // Get one MetaPost
+     * const metaPost = await prisma.metaPost.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MetaPostFindFirstArgs>(args?: SelectSubset<T, MetaPostFindFirstArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MetaPost that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostFindFirstOrThrowArgs} args - Arguments to find a MetaPost
+     * @example
+     * // Get one MetaPost
+     * const metaPost = await prisma.metaPost.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MetaPostFindFirstOrThrowArgs>(args?: SelectSubset<T, MetaPostFindFirstOrThrowArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MetaPosts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MetaPosts
+     * const metaPosts = await prisma.metaPost.findMany()
+     * 
+     * // Get first 10 MetaPosts
+     * const metaPosts = await prisma.metaPost.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const metaPostWithIdOnly = await prisma.metaPost.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MetaPostFindManyArgs>(args?: SelectSubset<T, MetaPostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MetaPost.
+     * @param {MetaPostCreateArgs} args - Arguments to create a MetaPost.
+     * @example
+     * // Create one MetaPost
+     * const MetaPost = await prisma.metaPost.create({
+     *   data: {
+     *     // ... data to create a MetaPost
+     *   }
+     * })
+     * 
+     */
+    create<T extends MetaPostCreateArgs>(args: SelectSubset<T, MetaPostCreateArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MetaPosts.
+     * @param {MetaPostCreateManyArgs} args - Arguments to create many MetaPosts.
+     * @example
+     * // Create many MetaPosts
+     * const metaPost = await prisma.metaPost.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MetaPostCreateManyArgs>(args?: SelectSubset<T, MetaPostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MetaPosts and returns the data saved in the database.
+     * @param {MetaPostCreateManyAndReturnArgs} args - Arguments to create many MetaPosts.
+     * @example
+     * // Create many MetaPosts
+     * const metaPost = await prisma.metaPost.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MetaPosts and only return the `id`
+     * const metaPostWithIdOnly = await prisma.metaPost.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MetaPostCreateManyAndReturnArgs>(args?: SelectSubset<T, MetaPostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MetaPost.
+     * @param {MetaPostDeleteArgs} args - Arguments to delete one MetaPost.
+     * @example
+     * // Delete one MetaPost
+     * const MetaPost = await prisma.metaPost.delete({
+     *   where: {
+     *     // ... filter to delete one MetaPost
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MetaPostDeleteArgs>(args: SelectSubset<T, MetaPostDeleteArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MetaPost.
+     * @param {MetaPostUpdateArgs} args - Arguments to update one MetaPost.
+     * @example
+     * // Update one MetaPost
+     * const metaPost = await prisma.metaPost.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MetaPostUpdateArgs>(args: SelectSubset<T, MetaPostUpdateArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MetaPosts.
+     * @param {MetaPostDeleteManyArgs} args - Arguments to filter MetaPosts to delete.
+     * @example
+     * // Delete a few MetaPosts
+     * const { count } = await prisma.metaPost.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MetaPostDeleteManyArgs>(args?: SelectSubset<T, MetaPostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MetaPosts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MetaPosts
+     * const metaPost = await prisma.metaPost.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MetaPostUpdateManyArgs>(args: SelectSubset<T, MetaPostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MetaPosts and returns the data updated in the database.
+     * @param {MetaPostUpdateManyAndReturnArgs} args - Arguments to update many MetaPosts.
+     * @example
+     * // Update many MetaPosts
+     * const metaPost = await prisma.metaPost.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MetaPosts and only return the `id`
+     * const metaPostWithIdOnly = await prisma.metaPost.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MetaPostUpdateManyAndReturnArgs>(args: SelectSubset<T, MetaPostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MetaPost.
+     * @param {MetaPostUpsertArgs} args - Arguments to update or create a MetaPost.
+     * @example
+     * // Update or create a MetaPost
+     * const metaPost = await prisma.metaPost.upsert({
+     *   create: {
+     *     // ... data to create a MetaPost
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MetaPost we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MetaPostUpsertArgs>(args: SelectSubset<T, MetaPostUpsertArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MetaPosts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostCountArgs} args - Arguments to filter MetaPosts to count.
+     * @example
+     * // Count the number of MetaPosts
+     * const count = await prisma.metaPost.count({
+     *   where: {
+     *     // ... the filter for the MetaPosts we want to count
+     *   }
+     * })
+    **/
+    count<T extends MetaPostCountArgs>(
+      args?: Subset<T, MetaPostCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MetaPostCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MetaPost.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MetaPostAggregateArgs>(args: Subset<T, MetaPostAggregateArgs>): Prisma.PrismaPromise<GetMetaPostAggregateType<T>>
+
+    /**
+     * Group by MetaPost.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaPostGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MetaPostGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MetaPostGroupByArgs['orderBy'] }
+        : { orderBy?: MetaPostGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MetaPostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMetaPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MetaPost model
+   */
+  readonly fields: MetaPostFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MetaPost.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MetaPostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patch<T extends GamePatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GamePatchDefaultArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    pokemon<T extends PokemonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PokemonDefaultArgs<ExtArgs>>): Prisma__PokemonClient<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    votes<T extends MetaPost$votesArgs<ExtArgs> = {}>(args?: Subset<T, MetaPost$votesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MetaPost model
+   */
+  interface MetaPostFieldRefs {
+    readonly id: FieldRef<"MetaPost", 'Int'>
+    readonly patchId: FieldRef<"MetaPost", 'Int'>
+    readonly pokemonId: FieldRef<"MetaPost", 'Int'>
+    readonly reason: FieldRef<"MetaPost", 'String'>
+    readonly tier: FieldRef<"MetaPost", 'String'>
+    readonly upvotes: FieldRef<"MetaPost", 'Int'>
+    readonly downvotes: FieldRef<"MetaPost", 'Int'>
+    readonly guestId: FieldRef<"MetaPost", 'String'>
+    readonly createdAt: FieldRef<"MetaPost", 'DateTime'>
+    readonly updatedAt: FieldRef<"MetaPost", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MetaPost findUnique
+   */
+  export type MetaPostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaPost to fetch.
+     */
+    where: MetaPostWhereUniqueInput
+  }
+
+  /**
+   * MetaPost findUniqueOrThrow
+   */
+  export type MetaPostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaPost to fetch.
+     */
+    where: MetaPostWhereUniqueInput
+  }
+
+  /**
+   * MetaPost findFirst
+   */
+  export type MetaPostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaPost to fetch.
+     */
+    where?: MetaPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaPosts to fetch.
+     */
+    orderBy?: MetaPostOrderByWithRelationInput | MetaPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MetaPosts.
+     */
+    cursor?: MetaPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaPosts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MetaPosts.
+     */
+    distinct?: MetaPostScalarFieldEnum | MetaPostScalarFieldEnum[]
+  }
+
+  /**
+   * MetaPost findFirstOrThrow
+   */
+  export type MetaPostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaPost to fetch.
+     */
+    where?: MetaPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaPosts to fetch.
+     */
+    orderBy?: MetaPostOrderByWithRelationInput | MetaPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MetaPosts.
+     */
+    cursor?: MetaPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaPosts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MetaPosts.
+     */
+    distinct?: MetaPostScalarFieldEnum | MetaPostScalarFieldEnum[]
+  }
+
+  /**
+   * MetaPost findMany
+   */
+  export type MetaPostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaPosts to fetch.
+     */
+    where?: MetaPostWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaPosts to fetch.
+     */
+    orderBy?: MetaPostOrderByWithRelationInput | MetaPostOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MetaPosts.
+     */
+    cursor?: MetaPostWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaPosts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaPosts.
+     */
+    skip?: number
+    distinct?: MetaPostScalarFieldEnum | MetaPostScalarFieldEnum[]
+  }
+
+  /**
+   * MetaPost create
+   */
+  export type MetaPostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MetaPost.
+     */
+    data: XOR<MetaPostCreateInput, MetaPostUncheckedCreateInput>
+  }
+
+  /**
+   * MetaPost createMany
+   */
+  export type MetaPostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MetaPosts.
+     */
+    data: MetaPostCreateManyInput | MetaPostCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MetaPost createManyAndReturn
+   */
+  export type MetaPostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * The data used to create many MetaPosts.
+     */
+    data: MetaPostCreateManyInput | MetaPostCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MetaPost update
+   */
+  export type MetaPostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MetaPost.
+     */
+    data: XOR<MetaPostUpdateInput, MetaPostUncheckedUpdateInput>
+    /**
+     * Choose, which MetaPost to update.
+     */
+    where: MetaPostWhereUniqueInput
+  }
+
+  /**
+   * MetaPost updateMany
+   */
+  export type MetaPostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MetaPosts.
+     */
+    data: XOR<MetaPostUpdateManyMutationInput, MetaPostUncheckedUpdateManyInput>
+    /**
+     * Filter which MetaPosts to update
+     */
+    where?: MetaPostWhereInput
+    /**
+     * Limit how many MetaPosts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MetaPost updateManyAndReturn
+   */
+  export type MetaPostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * The data used to update MetaPosts.
+     */
+    data: XOR<MetaPostUpdateManyMutationInput, MetaPostUncheckedUpdateManyInput>
+    /**
+     * Filter which MetaPosts to update
+     */
+    where?: MetaPostWhereInput
+    /**
+     * Limit how many MetaPosts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MetaPost upsert
+   */
+  export type MetaPostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MetaPost to update in case it exists.
+     */
+    where: MetaPostWhereUniqueInput
+    /**
+     * In case the MetaPost found by the `where` argument doesn't exist, create a new MetaPost with this data.
+     */
+    create: XOR<MetaPostCreateInput, MetaPostUncheckedCreateInput>
+    /**
+     * In case the MetaPost was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MetaPostUpdateInput, MetaPostUncheckedUpdateInput>
+  }
+
+  /**
+   * MetaPost delete
+   */
+  export type MetaPostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+    /**
+     * Filter which MetaPost to delete.
+     */
+    where: MetaPostWhereUniqueInput
+  }
+
+  /**
+   * MetaPost deleteMany
+   */
+  export type MetaPostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MetaPosts to delete
+     */
+    where?: MetaPostWhereInput
+    /**
+     * Limit how many MetaPosts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MetaPost.votes
+   */
+  export type MetaPost$votesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    where?: MetaVoteWhereInput
+    orderBy?: MetaVoteOrderByWithRelationInput | MetaVoteOrderByWithRelationInput[]
+    cursor?: MetaVoteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MetaVoteScalarFieldEnum | MetaVoteScalarFieldEnum[]
+  }
+
+  /**
+   * MetaPost without action
+   */
+  export type MetaPostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaPost
+     */
+    select?: MetaPostSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaPost
+     */
+    omit?: MetaPostOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaPostInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BanPick
+   */
+
+  export type AggregateBanPick = {
+    _count: BanPickCountAggregateOutputType | null
+    _avg: BanPickAvgAggregateOutputType | null
+    _sum: BanPickSumAggregateOutputType | null
+    _min: BanPickMinAggregateOutputType | null
+    _max: BanPickMaxAggregateOutputType | null
+  }
+
+  export type BanPickAvgAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    upvotes: number | null
+    downvotes: number | null
+  }
+
+  export type BanPickSumAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    upvotes: number | null
+    downvotes: number | null
+  }
+
+  export type BanPickMinAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    side: string | null
+    reason: string | null
+    upvotes: number | null
+    downvotes: number | null
+    guestId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BanPickMaxAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    side: string | null
+    reason: string | null
+    upvotes: number | null
+    downvotes: number | null
+    guestId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BanPickCountAggregateOutputType = {
+    id: number
+    patchId: number
+    pokemonId: number
+    side: number
+    reason: number
+    upvotes: number
+    downvotes: number
+    guestId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BanPickAvgAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    upvotes?: true
+    downvotes?: true
+  }
+
+  export type BanPickSumAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    upvotes?: true
+    downvotes?: true
+  }
+
+  export type BanPickMinAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    side?: true
+    reason?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BanPickMaxAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    side?: true
+    reason?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BanPickCountAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    side?: true
+    reason?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BanPickAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BanPick to aggregate.
+     */
+    where?: BanPickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanPicks to fetch.
+     */
+    orderBy?: BanPickOrderByWithRelationInput | BanPickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BanPickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanPicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanPicks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BanPicks
+    **/
+    _count?: true | BanPickCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BanPickAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BanPickSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BanPickMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BanPickMaxAggregateInputType
+  }
+
+  export type GetBanPickAggregateType<T extends BanPickAggregateArgs> = {
+        [P in keyof T & keyof AggregateBanPick]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBanPick[P]>
+      : GetScalarType<T[P], AggregateBanPick[P]>
+  }
+
+
+
+
+  export type BanPickGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BanPickWhereInput
+    orderBy?: BanPickOrderByWithAggregationInput | BanPickOrderByWithAggregationInput[]
+    by: BanPickScalarFieldEnum[] | BanPickScalarFieldEnum
+    having?: BanPickScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BanPickCountAggregateInputType | true
+    _avg?: BanPickAvgAggregateInputType
+    _sum?: BanPickSumAggregateInputType
+    _min?: BanPickMinAggregateInputType
+    _max?: BanPickMaxAggregateInputType
+  }
+
+  export type BanPickGroupByOutputType = {
+    id: number
+    patchId: number
+    pokemonId: number
+    side: string
+    reason: string | null
+    upvotes: number
+    downvotes: number
+    guestId: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BanPickCountAggregateOutputType | null
+    _avg: BanPickAvgAggregateOutputType | null
+    _sum: BanPickSumAggregateOutputType | null
+    _min: BanPickMinAggregateOutputType | null
+    _max: BanPickMaxAggregateOutputType | null
+  }
+
+  type GetBanPickGroupByPayload<T extends BanPickGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BanPickGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BanPickGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BanPickGroupByOutputType[P]>
+            : GetScalarType<T[P], BanPickGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BanPickSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    side?: boolean
+    reason?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    votes?: boolean | BanPick$votesArgs<ExtArgs>
+    _count?: boolean | BanPickCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["banPick"]>
+
+  export type BanPickSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    side?: boolean
+    reason?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["banPick"]>
+
+  export type BanPickSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    side?: boolean
+    reason?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["banPick"]>
+
+  export type BanPickSelectScalar = {
+    id?: boolean
+    patchId?: boolean
+    pokemonId?: boolean
+    side?: boolean
+    reason?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BanPickOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patchId" | "pokemonId" | "side" | "reason" | "upvotes" | "downvotes" | "guestId" | "createdAt" | "updatedAt", ExtArgs["result"]["banPick"]>
+  export type BanPickInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+    votes?: boolean | BanPick$votesArgs<ExtArgs>
+    _count?: boolean | BanPickCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BanPickIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }
+  export type BanPickIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
+  }
+
+  export type $BanPickPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BanPick"
+    objects: {
+      patch: Prisma.$GamePatchPayload<ExtArgs>
+      pokemon: Prisma.$PokemonPayload<ExtArgs>
+      votes: Prisma.$BanVotePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      patchId: number
+      pokemonId: number
+      side: string
+      reason: string | null
+      upvotes: number
+      downvotes: number
+      guestId: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["banPick"]>
+    composites: {}
+  }
+
+  type BanPickGetPayload<S extends boolean | null | undefined | BanPickDefaultArgs> = $Result.GetResult<Prisma.$BanPickPayload, S>
+
+  type BanPickCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BanPickFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BanPickCountAggregateInputType | true
+    }
+
+  export interface BanPickDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BanPick'], meta: { name: 'BanPick' } }
+    /**
+     * Find zero or one BanPick that matches the filter.
+     * @param {BanPickFindUniqueArgs} args - Arguments to find a BanPick
+     * @example
+     * // Get one BanPick
+     * const banPick = await prisma.banPick.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BanPickFindUniqueArgs>(args: SelectSubset<T, BanPickFindUniqueArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BanPick that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BanPickFindUniqueOrThrowArgs} args - Arguments to find a BanPick
+     * @example
+     * // Get one BanPick
+     * const banPick = await prisma.banPick.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BanPickFindUniqueOrThrowArgs>(args: SelectSubset<T, BanPickFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BanPick that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickFindFirstArgs} args - Arguments to find a BanPick
+     * @example
+     * // Get one BanPick
+     * const banPick = await prisma.banPick.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BanPickFindFirstArgs>(args?: SelectSubset<T, BanPickFindFirstArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BanPick that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickFindFirstOrThrowArgs} args - Arguments to find a BanPick
+     * @example
+     * // Get one BanPick
+     * const banPick = await prisma.banPick.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BanPickFindFirstOrThrowArgs>(args?: SelectSubset<T, BanPickFindFirstOrThrowArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BanPicks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BanPicks
+     * const banPicks = await prisma.banPick.findMany()
+     * 
+     * // Get first 10 BanPicks
+     * const banPicks = await prisma.banPick.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const banPickWithIdOnly = await prisma.banPick.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BanPickFindManyArgs>(args?: SelectSubset<T, BanPickFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BanPick.
+     * @param {BanPickCreateArgs} args - Arguments to create a BanPick.
+     * @example
+     * // Create one BanPick
+     * const BanPick = await prisma.banPick.create({
+     *   data: {
+     *     // ... data to create a BanPick
+     *   }
+     * })
+     * 
+     */
+    create<T extends BanPickCreateArgs>(args: SelectSubset<T, BanPickCreateArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BanPicks.
+     * @param {BanPickCreateManyArgs} args - Arguments to create many BanPicks.
+     * @example
+     * // Create many BanPicks
+     * const banPick = await prisma.banPick.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BanPickCreateManyArgs>(args?: SelectSubset<T, BanPickCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BanPicks and returns the data saved in the database.
+     * @param {BanPickCreateManyAndReturnArgs} args - Arguments to create many BanPicks.
+     * @example
+     * // Create many BanPicks
+     * const banPick = await prisma.banPick.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BanPicks and only return the `id`
+     * const banPickWithIdOnly = await prisma.banPick.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BanPickCreateManyAndReturnArgs>(args?: SelectSubset<T, BanPickCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BanPick.
+     * @param {BanPickDeleteArgs} args - Arguments to delete one BanPick.
+     * @example
+     * // Delete one BanPick
+     * const BanPick = await prisma.banPick.delete({
+     *   where: {
+     *     // ... filter to delete one BanPick
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BanPickDeleteArgs>(args: SelectSubset<T, BanPickDeleteArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BanPick.
+     * @param {BanPickUpdateArgs} args - Arguments to update one BanPick.
+     * @example
+     * // Update one BanPick
+     * const banPick = await prisma.banPick.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BanPickUpdateArgs>(args: SelectSubset<T, BanPickUpdateArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BanPicks.
+     * @param {BanPickDeleteManyArgs} args - Arguments to filter BanPicks to delete.
+     * @example
+     * // Delete a few BanPicks
+     * const { count } = await prisma.banPick.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BanPickDeleteManyArgs>(args?: SelectSubset<T, BanPickDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BanPicks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BanPicks
+     * const banPick = await prisma.banPick.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BanPickUpdateManyArgs>(args: SelectSubset<T, BanPickUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BanPicks and returns the data updated in the database.
+     * @param {BanPickUpdateManyAndReturnArgs} args - Arguments to update many BanPicks.
+     * @example
+     * // Update many BanPicks
+     * const banPick = await prisma.banPick.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BanPicks and only return the `id`
+     * const banPickWithIdOnly = await prisma.banPick.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BanPickUpdateManyAndReturnArgs>(args: SelectSubset<T, BanPickUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BanPick.
+     * @param {BanPickUpsertArgs} args - Arguments to update or create a BanPick.
+     * @example
+     * // Update or create a BanPick
+     * const banPick = await prisma.banPick.upsert({
+     *   create: {
+     *     // ... data to create a BanPick
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BanPick we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BanPickUpsertArgs>(args: SelectSubset<T, BanPickUpsertArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BanPicks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickCountArgs} args - Arguments to filter BanPicks to count.
+     * @example
+     * // Count the number of BanPicks
+     * const count = await prisma.banPick.count({
+     *   where: {
+     *     // ... the filter for the BanPicks we want to count
+     *   }
+     * })
+    **/
+    count<T extends BanPickCountArgs>(
+      args?: Subset<T, BanPickCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BanPickCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BanPick.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BanPickAggregateArgs>(args: Subset<T, BanPickAggregateArgs>): Prisma.PrismaPromise<GetBanPickAggregateType<T>>
+
+    /**
+     * Group by BanPick.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanPickGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BanPickGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BanPickGroupByArgs['orderBy'] }
+        : { orderBy?: BanPickGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BanPickGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBanPickGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BanPick model
+   */
+  readonly fields: BanPickFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BanPick.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BanPickClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patch<T extends GamePatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GamePatchDefaultArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    pokemon<T extends PokemonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PokemonDefaultArgs<ExtArgs>>): Prisma__PokemonClient<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    votes<T extends BanPick$votesArgs<ExtArgs> = {}>(args?: Subset<T, BanPick$votesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BanPick model
+   */
+  interface BanPickFieldRefs {
+    readonly id: FieldRef<"BanPick", 'Int'>
+    readonly patchId: FieldRef<"BanPick", 'Int'>
+    readonly pokemonId: FieldRef<"BanPick", 'Int'>
+    readonly side: FieldRef<"BanPick", 'String'>
+    readonly reason: FieldRef<"BanPick", 'String'>
+    readonly upvotes: FieldRef<"BanPick", 'Int'>
+    readonly downvotes: FieldRef<"BanPick", 'Int'>
+    readonly guestId: FieldRef<"BanPick", 'String'>
+    readonly createdAt: FieldRef<"BanPick", 'DateTime'>
+    readonly updatedAt: FieldRef<"BanPick", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BanPick findUnique
+   */
+  export type BanPickFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * Filter, which BanPick to fetch.
+     */
+    where: BanPickWhereUniqueInput
+  }
+
+  /**
+   * BanPick findUniqueOrThrow
+   */
+  export type BanPickFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * Filter, which BanPick to fetch.
+     */
+    where: BanPickWhereUniqueInput
+  }
+
+  /**
+   * BanPick findFirst
+   */
+  export type BanPickFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * Filter, which BanPick to fetch.
+     */
+    where?: BanPickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanPicks to fetch.
+     */
+    orderBy?: BanPickOrderByWithRelationInput | BanPickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BanPicks.
+     */
+    cursor?: BanPickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanPicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanPicks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BanPicks.
+     */
+    distinct?: BanPickScalarFieldEnum | BanPickScalarFieldEnum[]
+  }
+
+  /**
+   * BanPick findFirstOrThrow
+   */
+  export type BanPickFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * Filter, which BanPick to fetch.
+     */
+    where?: BanPickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanPicks to fetch.
+     */
+    orderBy?: BanPickOrderByWithRelationInput | BanPickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BanPicks.
+     */
+    cursor?: BanPickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanPicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanPicks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BanPicks.
+     */
+    distinct?: BanPickScalarFieldEnum | BanPickScalarFieldEnum[]
+  }
+
+  /**
+   * BanPick findMany
+   */
+  export type BanPickFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * Filter, which BanPicks to fetch.
+     */
+    where?: BanPickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanPicks to fetch.
+     */
+    orderBy?: BanPickOrderByWithRelationInput | BanPickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BanPicks.
+     */
+    cursor?: BanPickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanPicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanPicks.
+     */
+    skip?: number
+    distinct?: BanPickScalarFieldEnum | BanPickScalarFieldEnum[]
+  }
+
+  /**
+   * BanPick create
+   */
+  export type BanPickCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BanPick.
+     */
+    data: XOR<BanPickCreateInput, BanPickUncheckedCreateInput>
+  }
+
+  /**
+   * BanPick createMany
+   */
+  export type BanPickCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BanPicks.
+     */
+    data: BanPickCreateManyInput | BanPickCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BanPick createManyAndReturn
+   */
+  export type BanPickCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * The data used to create many BanPicks.
+     */
+    data: BanPickCreateManyInput | BanPickCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BanPick update
+   */
+  export type BanPickUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BanPick.
+     */
+    data: XOR<BanPickUpdateInput, BanPickUncheckedUpdateInput>
+    /**
+     * Choose, which BanPick to update.
+     */
+    where: BanPickWhereUniqueInput
+  }
+
+  /**
+   * BanPick updateMany
+   */
+  export type BanPickUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BanPicks.
+     */
+    data: XOR<BanPickUpdateManyMutationInput, BanPickUncheckedUpdateManyInput>
+    /**
+     * Filter which BanPicks to update
+     */
+    where?: BanPickWhereInput
+    /**
+     * Limit how many BanPicks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BanPick updateManyAndReturn
+   */
+  export type BanPickUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * The data used to update BanPicks.
+     */
+    data: XOR<BanPickUpdateManyMutationInput, BanPickUncheckedUpdateManyInput>
+    /**
+     * Filter which BanPicks to update
+     */
+    where?: BanPickWhereInput
+    /**
+     * Limit how many BanPicks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BanPick upsert
+   */
+  export type BanPickUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BanPick to update in case it exists.
+     */
+    where: BanPickWhereUniqueInput
+    /**
+     * In case the BanPick found by the `where` argument doesn't exist, create a new BanPick with this data.
+     */
+    create: XOR<BanPickCreateInput, BanPickUncheckedCreateInput>
+    /**
+     * In case the BanPick was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BanPickUpdateInput, BanPickUncheckedUpdateInput>
+  }
+
+  /**
+   * BanPick delete
+   */
+  export type BanPickDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+    /**
+     * Filter which BanPick to delete.
+     */
+    where: BanPickWhereUniqueInput
+  }
+
+  /**
+   * BanPick deleteMany
+   */
+  export type BanPickDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BanPicks to delete
+     */
+    where?: BanPickWhereInput
+    /**
+     * Limit how many BanPicks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BanPick.votes
+   */
+  export type BanPick$votesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    where?: BanVoteWhereInput
+    orderBy?: BanVoteOrderByWithRelationInput | BanVoteOrderByWithRelationInput[]
+    cursor?: BanVoteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BanVoteScalarFieldEnum | BanVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BanPick without action
+   */
+  export type BanPickDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanPick
+     */
+    select?: BanPickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanPick
+     */
+    omit?: BanPickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanPickInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BugReport
+   */
+
+  export type AggregateBugReport = {
+    _count: BugReportCountAggregateOutputType | null
+    _avg: BugReportAvgAggregateOutputType | null
+    _sum: BugReportSumAggregateOutputType | null
+    _min: BugReportMinAggregateOutputType | null
+    _max: BugReportMaxAggregateOutputType | null
+  }
+
+  export type BugReportAvgAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    upvotes: number | null
+    downvotes: number | null
+  }
+
+  export type BugReportSumAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    pokemonId: number | null
+    upvotes: number | null
+    downvotes: number | null
+  }
+
+  export type BugReportMinAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    title: string | null
+    description: string | null
+    category: string | null
+    pokemonId: number | null
+    severity: string | null
+    status: string | null
+    upvotes: number | null
+    downvotes: number | null
+    guestId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BugReportMaxAggregateOutputType = {
+    id: number | null
+    patchId: number | null
+    title: string | null
+    description: string | null
+    category: string | null
+    pokemonId: number | null
+    severity: string | null
+    status: string | null
+    upvotes: number | null
+    downvotes: number | null
+    guestId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BugReportCountAggregateOutputType = {
+    id: number
+    patchId: number
+    title: number
+    description: number
+    category: number
+    pokemonId: number
+    severity: number
+    status: number
+    upvotes: number
+    downvotes: number
+    guestId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BugReportAvgAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    upvotes?: true
+    downvotes?: true
+  }
+
+  export type BugReportSumAggregateInputType = {
+    id?: true
+    patchId?: true
+    pokemonId?: true
+    upvotes?: true
+    downvotes?: true
+  }
+
+  export type BugReportMinAggregateInputType = {
+    id?: true
+    patchId?: true
+    title?: true
+    description?: true
+    category?: true
+    pokemonId?: true
+    severity?: true
+    status?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BugReportMaxAggregateInputType = {
+    id?: true
+    patchId?: true
+    title?: true
+    description?: true
+    category?: true
+    pokemonId?: true
+    severity?: true
+    status?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BugReportCountAggregateInputType = {
+    id?: true
+    patchId?: true
+    title?: true
+    description?: true
+    category?: true
+    pokemonId?: true
+    severity?: true
+    status?: true
+    upvotes?: true
+    downvotes?: true
+    guestId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BugReportAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BugReport to aggregate.
+     */
+    where?: BugReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugReports to fetch.
+     */
+    orderBy?: BugReportOrderByWithRelationInput | BugReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BugReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BugReports
+    **/
+    _count?: true | BugReportCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BugReportAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BugReportSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BugReportMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BugReportMaxAggregateInputType
+  }
+
+  export type GetBugReportAggregateType<T extends BugReportAggregateArgs> = {
+        [P in keyof T & keyof AggregateBugReport]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBugReport[P]>
+      : GetScalarType<T[P], AggregateBugReport[P]>
+  }
+
+
+
+
+  export type BugReportGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BugReportWhereInput
+    orderBy?: BugReportOrderByWithAggregationInput | BugReportOrderByWithAggregationInput[]
+    by: BugReportScalarFieldEnum[] | BugReportScalarFieldEnum
+    having?: BugReportScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BugReportCountAggregateInputType | true
+    _avg?: BugReportAvgAggregateInputType
+    _sum?: BugReportSumAggregateInputType
+    _min?: BugReportMinAggregateInputType
+    _max?: BugReportMaxAggregateInputType
+  }
+
+  export type BugReportGroupByOutputType = {
+    id: number
+    patchId: number
+    title: string
+    description: string | null
+    category: string
+    pokemonId: number | null
+    severity: string
+    status: string
+    upvotes: number
+    downvotes: number
+    guestId: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BugReportCountAggregateOutputType | null
+    _avg: BugReportAvgAggregateOutputType | null
+    _sum: BugReportSumAggregateOutputType | null
+    _min: BugReportMinAggregateOutputType | null
+    _max: BugReportMaxAggregateOutputType | null
+  }
+
+  type GetBugReportGroupByPayload<T extends BugReportGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BugReportGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BugReportGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BugReportGroupByOutputType[P]>
+            : GetScalarType<T[P], BugReportGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BugReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    pokemonId?: boolean
+    severity?: boolean
+    status?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | BugReport$pokemonArgs<ExtArgs>
+    votes?: boolean | BugReport$votesArgs<ExtArgs>
+    _count?: boolean | BugReportCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bugReport"]>
+
+  export type BugReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    pokemonId?: boolean
+    severity?: boolean
+    status?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | BugReport$pokemonArgs<ExtArgs>
+  }, ExtArgs["result"]["bugReport"]>
+
+  export type BugReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patchId?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    pokemonId?: boolean
+    severity?: boolean
+    status?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | BugReport$pokemonArgs<ExtArgs>
+  }, ExtArgs["result"]["bugReport"]>
+
+  export type BugReportSelectScalar = {
+    id?: boolean
+    patchId?: boolean
+    title?: boolean
+    description?: boolean
+    category?: boolean
+    pokemonId?: boolean
+    severity?: boolean
+    status?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
+    guestId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BugReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patchId" | "title" | "description" | "category" | "pokemonId" | "severity" | "status" | "upvotes" | "downvotes" | "guestId" | "createdAt" | "updatedAt", ExtArgs["result"]["bugReport"]>
+  export type BugReportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | BugReport$pokemonArgs<ExtArgs>
+    votes?: boolean | BugReport$votesArgs<ExtArgs>
+    _count?: boolean | BugReportCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BugReportIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | BugReport$pokemonArgs<ExtArgs>
+  }
+  export type BugReportIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    patch?: boolean | GamePatchDefaultArgs<ExtArgs>
+    pokemon?: boolean | BugReport$pokemonArgs<ExtArgs>
+  }
+
+  export type $BugReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BugReport"
+    objects: {
+      patch: Prisma.$GamePatchPayload<ExtArgs>
+      pokemon: Prisma.$PokemonPayload<ExtArgs> | null
+      votes: Prisma.$BugVotePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      patchId: number
+      title: string
+      description: string | null
+      category: string
+      pokemonId: number | null
+      severity: string
+      status: string
+      upvotes: number
+      downvotes: number
+      guestId: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["bugReport"]>
+    composites: {}
+  }
+
+  type BugReportGetPayload<S extends boolean | null | undefined | BugReportDefaultArgs> = $Result.GetResult<Prisma.$BugReportPayload, S>
+
+  type BugReportCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BugReportFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BugReportCountAggregateInputType | true
+    }
+
+  export interface BugReportDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BugReport'], meta: { name: 'BugReport' } }
+    /**
+     * Find zero or one BugReport that matches the filter.
+     * @param {BugReportFindUniqueArgs} args - Arguments to find a BugReport
+     * @example
+     * // Get one BugReport
+     * const bugReport = await prisma.bugReport.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BugReportFindUniqueArgs>(args: SelectSubset<T, BugReportFindUniqueArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BugReport that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BugReportFindUniqueOrThrowArgs} args - Arguments to find a BugReport
+     * @example
+     * // Get one BugReport
+     * const bugReport = await prisma.bugReport.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BugReportFindUniqueOrThrowArgs>(args: SelectSubset<T, BugReportFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BugReport that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportFindFirstArgs} args - Arguments to find a BugReport
+     * @example
+     * // Get one BugReport
+     * const bugReport = await prisma.bugReport.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BugReportFindFirstArgs>(args?: SelectSubset<T, BugReportFindFirstArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BugReport that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportFindFirstOrThrowArgs} args - Arguments to find a BugReport
+     * @example
+     * // Get one BugReport
+     * const bugReport = await prisma.bugReport.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BugReportFindFirstOrThrowArgs>(args?: SelectSubset<T, BugReportFindFirstOrThrowArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BugReports that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BugReports
+     * const bugReports = await prisma.bugReport.findMany()
+     * 
+     * // Get first 10 BugReports
+     * const bugReports = await prisma.bugReport.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bugReportWithIdOnly = await prisma.bugReport.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BugReportFindManyArgs>(args?: SelectSubset<T, BugReportFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BugReport.
+     * @param {BugReportCreateArgs} args - Arguments to create a BugReport.
+     * @example
+     * // Create one BugReport
+     * const BugReport = await prisma.bugReport.create({
+     *   data: {
+     *     // ... data to create a BugReport
+     *   }
+     * })
+     * 
+     */
+    create<T extends BugReportCreateArgs>(args: SelectSubset<T, BugReportCreateArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BugReports.
+     * @param {BugReportCreateManyArgs} args - Arguments to create many BugReports.
+     * @example
+     * // Create many BugReports
+     * const bugReport = await prisma.bugReport.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BugReportCreateManyArgs>(args?: SelectSubset<T, BugReportCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BugReports and returns the data saved in the database.
+     * @param {BugReportCreateManyAndReturnArgs} args - Arguments to create many BugReports.
+     * @example
+     * // Create many BugReports
+     * const bugReport = await prisma.bugReport.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BugReports and only return the `id`
+     * const bugReportWithIdOnly = await prisma.bugReport.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BugReportCreateManyAndReturnArgs>(args?: SelectSubset<T, BugReportCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BugReport.
+     * @param {BugReportDeleteArgs} args - Arguments to delete one BugReport.
+     * @example
+     * // Delete one BugReport
+     * const BugReport = await prisma.bugReport.delete({
+     *   where: {
+     *     // ... filter to delete one BugReport
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BugReportDeleteArgs>(args: SelectSubset<T, BugReportDeleteArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BugReport.
+     * @param {BugReportUpdateArgs} args - Arguments to update one BugReport.
+     * @example
+     * // Update one BugReport
+     * const bugReport = await prisma.bugReport.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BugReportUpdateArgs>(args: SelectSubset<T, BugReportUpdateArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BugReports.
+     * @param {BugReportDeleteManyArgs} args - Arguments to filter BugReports to delete.
+     * @example
+     * // Delete a few BugReports
+     * const { count } = await prisma.bugReport.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BugReportDeleteManyArgs>(args?: SelectSubset<T, BugReportDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BugReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BugReports
+     * const bugReport = await prisma.bugReport.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BugReportUpdateManyArgs>(args: SelectSubset<T, BugReportUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BugReports and returns the data updated in the database.
+     * @param {BugReportUpdateManyAndReturnArgs} args - Arguments to update many BugReports.
+     * @example
+     * // Update many BugReports
+     * const bugReport = await prisma.bugReport.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BugReports and only return the `id`
+     * const bugReportWithIdOnly = await prisma.bugReport.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BugReportUpdateManyAndReturnArgs>(args: SelectSubset<T, BugReportUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BugReport.
+     * @param {BugReportUpsertArgs} args - Arguments to update or create a BugReport.
+     * @example
+     * // Update or create a BugReport
+     * const bugReport = await prisma.bugReport.upsert({
+     *   create: {
+     *     // ... data to create a BugReport
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BugReport we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BugReportUpsertArgs>(args: SelectSubset<T, BugReportUpsertArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BugReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportCountArgs} args - Arguments to filter BugReports to count.
+     * @example
+     * // Count the number of BugReports
+     * const count = await prisma.bugReport.count({
+     *   where: {
+     *     // ... the filter for the BugReports we want to count
+     *   }
+     * })
+    **/
+    count<T extends BugReportCountArgs>(
+      args?: Subset<T, BugReportCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BugReportCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BugReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BugReportAggregateArgs>(args: Subset<T, BugReportAggregateArgs>): Prisma.PrismaPromise<GetBugReportAggregateType<T>>
+
+    /**
+     * Group by BugReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugReportGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BugReportGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BugReportGroupByArgs['orderBy'] }
+        : { orderBy?: BugReportGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BugReportGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBugReportGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BugReport model
+   */
+  readonly fields: BugReportFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BugReport.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BugReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    patch<T extends GamePatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GamePatchDefaultArgs<ExtArgs>>): Prisma__GamePatchClient<$Result.GetResult<Prisma.$GamePatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    pokemon<T extends BugReport$pokemonArgs<ExtArgs> = {}>(args?: Subset<T, BugReport$pokemonArgs<ExtArgs>>): Prisma__PokemonClient<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    votes<T extends BugReport$votesArgs<ExtArgs> = {}>(args?: Subset<T, BugReport$votesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BugReport model
+   */
+  interface BugReportFieldRefs {
+    readonly id: FieldRef<"BugReport", 'Int'>
+    readonly patchId: FieldRef<"BugReport", 'Int'>
+    readonly title: FieldRef<"BugReport", 'String'>
+    readonly description: FieldRef<"BugReport", 'String'>
+    readonly category: FieldRef<"BugReport", 'String'>
+    readonly pokemonId: FieldRef<"BugReport", 'Int'>
+    readonly severity: FieldRef<"BugReport", 'String'>
+    readonly status: FieldRef<"BugReport", 'String'>
+    readonly upvotes: FieldRef<"BugReport", 'Int'>
+    readonly downvotes: FieldRef<"BugReport", 'Int'>
+    readonly guestId: FieldRef<"BugReport", 'String'>
+    readonly createdAt: FieldRef<"BugReport", 'DateTime'>
+    readonly updatedAt: FieldRef<"BugReport", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BugReport findUnique
+   */
+  export type BugReportFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * Filter, which BugReport to fetch.
+     */
+    where: BugReportWhereUniqueInput
+  }
+
+  /**
+   * BugReport findUniqueOrThrow
+   */
+  export type BugReportFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * Filter, which BugReport to fetch.
+     */
+    where: BugReportWhereUniqueInput
+  }
+
+  /**
+   * BugReport findFirst
+   */
+  export type BugReportFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * Filter, which BugReport to fetch.
+     */
+    where?: BugReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugReports to fetch.
+     */
+    orderBy?: BugReportOrderByWithRelationInput | BugReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BugReports.
+     */
+    cursor?: BugReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BugReports.
+     */
+    distinct?: BugReportScalarFieldEnum | BugReportScalarFieldEnum[]
+  }
+
+  /**
+   * BugReport findFirstOrThrow
+   */
+  export type BugReportFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * Filter, which BugReport to fetch.
+     */
+    where?: BugReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugReports to fetch.
+     */
+    orderBy?: BugReportOrderByWithRelationInput | BugReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BugReports.
+     */
+    cursor?: BugReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BugReports.
+     */
+    distinct?: BugReportScalarFieldEnum | BugReportScalarFieldEnum[]
+  }
+
+  /**
+   * BugReport findMany
+   */
+  export type BugReportFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * Filter, which BugReports to fetch.
+     */
+    where?: BugReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugReports to fetch.
+     */
+    orderBy?: BugReportOrderByWithRelationInput | BugReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BugReports.
+     */
+    cursor?: BugReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugReports.
+     */
+    skip?: number
+    distinct?: BugReportScalarFieldEnum | BugReportScalarFieldEnum[]
+  }
+
+  /**
+   * BugReport create
+   */
+  export type BugReportCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BugReport.
+     */
+    data: XOR<BugReportCreateInput, BugReportUncheckedCreateInput>
+  }
+
+  /**
+   * BugReport createMany
+   */
+  export type BugReportCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BugReports.
+     */
+    data: BugReportCreateManyInput | BugReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BugReport createManyAndReturn
+   */
+  export type BugReportCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * The data used to create many BugReports.
+     */
+    data: BugReportCreateManyInput | BugReportCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BugReport update
+   */
+  export type BugReportUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BugReport.
+     */
+    data: XOR<BugReportUpdateInput, BugReportUncheckedUpdateInput>
+    /**
+     * Choose, which BugReport to update.
+     */
+    where: BugReportWhereUniqueInput
+  }
+
+  /**
+   * BugReport updateMany
+   */
+  export type BugReportUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BugReports.
+     */
+    data: XOR<BugReportUpdateManyMutationInput, BugReportUncheckedUpdateManyInput>
+    /**
+     * Filter which BugReports to update
+     */
+    where?: BugReportWhereInput
+    /**
+     * Limit how many BugReports to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BugReport updateManyAndReturn
+   */
+  export type BugReportUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * The data used to update BugReports.
+     */
+    data: XOR<BugReportUpdateManyMutationInput, BugReportUncheckedUpdateManyInput>
+    /**
+     * Filter which BugReports to update
+     */
+    where?: BugReportWhereInput
+    /**
+     * Limit how many BugReports to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BugReport upsert
+   */
+  export type BugReportUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BugReport to update in case it exists.
+     */
+    where: BugReportWhereUniqueInput
+    /**
+     * In case the BugReport found by the `where` argument doesn't exist, create a new BugReport with this data.
+     */
+    create: XOR<BugReportCreateInput, BugReportUncheckedCreateInput>
+    /**
+     * In case the BugReport was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BugReportUpdateInput, BugReportUncheckedUpdateInput>
+  }
+
+  /**
+   * BugReport delete
+   */
+  export type BugReportDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+    /**
+     * Filter which BugReport to delete.
+     */
+    where: BugReportWhereUniqueInput
+  }
+
+  /**
+   * BugReport deleteMany
+   */
+  export type BugReportDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BugReports to delete
+     */
+    where?: BugReportWhereInput
+    /**
+     * Limit how many BugReports to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BugReport.pokemon
+   */
+  export type BugReport$pokemonArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pokemon
+     */
+    select?: PokemonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pokemon
+     */
+    omit?: PokemonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PokemonInclude<ExtArgs> | null
+    where?: PokemonWhereInput
+  }
+
+  /**
+   * BugReport.votes
+   */
+  export type BugReport$votesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    where?: BugVoteWhereInput
+    orderBy?: BugVoteOrderByWithRelationInput | BugVoteOrderByWithRelationInput[]
+    cursor?: BugVoteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BugVoteScalarFieldEnum | BugVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BugReport without action
+   */
+  export type BugReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugReport
+     */
+    select?: BugReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugReport
+     */
+    omit?: BugReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugReportInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MetaVote
+   */
+
+  export type AggregateMetaVote = {
+    _count: MetaVoteCountAggregateOutputType | null
+    _avg: MetaVoteAvgAggregateOutputType | null
+    _sum: MetaVoteSumAggregateOutputType | null
+    _min: MetaVoteMinAggregateOutputType | null
+    _max: MetaVoteMaxAggregateOutputType | null
+  }
+
+  export type MetaVoteAvgAggregateOutputType = {
+    id: number | null
+    metaPostId: number | null
+  }
+
+  export type MetaVoteSumAggregateOutputType = {
+    id: number | null
+    metaPostId: number | null
+  }
+
+  export type MetaVoteMinAggregateOutputType = {
+    id: number | null
+    metaPostId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type MetaVoteMaxAggregateOutputType = {
+    id: number | null
+    metaPostId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type MetaVoteCountAggregateOutputType = {
+    id: number
+    metaPostId: number
+    userId: number
+    voteType: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type MetaVoteAvgAggregateInputType = {
+    id?: true
+    metaPostId?: true
+  }
+
+  export type MetaVoteSumAggregateInputType = {
+    id?: true
+    metaPostId?: true
+  }
+
+  export type MetaVoteMinAggregateInputType = {
+    id?: true
+    metaPostId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type MetaVoteMaxAggregateInputType = {
+    id?: true
+    metaPostId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type MetaVoteCountAggregateInputType = {
+    id?: true
+    metaPostId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type MetaVoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MetaVote to aggregate.
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaVotes to fetch.
+     */
+    orderBy?: MetaVoteOrderByWithRelationInput | MetaVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MetaVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MetaVotes
+    **/
+    _count?: true | MetaVoteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MetaVoteAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MetaVoteSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MetaVoteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MetaVoteMaxAggregateInputType
+  }
+
+  export type GetMetaVoteAggregateType<T extends MetaVoteAggregateArgs> = {
+        [P in keyof T & keyof AggregateMetaVote]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMetaVote[P]>
+      : GetScalarType<T[P], AggregateMetaVote[P]>
+  }
+
+
+
+
+  export type MetaVoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MetaVoteWhereInput
+    orderBy?: MetaVoteOrderByWithAggregationInput | MetaVoteOrderByWithAggregationInput[]
+    by: MetaVoteScalarFieldEnum[] | MetaVoteScalarFieldEnum
+    having?: MetaVoteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MetaVoteCountAggregateInputType | true
+    _avg?: MetaVoteAvgAggregateInputType
+    _sum?: MetaVoteSumAggregateInputType
+    _min?: MetaVoteMinAggregateInputType
+    _max?: MetaVoteMaxAggregateInputType
+  }
+
+  export type MetaVoteGroupByOutputType = {
+    id: number
+    metaPostId: number
+    userId: string
+    voteType: string
+    createdAt: Date
+    _count: MetaVoteCountAggregateOutputType | null
+    _avg: MetaVoteAvgAggregateOutputType | null
+    _sum: MetaVoteSumAggregateOutputType | null
+    _min: MetaVoteMinAggregateOutputType | null
+    _max: MetaVoteMaxAggregateOutputType | null
+  }
+
+  type GetMetaVoteGroupByPayload<T extends MetaVoteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MetaVoteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MetaVoteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MetaVoteGroupByOutputType[P]>
+            : GetScalarType<T[P], MetaVoteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MetaVoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    metaPostId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    metaPost?: boolean | MetaPostDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["metaVote"]>
+
+  export type MetaVoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    metaPostId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    metaPost?: boolean | MetaPostDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["metaVote"]>
+
+  export type MetaVoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    metaPostId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    metaPost?: boolean | MetaPostDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["metaVote"]>
+
+  export type MetaVoteSelectScalar = {
+    id?: boolean
+    metaPostId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+  }
+
+  export type MetaVoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "metaPostId" | "userId" | "voteType" | "createdAt", ExtArgs["result"]["metaVote"]>
+  export type MetaVoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    metaPost?: boolean | MetaPostDefaultArgs<ExtArgs>
+  }
+  export type MetaVoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    metaPost?: boolean | MetaPostDefaultArgs<ExtArgs>
+  }
+  export type MetaVoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    metaPost?: boolean | MetaPostDefaultArgs<ExtArgs>
+  }
+
+  export type $MetaVotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MetaVote"
+    objects: {
+      metaPost: Prisma.$MetaPostPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      metaPostId: number
+      userId: string
+      voteType: string
+      createdAt: Date
+    }, ExtArgs["result"]["metaVote"]>
+    composites: {}
+  }
+
+  type MetaVoteGetPayload<S extends boolean | null | undefined | MetaVoteDefaultArgs> = $Result.GetResult<Prisma.$MetaVotePayload, S>
+
+  type MetaVoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MetaVoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MetaVoteCountAggregateInputType | true
+    }
+
+  export interface MetaVoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MetaVote'], meta: { name: 'MetaVote' } }
+    /**
+     * Find zero or one MetaVote that matches the filter.
+     * @param {MetaVoteFindUniqueArgs} args - Arguments to find a MetaVote
+     * @example
+     * // Get one MetaVote
+     * const metaVote = await prisma.metaVote.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MetaVoteFindUniqueArgs>(args: SelectSubset<T, MetaVoteFindUniqueArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MetaVote that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MetaVoteFindUniqueOrThrowArgs} args - Arguments to find a MetaVote
+     * @example
+     * // Get one MetaVote
+     * const metaVote = await prisma.metaVote.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MetaVoteFindUniqueOrThrowArgs>(args: SelectSubset<T, MetaVoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MetaVote that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteFindFirstArgs} args - Arguments to find a MetaVote
+     * @example
+     * // Get one MetaVote
+     * const metaVote = await prisma.metaVote.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MetaVoteFindFirstArgs>(args?: SelectSubset<T, MetaVoteFindFirstArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MetaVote that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteFindFirstOrThrowArgs} args - Arguments to find a MetaVote
+     * @example
+     * // Get one MetaVote
+     * const metaVote = await prisma.metaVote.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MetaVoteFindFirstOrThrowArgs>(args?: SelectSubset<T, MetaVoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MetaVotes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MetaVotes
+     * const metaVotes = await prisma.metaVote.findMany()
+     * 
+     * // Get first 10 MetaVotes
+     * const metaVotes = await prisma.metaVote.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const metaVoteWithIdOnly = await prisma.metaVote.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MetaVoteFindManyArgs>(args?: SelectSubset<T, MetaVoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MetaVote.
+     * @param {MetaVoteCreateArgs} args - Arguments to create a MetaVote.
+     * @example
+     * // Create one MetaVote
+     * const MetaVote = await prisma.metaVote.create({
+     *   data: {
+     *     // ... data to create a MetaVote
+     *   }
+     * })
+     * 
+     */
+    create<T extends MetaVoteCreateArgs>(args: SelectSubset<T, MetaVoteCreateArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MetaVotes.
+     * @param {MetaVoteCreateManyArgs} args - Arguments to create many MetaVotes.
+     * @example
+     * // Create many MetaVotes
+     * const metaVote = await prisma.metaVote.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MetaVoteCreateManyArgs>(args?: SelectSubset<T, MetaVoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MetaVotes and returns the data saved in the database.
+     * @param {MetaVoteCreateManyAndReturnArgs} args - Arguments to create many MetaVotes.
+     * @example
+     * // Create many MetaVotes
+     * const metaVote = await prisma.metaVote.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MetaVotes and only return the `id`
+     * const metaVoteWithIdOnly = await prisma.metaVote.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MetaVoteCreateManyAndReturnArgs>(args?: SelectSubset<T, MetaVoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MetaVote.
+     * @param {MetaVoteDeleteArgs} args - Arguments to delete one MetaVote.
+     * @example
+     * // Delete one MetaVote
+     * const MetaVote = await prisma.metaVote.delete({
+     *   where: {
+     *     // ... filter to delete one MetaVote
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MetaVoteDeleteArgs>(args: SelectSubset<T, MetaVoteDeleteArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MetaVote.
+     * @param {MetaVoteUpdateArgs} args - Arguments to update one MetaVote.
+     * @example
+     * // Update one MetaVote
+     * const metaVote = await prisma.metaVote.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MetaVoteUpdateArgs>(args: SelectSubset<T, MetaVoteUpdateArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MetaVotes.
+     * @param {MetaVoteDeleteManyArgs} args - Arguments to filter MetaVotes to delete.
+     * @example
+     * // Delete a few MetaVotes
+     * const { count } = await prisma.metaVote.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MetaVoteDeleteManyArgs>(args?: SelectSubset<T, MetaVoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MetaVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MetaVotes
+     * const metaVote = await prisma.metaVote.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MetaVoteUpdateManyArgs>(args: SelectSubset<T, MetaVoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MetaVotes and returns the data updated in the database.
+     * @param {MetaVoteUpdateManyAndReturnArgs} args - Arguments to update many MetaVotes.
+     * @example
+     * // Update many MetaVotes
+     * const metaVote = await prisma.metaVote.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MetaVotes and only return the `id`
+     * const metaVoteWithIdOnly = await prisma.metaVote.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MetaVoteUpdateManyAndReturnArgs>(args: SelectSubset<T, MetaVoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MetaVote.
+     * @param {MetaVoteUpsertArgs} args - Arguments to update or create a MetaVote.
+     * @example
+     * // Update or create a MetaVote
+     * const metaVote = await prisma.metaVote.upsert({
+     *   create: {
+     *     // ... data to create a MetaVote
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MetaVote we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MetaVoteUpsertArgs>(args: SelectSubset<T, MetaVoteUpsertArgs<ExtArgs>>): Prisma__MetaVoteClient<$Result.GetResult<Prisma.$MetaVotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MetaVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteCountArgs} args - Arguments to filter MetaVotes to count.
+     * @example
+     * // Count the number of MetaVotes
+     * const count = await prisma.metaVote.count({
+     *   where: {
+     *     // ... the filter for the MetaVotes we want to count
+     *   }
+     * })
+    **/
+    count<T extends MetaVoteCountArgs>(
+      args?: Subset<T, MetaVoteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MetaVoteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MetaVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MetaVoteAggregateArgs>(args: Subset<T, MetaVoteAggregateArgs>): Prisma.PrismaPromise<GetMetaVoteAggregateType<T>>
+
+    /**
+     * Group by MetaVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MetaVoteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MetaVoteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MetaVoteGroupByArgs['orderBy'] }
+        : { orderBy?: MetaVoteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MetaVoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMetaVoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MetaVote model
+   */
+  readonly fields: MetaVoteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MetaVote.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MetaVoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    metaPost<T extends MetaPostDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MetaPostDefaultArgs<ExtArgs>>): Prisma__MetaPostClient<$Result.GetResult<Prisma.$MetaPostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MetaVote model
+   */
+  interface MetaVoteFieldRefs {
+    readonly id: FieldRef<"MetaVote", 'Int'>
+    readonly metaPostId: FieldRef<"MetaVote", 'Int'>
+    readonly userId: FieldRef<"MetaVote", 'String'>
+    readonly voteType: FieldRef<"MetaVote", 'String'>
+    readonly createdAt: FieldRef<"MetaVote", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MetaVote findUnique
+   */
+  export type MetaVoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaVote to fetch.
+     */
+    where: MetaVoteWhereUniqueInput
+  }
+
+  /**
+   * MetaVote findUniqueOrThrow
+   */
+  export type MetaVoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaVote to fetch.
+     */
+    where: MetaVoteWhereUniqueInput
+  }
+
+  /**
+   * MetaVote findFirst
+   */
+  export type MetaVoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaVote to fetch.
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaVotes to fetch.
+     */
+    orderBy?: MetaVoteOrderByWithRelationInput | MetaVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MetaVotes.
+     */
+    cursor?: MetaVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MetaVotes.
+     */
+    distinct?: MetaVoteScalarFieldEnum | MetaVoteScalarFieldEnum[]
+  }
+
+  /**
+   * MetaVote findFirstOrThrow
+   */
+  export type MetaVoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaVote to fetch.
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaVotes to fetch.
+     */
+    orderBy?: MetaVoteOrderByWithRelationInput | MetaVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MetaVotes.
+     */
+    cursor?: MetaVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MetaVotes.
+     */
+    distinct?: MetaVoteScalarFieldEnum | MetaVoteScalarFieldEnum[]
+  }
+
+  /**
+   * MetaVote findMany
+   */
+  export type MetaVoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which MetaVotes to fetch.
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MetaVotes to fetch.
+     */
+    orderBy?: MetaVoteOrderByWithRelationInput | MetaVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MetaVotes.
+     */
+    cursor?: MetaVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MetaVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MetaVotes.
+     */
+    skip?: number
+    distinct?: MetaVoteScalarFieldEnum | MetaVoteScalarFieldEnum[]
+  }
+
+  /**
+   * MetaVote create
+   */
+  export type MetaVoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MetaVote.
+     */
+    data: XOR<MetaVoteCreateInput, MetaVoteUncheckedCreateInput>
+  }
+
+  /**
+   * MetaVote createMany
+   */
+  export type MetaVoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MetaVotes.
+     */
+    data: MetaVoteCreateManyInput | MetaVoteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MetaVote createManyAndReturn
+   */
+  export type MetaVoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * The data used to create many MetaVotes.
+     */
+    data: MetaVoteCreateManyInput | MetaVoteCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MetaVote update
+   */
+  export type MetaVoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MetaVote.
+     */
+    data: XOR<MetaVoteUpdateInput, MetaVoteUncheckedUpdateInput>
+    /**
+     * Choose, which MetaVote to update.
+     */
+    where: MetaVoteWhereUniqueInput
+  }
+
+  /**
+   * MetaVote updateMany
+   */
+  export type MetaVoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MetaVotes.
+     */
+    data: XOR<MetaVoteUpdateManyMutationInput, MetaVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which MetaVotes to update
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * Limit how many MetaVotes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MetaVote updateManyAndReturn
+   */
+  export type MetaVoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * The data used to update MetaVotes.
+     */
+    data: XOR<MetaVoteUpdateManyMutationInput, MetaVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which MetaVotes to update
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * Limit how many MetaVotes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MetaVote upsert
+   */
+  export type MetaVoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MetaVote to update in case it exists.
+     */
+    where: MetaVoteWhereUniqueInput
+    /**
+     * In case the MetaVote found by the `where` argument doesn't exist, create a new MetaVote with this data.
+     */
+    create: XOR<MetaVoteCreateInput, MetaVoteUncheckedCreateInput>
+    /**
+     * In case the MetaVote was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MetaVoteUpdateInput, MetaVoteUncheckedUpdateInput>
+  }
+
+  /**
+   * MetaVote delete
+   */
+  export type MetaVoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+    /**
+     * Filter which MetaVote to delete.
+     */
+    where: MetaVoteWhereUniqueInput
+  }
+
+  /**
+   * MetaVote deleteMany
+   */
+  export type MetaVoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MetaVotes to delete
+     */
+    where?: MetaVoteWhereInput
+    /**
+     * Limit how many MetaVotes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MetaVote without action
+   */
+  export type MetaVoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MetaVote
+     */
+    select?: MetaVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MetaVote
+     */
+    omit?: MetaVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MetaVoteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BanVote
+   */
+
+  export type AggregateBanVote = {
+    _count: BanVoteCountAggregateOutputType | null
+    _avg: BanVoteAvgAggregateOutputType | null
+    _sum: BanVoteSumAggregateOutputType | null
+    _min: BanVoteMinAggregateOutputType | null
+    _max: BanVoteMaxAggregateOutputType | null
+  }
+
+  export type BanVoteAvgAggregateOutputType = {
+    id: number | null
+    banPickId: number | null
+  }
+
+  export type BanVoteSumAggregateOutputType = {
+    id: number | null
+    banPickId: number | null
+  }
+
+  export type BanVoteMinAggregateOutputType = {
+    id: number | null
+    banPickId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type BanVoteMaxAggregateOutputType = {
+    id: number | null
+    banPickId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type BanVoteCountAggregateOutputType = {
+    id: number
+    banPickId: number
+    userId: number
+    voteType: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BanVoteAvgAggregateInputType = {
+    id?: true
+    banPickId?: true
+  }
+
+  export type BanVoteSumAggregateInputType = {
+    id?: true
+    banPickId?: true
+  }
+
+  export type BanVoteMinAggregateInputType = {
+    id?: true
+    banPickId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type BanVoteMaxAggregateInputType = {
+    id?: true
+    banPickId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type BanVoteCountAggregateInputType = {
+    id?: true
+    banPickId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BanVoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BanVote to aggregate.
+     */
+    where?: BanVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanVotes to fetch.
+     */
+    orderBy?: BanVoteOrderByWithRelationInput | BanVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BanVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BanVotes
+    **/
+    _count?: true | BanVoteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BanVoteAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BanVoteSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BanVoteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BanVoteMaxAggregateInputType
+  }
+
+  export type GetBanVoteAggregateType<T extends BanVoteAggregateArgs> = {
+        [P in keyof T & keyof AggregateBanVote]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBanVote[P]>
+      : GetScalarType<T[P], AggregateBanVote[P]>
+  }
+
+
+
+
+  export type BanVoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BanVoteWhereInput
+    orderBy?: BanVoteOrderByWithAggregationInput | BanVoteOrderByWithAggregationInput[]
+    by: BanVoteScalarFieldEnum[] | BanVoteScalarFieldEnum
+    having?: BanVoteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BanVoteCountAggregateInputType | true
+    _avg?: BanVoteAvgAggregateInputType
+    _sum?: BanVoteSumAggregateInputType
+    _min?: BanVoteMinAggregateInputType
+    _max?: BanVoteMaxAggregateInputType
+  }
+
+  export type BanVoteGroupByOutputType = {
+    id: number
+    banPickId: number
+    userId: string
+    voteType: string
+    createdAt: Date
+    _count: BanVoteCountAggregateOutputType | null
+    _avg: BanVoteAvgAggregateOutputType | null
+    _sum: BanVoteSumAggregateOutputType | null
+    _min: BanVoteMinAggregateOutputType | null
+    _max: BanVoteMaxAggregateOutputType | null
+  }
+
+  type GetBanVoteGroupByPayload<T extends BanVoteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BanVoteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BanVoteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BanVoteGroupByOutputType[P]>
+            : GetScalarType<T[P], BanVoteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BanVoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    banPickId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    banPick?: boolean | BanPickDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["banVote"]>
+
+  export type BanVoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    banPickId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    banPick?: boolean | BanPickDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["banVote"]>
+
+  export type BanVoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    banPickId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    banPick?: boolean | BanPickDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["banVote"]>
+
+  export type BanVoteSelectScalar = {
+    id?: boolean
+    banPickId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+  }
+
+  export type BanVoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "banPickId" | "userId" | "voteType" | "createdAt", ExtArgs["result"]["banVote"]>
+  export type BanVoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    banPick?: boolean | BanPickDefaultArgs<ExtArgs>
+  }
+  export type BanVoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    banPick?: boolean | BanPickDefaultArgs<ExtArgs>
+  }
+  export type BanVoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    banPick?: boolean | BanPickDefaultArgs<ExtArgs>
+  }
+
+  export type $BanVotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BanVote"
+    objects: {
+      banPick: Prisma.$BanPickPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      banPickId: number
+      userId: string
+      voteType: string
+      createdAt: Date
+    }, ExtArgs["result"]["banVote"]>
+    composites: {}
+  }
+
+  type BanVoteGetPayload<S extends boolean | null | undefined | BanVoteDefaultArgs> = $Result.GetResult<Prisma.$BanVotePayload, S>
+
+  type BanVoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BanVoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BanVoteCountAggregateInputType | true
+    }
+
+  export interface BanVoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BanVote'], meta: { name: 'BanVote' } }
+    /**
+     * Find zero or one BanVote that matches the filter.
+     * @param {BanVoteFindUniqueArgs} args - Arguments to find a BanVote
+     * @example
+     * // Get one BanVote
+     * const banVote = await prisma.banVote.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BanVoteFindUniqueArgs>(args: SelectSubset<T, BanVoteFindUniqueArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BanVote that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BanVoteFindUniqueOrThrowArgs} args - Arguments to find a BanVote
+     * @example
+     * // Get one BanVote
+     * const banVote = await prisma.banVote.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BanVoteFindUniqueOrThrowArgs>(args: SelectSubset<T, BanVoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BanVote that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteFindFirstArgs} args - Arguments to find a BanVote
+     * @example
+     * // Get one BanVote
+     * const banVote = await prisma.banVote.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BanVoteFindFirstArgs>(args?: SelectSubset<T, BanVoteFindFirstArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BanVote that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteFindFirstOrThrowArgs} args - Arguments to find a BanVote
+     * @example
+     * // Get one BanVote
+     * const banVote = await prisma.banVote.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BanVoteFindFirstOrThrowArgs>(args?: SelectSubset<T, BanVoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BanVotes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BanVotes
+     * const banVotes = await prisma.banVote.findMany()
+     * 
+     * // Get first 10 BanVotes
+     * const banVotes = await prisma.banVote.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const banVoteWithIdOnly = await prisma.banVote.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BanVoteFindManyArgs>(args?: SelectSubset<T, BanVoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BanVote.
+     * @param {BanVoteCreateArgs} args - Arguments to create a BanVote.
+     * @example
+     * // Create one BanVote
+     * const BanVote = await prisma.banVote.create({
+     *   data: {
+     *     // ... data to create a BanVote
+     *   }
+     * })
+     * 
+     */
+    create<T extends BanVoteCreateArgs>(args: SelectSubset<T, BanVoteCreateArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BanVotes.
+     * @param {BanVoteCreateManyArgs} args - Arguments to create many BanVotes.
+     * @example
+     * // Create many BanVotes
+     * const banVote = await prisma.banVote.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BanVoteCreateManyArgs>(args?: SelectSubset<T, BanVoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BanVotes and returns the data saved in the database.
+     * @param {BanVoteCreateManyAndReturnArgs} args - Arguments to create many BanVotes.
+     * @example
+     * // Create many BanVotes
+     * const banVote = await prisma.banVote.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BanVotes and only return the `id`
+     * const banVoteWithIdOnly = await prisma.banVote.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BanVoteCreateManyAndReturnArgs>(args?: SelectSubset<T, BanVoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BanVote.
+     * @param {BanVoteDeleteArgs} args - Arguments to delete one BanVote.
+     * @example
+     * // Delete one BanVote
+     * const BanVote = await prisma.banVote.delete({
+     *   where: {
+     *     // ... filter to delete one BanVote
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BanVoteDeleteArgs>(args: SelectSubset<T, BanVoteDeleteArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BanVote.
+     * @param {BanVoteUpdateArgs} args - Arguments to update one BanVote.
+     * @example
+     * // Update one BanVote
+     * const banVote = await prisma.banVote.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BanVoteUpdateArgs>(args: SelectSubset<T, BanVoteUpdateArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BanVotes.
+     * @param {BanVoteDeleteManyArgs} args - Arguments to filter BanVotes to delete.
+     * @example
+     * // Delete a few BanVotes
+     * const { count } = await prisma.banVote.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BanVoteDeleteManyArgs>(args?: SelectSubset<T, BanVoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BanVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BanVotes
+     * const banVote = await prisma.banVote.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BanVoteUpdateManyArgs>(args: SelectSubset<T, BanVoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BanVotes and returns the data updated in the database.
+     * @param {BanVoteUpdateManyAndReturnArgs} args - Arguments to update many BanVotes.
+     * @example
+     * // Update many BanVotes
+     * const banVote = await prisma.banVote.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BanVotes and only return the `id`
+     * const banVoteWithIdOnly = await prisma.banVote.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BanVoteUpdateManyAndReturnArgs>(args: SelectSubset<T, BanVoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BanVote.
+     * @param {BanVoteUpsertArgs} args - Arguments to update or create a BanVote.
+     * @example
+     * // Update or create a BanVote
+     * const banVote = await prisma.banVote.upsert({
+     *   create: {
+     *     // ... data to create a BanVote
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BanVote we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BanVoteUpsertArgs>(args: SelectSubset<T, BanVoteUpsertArgs<ExtArgs>>): Prisma__BanVoteClient<$Result.GetResult<Prisma.$BanVotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BanVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteCountArgs} args - Arguments to filter BanVotes to count.
+     * @example
+     * // Count the number of BanVotes
+     * const count = await prisma.banVote.count({
+     *   where: {
+     *     // ... the filter for the BanVotes we want to count
+     *   }
+     * })
+    **/
+    count<T extends BanVoteCountArgs>(
+      args?: Subset<T, BanVoteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BanVoteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BanVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BanVoteAggregateArgs>(args: Subset<T, BanVoteAggregateArgs>): Prisma.PrismaPromise<GetBanVoteAggregateType<T>>
+
+    /**
+     * Group by BanVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BanVoteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BanVoteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BanVoteGroupByArgs['orderBy'] }
+        : { orderBy?: BanVoteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BanVoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBanVoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BanVote model
+   */
+  readonly fields: BanVoteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BanVote.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BanVoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    banPick<T extends BanPickDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BanPickDefaultArgs<ExtArgs>>): Prisma__BanPickClient<$Result.GetResult<Prisma.$BanPickPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BanVote model
+   */
+  interface BanVoteFieldRefs {
+    readonly id: FieldRef<"BanVote", 'Int'>
+    readonly banPickId: FieldRef<"BanVote", 'Int'>
+    readonly userId: FieldRef<"BanVote", 'String'>
+    readonly voteType: FieldRef<"BanVote", 'String'>
+    readonly createdAt: FieldRef<"BanVote", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BanVote findUnique
+   */
+  export type BanVoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BanVote to fetch.
+     */
+    where: BanVoteWhereUniqueInput
+  }
+
+  /**
+   * BanVote findUniqueOrThrow
+   */
+  export type BanVoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BanVote to fetch.
+     */
+    where: BanVoteWhereUniqueInput
+  }
+
+  /**
+   * BanVote findFirst
+   */
+  export type BanVoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BanVote to fetch.
+     */
+    where?: BanVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanVotes to fetch.
+     */
+    orderBy?: BanVoteOrderByWithRelationInput | BanVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BanVotes.
+     */
+    cursor?: BanVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BanVotes.
+     */
+    distinct?: BanVoteScalarFieldEnum | BanVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BanVote findFirstOrThrow
+   */
+  export type BanVoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BanVote to fetch.
+     */
+    where?: BanVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanVotes to fetch.
+     */
+    orderBy?: BanVoteOrderByWithRelationInput | BanVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BanVotes.
+     */
+    cursor?: BanVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BanVotes.
+     */
+    distinct?: BanVoteScalarFieldEnum | BanVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BanVote findMany
+   */
+  export type BanVoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BanVotes to fetch.
+     */
+    where?: BanVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BanVotes to fetch.
+     */
+    orderBy?: BanVoteOrderByWithRelationInput | BanVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BanVotes.
+     */
+    cursor?: BanVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BanVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BanVotes.
+     */
+    skip?: number
+    distinct?: BanVoteScalarFieldEnum | BanVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BanVote create
+   */
+  export type BanVoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BanVote.
+     */
+    data: XOR<BanVoteCreateInput, BanVoteUncheckedCreateInput>
+  }
+
+  /**
+   * BanVote createMany
+   */
+  export type BanVoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BanVotes.
+     */
+    data: BanVoteCreateManyInput | BanVoteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BanVote createManyAndReturn
+   */
+  export type BanVoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * The data used to create many BanVotes.
+     */
+    data: BanVoteCreateManyInput | BanVoteCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BanVote update
+   */
+  export type BanVoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BanVote.
+     */
+    data: XOR<BanVoteUpdateInput, BanVoteUncheckedUpdateInput>
+    /**
+     * Choose, which BanVote to update.
+     */
+    where: BanVoteWhereUniqueInput
+  }
+
+  /**
+   * BanVote updateMany
+   */
+  export type BanVoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BanVotes.
+     */
+    data: XOR<BanVoteUpdateManyMutationInput, BanVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which BanVotes to update
+     */
+    where?: BanVoteWhereInput
+    /**
+     * Limit how many BanVotes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BanVote updateManyAndReturn
+   */
+  export type BanVoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * The data used to update BanVotes.
+     */
+    data: XOR<BanVoteUpdateManyMutationInput, BanVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which BanVotes to update
+     */
+    where?: BanVoteWhereInput
+    /**
+     * Limit how many BanVotes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BanVote upsert
+   */
+  export type BanVoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BanVote to update in case it exists.
+     */
+    where: BanVoteWhereUniqueInput
+    /**
+     * In case the BanVote found by the `where` argument doesn't exist, create a new BanVote with this data.
+     */
+    create: XOR<BanVoteCreateInput, BanVoteUncheckedCreateInput>
+    /**
+     * In case the BanVote was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BanVoteUpdateInput, BanVoteUncheckedUpdateInput>
+  }
+
+  /**
+   * BanVote delete
+   */
+  export type BanVoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+    /**
+     * Filter which BanVote to delete.
+     */
+    where: BanVoteWhereUniqueInput
+  }
+
+  /**
+   * BanVote deleteMany
+   */
+  export type BanVoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BanVotes to delete
+     */
+    where?: BanVoteWhereInput
+    /**
+     * Limit how many BanVotes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BanVote without action
+   */
+  export type BanVoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BanVote
+     */
+    select?: BanVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BanVote
+     */
+    omit?: BanVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BanVoteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BugVote
+   */
+
+  export type AggregateBugVote = {
+    _count: BugVoteCountAggregateOutputType | null
+    _avg: BugVoteAvgAggregateOutputType | null
+    _sum: BugVoteSumAggregateOutputType | null
+    _min: BugVoteMinAggregateOutputType | null
+    _max: BugVoteMaxAggregateOutputType | null
+  }
+
+  export type BugVoteAvgAggregateOutputType = {
+    id: number | null
+    bugReportId: number | null
+  }
+
+  export type BugVoteSumAggregateOutputType = {
+    id: number | null
+    bugReportId: number | null
+  }
+
+  export type BugVoteMinAggregateOutputType = {
+    id: number | null
+    bugReportId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type BugVoteMaxAggregateOutputType = {
+    id: number | null
+    bugReportId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type BugVoteCountAggregateOutputType = {
+    id: number
+    bugReportId: number
+    userId: number
+    voteType: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BugVoteAvgAggregateInputType = {
+    id?: true
+    bugReportId?: true
+  }
+
+  export type BugVoteSumAggregateInputType = {
+    id?: true
+    bugReportId?: true
+  }
+
+  export type BugVoteMinAggregateInputType = {
+    id?: true
+    bugReportId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type BugVoteMaxAggregateInputType = {
+    id?: true
+    bugReportId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type BugVoteCountAggregateInputType = {
+    id?: true
+    bugReportId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BugVoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BugVote to aggregate.
+     */
+    where?: BugVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugVotes to fetch.
+     */
+    orderBy?: BugVoteOrderByWithRelationInput | BugVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BugVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BugVotes
+    **/
+    _count?: true | BugVoteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BugVoteAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BugVoteSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BugVoteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BugVoteMaxAggregateInputType
+  }
+
+  export type GetBugVoteAggregateType<T extends BugVoteAggregateArgs> = {
+        [P in keyof T & keyof AggregateBugVote]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBugVote[P]>
+      : GetScalarType<T[P], AggregateBugVote[P]>
+  }
+
+
+
+
+  export type BugVoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BugVoteWhereInput
+    orderBy?: BugVoteOrderByWithAggregationInput | BugVoteOrderByWithAggregationInput[]
+    by: BugVoteScalarFieldEnum[] | BugVoteScalarFieldEnum
+    having?: BugVoteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BugVoteCountAggregateInputType | true
+    _avg?: BugVoteAvgAggregateInputType
+    _sum?: BugVoteSumAggregateInputType
+    _min?: BugVoteMinAggregateInputType
+    _max?: BugVoteMaxAggregateInputType
+  }
+
+  export type BugVoteGroupByOutputType = {
+    id: number
+    bugReportId: number
+    userId: string
+    voteType: string
+    createdAt: Date
+    _count: BugVoteCountAggregateOutputType | null
+    _avg: BugVoteAvgAggregateOutputType | null
+    _sum: BugVoteSumAggregateOutputType | null
+    _min: BugVoteMinAggregateOutputType | null
+    _max: BugVoteMaxAggregateOutputType | null
+  }
+
+  type GetBugVoteGroupByPayload<T extends BugVoteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BugVoteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BugVoteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BugVoteGroupByOutputType[P]>
+            : GetScalarType<T[P], BugVoteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BugVoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bugReportId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    bugReport?: boolean | BugReportDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bugVote"]>
+
+  export type BugVoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bugReportId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    bugReport?: boolean | BugReportDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bugVote"]>
+
+  export type BugVoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bugReportId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    bugReport?: boolean | BugReportDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bugVote"]>
+
+  export type BugVoteSelectScalar = {
+    id?: boolean
+    bugReportId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+  }
+
+  export type BugVoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "bugReportId" | "userId" | "voteType" | "createdAt", ExtArgs["result"]["bugVote"]>
+  export type BugVoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bugReport?: boolean | BugReportDefaultArgs<ExtArgs>
+  }
+  export type BugVoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bugReport?: boolean | BugReportDefaultArgs<ExtArgs>
+  }
+  export type BugVoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bugReport?: boolean | BugReportDefaultArgs<ExtArgs>
+  }
+
+  export type $BugVotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BugVote"
+    objects: {
+      bugReport: Prisma.$BugReportPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      bugReportId: number
+      userId: string
+      voteType: string
+      createdAt: Date
+    }, ExtArgs["result"]["bugVote"]>
+    composites: {}
+  }
+
+  type BugVoteGetPayload<S extends boolean | null | undefined | BugVoteDefaultArgs> = $Result.GetResult<Prisma.$BugVotePayload, S>
+
+  type BugVoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BugVoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BugVoteCountAggregateInputType | true
+    }
+
+  export interface BugVoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BugVote'], meta: { name: 'BugVote' } }
+    /**
+     * Find zero or one BugVote that matches the filter.
+     * @param {BugVoteFindUniqueArgs} args - Arguments to find a BugVote
+     * @example
+     * // Get one BugVote
+     * const bugVote = await prisma.bugVote.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BugVoteFindUniqueArgs>(args: SelectSubset<T, BugVoteFindUniqueArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BugVote that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BugVoteFindUniqueOrThrowArgs} args - Arguments to find a BugVote
+     * @example
+     * // Get one BugVote
+     * const bugVote = await prisma.bugVote.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BugVoteFindUniqueOrThrowArgs>(args: SelectSubset<T, BugVoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BugVote that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteFindFirstArgs} args - Arguments to find a BugVote
+     * @example
+     * // Get one BugVote
+     * const bugVote = await prisma.bugVote.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BugVoteFindFirstArgs>(args?: SelectSubset<T, BugVoteFindFirstArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BugVote that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteFindFirstOrThrowArgs} args - Arguments to find a BugVote
+     * @example
+     * // Get one BugVote
+     * const bugVote = await prisma.bugVote.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BugVoteFindFirstOrThrowArgs>(args?: SelectSubset<T, BugVoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BugVotes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BugVotes
+     * const bugVotes = await prisma.bugVote.findMany()
+     * 
+     * // Get first 10 BugVotes
+     * const bugVotes = await prisma.bugVote.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bugVoteWithIdOnly = await prisma.bugVote.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BugVoteFindManyArgs>(args?: SelectSubset<T, BugVoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BugVote.
+     * @param {BugVoteCreateArgs} args - Arguments to create a BugVote.
+     * @example
+     * // Create one BugVote
+     * const BugVote = await prisma.bugVote.create({
+     *   data: {
+     *     // ... data to create a BugVote
+     *   }
+     * })
+     * 
+     */
+    create<T extends BugVoteCreateArgs>(args: SelectSubset<T, BugVoteCreateArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BugVotes.
+     * @param {BugVoteCreateManyArgs} args - Arguments to create many BugVotes.
+     * @example
+     * // Create many BugVotes
+     * const bugVote = await prisma.bugVote.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BugVoteCreateManyArgs>(args?: SelectSubset<T, BugVoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BugVotes and returns the data saved in the database.
+     * @param {BugVoteCreateManyAndReturnArgs} args - Arguments to create many BugVotes.
+     * @example
+     * // Create many BugVotes
+     * const bugVote = await prisma.bugVote.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BugVotes and only return the `id`
+     * const bugVoteWithIdOnly = await prisma.bugVote.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BugVoteCreateManyAndReturnArgs>(args?: SelectSubset<T, BugVoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BugVote.
+     * @param {BugVoteDeleteArgs} args - Arguments to delete one BugVote.
+     * @example
+     * // Delete one BugVote
+     * const BugVote = await prisma.bugVote.delete({
+     *   where: {
+     *     // ... filter to delete one BugVote
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BugVoteDeleteArgs>(args: SelectSubset<T, BugVoteDeleteArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BugVote.
+     * @param {BugVoteUpdateArgs} args - Arguments to update one BugVote.
+     * @example
+     * // Update one BugVote
+     * const bugVote = await prisma.bugVote.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BugVoteUpdateArgs>(args: SelectSubset<T, BugVoteUpdateArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BugVotes.
+     * @param {BugVoteDeleteManyArgs} args - Arguments to filter BugVotes to delete.
+     * @example
+     * // Delete a few BugVotes
+     * const { count } = await prisma.bugVote.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BugVoteDeleteManyArgs>(args?: SelectSubset<T, BugVoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BugVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BugVotes
+     * const bugVote = await prisma.bugVote.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BugVoteUpdateManyArgs>(args: SelectSubset<T, BugVoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BugVotes and returns the data updated in the database.
+     * @param {BugVoteUpdateManyAndReturnArgs} args - Arguments to update many BugVotes.
+     * @example
+     * // Update many BugVotes
+     * const bugVote = await prisma.bugVote.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BugVotes and only return the `id`
+     * const bugVoteWithIdOnly = await prisma.bugVote.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BugVoteUpdateManyAndReturnArgs>(args: SelectSubset<T, BugVoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BugVote.
+     * @param {BugVoteUpsertArgs} args - Arguments to update or create a BugVote.
+     * @example
+     * // Update or create a BugVote
+     * const bugVote = await prisma.bugVote.upsert({
+     *   create: {
+     *     // ... data to create a BugVote
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BugVote we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BugVoteUpsertArgs>(args: SelectSubset<T, BugVoteUpsertArgs<ExtArgs>>): Prisma__BugVoteClient<$Result.GetResult<Prisma.$BugVotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BugVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteCountArgs} args - Arguments to filter BugVotes to count.
+     * @example
+     * // Count the number of BugVotes
+     * const count = await prisma.bugVote.count({
+     *   where: {
+     *     // ... the filter for the BugVotes we want to count
+     *   }
+     * })
+    **/
+    count<T extends BugVoteCountArgs>(
+      args?: Subset<T, BugVoteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BugVoteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BugVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BugVoteAggregateArgs>(args: Subset<T, BugVoteAggregateArgs>): Prisma.PrismaPromise<GetBugVoteAggregateType<T>>
+
+    /**
+     * Group by BugVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugVoteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BugVoteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BugVoteGroupByArgs['orderBy'] }
+        : { orderBy?: BugVoteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BugVoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBugVoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BugVote model
+   */
+  readonly fields: BugVoteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BugVote.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BugVoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    bugReport<T extends BugReportDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BugReportDefaultArgs<ExtArgs>>): Prisma__BugReportClient<$Result.GetResult<Prisma.$BugReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BugVote model
+   */
+  interface BugVoteFieldRefs {
+    readonly id: FieldRef<"BugVote", 'Int'>
+    readonly bugReportId: FieldRef<"BugVote", 'Int'>
+    readonly userId: FieldRef<"BugVote", 'String'>
+    readonly voteType: FieldRef<"BugVote", 'String'>
+    readonly createdAt: FieldRef<"BugVote", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BugVote findUnique
+   */
+  export type BugVoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BugVote to fetch.
+     */
+    where: BugVoteWhereUniqueInput
+  }
+
+  /**
+   * BugVote findUniqueOrThrow
+   */
+  export type BugVoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BugVote to fetch.
+     */
+    where: BugVoteWhereUniqueInput
+  }
+
+  /**
+   * BugVote findFirst
+   */
+  export type BugVoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BugVote to fetch.
+     */
+    where?: BugVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugVotes to fetch.
+     */
+    orderBy?: BugVoteOrderByWithRelationInput | BugVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BugVotes.
+     */
+    cursor?: BugVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BugVotes.
+     */
+    distinct?: BugVoteScalarFieldEnum | BugVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BugVote findFirstOrThrow
+   */
+  export type BugVoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BugVote to fetch.
+     */
+    where?: BugVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugVotes to fetch.
+     */
+    orderBy?: BugVoteOrderByWithRelationInput | BugVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BugVotes.
+     */
+    cursor?: BugVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BugVotes.
+     */
+    distinct?: BugVoteScalarFieldEnum | BugVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BugVote findMany
+   */
+  export type BugVoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which BugVotes to fetch.
+     */
+    where?: BugVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BugVotes to fetch.
+     */
+    orderBy?: BugVoteOrderByWithRelationInput | BugVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BugVotes.
+     */
+    cursor?: BugVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BugVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BugVotes.
+     */
+    skip?: number
+    distinct?: BugVoteScalarFieldEnum | BugVoteScalarFieldEnum[]
+  }
+
+  /**
+   * BugVote create
+   */
+  export type BugVoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BugVote.
+     */
+    data: XOR<BugVoteCreateInput, BugVoteUncheckedCreateInput>
+  }
+
+  /**
+   * BugVote createMany
+   */
+  export type BugVoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BugVotes.
+     */
+    data: BugVoteCreateManyInput | BugVoteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BugVote createManyAndReturn
+   */
+  export type BugVoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * The data used to create many BugVotes.
+     */
+    data: BugVoteCreateManyInput | BugVoteCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BugVote update
+   */
+  export type BugVoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BugVote.
+     */
+    data: XOR<BugVoteUpdateInput, BugVoteUncheckedUpdateInput>
+    /**
+     * Choose, which BugVote to update.
+     */
+    where: BugVoteWhereUniqueInput
+  }
+
+  /**
+   * BugVote updateMany
+   */
+  export type BugVoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BugVotes.
+     */
+    data: XOR<BugVoteUpdateManyMutationInput, BugVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which BugVotes to update
+     */
+    where?: BugVoteWhereInput
+    /**
+     * Limit how many BugVotes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BugVote updateManyAndReturn
+   */
+  export type BugVoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * The data used to update BugVotes.
+     */
+    data: XOR<BugVoteUpdateManyMutationInput, BugVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which BugVotes to update
+     */
+    where?: BugVoteWhereInput
+    /**
+     * Limit how many BugVotes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BugVote upsert
+   */
+  export type BugVoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BugVote to update in case it exists.
+     */
+    where: BugVoteWhereUniqueInput
+    /**
+     * In case the BugVote found by the `where` argument doesn't exist, create a new BugVote with this data.
+     */
+    create: XOR<BugVoteCreateInput, BugVoteUncheckedCreateInput>
+    /**
+     * In case the BugVote was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BugVoteUpdateInput, BugVoteUncheckedUpdateInput>
+  }
+
+  /**
+   * BugVote delete
+   */
+  export type BugVoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+    /**
+     * Filter which BugVote to delete.
+     */
+    where: BugVoteWhereUniqueInput
+  }
+
+  /**
+   * BugVote deleteMany
+   */
+  export type BugVoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BugVotes to delete
+     */
+    where?: BugVoteWhereInput
+    /**
+     * Limit how many BugVotes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BugVote without action
+   */
+  export type BugVoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BugVote
+     */
+    select?: BugVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BugVote
+     */
+    omit?: BugVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BugVoteInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -18293,7 +32240,9 @@ export namespace Prisma {
     reason: 'reason',
     counterType: 'counterType',
     upvotes: 'upvotes',
-    downvotes: 'downvotes'
+    downvotes: 'downvotes',
+    userId: 'userId',
+    guestId: 'guestId'
   };
 
   export type PokemonCounterScalarFieldEnum = (typeof PokemonCounterScalarFieldEnum)[keyof typeof PokemonCounterScalarFieldEnum]
@@ -18399,6 +32348,7 @@ export namespace Prisma {
     id: 'id',
     trainerId: 'trainerId',
     authorToken: 'authorToken',
+    userId: 'userId',
     comment: 'comment',
     createdAt: 'createdAt'
   };
@@ -18414,6 +32364,153 @@ export namespace Prisma {
   };
 
   export type RadarValueScalarFieldEnum = (typeof RadarValueScalarFieldEnum)[keyof typeof RadarValueScalarFieldEnum]
+
+
+  export const UserScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    emailVerified: 'emailVerified',
+    image: 'image',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const AccountScalarFieldEnum: {
+    userId: 'userId',
+    type: 'type',
+    provider: 'provider',
+    providerAccountId: 'providerAccountId',
+    refresh_token: 'refresh_token',
+    access_token: 'access_token',
+    expires_at: 'expires_at',
+    token_type: 'token_type',
+    scope: 'scope',
+    id_token: 'id_token',
+    session_state: 'session_state',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
+
+
+  export const SessionScalarFieldEnum: {
+    sessionToken: 'sessionToken',
+    userId: 'userId',
+    expires: 'expires',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum]
+
+
+  export const VerificationTokenScalarFieldEnum: {
+    identifier: 'identifier',
+    token: 'token',
+    expires: 'expires'
+  };
+
+  export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
+
+
+  export const GamePatchScalarFieldEnum: {
+    id: 'id',
+    version: 'version',
+    releasedAt: 'releasedAt',
+    isActive: 'isActive',
+    createdAt: 'createdAt'
+  };
+
+  export type GamePatchScalarFieldEnum = (typeof GamePatchScalarFieldEnum)[keyof typeof GamePatchScalarFieldEnum]
+
+
+  export const MetaPostScalarFieldEnum: {
+    id: 'id',
+    patchId: 'patchId',
+    pokemonId: 'pokemonId',
+    reason: 'reason',
+    tier: 'tier',
+    upvotes: 'upvotes',
+    downvotes: 'downvotes',
+    guestId: 'guestId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MetaPostScalarFieldEnum = (typeof MetaPostScalarFieldEnum)[keyof typeof MetaPostScalarFieldEnum]
+
+
+  export const BanPickScalarFieldEnum: {
+    id: 'id',
+    patchId: 'patchId',
+    pokemonId: 'pokemonId',
+    side: 'side',
+    reason: 'reason',
+    upvotes: 'upvotes',
+    downvotes: 'downvotes',
+    guestId: 'guestId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BanPickScalarFieldEnum = (typeof BanPickScalarFieldEnum)[keyof typeof BanPickScalarFieldEnum]
+
+
+  export const BugReportScalarFieldEnum: {
+    id: 'id',
+    patchId: 'patchId',
+    title: 'title',
+    description: 'description',
+    category: 'category',
+    pokemonId: 'pokemonId',
+    severity: 'severity',
+    status: 'status',
+    upvotes: 'upvotes',
+    downvotes: 'downvotes',
+    guestId: 'guestId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BugReportScalarFieldEnum = (typeof BugReportScalarFieldEnum)[keyof typeof BugReportScalarFieldEnum]
+
+
+  export const MetaVoteScalarFieldEnum: {
+    id: 'id',
+    metaPostId: 'metaPostId',
+    userId: 'userId',
+    voteType: 'voteType',
+    createdAt: 'createdAt'
+  };
+
+  export type MetaVoteScalarFieldEnum = (typeof MetaVoteScalarFieldEnum)[keyof typeof MetaVoteScalarFieldEnum]
+
+
+  export const BanVoteScalarFieldEnum: {
+    id: 'id',
+    banPickId: 'banPickId',
+    userId: 'userId',
+    voteType: 'voteType',
+    createdAt: 'createdAt'
+  };
+
+  export type BanVoteScalarFieldEnum = (typeof BanVoteScalarFieldEnum)[keyof typeof BanVoteScalarFieldEnum]
+
+
+  export const BugVoteScalarFieldEnum: {
+    id: 'id',
+    bugReportId: 'bugReportId',
+    userId: 'userId',
+    voteType: 'voteType',
+    createdAt: 'createdAt'
+  };
+
+  export type BugVoteScalarFieldEnum = (typeof BugVoteScalarFieldEnum)[keyof typeof BugVoteScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -18529,6 +32626,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterListRelationFilter
     counterFor?: PokemonCounterListRelationFilter
     customTags?: PokemonCustomTagListRelationFilter
+    metaPosts?: MetaPostListRelationFilter
+    banPicks?: BanPickListRelationFilter
+    bugReports?: BugReportListRelationFilter
   }
 
   export type PokemonOrderByWithRelationInput = {
@@ -18546,6 +32646,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterOrderByRelationAggregateInput
     counterFor?: PokemonCounterOrderByRelationAggregateInput
     customTags?: PokemonCustomTagOrderByRelationAggregateInput
+    metaPosts?: MetaPostOrderByRelationAggregateInput
+    banPicks?: BanPickOrderByRelationAggregateInput
+    bugReports?: BugReportOrderByRelationAggregateInput
   }
 
   export type PokemonWhereUniqueInput = Prisma.AtLeast<{
@@ -18566,6 +32669,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterListRelationFilter
     counterFor?: PokemonCounterListRelationFilter
     customTags?: PokemonCustomTagListRelationFilter
+    metaPosts?: MetaPostListRelationFilter
+    banPicks?: BanPickListRelationFilter
+    bugReports?: BugReportListRelationFilter
   }, "id" | "slug">
 
   export type PokemonOrderByWithAggregationInput = {
@@ -18715,9 +32821,12 @@ export namespace Prisma {
     counterType?: StringNullableFilter<"PokemonCounter"> | string | null
     upvotes?: IntFilter<"PokemonCounter"> | number
     downvotes?: IntFilter<"PokemonCounter"> | number
+    userId?: StringNullableFilter<"PokemonCounter"> | string | null
+    guestId?: StringNullableFilter<"PokemonCounter"> | string | null
     targetPokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     counterPokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     votes?: VoteListRelationFilter
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type PokemonCounterOrderByWithRelationInput = {
@@ -18728,9 +32837,12 @@ export namespace Prisma {
     counterType?: SortOrderInput | SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    guestId?: SortOrderInput | SortOrder
     targetPokemon?: PokemonOrderByWithRelationInput
     counterPokemon?: PokemonOrderByWithRelationInput
     votes?: VoteOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type PokemonCounterWhereUniqueInput = Prisma.AtLeast<{
@@ -18744,9 +32856,12 @@ export namespace Prisma {
     counterType?: StringNullableFilter<"PokemonCounter"> | string | null
     upvotes?: IntFilter<"PokemonCounter"> | number
     downvotes?: IntFilter<"PokemonCounter"> | number
+    userId?: StringNullableFilter<"PokemonCounter"> | string | null
+    guestId?: StringNullableFilter<"PokemonCounter"> | string | null
     targetPokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     counterPokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     votes?: VoteListRelationFilter
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type PokemonCounterOrderByWithAggregationInput = {
@@ -18757,6 +32872,8 @@ export namespace Prisma {
     counterType?: SortOrderInput | SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    guestId?: SortOrderInput | SortOrder
     _count?: PokemonCounterCountOrderByAggregateInput
     _avg?: PokemonCounterAvgOrderByAggregateInput
     _max?: PokemonCounterMaxOrderByAggregateInput
@@ -18775,6 +32892,8 @@ export namespace Prisma {
     counterType?: StringNullableWithAggregatesFilter<"PokemonCounter"> | string | null
     upvotes?: IntWithAggregatesFilter<"PokemonCounter"> | number
     downvotes?: IntWithAggregatesFilter<"PokemonCounter"> | number
+    userId?: StringNullableWithAggregatesFilter<"PokemonCounter"> | string | null
+    guestId?: StringNullableWithAggregatesFilter<"PokemonCounter"> | string | null
   }
 
   export type VoteWhereInput = {
@@ -19299,21 +33418,25 @@ export namespace Prisma {
     NOT?: TrainerRadarPostWhereInput | TrainerRadarPostWhereInput[]
     id?: IntFilter<"TrainerRadarPost"> | number
     trainerId?: IntFilter<"TrainerRadarPost"> | number
-    authorToken?: StringFilter<"TrainerRadarPost"> | string
+    authorToken?: StringNullableFilter<"TrainerRadarPost"> | string | null
+    userId?: StringNullableFilter<"TrainerRadarPost"> | string | null
     comment?: StringNullableFilter<"TrainerRadarPost"> | string | null
     createdAt?: DateTimeFilter<"TrainerRadarPost"> | Date | string
     trainer?: XOR<TrainerScalarRelationFilter, TrainerWhereInput>
     radarValues?: RadarValueListRelationFilter
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type TrainerRadarPostOrderByWithRelationInput = {
     id?: SortOrder
     trainerId?: SortOrder
-    authorToken?: SortOrder
+    authorToken?: SortOrderInput | SortOrder
+    userId?: SortOrderInput | SortOrder
     comment?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     trainer?: TrainerOrderByWithRelationInput
     radarValues?: RadarValueOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type TrainerRadarPostWhereUniqueInput = Prisma.AtLeast<{
@@ -19322,17 +33445,20 @@ export namespace Prisma {
     OR?: TrainerRadarPostWhereInput[]
     NOT?: TrainerRadarPostWhereInput | TrainerRadarPostWhereInput[]
     trainerId?: IntFilter<"TrainerRadarPost"> | number
-    authorToken?: StringFilter<"TrainerRadarPost"> | string
+    authorToken?: StringNullableFilter<"TrainerRadarPost"> | string | null
+    userId?: StringNullableFilter<"TrainerRadarPost"> | string | null
     comment?: StringNullableFilter<"TrainerRadarPost"> | string | null
     createdAt?: DateTimeFilter<"TrainerRadarPost"> | Date | string
     trainer?: XOR<TrainerScalarRelationFilter, TrainerWhereInput>
     radarValues?: RadarValueListRelationFilter
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type TrainerRadarPostOrderByWithAggregationInput = {
     id?: SortOrder
     trainerId?: SortOrder
-    authorToken?: SortOrder
+    authorToken?: SortOrderInput | SortOrder
+    userId?: SortOrderInput | SortOrder
     comment?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: TrainerRadarPostCountOrderByAggregateInput
@@ -19348,7 +33474,8 @@ export namespace Prisma {
     NOT?: TrainerRadarPostScalarWhereWithAggregatesInput | TrainerRadarPostScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"TrainerRadarPost"> | number
     trainerId?: IntWithAggregatesFilter<"TrainerRadarPost"> | number
-    authorToken?: StringWithAggregatesFilter<"TrainerRadarPost"> | string
+    authorToken?: StringNullableWithAggregatesFilter<"TrainerRadarPost"> | string | null
+    userId?: StringNullableWithAggregatesFilter<"TrainerRadarPost"> | string | null
     comment?: StringNullableWithAggregatesFilter<"TrainerRadarPost"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"TrainerRadarPost"> | Date | string
   }
@@ -19409,6 +33536,792 @@ export namespace Prisma {
     value?: IntWithAggregatesFilter<"RadarValue"> | number
   }
 
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    id?: StringFilter<"User"> | string
+    name?: StringNullableFilter<"User"> | string | null
+    email?: StringNullableFilter<"User"> | string | null
+    emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
+    image?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    accounts?: AccountListRelationFilter
+    sessions?: SessionListRelationFilter
+    pokemonCounters?: PokemonCounterListRelationFilter
+    trainerRadarPosts?: TrainerRadarPostListRelationFilter
+  }
+
+  export type UserOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    emailVerified?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    accounts?: AccountOrderByRelationAggregateInput
+    sessions?: SessionOrderByRelationAggregateInput
+    pokemonCounters?: PokemonCounterOrderByRelationAggregateInput
+    trainerRadarPosts?: TrainerRadarPostOrderByRelationAggregateInput
+  }
+
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    email?: string
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    name?: StringNullableFilter<"User"> | string | null
+    emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
+    image?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
+    accounts?: AccountListRelationFilter
+    sessions?: SessionListRelationFilter
+    pokemonCounters?: PokemonCounterListRelationFilter
+    trainerRadarPosts?: TrainerRadarPostListRelationFilter
+  }, "id" | "email">
+
+  export type UserOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    emailVerified?: SortOrderInput | SortOrder
+    image?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+  }
+
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"User"> | string
+    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    email?: StringNullableWithAggregatesFilter<"User"> | string | null
+    emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    image?: StringNullableWithAggregatesFilter<"User"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  }
+
+  export type AccountWhereInput = {
+    AND?: AccountWhereInput | AccountWhereInput[]
+    OR?: AccountWhereInput[]
+    NOT?: AccountWhereInput | AccountWhereInput[]
+    userId?: StringFilter<"Account"> | string
+    type?: StringFilter<"Account"> | string
+    provider?: StringFilter<"Account"> | string
+    providerAccountId?: StringFilter<"Account"> | string
+    refresh_token?: StringNullableFilter<"Account"> | string | null
+    access_token?: StringNullableFilter<"Account"> | string | null
+    expires_at?: IntNullableFilter<"Account"> | number | null
+    token_type?: StringNullableFilter<"Account"> | string | null
+    scope?: StringNullableFilter<"Account"> | string | null
+    id_token?: StringNullableFilter<"Account"> | string | null
+    session_state?: StringNullableFilter<"Account"> | string | null
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type AccountOrderByWithRelationInput = {
+    userId?: SortOrder
+    type?: SortOrder
+    provider?: SortOrder
+    providerAccountId?: SortOrder
+    refresh_token?: SortOrderInput | SortOrder
+    access_token?: SortOrderInput | SortOrder
+    expires_at?: SortOrderInput | SortOrder
+    token_type?: SortOrderInput | SortOrder
+    scope?: SortOrderInput | SortOrder
+    id_token?: SortOrderInput | SortOrder
+    session_state?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type AccountWhereUniqueInput = Prisma.AtLeast<{
+    provider_providerAccountId?: AccountProviderProviderAccountIdCompoundUniqueInput
+    AND?: AccountWhereInput | AccountWhereInput[]
+    OR?: AccountWhereInput[]
+    NOT?: AccountWhereInput | AccountWhereInput[]
+    userId?: StringFilter<"Account"> | string
+    type?: StringFilter<"Account"> | string
+    provider?: StringFilter<"Account"> | string
+    providerAccountId?: StringFilter<"Account"> | string
+    refresh_token?: StringNullableFilter<"Account"> | string | null
+    access_token?: StringNullableFilter<"Account"> | string | null
+    expires_at?: IntNullableFilter<"Account"> | number | null
+    token_type?: StringNullableFilter<"Account"> | string | null
+    scope?: StringNullableFilter<"Account"> | string | null
+    id_token?: StringNullableFilter<"Account"> | string | null
+    session_state?: StringNullableFilter<"Account"> | string | null
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "provider_providerAccountId">
+
+  export type AccountOrderByWithAggregationInput = {
+    userId?: SortOrder
+    type?: SortOrder
+    provider?: SortOrder
+    providerAccountId?: SortOrder
+    refresh_token?: SortOrderInput | SortOrder
+    access_token?: SortOrderInput | SortOrder
+    expires_at?: SortOrderInput | SortOrder
+    token_type?: SortOrderInput | SortOrder
+    scope?: SortOrderInput | SortOrder
+    id_token?: SortOrderInput | SortOrder
+    session_state?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AccountCountOrderByAggregateInput
+    _avg?: AccountAvgOrderByAggregateInput
+    _max?: AccountMaxOrderByAggregateInput
+    _min?: AccountMinOrderByAggregateInput
+    _sum?: AccountSumOrderByAggregateInput
+  }
+
+  export type AccountScalarWhereWithAggregatesInput = {
+    AND?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
+    OR?: AccountScalarWhereWithAggregatesInput[]
+    NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
+    userId?: StringWithAggregatesFilter<"Account"> | string
+    type?: StringWithAggregatesFilter<"Account"> | string
+    provider?: StringWithAggregatesFilter<"Account"> | string
+    providerAccountId?: StringWithAggregatesFilter<"Account"> | string
+    refresh_token?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    access_token?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    expires_at?: IntNullableWithAggregatesFilter<"Account"> | number | null
+    token_type?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    scope?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    id_token?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    session_state?: StringNullableWithAggregatesFilter<"Account"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
+  }
+
+  export type SessionWhereInput = {
+    AND?: SessionWhereInput | SessionWhereInput[]
+    OR?: SessionWhereInput[]
+    NOT?: SessionWhereInput | SessionWhereInput[]
+    sessionToken?: StringFilter<"Session"> | string
+    userId?: StringFilter<"Session"> | string
+    expires?: DateTimeFilter<"Session"> | Date | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type SessionOrderByWithRelationInput = {
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    expires?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type SessionWhereUniqueInput = Prisma.AtLeast<{
+    sessionToken?: string
+    AND?: SessionWhereInput | SessionWhereInput[]
+    OR?: SessionWhereInput[]
+    NOT?: SessionWhereInput | SessionWhereInput[]
+    userId?: StringFilter<"Session"> | string
+    expires?: DateTimeFilter<"Session"> | Date | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "sessionToken">
+
+  export type SessionOrderByWithAggregationInput = {
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    expires?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SessionCountOrderByAggregateInput
+    _max?: SessionMaxOrderByAggregateInput
+    _min?: SessionMinOrderByAggregateInput
+  }
+
+  export type SessionScalarWhereWithAggregatesInput = {
+    AND?: SessionScalarWhereWithAggregatesInput | SessionScalarWhereWithAggregatesInput[]
+    OR?: SessionScalarWhereWithAggregatesInput[]
+    NOT?: SessionScalarWhereWithAggregatesInput | SessionScalarWhereWithAggregatesInput[]
+    sessionToken?: StringWithAggregatesFilter<"Session"> | string
+    userId?: StringWithAggregatesFilter<"Session"> | string
+    expires?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
+  }
+
+  export type VerificationTokenWhereInput = {
+    AND?: VerificationTokenWhereInput | VerificationTokenWhereInput[]
+    OR?: VerificationTokenWhereInput[]
+    NOT?: VerificationTokenWhereInput | VerificationTokenWhereInput[]
+    identifier?: StringFilter<"VerificationToken"> | string
+    token?: StringFilter<"VerificationToken"> | string
+    expires?: DateTimeFilter<"VerificationToken"> | Date | string
+  }
+
+  export type VerificationTokenOrderByWithRelationInput = {
+    identifier?: SortOrder
+    token?: SortOrder
+    expires?: SortOrder
+  }
+
+  export type VerificationTokenWhereUniqueInput = Prisma.AtLeast<{
+    identifier_token?: VerificationTokenIdentifierTokenCompoundUniqueInput
+    AND?: VerificationTokenWhereInput | VerificationTokenWhereInput[]
+    OR?: VerificationTokenWhereInput[]
+    NOT?: VerificationTokenWhereInput | VerificationTokenWhereInput[]
+    identifier?: StringFilter<"VerificationToken"> | string
+    token?: StringFilter<"VerificationToken"> | string
+    expires?: DateTimeFilter<"VerificationToken"> | Date | string
+  }, "identifier_token">
+
+  export type VerificationTokenOrderByWithAggregationInput = {
+    identifier?: SortOrder
+    token?: SortOrder
+    expires?: SortOrder
+    _count?: VerificationTokenCountOrderByAggregateInput
+    _max?: VerificationTokenMaxOrderByAggregateInput
+    _min?: VerificationTokenMinOrderByAggregateInput
+  }
+
+  export type VerificationTokenScalarWhereWithAggregatesInput = {
+    AND?: VerificationTokenScalarWhereWithAggregatesInput | VerificationTokenScalarWhereWithAggregatesInput[]
+    OR?: VerificationTokenScalarWhereWithAggregatesInput[]
+    NOT?: VerificationTokenScalarWhereWithAggregatesInput | VerificationTokenScalarWhereWithAggregatesInput[]
+    identifier?: StringWithAggregatesFilter<"VerificationToken"> | string
+    token?: StringWithAggregatesFilter<"VerificationToken"> | string
+    expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
+  }
+
+  export type GamePatchWhereInput = {
+    AND?: GamePatchWhereInput | GamePatchWhereInput[]
+    OR?: GamePatchWhereInput[]
+    NOT?: GamePatchWhereInput | GamePatchWhereInput[]
+    id?: IntFilter<"GamePatch"> | number
+    version?: StringFilter<"GamePatch"> | string
+    releasedAt?: DateTimeFilter<"GamePatch"> | Date | string
+    isActive?: BoolFilter<"GamePatch"> | boolean
+    createdAt?: DateTimeFilter<"GamePatch"> | Date | string
+    metaPosts?: MetaPostListRelationFilter
+    banPicks?: BanPickListRelationFilter
+    bugReports?: BugReportListRelationFilter
+  }
+
+  export type GamePatchOrderByWithRelationInput = {
+    id?: SortOrder
+    version?: SortOrder
+    releasedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    metaPosts?: MetaPostOrderByRelationAggregateInput
+    banPicks?: BanPickOrderByRelationAggregateInput
+    bugReports?: BugReportOrderByRelationAggregateInput
+  }
+
+  export type GamePatchWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: GamePatchWhereInput | GamePatchWhereInput[]
+    OR?: GamePatchWhereInput[]
+    NOT?: GamePatchWhereInput | GamePatchWhereInput[]
+    version?: StringFilter<"GamePatch"> | string
+    releasedAt?: DateTimeFilter<"GamePatch"> | Date | string
+    isActive?: BoolFilter<"GamePatch"> | boolean
+    createdAt?: DateTimeFilter<"GamePatch"> | Date | string
+    metaPosts?: MetaPostListRelationFilter
+    banPicks?: BanPickListRelationFilter
+    bugReports?: BugReportListRelationFilter
+  }, "id">
+
+  export type GamePatchOrderByWithAggregationInput = {
+    id?: SortOrder
+    version?: SortOrder
+    releasedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    _count?: GamePatchCountOrderByAggregateInput
+    _avg?: GamePatchAvgOrderByAggregateInput
+    _max?: GamePatchMaxOrderByAggregateInput
+    _min?: GamePatchMinOrderByAggregateInput
+    _sum?: GamePatchSumOrderByAggregateInput
+  }
+
+  export type GamePatchScalarWhereWithAggregatesInput = {
+    AND?: GamePatchScalarWhereWithAggregatesInput | GamePatchScalarWhereWithAggregatesInput[]
+    OR?: GamePatchScalarWhereWithAggregatesInput[]
+    NOT?: GamePatchScalarWhereWithAggregatesInput | GamePatchScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"GamePatch"> | number
+    version?: StringWithAggregatesFilter<"GamePatch"> | string
+    releasedAt?: DateTimeWithAggregatesFilter<"GamePatch"> | Date | string
+    isActive?: BoolWithAggregatesFilter<"GamePatch"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"GamePatch"> | Date | string
+  }
+
+  export type MetaPostWhereInput = {
+    AND?: MetaPostWhereInput | MetaPostWhereInput[]
+    OR?: MetaPostWhereInput[]
+    NOT?: MetaPostWhereInput | MetaPostWhereInput[]
+    id?: IntFilter<"MetaPost"> | number
+    patchId?: IntFilter<"MetaPost"> | number
+    pokemonId?: IntFilter<"MetaPost"> | number
+    reason?: StringNullableFilter<"MetaPost"> | string | null
+    tier?: StringFilter<"MetaPost"> | string
+    upvotes?: IntFilter<"MetaPost"> | number
+    downvotes?: IntFilter<"MetaPost"> | number
+    guestId?: StringNullableFilter<"MetaPost"> | string | null
+    createdAt?: DateTimeFilter<"MetaPost"> | Date | string
+    updatedAt?: DateTimeFilter<"MetaPost"> | Date | string
+    patch?: XOR<GamePatchScalarRelationFilter, GamePatchWhereInput>
+    pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
+    votes?: MetaVoteListRelationFilter
+  }
+
+  export type MetaPostOrderByWithRelationInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    tier?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    patch?: GamePatchOrderByWithRelationInput
+    pokemon?: PokemonOrderByWithRelationInput
+    votes?: MetaVoteOrderByRelationAggregateInput
+  }
+
+  export type MetaPostWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: MetaPostWhereInput | MetaPostWhereInput[]
+    OR?: MetaPostWhereInput[]
+    NOT?: MetaPostWhereInput | MetaPostWhereInput[]
+    patchId?: IntFilter<"MetaPost"> | number
+    pokemonId?: IntFilter<"MetaPost"> | number
+    reason?: StringNullableFilter<"MetaPost"> | string | null
+    tier?: StringFilter<"MetaPost"> | string
+    upvotes?: IntFilter<"MetaPost"> | number
+    downvotes?: IntFilter<"MetaPost"> | number
+    guestId?: StringNullableFilter<"MetaPost"> | string | null
+    createdAt?: DateTimeFilter<"MetaPost"> | Date | string
+    updatedAt?: DateTimeFilter<"MetaPost"> | Date | string
+    patch?: XOR<GamePatchScalarRelationFilter, GamePatchWhereInput>
+    pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
+    votes?: MetaVoteListRelationFilter
+  }, "id">
+
+  export type MetaPostOrderByWithAggregationInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    tier?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MetaPostCountOrderByAggregateInput
+    _avg?: MetaPostAvgOrderByAggregateInput
+    _max?: MetaPostMaxOrderByAggregateInput
+    _min?: MetaPostMinOrderByAggregateInput
+    _sum?: MetaPostSumOrderByAggregateInput
+  }
+
+  export type MetaPostScalarWhereWithAggregatesInput = {
+    AND?: MetaPostScalarWhereWithAggregatesInput | MetaPostScalarWhereWithAggregatesInput[]
+    OR?: MetaPostScalarWhereWithAggregatesInput[]
+    NOT?: MetaPostScalarWhereWithAggregatesInput | MetaPostScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"MetaPost"> | number
+    patchId?: IntWithAggregatesFilter<"MetaPost"> | number
+    pokemonId?: IntWithAggregatesFilter<"MetaPost"> | number
+    reason?: StringNullableWithAggregatesFilter<"MetaPost"> | string | null
+    tier?: StringWithAggregatesFilter<"MetaPost"> | string
+    upvotes?: IntWithAggregatesFilter<"MetaPost"> | number
+    downvotes?: IntWithAggregatesFilter<"MetaPost"> | number
+    guestId?: StringNullableWithAggregatesFilter<"MetaPost"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"MetaPost"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"MetaPost"> | Date | string
+  }
+
+  export type BanPickWhereInput = {
+    AND?: BanPickWhereInput | BanPickWhereInput[]
+    OR?: BanPickWhereInput[]
+    NOT?: BanPickWhereInput | BanPickWhereInput[]
+    id?: IntFilter<"BanPick"> | number
+    patchId?: IntFilter<"BanPick"> | number
+    pokemonId?: IntFilter<"BanPick"> | number
+    side?: StringFilter<"BanPick"> | string
+    reason?: StringNullableFilter<"BanPick"> | string | null
+    upvotes?: IntFilter<"BanPick"> | number
+    downvotes?: IntFilter<"BanPick"> | number
+    guestId?: StringNullableFilter<"BanPick"> | string | null
+    createdAt?: DateTimeFilter<"BanPick"> | Date | string
+    updatedAt?: DateTimeFilter<"BanPick"> | Date | string
+    patch?: XOR<GamePatchScalarRelationFilter, GamePatchWhereInput>
+    pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
+    votes?: BanVoteListRelationFilter
+  }
+
+  export type BanPickOrderByWithRelationInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    side?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    patch?: GamePatchOrderByWithRelationInput
+    pokemon?: PokemonOrderByWithRelationInput
+    votes?: BanVoteOrderByRelationAggregateInput
+  }
+
+  export type BanPickWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BanPickWhereInput | BanPickWhereInput[]
+    OR?: BanPickWhereInput[]
+    NOT?: BanPickWhereInput | BanPickWhereInput[]
+    patchId?: IntFilter<"BanPick"> | number
+    pokemonId?: IntFilter<"BanPick"> | number
+    side?: StringFilter<"BanPick"> | string
+    reason?: StringNullableFilter<"BanPick"> | string | null
+    upvotes?: IntFilter<"BanPick"> | number
+    downvotes?: IntFilter<"BanPick"> | number
+    guestId?: StringNullableFilter<"BanPick"> | string | null
+    createdAt?: DateTimeFilter<"BanPick"> | Date | string
+    updatedAt?: DateTimeFilter<"BanPick"> | Date | string
+    patch?: XOR<GamePatchScalarRelationFilter, GamePatchWhereInput>
+    pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
+    votes?: BanVoteListRelationFilter
+  }, "id">
+
+  export type BanPickOrderByWithAggregationInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    side?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BanPickCountOrderByAggregateInput
+    _avg?: BanPickAvgOrderByAggregateInput
+    _max?: BanPickMaxOrderByAggregateInput
+    _min?: BanPickMinOrderByAggregateInput
+    _sum?: BanPickSumOrderByAggregateInput
+  }
+
+  export type BanPickScalarWhereWithAggregatesInput = {
+    AND?: BanPickScalarWhereWithAggregatesInput | BanPickScalarWhereWithAggregatesInput[]
+    OR?: BanPickScalarWhereWithAggregatesInput[]
+    NOT?: BanPickScalarWhereWithAggregatesInput | BanPickScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BanPick"> | number
+    patchId?: IntWithAggregatesFilter<"BanPick"> | number
+    pokemonId?: IntWithAggregatesFilter<"BanPick"> | number
+    side?: StringWithAggregatesFilter<"BanPick"> | string
+    reason?: StringNullableWithAggregatesFilter<"BanPick"> | string | null
+    upvotes?: IntWithAggregatesFilter<"BanPick"> | number
+    downvotes?: IntWithAggregatesFilter<"BanPick"> | number
+    guestId?: StringNullableWithAggregatesFilter<"BanPick"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"BanPick"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BanPick"> | Date | string
+  }
+
+  export type BugReportWhereInput = {
+    AND?: BugReportWhereInput | BugReportWhereInput[]
+    OR?: BugReportWhereInput[]
+    NOT?: BugReportWhereInput | BugReportWhereInput[]
+    id?: IntFilter<"BugReport"> | number
+    patchId?: IntFilter<"BugReport"> | number
+    title?: StringFilter<"BugReport"> | string
+    description?: StringNullableFilter<"BugReport"> | string | null
+    category?: StringFilter<"BugReport"> | string
+    pokemonId?: IntNullableFilter<"BugReport"> | number | null
+    severity?: StringFilter<"BugReport"> | string
+    status?: StringFilter<"BugReport"> | string
+    upvotes?: IntFilter<"BugReport"> | number
+    downvotes?: IntFilter<"BugReport"> | number
+    guestId?: StringNullableFilter<"BugReport"> | string | null
+    createdAt?: DateTimeFilter<"BugReport"> | Date | string
+    updatedAt?: DateTimeFilter<"BugReport"> | Date | string
+    patch?: XOR<GamePatchScalarRelationFilter, GamePatchWhereInput>
+    pokemon?: XOR<PokemonNullableScalarRelationFilter, PokemonWhereInput> | null
+    votes?: BugVoteListRelationFilter
+  }
+
+  export type BugReportOrderByWithRelationInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    category?: SortOrder
+    pokemonId?: SortOrderInput | SortOrder
+    severity?: SortOrder
+    status?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    patch?: GamePatchOrderByWithRelationInput
+    pokemon?: PokemonOrderByWithRelationInput
+    votes?: BugVoteOrderByRelationAggregateInput
+  }
+
+  export type BugReportWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BugReportWhereInput | BugReportWhereInput[]
+    OR?: BugReportWhereInput[]
+    NOT?: BugReportWhereInput | BugReportWhereInput[]
+    patchId?: IntFilter<"BugReport"> | number
+    title?: StringFilter<"BugReport"> | string
+    description?: StringNullableFilter<"BugReport"> | string | null
+    category?: StringFilter<"BugReport"> | string
+    pokemonId?: IntNullableFilter<"BugReport"> | number | null
+    severity?: StringFilter<"BugReport"> | string
+    status?: StringFilter<"BugReport"> | string
+    upvotes?: IntFilter<"BugReport"> | number
+    downvotes?: IntFilter<"BugReport"> | number
+    guestId?: StringNullableFilter<"BugReport"> | string | null
+    createdAt?: DateTimeFilter<"BugReport"> | Date | string
+    updatedAt?: DateTimeFilter<"BugReport"> | Date | string
+    patch?: XOR<GamePatchScalarRelationFilter, GamePatchWhereInput>
+    pokemon?: XOR<PokemonNullableScalarRelationFilter, PokemonWhereInput> | null
+    votes?: BugVoteListRelationFilter
+  }, "id">
+
+  export type BugReportOrderByWithAggregationInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    title?: SortOrder
+    description?: SortOrderInput | SortOrder
+    category?: SortOrder
+    pokemonId?: SortOrderInput | SortOrder
+    severity?: SortOrder
+    status?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BugReportCountOrderByAggregateInput
+    _avg?: BugReportAvgOrderByAggregateInput
+    _max?: BugReportMaxOrderByAggregateInput
+    _min?: BugReportMinOrderByAggregateInput
+    _sum?: BugReportSumOrderByAggregateInput
+  }
+
+  export type BugReportScalarWhereWithAggregatesInput = {
+    AND?: BugReportScalarWhereWithAggregatesInput | BugReportScalarWhereWithAggregatesInput[]
+    OR?: BugReportScalarWhereWithAggregatesInput[]
+    NOT?: BugReportScalarWhereWithAggregatesInput | BugReportScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BugReport"> | number
+    patchId?: IntWithAggregatesFilter<"BugReport"> | number
+    title?: StringWithAggregatesFilter<"BugReport"> | string
+    description?: StringNullableWithAggregatesFilter<"BugReport"> | string | null
+    category?: StringWithAggregatesFilter<"BugReport"> | string
+    pokemonId?: IntNullableWithAggregatesFilter<"BugReport"> | number | null
+    severity?: StringWithAggregatesFilter<"BugReport"> | string
+    status?: StringWithAggregatesFilter<"BugReport"> | string
+    upvotes?: IntWithAggregatesFilter<"BugReport"> | number
+    downvotes?: IntWithAggregatesFilter<"BugReport"> | number
+    guestId?: StringNullableWithAggregatesFilter<"BugReport"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"BugReport"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BugReport"> | Date | string
+  }
+
+  export type MetaVoteWhereInput = {
+    AND?: MetaVoteWhereInput | MetaVoteWhereInput[]
+    OR?: MetaVoteWhereInput[]
+    NOT?: MetaVoteWhereInput | MetaVoteWhereInput[]
+    id?: IntFilter<"MetaVote"> | number
+    metaPostId?: IntFilter<"MetaVote"> | number
+    userId?: StringFilter<"MetaVote"> | string
+    voteType?: StringFilter<"MetaVote"> | string
+    createdAt?: DateTimeFilter<"MetaVote"> | Date | string
+    metaPost?: XOR<MetaPostScalarRelationFilter, MetaPostWhereInput>
+  }
+
+  export type MetaVoteOrderByWithRelationInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    metaPost?: MetaPostOrderByWithRelationInput
+  }
+
+  export type MetaVoteWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    metaPostId_userId?: MetaVoteMetaPostIdUserIdCompoundUniqueInput
+    AND?: MetaVoteWhereInput | MetaVoteWhereInput[]
+    OR?: MetaVoteWhereInput[]
+    NOT?: MetaVoteWhereInput | MetaVoteWhereInput[]
+    metaPostId?: IntFilter<"MetaVote"> | number
+    userId?: StringFilter<"MetaVote"> | string
+    voteType?: StringFilter<"MetaVote"> | string
+    createdAt?: DateTimeFilter<"MetaVote"> | Date | string
+    metaPost?: XOR<MetaPostScalarRelationFilter, MetaPostWhereInput>
+  }, "id" | "metaPostId_userId">
+
+  export type MetaVoteOrderByWithAggregationInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    _count?: MetaVoteCountOrderByAggregateInput
+    _avg?: MetaVoteAvgOrderByAggregateInput
+    _max?: MetaVoteMaxOrderByAggregateInput
+    _min?: MetaVoteMinOrderByAggregateInput
+    _sum?: MetaVoteSumOrderByAggregateInput
+  }
+
+  export type MetaVoteScalarWhereWithAggregatesInput = {
+    AND?: MetaVoteScalarWhereWithAggregatesInput | MetaVoteScalarWhereWithAggregatesInput[]
+    OR?: MetaVoteScalarWhereWithAggregatesInput[]
+    NOT?: MetaVoteScalarWhereWithAggregatesInput | MetaVoteScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"MetaVote"> | number
+    metaPostId?: IntWithAggregatesFilter<"MetaVote"> | number
+    userId?: StringWithAggregatesFilter<"MetaVote"> | string
+    voteType?: StringWithAggregatesFilter<"MetaVote"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"MetaVote"> | Date | string
+  }
+
+  export type BanVoteWhereInput = {
+    AND?: BanVoteWhereInput | BanVoteWhereInput[]
+    OR?: BanVoteWhereInput[]
+    NOT?: BanVoteWhereInput | BanVoteWhereInput[]
+    id?: IntFilter<"BanVote"> | number
+    banPickId?: IntFilter<"BanVote"> | number
+    userId?: StringFilter<"BanVote"> | string
+    voteType?: StringFilter<"BanVote"> | string
+    createdAt?: DateTimeFilter<"BanVote"> | Date | string
+    banPick?: XOR<BanPickScalarRelationFilter, BanPickWhereInput>
+  }
+
+  export type BanVoteOrderByWithRelationInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    banPick?: BanPickOrderByWithRelationInput
+  }
+
+  export type BanVoteWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    banPickId_userId?: BanVoteBanPickIdUserIdCompoundUniqueInput
+    AND?: BanVoteWhereInput | BanVoteWhereInput[]
+    OR?: BanVoteWhereInput[]
+    NOT?: BanVoteWhereInput | BanVoteWhereInput[]
+    banPickId?: IntFilter<"BanVote"> | number
+    userId?: StringFilter<"BanVote"> | string
+    voteType?: StringFilter<"BanVote"> | string
+    createdAt?: DateTimeFilter<"BanVote"> | Date | string
+    banPick?: XOR<BanPickScalarRelationFilter, BanPickWhereInput>
+  }, "id" | "banPickId_userId">
+
+  export type BanVoteOrderByWithAggregationInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    _count?: BanVoteCountOrderByAggregateInput
+    _avg?: BanVoteAvgOrderByAggregateInput
+    _max?: BanVoteMaxOrderByAggregateInput
+    _min?: BanVoteMinOrderByAggregateInput
+    _sum?: BanVoteSumOrderByAggregateInput
+  }
+
+  export type BanVoteScalarWhereWithAggregatesInput = {
+    AND?: BanVoteScalarWhereWithAggregatesInput | BanVoteScalarWhereWithAggregatesInput[]
+    OR?: BanVoteScalarWhereWithAggregatesInput[]
+    NOT?: BanVoteScalarWhereWithAggregatesInput | BanVoteScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BanVote"> | number
+    banPickId?: IntWithAggregatesFilter<"BanVote"> | number
+    userId?: StringWithAggregatesFilter<"BanVote"> | string
+    voteType?: StringWithAggregatesFilter<"BanVote"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"BanVote"> | Date | string
+  }
+
+  export type BugVoteWhereInput = {
+    AND?: BugVoteWhereInput | BugVoteWhereInput[]
+    OR?: BugVoteWhereInput[]
+    NOT?: BugVoteWhereInput | BugVoteWhereInput[]
+    id?: IntFilter<"BugVote"> | number
+    bugReportId?: IntFilter<"BugVote"> | number
+    userId?: StringFilter<"BugVote"> | string
+    voteType?: StringFilter<"BugVote"> | string
+    createdAt?: DateTimeFilter<"BugVote"> | Date | string
+    bugReport?: XOR<BugReportScalarRelationFilter, BugReportWhereInput>
+  }
+
+  export type BugVoteOrderByWithRelationInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    bugReport?: BugReportOrderByWithRelationInput
+  }
+
+  export type BugVoteWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    bugReportId_userId?: BugVoteBugReportIdUserIdCompoundUniqueInput
+    AND?: BugVoteWhereInput | BugVoteWhereInput[]
+    OR?: BugVoteWhereInput[]
+    NOT?: BugVoteWhereInput | BugVoteWhereInput[]
+    bugReportId?: IntFilter<"BugVote"> | number
+    userId?: StringFilter<"BugVote"> | string
+    voteType?: StringFilter<"BugVote"> | string
+    createdAt?: DateTimeFilter<"BugVote"> | Date | string
+    bugReport?: XOR<BugReportScalarRelationFilter, BugReportWhereInput>
+  }, "id" | "bugReportId_userId">
+
+  export type BugVoteOrderByWithAggregationInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    _count?: BugVoteCountOrderByAggregateInput
+    _avg?: BugVoteAvgOrderByAggregateInput
+    _max?: BugVoteMaxOrderByAggregateInput
+    _min?: BugVoteMinOrderByAggregateInput
+    _sum?: BugVoteSumOrderByAggregateInput
+  }
+
+  export type BugVoteScalarWhereWithAggregatesInput = {
+    AND?: BugVoteScalarWhereWithAggregatesInput | BugVoteScalarWhereWithAggregatesInput[]
+    OR?: BugVoteScalarWhereWithAggregatesInput[]
+    NOT?: BugVoteScalarWhereWithAggregatesInput | BugVoteScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BugVote"> | number
+    bugReportId?: IntWithAggregatesFilter<"BugVote"> | number
+    userId?: StringWithAggregatesFilter<"BugVote"> | string
+    voteType?: StringWithAggregatesFilter<"BugVote"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"BugVote"> | Date | string
+  }
+
   export type PokemonCreateInput = {
     slug: string
     nameJa: string
@@ -19423,6 +34336,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
     counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
     customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonUncheckedCreateInput = {
@@ -19440,6 +34356,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
     counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
     customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonUpdateInput = {
@@ -19456,6 +34375,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
     counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
     customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonUncheckedUpdateInput = {
@@ -19473,6 +34395,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
     counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
     customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonCreateManyInput = {
@@ -19605,9 +34530,11 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    guestId?: string | null
     targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
     counterPokemon: PokemonCreateNestedOneWithoutCounterForInput
     votes?: VoteCreateNestedManyWithoutPokemonCounterInput
+    user?: UserCreateNestedOneWithoutPokemonCountersInput
   }
 
   export type PokemonCounterUncheckedCreateInput = {
@@ -19618,6 +34545,8 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
     votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
   }
 
@@ -19626,9 +34555,11 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
     counterPokemon?: PokemonUpdateOneRequiredWithoutCounterForNestedInput
     votes?: VoteUpdateManyWithoutPokemonCounterNestedInput
+    user?: UserUpdateOneWithoutPokemonCountersNestedInput
   }
 
   export type PokemonCounterUncheckedUpdateInput = {
@@ -19639,6 +34570,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
   }
 
@@ -19650,6 +34583,8 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
   }
 
   export type PokemonCounterUpdateManyMutationInput = {
@@ -19657,6 +34592,7 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PokemonCounterUncheckedUpdateManyInput = {
@@ -19667,6 +34603,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type VoteCreateInput = {
@@ -20174,34 +35112,38 @@ export namespace Prisma {
   }
 
   export type TrainerRadarPostCreateInput = {
-    authorToken: string
+    authorToken?: string | null
     comment?: string | null
     createdAt?: Date | string
     trainer: TrainerCreateNestedOneWithoutRadarPostsInput
     radarValues?: RadarValueCreateNestedManyWithoutPostInput
+    user?: UserCreateNestedOneWithoutTrainerRadarPostsInput
   }
 
   export type TrainerRadarPostUncheckedCreateInput = {
     id?: number
     trainerId: number
-    authorToken: string
+    authorToken?: string | null
+    userId?: string | null
     comment?: string | null
     createdAt?: Date | string
     radarValues?: RadarValueUncheckedCreateNestedManyWithoutPostInput
   }
 
   export type TrainerRadarPostUpdateInput = {
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trainer?: TrainerUpdateOneRequiredWithoutRadarPostsNestedInput
     radarValues?: RadarValueUpdateManyWithoutPostNestedInput
+    user?: UserUpdateOneWithoutTrainerRadarPostsNestedInput
   }
 
   export type TrainerRadarPostUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     trainerId?: IntFieldUpdateOperationsInput | number
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     radarValues?: RadarValueUncheckedUpdateManyWithoutPostNestedInput
@@ -20210,13 +35152,14 @@ export namespace Prisma {
   export type TrainerRadarPostCreateManyInput = {
     id?: number
     trainerId: number
-    authorToken: string
+    authorToken?: string | null
+    userId?: string | null
     comment?: string | null
     createdAt?: Date | string
   }
 
   export type TrainerRadarPostUpdateManyMutationInput = {
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20224,7 +35167,8 @@ export namespace Prisma {
   export type TrainerRadarPostUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     trainerId?: IntFieldUpdateOperationsInput | number
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20271,6 +35215,812 @@ export namespace Prisma {
     postId?: IntFieldUpdateOperationsInput | number
     metricId?: IntFieldUpdateOperationsInput | number
     value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UserCreateInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterUncheckedCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUncheckedUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateManyInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type UserUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountCreateInput = {
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token?: string | null
+    access_token?: string | null
+    expires_at?: number | null
+    token_type?: string | null
+    scope?: string | null
+    id_token?: string | null
+    session_state?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutAccountsInput
+  }
+
+  export type AccountUncheckedCreateInput = {
+    userId: string
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token?: string | null
+    access_token?: string | null
+    expires_at?: number | null
+    token_type?: string | null
+    scope?: string | null
+    id_token?: string | null
+    session_state?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AccountUpdateInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutAccountsNestedInput
+  }
+
+  export type AccountUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountCreateManyInput = {
+    userId: string
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token?: string | null
+    access_token?: string | null
+    expires_at?: number | null
+    token_type?: string | null
+    scope?: string | null
+    id_token?: string | null
+    session_state?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AccountUpdateManyMutationInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionCreateInput = {
+    sessionToken: string
+    expires: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutSessionsInput
+  }
+
+  export type SessionUncheckedCreateInput = {
+    sessionToken: string
+    userId: string
+    expires: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SessionUpdateInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutSessionsNestedInput
+  }
+
+  export type SessionUncheckedUpdateInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionCreateManyInput = {
+    sessionToken: string
+    userId: string
+    expires: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SessionUpdateManyMutationInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VerificationTokenCreateInput = {
+    identifier: string
+    token: string
+    expires: Date | string
+  }
+
+  export type VerificationTokenUncheckedCreateInput = {
+    identifier: string
+    token: string
+    expires: Date | string
+  }
+
+  export type VerificationTokenUpdateInput = {
+    identifier?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VerificationTokenUncheckedUpdateInput = {
+    identifier?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VerificationTokenCreateManyInput = {
+    identifier: string
+    token: string
+    expires: Date | string
+  }
+
+  export type VerificationTokenUpdateManyMutationInput = {
+    identifier?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VerificationTokenUncheckedUpdateManyInput = {
+    identifier?: StringFieldUpdateOperationsInput | string
+    token?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GamePatchCreateInput = {
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    metaPosts?: MetaPostCreateNestedManyWithoutPatchInput
+    banPicks?: BanPickCreateNestedManyWithoutPatchInput
+    bugReports?: BugReportCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchUncheckedCreateInput = {
+    id?: number
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPatchInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPatchInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchUpdateInput = {
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPosts?: MetaPostUpdateManyWithoutPatchNestedInput
+    banPicks?: BanPickUpdateManyWithoutPatchNestedInput
+    bugReports?: BugReportUpdateManyWithoutPatchNestedInput
+  }
+
+  export type GamePatchUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPatchNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPatchNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPatchNestedInput
+  }
+
+  export type GamePatchCreateManyInput = {
+    id?: number
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+  }
+
+  export type GamePatchUpdateManyMutationInput = {
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GamePatchUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaPostCreateInput = {
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutMetaPostsInput
+    pokemon: PokemonCreateNestedOneWithoutMetaPostsInput
+    votes?: MetaVoteCreateNestedManyWithoutMetaPostInput
+  }
+
+  export type MetaPostUncheckedCreateInput = {
+    id?: number
+    patchId: number
+    pokemonId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: MetaVoteUncheckedCreateNestedManyWithoutMetaPostInput
+  }
+
+  export type MetaPostUpdateInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutMetaPostsNestedInput
+    pokemon?: PokemonUpdateOneRequiredWithoutMetaPostsNestedInput
+    votes?: MetaVoteUpdateManyWithoutMetaPostNestedInput
+  }
+
+  export type MetaPostUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: MetaVoteUncheckedUpdateManyWithoutMetaPostNestedInput
+  }
+
+  export type MetaPostCreateManyInput = {
+    id?: number
+    patchId: number
+    pokemonId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MetaPostUpdateManyMutationInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaPostUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanPickCreateInput = {
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutBanPicksInput
+    pokemon: PokemonCreateNestedOneWithoutBanPicksInput
+    votes?: BanVoteCreateNestedManyWithoutBanPickInput
+  }
+
+  export type BanPickUncheckedCreateInput = {
+    id?: number
+    patchId: number
+    pokemonId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: BanVoteUncheckedCreateNestedManyWithoutBanPickInput
+  }
+
+  export type BanPickUpdateInput = {
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutBanPicksNestedInput
+    pokemon?: PokemonUpdateOneRequiredWithoutBanPicksNestedInput
+    votes?: BanVoteUpdateManyWithoutBanPickNestedInput
+  }
+
+  export type BanPickUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: BanVoteUncheckedUpdateManyWithoutBanPickNestedInput
+  }
+
+  export type BanPickCreateManyInput = {
+    id?: number
+    patchId: number
+    pokemonId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BanPickUpdateManyMutationInput = {
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanPickUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugReportCreateInput = {
+    title: string
+    description?: string | null
+    category: string
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutBugReportsInput
+    pokemon?: PokemonCreateNestedOneWithoutBugReportsInput
+    votes?: BugVoteCreateNestedManyWithoutBugReportInput
+  }
+
+  export type BugReportUncheckedCreateInput = {
+    id?: number
+    patchId: number
+    title: string
+    description?: string | null
+    category: string
+    pokemonId?: number | null
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: BugVoteUncheckedCreateNestedManyWithoutBugReportInput
+  }
+
+  export type BugReportUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutBugReportsNestedInput
+    pokemon?: PokemonUpdateOneWithoutBugReportsNestedInput
+    votes?: BugVoteUpdateManyWithoutBugReportNestedInput
+  }
+
+  export type BugReportUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    pokemonId?: NullableIntFieldUpdateOperationsInput | number | null
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: BugVoteUncheckedUpdateManyWithoutBugReportNestedInput
+  }
+
+  export type BugReportCreateManyInput = {
+    id?: number
+    patchId: number
+    title: string
+    description?: string | null
+    category: string
+    pokemonId?: number | null
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BugReportUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugReportUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    pokemonId?: NullableIntFieldUpdateOperationsInput | number | null
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaVoteCreateInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+    metaPost: MetaPostCreateNestedOneWithoutVotesInput
+  }
+
+  export type MetaVoteUncheckedCreateInput = {
+    id?: number
+    metaPostId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type MetaVoteUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPost?: MetaPostUpdateOneRequiredWithoutVotesNestedInput
+  }
+
+  export type MetaVoteUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    metaPostId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaVoteCreateManyInput = {
+    id?: number
+    metaPostId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type MetaVoteUpdateManyMutationInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaVoteUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    metaPostId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanVoteCreateInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+    banPick: BanPickCreateNestedOneWithoutVotesInput
+  }
+
+  export type BanVoteUncheckedCreateInput = {
+    id?: number
+    banPickId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BanVoteUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    banPick?: BanPickUpdateOneRequiredWithoutVotesNestedInput
+  }
+
+  export type BanVoteUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    banPickId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanVoteCreateManyInput = {
+    id?: number
+    banPickId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BanVoteUpdateManyMutationInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanVoteUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    banPickId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugVoteCreateInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+    bugReport: BugReportCreateNestedOneWithoutVotesInput
+  }
+
+  export type BugVoteUncheckedCreateInput = {
+    id?: number
+    bugReportId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BugVoteUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    bugReport?: BugReportUpdateOneRequiredWithoutVotesNestedInput
+  }
+
+  export type BugVoteUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    bugReportId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugVoteCreateManyInput = {
+    id?: number
+    bugReportId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BugVoteUpdateManyMutationInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugVoteUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    bugReportId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -20343,6 +36093,24 @@ export namespace Prisma {
     none?: PokemonCustomTagWhereInput
   }
 
+  export type MetaPostListRelationFilter = {
+    every?: MetaPostWhereInput
+    some?: MetaPostWhereInput
+    none?: MetaPostWhereInput
+  }
+
+  export type BanPickListRelationFilter = {
+    every?: BanPickWhereInput
+    some?: BanPickWhereInput
+    none?: BanPickWhereInput
+  }
+
+  export type BugReportListRelationFilter = {
+    every?: BugReportWhereInput
+    some?: BugReportWhereInput
+    none?: BugReportWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -20357,6 +36125,18 @@ export namespace Prisma {
   }
 
   export type PokemonCustomTagOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MetaPostOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BanPickOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BugReportOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -20579,6 +36359,11 @@ export namespace Prisma {
     none?: VoteWhereInput
   }
 
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
   export type VoteOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -20591,6 +36376,8 @@ export namespace Prisma {
     counterType?: SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
+    userId?: SortOrder
+    guestId?: SortOrder
   }
 
   export type PokemonCounterAvgOrderByAggregateInput = {
@@ -20609,6 +36396,8 @@ export namespace Prisma {
     counterType?: SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
+    userId?: SortOrder
+    guestId?: SortOrder
   }
 
   export type PokemonCounterMinOrderByAggregateInput = {
@@ -20619,6 +36408,8 @@ export namespace Prisma {
     counterType?: SortOrder
     upvotes?: SortOrder
     downvotes?: SortOrder
+    userId?: SortOrder
+    guestId?: SortOrder
   }
 
   export type PokemonCounterSumOrderByAggregateInput = {
@@ -21081,6 +36872,7 @@ export namespace Prisma {
     id?: SortOrder
     trainerId?: SortOrder
     authorToken?: SortOrder
+    userId?: SortOrder
     comment?: SortOrder
     createdAt?: SortOrder
   }
@@ -21094,6 +36886,7 @@ export namespace Prisma {
     id?: SortOrder
     trainerId?: SortOrder
     authorToken?: SortOrder
+    userId?: SortOrder
     comment?: SortOrder
     createdAt?: SortOrder
   }
@@ -21102,6 +36895,7 @@ export namespace Prisma {
     id?: SortOrder
     trainerId?: SortOrder
     authorToken?: SortOrder
+    userId?: SortOrder
     comment?: SortOrder
     createdAt?: SortOrder
   }
@@ -21161,6 +36955,547 @@ export namespace Prisma {
     value?: SortOrder
   }
 
+  export type AccountListRelationFilter = {
+    every?: AccountWhereInput
+    some?: AccountWhereInput
+    none?: AccountWhereInput
+  }
+
+  export type SessionListRelationFilter = {
+    every?: SessionWhereInput
+    some?: SessionWhereInput
+    none?: SessionWhereInput
+  }
+
+  export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    emailVerified?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    emailVerified?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    emailVerified?: SortOrder
+    image?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type AccountProviderProviderAccountIdCompoundUniqueInput = {
+    provider: string
+    providerAccountId: string
+  }
+
+  export type AccountCountOrderByAggregateInput = {
+    userId?: SortOrder
+    type?: SortOrder
+    provider?: SortOrder
+    providerAccountId?: SortOrder
+    refresh_token?: SortOrder
+    access_token?: SortOrder
+    expires_at?: SortOrder
+    token_type?: SortOrder
+    scope?: SortOrder
+    id_token?: SortOrder
+    session_state?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AccountAvgOrderByAggregateInput = {
+    expires_at?: SortOrder
+  }
+
+  export type AccountMaxOrderByAggregateInput = {
+    userId?: SortOrder
+    type?: SortOrder
+    provider?: SortOrder
+    providerAccountId?: SortOrder
+    refresh_token?: SortOrder
+    access_token?: SortOrder
+    expires_at?: SortOrder
+    token_type?: SortOrder
+    scope?: SortOrder
+    id_token?: SortOrder
+    session_state?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AccountMinOrderByAggregateInput = {
+    userId?: SortOrder
+    type?: SortOrder
+    provider?: SortOrder
+    providerAccountId?: SortOrder
+    refresh_token?: SortOrder
+    access_token?: SortOrder
+    expires_at?: SortOrder
+    token_type?: SortOrder
+    scope?: SortOrder
+    id_token?: SortOrder
+    session_state?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AccountSumOrderByAggregateInput = {
+    expires_at?: SortOrder
+  }
+
+  export type SessionCountOrderByAggregateInput = {
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    expires?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SessionMaxOrderByAggregateInput = {
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    expires?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SessionMinOrderByAggregateInput = {
+    sessionToken?: SortOrder
+    userId?: SortOrder
+    expires?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type VerificationTokenIdentifierTokenCompoundUniqueInput = {
+    identifier: string
+    token: string
+  }
+
+  export type VerificationTokenCountOrderByAggregateInput = {
+    identifier?: SortOrder
+    token?: SortOrder
+    expires?: SortOrder
+  }
+
+  export type VerificationTokenMaxOrderByAggregateInput = {
+    identifier?: SortOrder
+    token?: SortOrder
+    expires?: SortOrder
+  }
+
+  export type VerificationTokenMinOrderByAggregateInput = {
+    identifier?: SortOrder
+    token?: SortOrder
+    expires?: SortOrder
+  }
+
+  export type GamePatchCountOrderByAggregateInput = {
+    id?: SortOrder
+    version?: SortOrder
+    releasedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type GamePatchAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type GamePatchMaxOrderByAggregateInput = {
+    id?: SortOrder
+    version?: SortOrder
+    releasedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type GamePatchMinOrderByAggregateInput = {
+    id?: SortOrder
+    version?: SortOrder
+    releasedAt?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type GamePatchSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type GamePatchScalarRelationFilter = {
+    is?: GamePatchWhereInput
+    isNot?: GamePatchWhereInput
+  }
+
+  export type MetaVoteListRelationFilter = {
+    every?: MetaVoteWhereInput
+    some?: MetaVoteWhereInput
+    none?: MetaVoteWhereInput
+  }
+
+  export type MetaVoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MetaPostCountOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    reason?: SortOrder
+    tier?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MetaPostAvgOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type MetaPostMaxOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    reason?: SortOrder
+    tier?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MetaPostMinOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    reason?: SortOrder
+    tier?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MetaPostSumOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type BanVoteListRelationFilter = {
+    every?: BanVoteWhereInput
+    some?: BanVoteWhereInput
+    none?: BanVoteWhereInput
+  }
+
+  export type BanVoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BanPickCountOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    side?: SortOrder
+    reason?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BanPickAvgOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type BanPickMaxOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    side?: SortOrder
+    reason?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BanPickMinOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    side?: SortOrder
+    reason?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BanPickSumOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type PokemonNullableScalarRelationFilter = {
+    is?: PokemonWhereInput | null
+    isNot?: PokemonWhereInput | null
+  }
+
+  export type BugVoteListRelationFilter = {
+    every?: BugVoteWhereInput
+    some?: BugVoteWhereInput
+    none?: BugVoteWhereInput
+  }
+
+  export type BugVoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BugReportCountOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    pokemonId?: SortOrder
+    severity?: SortOrder
+    status?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BugReportAvgOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type BugReportMaxOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    pokemonId?: SortOrder
+    severity?: SortOrder
+    status?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BugReportMinOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    pokemonId?: SortOrder
+    severity?: SortOrder
+    status?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+    guestId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BugReportSumOrderByAggregateInput = {
+    id?: SortOrder
+    patchId?: SortOrder
+    pokemonId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type MetaPostScalarRelationFilter = {
+    is?: MetaPostWhereInput
+    isNot?: MetaPostWhereInput
+  }
+
+  export type MetaVoteMetaPostIdUserIdCompoundUniqueInput = {
+    metaPostId: number
+    userId: string
+  }
+
+  export type MetaVoteCountOrderByAggregateInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type MetaVoteAvgOrderByAggregateInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+  }
+
+  export type MetaVoteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type MetaVoteMinOrderByAggregateInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type MetaVoteSumOrderByAggregateInput = {
+    id?: SortOrder
+    metaPostId?: SortOrder
+  }
+
+  export type BanPickScalarRelationFilter = {
+    is?: BanPickWhereInput
+    isNot?: BanPickWhereInput
+  }
+
+  export type BanVoteBanPickIdUserIdCompoundUniqueInput = {
+    banPickId: number
+    userId: string
+  }
+
+  export type BanVoteCountOrderByAggregateInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BanVoteAvgOrderByAggregateInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+  }
+
+  export type BanVoteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BanVoteMinOrderByAggregateInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BanVoteSumOrderByAggregateInput = {
+    id?: SortOrder
+    banPickId?: SortOrder
+  }
+
+  export type BugReportScalarRelationFilter = {
+    is?: BugReportWhereInput
+    isNot?: BugReportWhereInput
+  }
+
+  export type BugVoteBugReportIdUserIdCompoundUniqueInput = {
+    bugReportId: number
+    userId: string
+  }
+
+  export type BugVoteCountOrderByAggregateInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BugVoteAvgOrderByAggregateInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+  }
+
+  export type BugVoteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BugVoteMinOrderByAggregateInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BugVoteSumOrderByAggregateInput = {
+    id?: SortOrder
+    bugReportId?: SortOrder
+  }
+
   export type PokemonStatCreateNestedManyWithoutPokemonInput = {
     create?: XOR<PokemonStatCreateWithoutPokemonInput, PokemonStatUncheckedCreateWithoutPokemonInput> | PokemonStatCreateWithoutPokemonInput[] | PokemonStatUncheckedCreateWithoutPokemonInput[]
     connectOrCreate?: PokemonStatCreateOrConnectWithoutPokemonInput | PokemonStatCreateOrConnectWithoutPokemonInput[]
@@ -21189,6 +37524,27 @@ export namespace Prisma {
     connect?: PokemonCustomTagWhereUniqueInput | PokemonCustomTagWhereUniqueInput[]
   }
 
+  export type MetaPostCreateNestedManyWithoutPokemonInput = {
+    create?: XOR<MetaPostCreateWithoutPokemonInput, MetaPostUncheckedCreateWithoutPokemonInput> | MetaPostCreateWithoutPokemonInput[] | MetaPostUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPokemonInput | MetaPostCreateOrConnectWithoutPokemonInput[]
+    createMany?: MetaPostCreateManyPokemonInputEnvelope
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+  }
+
+  export type BanPickCreateNestedManyWithoutPokemonInput = {
+    create?: XOR<BanPickCreateWithoutPokemonInput, BanPickUncheckedCreateWithoutPokemonInput> | BanPickCreateWithoutPokemonInput[] | BanPickUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPokemonInput | BanPickCreateOrConnectWithoutPokemonInput[]
+    createMany?: BanPickCreateManyPokemonInputEnvelope
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+  }
+
+  export type BugReportCreateNestedManyWithoutPokemonInput = {
+    create?: XOR<BugReportCreateWithoutPokemonInput, BugReportUncheckedCreateWithoutPokemonInput> | BugReportCreateWithoutPokemonInput[] | BugReportUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPokemonInput | BugReportCreateOrConnectWithoutPokemonInput[]
+    createMany?: BugReportCreateManyPokemonInputEnvelope
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+  }
+
   export type PokemonStatUncheckedCreateNestedManyWithoutPokemonInput = {
     create?: XOR<PokemonStatCreateWithoutPokemonInput, PokemonStatUncheckedCreateWithoutPokemonInput> | PokemonStatCreateWithoutPokemonInput[] | PokemonStatUncheckedCreateWithoutPokemonInput[]
     connectOrCreate?: PokemonStatCreateOrConnectWithoutPokemonInput | PokemonStatCreateOrConnectWithoutPokemonInput[]
@@ -21215,6 +37571,27 @@ export namespace Prisma {
     connectOrCreate?: PokemonCustomTagCreateOrConnectWithoutPokemonInput | PokemonCustomTagCreateOrConnectWithoutPokemonInput[]
     createMany?: PokemonCustomTagCreateManyPokemonInputEnvelope
     connect?: PokemonCustomTagWhereUniqueInput | PokemonCustomTagWhereUniqueInput[]
+  }
+
+  export type MetaPostUncheckedCreateNestedManyWithoutPokemonInput = {
+    create?: XOR<MetaPostCreateWithoutPokemonInput, MetaPostUncheckedCreateWithoutPokemonInput> | MetaPostCreateWithoutPokemonInput[] | MetaPostUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPokemonInput | MetaPostCreateOrConnectWithoutPokemonInput[]
+    createMany?: MetaPostCreateManyPokemonInputEnvelope
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+  }
+
+  export type BanPickUncheckedCreateNestedManyWithoutPokemonInput = {
+    create?: XOR<BanPickCreateWithoutPokemonInput, BanPickUncheckedCreateWithoutPokemonInput> | BanPickCreateWithoutPokemonInput[] | BanPickUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPokemonInput | BanPickCreateOrConnectWithoutPokemonInput[]
+    createMany?: BanPickCreateManyPokemonInputEnvelope
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+  }
+
+  export type BugReportUncheckedCreateNestedManyWithoutPokemonInput = {
+    create?: XOR<BugReportCreateWithoutPokemonInput, BugReportUncheckedCreateWithoutPokemonInput> | BugReportCreateWithoutPokemonInput[] | BugReportUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPokemonInput | BugReportCreateOrConnectWithoutPokemonInput[]
+    createMany?: BugReportCreateManyPokemonInputEnvelope
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -21285,6 +37662,48 @@ export namespace Prisma {
     deleteMany?: PokemonCustomTagScalarWhereInput | PokemonCustomTagScalarWhereInput[]
   }
 
+  export type MetaPostUpdateManyWithoutPokemonNestedInput = {
+    create?: XOR<MetaPostCreateWithoutPokemonInput, MetaPostUncheckedCreateWithoutPokemonInput> | MetaPostCreateWithoutPokemonInput[] | MetaPostUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPokemonInput | MetaPostCreateOrConnectWithoutPokemonInput[]
+    upsert?: MetaPostUpsertWithWhereUniqueWithoutPokemonInput | MetaPostUpsertWithWhereUniqueWithoutPokemonInput[]
+    createMany?: MetaPostCreateManyPokemonInputEnvelope
+    set?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    disconnect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    delete?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    update?: MetaPostUpdateWithWhereUniqueWithoutPokemonInput | MetaPostUpdateWithWhereUniqueWithoutPokemonInput[]
+    updateMany?: MetaPostUpdateManyWithWhereWithoutPokemonInput | MetaPostUpdateManyWithWhereWithoutPokemonInput[]
+    deleteMany?: MetaPostScalarWhereInput | MetaPostScalarWhereInput[]
+  }
+
+  export type BanPickUpdateManyWithoutPokemonNestedInput = {
+    create?: XOR<BanPickCreateWithoutPokemonInput, BanPickUncheckedCreateWithoutPokemonInput> | BanPickCreateWithoutPokemonInput[] | BanPickUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPokemonInput | BanPickCreateOrConnectWithoutPokemonInput[]
+    upsert?: BanPickUpsertWithWhereUniqueWithoutPokemonInput | BanPickUpsertWithWhereUniqueWithoutPokemonInput[]
+    createMany?: BanPickCreateManyPokemonInputEnvelope
+    set?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    disconnect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    delete?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    update?: BanPickUpdateWithWhereUniqueWithoutPokemonInput | BanPickUpdateWithWhereUniqueWithoutPokemonInput[]
+    updateMany?: BanPickUpdateManyWithWhereWithoutPokemonInput | BanPickUpdateManyWithWhereWithoutPokemonInput[]
+    deleteMany?: BanPickScalarWhereInput | BanPickScalarWhereInput[]
+  }
+
+  export type BugReportUpdateManyWithoutPokemonNestedInput = {
+    create?: XOR<BugReportCreateWithoutPokemonInput, BugReportUncheckedCreateWithoutPokemonInput> | BugReportCreateWithoutPokemonInput[] | BugReportUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPokemonInput | BugReportCreateOrConnectWithoutPokemonInput[]
+    upsert?: BugReportUpsertWithWhereUniqueWithoutPokemonInput | BugReportUpsertWithWhereUniqueWithoutPokemonInput[]
+    createMany?: BugReportCreateManyPokemonInputEnvelope
+    set?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    disconnect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    delete?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    update?: BugReportUpdateWithWhereUniqueWithoutPokemonInput | BugReportUpdateWithWhereUniqueWithoutPokemonInput[]
+    updateMany?: BugReportUpdateManyWithWhereWithoutPokemonInput | BugReportUpdateManyWithWhereWithoutPokemonInput[]
+    deleteMany?: BugReportScalarWhereInput | BugReportScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -21347,6 +37766,48 @@ export namespace Prisma {
     update?: PokemonCustomTagUpdateWithWhereUniqueWithoutPokemonInput | PokemonCustomTagUpdateWithWhereUniqueWithoutPokemonInput[]
     updateMany?: PokemonCustomTagUpdateManyWithWhereWithoutPokemonInput | PokemonCustomTagUpdateManyWithWhereWithoutPokemonInput[]
     deleteMany?: PokemonCustomTagScalarWhereInput | PokemonCustomTagScalarWhereInput[]
+  }
+
+  export type MetaPostUncheckedUpdateManyWithoutPokemonNestedInput = {
+    create?: XOR<MetaPostCreateWithoutPokemonInput, MetaPostUncheckedCreateWithoutPokemonInput> | MetaPostCreateWithoutPokemonInput[] | MetaPostUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPokemonInput | MetaPostCreateOrConnectWithoutPokemonInput[]
+    upsert?: MetaPostUpsertWithWhereUniqueWithoutPokemonInput | MetaPostUpsertWithWhereUniqueWithoutPokemonInput[]
+    createMany?: MetaPostCreateManyPokemonInputEnvelope
+    set?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    disconnect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    delete?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    update?: MetaPostUpdateWithWhereUniqueWithoutPokemonInput | MetaPostUpdateWithWhereUniqueWithoutPokemonInput[]
+    updateMany?: MetaPostUpdateManyWithWhereWithoutPokemonInput | MetaPostUpdateManyWithWhereWithoutPokemonInput[]
+    deleteMany?: MetaPostScalarWhereInput | MetaPostScalarWhereInput[]
+  }
+
+  export type BanPickUncheckedUpdateManyWithoutPokemonNestedInput = {
+    create?: XOR<BanPickCreateWithoutPokemonInput, BanPickUncheckedCreateWithoutPokemonInput> | BanPickCreateWithoutPokemonInput[] | BanPickUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPokemonInput | BanPickCreateOrConnectWithoutPokemonInput[]
+    upsert?: BanPickUpsertWithWhereUniqueWithoutPokemonInput | BanPickUpsertWithWhereUniqueWithoutPokemonInput[]
+    createMany?: BanPickCreateManyPokemonInputEnvelope
+    set?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    disconnect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    delete?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    update?: BanPickUpdateWithWhereUniqueWithoutPokemonInput | BanPickUpdateWithWhereUniqueWithoutPokemonInput[]
+    updateMany?: BanPickUpdateManyWithWhereWithoutPokemonInput | BanPickUpdateManyWithWhereWithoutPokemonInput[]
+    deleteMany?: BanPickScalarWhereInput | BanPickScalarWhereInput[]
+  }
+
+  export type BugReportUncheckedUpdateManyWithoutPokemonNestedInput = {
+    create?: XOR<BugReportCreateWithoutPokemonInput, BugReportUncheckedCreateWithoutPokemonInput> | BugReportCreateWithoutPokemonInput[] | BugReportUncheckedCreateWithoutPokemonInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPokemonInput | BugReportCreateOrConnectWithoutPokemonInput[]
+    upsert?: BugReportUpsertWithWhereUniqueWithoutPokemonInput | BugReportUpsertWithWhereUniqueWithoutPokemonInput[]
+    createMany?: BugReportCreateManyPokemonInputEnvelope
+    set?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    disconnect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    delete?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    update?: BugReportUpdateWithWhereUniqueWithoutPokemonInput | BugReportUpdateWithWhereUniqueWithoutPokemonInput[]
+    updateMany?: BugReportUpdateManyWithWhereWithoutPokemonInput | BugReportUpdateManyWithWhereWithoutPokemonInput[]
+    deleteMany?: BugReportScalarWhereInput | BugReportScalarWhereInput[]
   }
 
   export type PokemonStatCreateNestedManyWithoutStatInput = {
@@ -21446,6 +37907,12 @@ export namespace Prisma {
     connect?: VoteWhereUniqueInput | VoteWhereUniqueInput[]
   }
 
+  export type UserCreateNestedOneWithoutPokemonCountersInput = {
+    create?: XOR<UserCreateWithoutPokemonCountersInput, UserUncheckedCreateWithoutPokemonCountersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPokemonCountersInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type VoteUncheckedCreateNestedManyWithoutPokemonCounterInput = {
     create?: XOR<VoteCreateWithoutPokemonCounterInput, VoteUncheckedCreateWithoutPokemonCounterInput> | VoteCreateWithoutPokemonCounterInput[] | VoteUncheckedCreateWithoutPokemonCounterInput[]
     connectOrCreate?: VoteCreateOrConnectWithoutPokemonCounterInput | VoteCreateOrConnectWithoutPokemonCounterInput[]
@@ -21481,6 +37948,16 @@ export namespace Prisma {
     update?: VoteUpdateWithWhereUniqueWithoutPokemonCounterInput | VoteUpdateWithWhereUniqueWithoutPokemonCounterInput[]
     updateMany?: VoteUpdateManyWithWhereWithoutPokemonCounterInput | VoteUpdateManyWithWhereWithoutPokemonCounterInput[]
     deleteMany?: VoteScalarWhereInput | VoteScalarWhereInput[]
+  }
+
+  export type UserUpdateOneWithoutPokemonCountersNestedInput = {
+    create?: XOR<UserCreateWithoutPokemonCountersInput, UserUncheckedCreateWithoutPokemonCountersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPokemonCountersInput
+    upsert?: UserUpsertWithoutPokemonCountersInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPokemonCountersInput, UserUpdateWithoutPokemonCountersInput>, UserUncheckedUpdateWithoutPokemonCountersInput>
   }
 
   export type VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput = {
@@ -21920,6 +38397,12 @@ export namespace Prisma {
     connect?: RadarValueWhereUniqueInput | RadarValueWhereUniqueInput[]
   }
 
+  export type UserCreateNestedOneWithoutTrainerRadarPostsInput = {
+    create?: XOR<UserCreateWithoutTrainerRadarPostsInput, UserUncheckedCreateWithoutTrainerRadarPostsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTrainerRadarPostsInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type RadarValueUncheckedCreateNestedManyWithoutPostInput = {
     create?: XOR<RadarValueCreateWithoutPostInput, RadarValueUncheckedCreateWithoutPostInput> | RadarValueCreateWithoutPostInput[] | RadarValueUncheckedCreateWithoutPostInput[]
     connectOrCreate?: RadarValueCreateOrConnectWithoutPostInput | RadarValueCreateOrConnectWithoutPostInput[]
@@ -21947,6 +38430,16 @@ export namespace Prisma {
     update?: RadarValueUpdateWithWhereUniqueWithoutPostInput | RadarValueUpdateWithWhereUniqueWithoutPostInput[]
     updateMany?: RadarValueUpdateManyWithWhereWithoutPostInput | RadarValueUpdateManyWithWhereWithoutPostInput[]
     deleteMany?: RadarValueScalarWhereInput | RadarValueScalarWhereInput[]
+  }
+
+  export type UserUpdateOneWithoutTrainerRadarPostsNestedInput = {
+    create?: XOR<UserCreateWithoutTrainerRadarPostsInput, UserUncheckedCreateWithoutTrainerRadarPostsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutTrainerRadarPostsInput
+    upsert?: UserUpsertWithoutTrainerRadarPostsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTrainerRadarPostsInput, UserUpdateWithoutTrainerRadarPostsInput>, UserUncheckedUpdateWithoutTrainerRadarPostsInput>
   }
 
   export type RadarValueUncheckedUpdateManyWithoutPostNestedInput = {
@@ -21989,6 +38482,582 @@ export namespace Prisma {
     upsert?: RadarMetricUpsertWithoutValuesInput
     connect?: RadarMetricWhereUniqueInput
     update?: XOR<XOR<RadarMetricUpdateToOneWithWhereWithoutValuesInput, RadarMetricUpdateWithoutValuesInput>, RadarMetricUncheckedUpdateWithoutValuesInput>
+  }
+
+  export type AccountCreateNestedManyWithoutUserInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+  }
+
+  export type SessionCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type PokemonCounterCreateNestedManyWithoutUserInput = {
+    create?: XOR<PokemonCounterCreateWithoutUserInput, PokemonCounterUncheckedCreateWithoutUserInput> | PokemonCounterCreateWithoutUserInput[] | PokemonCounterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PokemonCounterCreateOrConnectWithoutUserInput | PokemonCounterCreateOrConnectWithoutUserInput[]
+    createMany?: PokemonCounterCreateManyUserInputEnvelope
+    connect?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+  }
+
+  export type TrainerRadarPostCreateNestedManyWithoutUserInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutUserInput, TrainerRadarPostUncheckedCreateWithoutUserInput> | TrainerRadarPostCreateWithoutUserInput[] | TrainerRadarPostUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutUserInput | TrainerRadarPostCreateOrConnectWithoutUserInput[]
+    createMany?: TrainerRadarPostCreateManyUserInputEnvelope
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+  }
+
+  export type AccountUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+  }
+
+  export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type PokemonCounterUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PokemonCounterCreateWithoutUserInput, PokemonCounterUncheckedCreateWithoutUserInput> | PokemonCounterCreateWithoutUserInput[] | PokemonCounterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PokemonCounterCreateOrConnectWithoutUserInput | PokemonCounterCreateOrConnectWithoutUserInput[]
+    createMany?: PokemonCounterCreateManyUserInputEnvelope
+    connect?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+  }
+
+  export type TrainerRadarPostUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutUserInput, TrainerRadarPostUncheckedCreateWithoutUserInput> | TrainerRadarPostCreateWithoutUserInput[] | TrainerRadarPostUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutUserInput | TrainerRadarPostCreateOrConnectWithoutUserInput[]
+    createMany?: TrainerRadarPostCreateManyUserInputEnvelope
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+  }
+
+  export type AccountUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    upsert?: AccountUpsertWithWhereUniqueWithoutUserInput | AccountUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    set?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    disconnect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    delete?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
+  }
+
+  export type SessionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
+  export type PokemonCounterUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PokemonCounterCreateWithoutUserInput, PokemonCounterUncheckedCreateWithoutUserInput> | PokemonCounterCreateWithoutUserInput[] | PokemonCounterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PokemonCounterCreateOrConnectWithoutUserInput | PokemonCounterCreateOrConnectWithoutUserInput[]
+    upsert?: PokemonCounterUpsertWithWhereUniqueWithoutUserInput | PokemonCounterUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PokemonCounterCreateManyUserInputEnvelope
+    set?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    disconnect?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    delete?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    connect?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    update?: PokemonCounterUpdateWithWhereUniqueWithoutUserInput | PokemonCounterUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PokemonCounterUpdateManyWithWhereWithoutUserInput | PokemonCounterUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PokemonCounterScalarWhereInput | PokemonCounterScalarWhereInput[]
+  }
+
+  export type TrainerRadarPostUpdateManyWithoutUserNestedInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutUserInput, TrainerRadarPostUncheckedCreateWithoutUserInput> | TrainerRadarPostCreateWithoutUserInput[] | TrainerRadarPostUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutUserInput | TrainerRadarPostCreateOrConnectWithoutUserInput[]
+    upsert?: TrainerRadarPostUpsertWithWhereUniqueWithoutUserInput | TrainerRadarPostUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: TrainerRadarPostCreateManyUserInputEnvelope
+    set?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    disconnect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    delete?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    update?: TrainerRadarPostUpdateWithWhereUniqueWithoutUserInput | TrainerRadarPostUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: TrainerRadarPostUpdateManyWithWhereWithoutUserInput | TrainerRadarPostUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
+  }
+
+  export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
+    upsert?: AccountUpsertWithWhereUniqueWithoutUserInput | AccountUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AccountCreateManyUserInputEnvelope
+    set?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    disconnect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    delete?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+    update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
+    upsert?: SessionUpsertWithWhereUniqueWithoutUserInput | SessionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SessionCreateManyUserInputEnvelope
+    set?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    disconnect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    delete?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+    update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
+  export type PokemonCounterUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PokemonCounterCreateWithoutUserInput, PokemonCounterUncheckedCreateWithoutUserInput> | PokemonCounterCreateWithoutUserInput[] | PokemonCounterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PokemonCounterCreateOrConnectWithoutUserInput | PokemonCounterCreateOrConnectWithoutUserInput[]
+    upsert?: PokemonCounterUpsertWithWhereUniqueWithoutUserInput | PokemonCounterUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PokemonCounterCreateManyUserInputEnvelope
+    set?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    disconnect?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    delete?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    connect?: PokemonCounterWhereUniqueInput | PokemonCounterWhereUniqueInput[]
+    update?: PokemonCounterUpdateWithWhereUniqueWithoutUserInput | PokemonCounterUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PokemonCounterUpdateManyWithWhereWithoutUserInput | PokemonCounterUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PokemonCounterScalarWhereInput | PokemonCounterScalarWhereInput[]
+  }
+
+  export type TrainerRadarPostUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<TrainerRadarPostCreateWithoutUserInput, TrainerRadarPostUncheckedCreateWithoutUserInput> | TrainerRadarPostCreateWithoutUserInput[] | TrainerRadarPostUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: TrainerRadarPostCreateOrConnectWithoutUserInput | TrainerRadarPostCreateOrConnectWithoutUserInput[]
+    upsert?: TrainerRadarPostUpsertWithWhereUniqueWithoutUserInput | TrainerRadarPostUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: TrainerRadarPostCreateManyUserInputEnvelope
+    set?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    disconnect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    delete?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    connect?: TrainerRadarPostWhereUniqueInput | TrainerRadarPostWhereUniqueInput[]
+    update?: TrainerRadarPostUpdateWithWhereUniqueWithoutUserInput | TrainerRadarPostUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: TrainerRadarPostUpdateManyWithWhereWithoutUserInput | TrainerRadarPostUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutAccountsInput = {
+    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutAccountsNestedInput = {
+    create?: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAccountsInput
+    upsert?: UserUpsertWithoutAccountsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type UserCreateNestedOneWithoutSessionsInput = {
+    create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutSessionsNestedInput = {
+    create?: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSessionsInput
+    upsert?: UserUpsertWithoutSessionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type MetaPostCreateNestedManyWithoutPatchInput = {
+    create?: XOR<MetaPostCreateWithoutPatchInput, MetaPostUncheckedCreateWithoutPatchInput> | MetaPostCreateWithoutPatchInput[] | MetaPostUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPatchInput | MetaPostCreateOrConnectWithoutPatchInput[]
+    createMany?: MetaPostCreateManyPatchInputEnvelope
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+  }
+
+  export type BanPickCreateNestedManyWithoutPatchInput = {
+    create?: XOR<BanPickCreateWithoutPatchInput, BanPickUncheckedCreateWithoutPatchInput> | BanPickCreateWithoutPatchInput[] | BanPickUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPatchInput | BanPickCreateOrConnectWithoutPatchInput[]
+    createMany?: BanPickCreateManyPatchInputEnvelope
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+  }
+
+  export type BugReportCreateNestedManyWithoutPatchInput = {
+    create?: XOR<BugReportCreateWithoutPatchInput, BugReportUncheckedCreateWithoutPatchInput> | BugReportCreateWithoutPatchInput[] | BugReportUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPatchInput | BugReportCreateOrConnectWithoutPatchInput[]
+    createMany?: BugReportCreateManyPatchInputEnvelope
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+  }
+
+  export type MetaPostUncheckedCreateNestedManyWithoutPatchInput = {
+    create?: XOR<MetaPostCreateWithoutPatchInput, MetaPostUncheckedCreateWithoutPatchInput> | MetaPostCreateWithoutPatchInput[] | MetaPostUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPatchInput | MetaPostCreateOrConnectWithoutPatchInput[]
+    createMany?: MetaPostCreateManyPatchInputEnvelope
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+  }
+
+  export type BanPickUncheckedCreateNestedManyWithoutPatchInput = {
+    create?: XOR<BanPickCreateWithoutPatchInput, BanPickUncheckedCreateWithoutPatchInput> | BanPickCreateWithoutPatchInput[] | BanPickUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPatchInput | BanPickCreateOrConnectWithoutPatchInput[]
+    createMany?: BanPickCreateManyPatchInputEnvelope
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+  }
+
+  export type BugReportUncheckedCreateNestedManyWithoutPatchInput = {
+    create?: XOR<BugReportCreateWithoutPatchInput, BugReportUncheckedCreateWithoutPatchInput> | BugReportCreateWithoutPatchInput[] | BugReportUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPatchInput | BugReportCreateOrConnectWithoutPatchInput[]
+    createMany?: BugReportCreateManyPatchInputEnvelope
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+  }
+
+  export type MetaPostUpdateManyWithoutPatchNestedInput = {
+    create?: XOR<MetaPostCreateWithoutPatchInput, MetaPostUncheckedCreateWithoutPatchInput> | MetaPostCreateWithoutPatchInput[] | MetaPostUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPatchInput | MetaPostCreateOrConnectWithoutPatchInput[]
+    upsert?: MetaPostUpsertWithWhereUniqueWithoutPatchInput | MetaPostUpsertWithWhereUniqueWithoutPatchInput[]
+    createMany?: MetaPostCreateManyPatchInputEnvelope
+    set?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    disconnect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    delete?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    update?: MetaPostUpdateWithWhereUniqueWithoutPatchInput | MetaPostUpdateWithWhereUniqueWithoutPatchInput[]
+    updateMany?: MetaPostUpdateManyWithWhereWithoutPatchInput | MetaPostUpdateManyWithWhereWithoutPatchInput[]
+    deleteMany?: MetaPostScalarWhereInput | MetaPostScalarWhereInput[]
+  }
+
+  export type BanPickUpdateManyWithoutPatchNestedInput = {
+    create?: XOR<BanPickCreateWithoutPatchInput, BanPickUncheckedCreateWithoutPatchInput> | BanPickCreateWithoutPatchInput[] | BanPickUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPatchInput | BanPickCreateOrConnectWithoutPatchInput[]
+    upsert?: BanPickUpsertWithWhereUniqueWithoutPatchInput | BanPickUpsertWithWhereUniqueWithoutPatchInput[]
+    createMany?: BanPickCreateManyPatchInputEnvelope
+    set?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    disconnect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    delete?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    update?: BanPickUpdateWithWhereUniqueWithoutPatchInput | BanPickUpdateWithWhereUniqueWithoutPatchInput[]
+    updateMany?: BanPickUpdateManyWithWhereWithoutPatchInput | BanPickUpdateManyWithWhereWithoutPatchInput[]
+    deleteMany?: BanPickScalarWhereInput | BanPickScalarWhereInput[]
+  }
+
+  export type BugReportUpdateManyWithoutPatchNestedInput = {
+    create?: XOR<BugReportCreateWithoutPatchInput, BugReportUncheckedCreateWithoutPatchInput> | BugReportCreateWithoutPatchInput[] | BugReportUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPatchInput | BugReportCreateOrConnectWithoutPatchInput[]
+    upsert?: BugReportUpsertWithWhereUniqueWithoutPatchInput | BugReportUpsertWithWhereUniqueWithoutPatchInput[]
+    createMany?: BugReportCreateManyPatchInputEnvelope
+    set?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    disconnect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    delete?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    update?: BugReportUpdateWithWhereUniqueWithoutPatchInput | BugReportUpdateWithWhereUniqueWithoutPatchInput[]
+    updateMany?: BugReportUpdateManyWithWhereWithoutPatchInput | BugReportUpdateManyWithWhereWithoutPatchInput[]
+    deleteMany?: BugReportScalarWhereInput | BugReportScalarWhereInput[]
+  }
+
+  export type MetaPostUncheckedUpdateManyWithoutPatchNestedInput = {
+    create?: XOR<MetaPostCreateWithoutPatchInput, MetaPostUncheckedCreateWithoutPatchInput> | MetaPostCreateWithoutPatchInput[] | MetaPostUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: MetaPostCreateOrConnectWithoutPatchInput | MetaPostCreateOrConnectWithoutPatchInput[]
+    upsert?: MetaPostUpsertWithWhereUniqueWithoutPatchInput | MetaPostUpsertWithWhereUniqueWithoutPatchInput[]
+    createMany?: MetaPostCreateManyPatchInputEnvelope
+    set?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    disconnect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    delete?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    connect?: MetaPostWhereUniqueInput | MetaPostWhereUniqueInput[]
+    update?: MetaPostUpdateWithWhereUniqueWithoutPatchInput | MetaPostUpdateWithWhereUniqueWithoutPatchInput[]
+    updateMany?: MetaPostUpdateManyWithWhereWithoutPatchInput | MetaPostUpdateManyWithWhereWithoutPatchInput[]
+    deleteMany?: MetaPostScalarWhereInput | MetaPostScalarWhereInput[]
+  }
+
+  export type BanPickUncheckedUpdateManyWithoutPatchNestedInput = {
+    create?: XOR<BanPickCreateWithoutPatchInput, BanPickUncheckedCreateWithoutPatchInput> | BanPickCreateWithoutPatchInput[] | BanPickUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BanPickCreateOrConnectWithoutPatchInput | BanPickCreateOrConnectWithoutPatchInput[]
+    upsert?: BanPickUpsertWithWhereUniqueWithoutPatchInput | BanPickUpsertWithWhereUniqueWithoutPatchInput[]
+    createMany?: BanPickCreateManyPatchInputEnvelope
+    set?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    disconnect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    delete?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    connect?: BanPickWhereUniqueInput | BanPickWhereUniqueInput[]
+    update?: BanPickUpdateWithWhereUniqueWithoutPatchInput | BanPickUpdateWithWhereUniqueWithoutPatchInput[]
+    updateMany?: BanPickUpdateManyWithWhereWithoutPatchInput | BanPickUpdateManyWithWhereWithoutPatchInput[]
+    deleteMany?: BanPickScalarWhereInput | BanPickScalarWhereInput[]
+  }
+
+  export type BugReportUncheckedUpdateManyWithoutPatchNestedInput = {
+    create?: XOR<BugReportCreateWithoutPatchInput, BugReportUncheckedCreateWithoutPatchInput> | BugReportCreateWithoutPatchInput[] | BugReportUncheckedCreateWithoutPatchInput[]
+    connectOrCreate?: BugReportCreateOrConnectWithoutPatchInput | BugReportCreateOrConnectWithoutPatchInput[]
+    upsert?: BugReportUpsertWithWhereUniqueWithoutPatchInput | BugReportUpsertWithWhereUniqueWithoutPatchInput[]
+    createMany?: BugReportCreateManyPatchInputEnvelope
+    set?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    disconnect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    delete?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    connect?: BugReportWhereUniqueInput | BugReportWhereUniqueInput[]
+    update?: BugReportUpdateWithWhereUniqueWithoutPatchInput | BugReportUpdateWithWhereUniqueWithoutPatchInput[]
+    updateMany?: BugReportUpdateManyWithWhereWithoutPatchInput | BugReportUpdateManyWithWhereWithoutPatchInput[]
+    deleteMany?: BugReportScalarWhereInput | BugReportScalarWhereInput[]
+  }
+
+  export type GamePatchCreateNestedOneWithoutMetaPostsInput = {
+    create?: XOR<GamePatchCreateWithoutMetaPostsInput, GamePatchUncheckedCreateWithoutMetaPostsInput>
+    connectOrCreate?: GamePatchCreateOrConnectWithoutMetaPostsInput
+    connect?: GamePatchWhereUniqueInput
+  }
+
+  export type PokemonCreateNestedOneWithoutMetaPostsInput = {
+    create?: XOR<PokemonCreateWithoutMetaPostsInput, PokemonUncheckedCreateWithoutMetaPostsInput>
+    connectOrCreate?: PokemonCreateOrConnectWithoutMetaPostsInput
+    connect?: PokemonWhereUniqueInput
+  }
+
+  export type MetaVoteCreateNestedManyWithoutMetaPostInput = {
+    create?: XOR<MetaVoteCreateWithoutMetaPostInput, MetaVoteUncheckedCreateWithoutMetaPostInput> | MetaVoteCreateWithoutMetaPostInput[] | MetaVoteUncheckedCreateWithoutMetaPostInput[]
+    connectOrCreate?: MetaVoteCreateOrConnectWithoutMetaPostInput | MetaVoteCreateOrConnectWithoutMetaPostInput[]
+    createMany?: MetaVoteCreateManyMetaPostInputEnvelope
+    connect?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+  }
+
+  export type MetaVoteUncheckedCreateNestedManyWithoutMetaPostInput = {
+    create?: XOR<MetaVoteCreateWithoutMetaPostInput, MetaVoteUncheckedCreateWithoutMetaPostInput> | MetaVoteCreateWithoutMetaPostInput[] | MetaVoteUncheckedCreateWithoutMetaPostInput[]
+    connectOrCreate?: MetaVoteCreateOrConnectWithoutMetaPostInput | MetaVoteCreateOrConnectWithoutMetaPostInput[]
+    createMany?: MetaVoteCreateManyMetaPostInputEnvelope
+    connect?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+  }
+
+  export type GamePatchUpdateOneRequiredWithoutMetaPostsNestedInput = {
+    create?: XOR<GamePatchCreateWithoutMetaPostsInput, GamePatchUncheckedCreateWithoutMetaPostsInput>
+    connectOrCreate?: GamePatchCreateOrConnectWithoutMetaPostsInput
+    upsert?: GamePatchUpsertWithoutMetaPostsInput
+    connect?: GamePatchWhereUniqueInput
+    update?: XOR<XOR<GamePatchUpdateToOneWithWhereWithoutMetaPostsInput, GamePatchUpdateWithoutMetaPostsInput>, GamePatchUncheckedUpdateWithoutMetaPostsInput>
+  }
+
+  export type PokemonUpdateOneRequiredWithoutMetaPostsNestedInput = {
+    create?: XOR<PokemonCreateWithoutMetaPostsInput, PokemonUncheckedCreateWithoutMetaPostsInput>
+    connectOrCreate?: PokemonCreateOrConnectWithoutMetaPostsInput
+    upsert?: PokemonUpsertWithoutMetaPostsInput
+    connect?: PokemonWhereUniqueInput
+    update?: XOR<XOR<PokemonUpdateToOneWithWhereWithoutMetaPostsInput, PokemonUpdateWithoutMetaPostsInput>, PokemonUncheckedUpdateWithoutMetaPostsInput>
+  }
+
+  export type MetaVoteUpdateManyWithoutMetaPostNestedInput = {
+    create?: XOR<MetaVoteCreateWithoutMetaPostInput, MetaVoteUncheckedCreateWithoutMetaPostInput> | MetaVoteCreateWithoutMetaPostInput[] | MetaVoteUncheckedCreateWithoutMetaPostInput[]
+    connectOrCreate?: MetaVoteCreateOrConnectWithoutMetaPostInput | MetaVoteCreateOrConnectWithoutMetaPostInput[]
+    upsert?: MetaVoteUpsertWithWhereUniqueWithoutMetaPostInput | MetaVoteUpsertWithWhereUniqueWithoutMetaPostInput[]
+    createMany?: MetaVoteCreateManyMetaPostInputEnvelope
+    set?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    disconnect?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    delete?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    connect?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    update?: MetaVoteUpdateWithWhereUniqueWithoutMetaPostInput | MetaVoteUpdateWithWhereUniqueWithoutMetaPostInput[]
+    updateMany?: MetaVoteUpdateManyWithWhereWithoutMetaPostInput | MetaVoteUpdateManyWithWhereWithoutMetaPostInput[]
+    deleteMany?: MetaVoteScalarWhereInput | MetaVoteScalarWhereInput[]
+  }
+
+  export type MetaVoteUncheckedUpdateManyWithoutMetaPostNestedInput = {
+    create?: XOR<MetaVoteCreateWithoutMetaPostInput, MetaVoteUncheckedCreateWithoutMetaPostInput> | MetaVoteCreateWithoutMetaPostInput[] | MetaVoteUncheckedCreateWithoutMetaPostInput[]
+    connectOrCreate?: MetaVoteCreateOrConnectWithoutMetaPostInput | MetaVoteCreateOrConnectWithoutMetaPostInput[]
+    upsert?: MetaVoteUpsertWithWhereUniqueWithoutMetaPostInput | MetaVoteUpsertWithWhereUniqueWithoutMetaPostInput[]
+    createMany?: MetaVoteCreateManyMetaPostInputEnvelope
+    set?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    disconnect?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    delete?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    connect?: MetaVoteWhereUniqueInput | MetaVoteWhereUniqueInput[]
+    update?: MetaVoteUpdateWithWhereUniqueWithoutMetaPostInput | MetaVoteUpdateWithWhereUniqueWithoutMetaPostInput[]
+    updateMany?: MetaVoteUpdateManyWithWhereWithoutMetaPostInput | MetaVoteUpdateManyWithWhereWithoutMetaPostInput[]
+    deleteMany?: MetaVoteScalarWhereInput | MetaVoteScalarWhereInput[]
+  }
+
+  export type GamePatchCreateNestedOneWithoutBanPicksInput = {
+    create?: XOR<GamePatchCreateWithoutBanPicksInput, GamePatchUncheckedCreateWithoutBanPicksInput>
+    connectOrCreate?: GamePatchCreateOrConnectWithoutBanPicksInput
+    connect?: GamePatchWhereUniqueInput
+  }
+
+  export type PokemonCreateNestedOneWithoutBanPicksInput = {
+    create?: XOR<PokemonCreateWithoutBanPicksInput, PokemonUncheckedCreateWithoutBanPicksInput>
+    connectOrCreate?: PokemonCreateOrConnectWithoutBanPicksInput
+    connect?: PokemonWhereUniqueInput
+  }
+
+  export type BanVoteCreateNestedManyWithoutBanPickInput = {
+    create?: XOR<BanVoteCreateWithoutBanPickInput, BanVoteUncheckedCreateWithoutBanPickInput> | BanVoteCreateWithoutBanPickInput[] | BanVoteUncheckedCreateWithoutBanPickInput[]
+    connectOrCreate?: BanVoteCreateOrConnectWithoutBanPickInput | BanVoteCreateOrConnectWithoutBanPickInput[]
+    createMany?: BanVoteCreateManyBanPickInputEnvelope
+    connect?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+  }
+
+  export type BanVoteUncheckedCreateNestedManyWithoutBanPickInput = {
+    create?: XOR<BanVoteCreateWithoutBanPickInput, BanVoteUncheckedCreateWithoutBanPickInput> | BanVoteCreateWithoutBanPickInput[] | BanVoteUncheckedCreateWithoutBanPickInput[]
+    connectOrCreate?: BanVoteCreateOrConnectWithoutBanPickInput | BanVoteCreateOrConnectWithoutBanPickInput[]
+    createMany?: BanVoteCreateManyBanPickInputEnvelope
+    connect?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+  }
+
+  export type GamePatchUpdateOneRequiredWithoutBanPicksNestedInput = {
+    create?: XOR<GamePatchCreateWithoutBanPicksInput, GamePatchUncheckedCreateWithoutBanPicksInput>
+    connectOrCreate?: GamePatchCreateOrConnectWithoutBanPicksInput
+    upsert?: GamePatchUpsertWithoutBanPicksInput
+    connect?: GamePatchWhereUniqueInput
+    update?: XOR<XOR<GamePatchUpdateToOneWithWhereWithoutBanPicksInput, GamePatchUpdateWithoutBanPicksInput>, GamePatchUncheckedUpdateWithoutBanPicksInput>
+  }
+
+  export type PokemonUpdateOneRequiredWithoutBanPicksNestedInput = {
+    create?: XOR<PokemonCreateWithoutBanPicksInput, PokemonUncheckedCreateWithoutBanPicksInput>
+    connectOrCreate?: PokemonCreateOrConnectWithoutBanPicksInput
+    upsert?: PokemonUpsertWithoutBanPicksInput
+    connect?: PokemonWhereUniqueInput
+    update?: XOR<XOR<PokemonUpdateToOneWithWhereWithoutBanPicksInput, PokemonUpdateWithoutBanPicksInput>, PokemonUncheckedUpdateWithoutBanPicksInput>
+  }
+
+  export type BanVoteUpdateManyWithoutBanPickNestedInput = {
+    create?: XOR<BanVoteCreateWithoutBanPickInput, BanVoteUncheckedCreateWithoutBanPickInput> | BanVoteCreateWithoutBanPickInput[] | BanVoteUncheckedCreateWithoutBanPickInput[]
+    connectOrCreate?: BanVoteCreateOrConnectWithoutBanPickInput | BanVoteCreateOrConnectWithoutBanPickInput[]
+    upsert?: BanVoteUpsertWithWhereUniqueWithoutBanPickInput | BanVoteUpsertWithWhereUniqueWithoutBanPickInput[]
+    createMany?: BanVoteCreateManyBanPickInputEnvelope
+    set?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    disconnect?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    delete?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    connect?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    update?: BanVoteUpdateWithWhereUniqueWithoutBanPickInput | BanVoteUpdateWithWhereUniqueWithoutBanPickInput[]
+    updateMany?: BanVoteUpdateManyWithWhereWithoutBanPickInput | BanVoteUpdateManyWithWhereWithoutBanPickInput[]
+    deleteMany?: BanVoteScalarWhereInput | BanVoteScalarWhereInput[]
+  }
+
+  export type BanVoteUncheckedUpdateManyWithoutBanPickNestedInput = {
+    create?: XOR<BanVoteCreateWithoutBanPickInput, BanVoteUncheckedCreateWithoutBanPickInput> | BanVoteCreateWithoutBanPickInput[] | BanVoteUncheckedCreateWithoutBanPickInput[]
+    connectOrCreate?: BanVoteCreateOrConnectWithoutBanPickInput | BanVoteCreateOrConnectWithoutBanPickInput[]
+    upsert?: BanVoteUpsertWithWhereUniqueWithoutBanPickInput | BanVoteUpsertWithWhereUniqueWithoutBanPickInput[]
+    createMany?: BanVoteCreateManyBanPickInputEnvelope
+    set?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    disconnect?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    delete?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    connect?: BanVoteWhereUniqueInput | BanVoteWhereUniqueInput[]
+    update?: BanVoteUpdateWithWhereUniqueWithoutBanPickInput | BanVoteUpdateWithWhereUniqueWithoutBanPickInput[]
+    updateMany?: BanVoteUpdateManyWithWhereWithoutBanPickInput | BanVoteUpdateManyWithWhereWithoutBanPickInput[]
+    deleteMany?: BanVoteScalarWhereInput | BanVoteScalarWhereInput[]
+  }
+
+  export type GamePatchCreateNestedOneWithoutBugReportsInput = {
+    create?: XOR<GamePatchCreateWithoutBugReportsInput, GamePatchUncheckedCreateWithoutBugReportsInput>
+    connectOrCreate?: GamePatchCreateOrConnectWithoutBugReportsInput
+    connect?: GamePatchWhereUniqueInput
+  }
+
+  export type PokemonCreateNestedOneWithoutBugReportsInput = {
+    create?: XOR<PokemonCreateWithoutBugReportsInput, PokemonUncheckedCreateWithoutBugReportsInput>
+    connectOrCreate?: PokemonCreateOrConnectWithoutBugReportsInput
+    connect?: PokemonWhereUniqueInput
+  }
+
+  export type BugVoteCreateNestedManyWithoutBugReportInput = {
+    create?: XOR<BugVoteCreateWithoutBugReportInput, BugVoteUncheckedCreateWithoutBugReportInput> | BugVoteCreateWithoutBugReportInput[] | BugVoteUncheckedCreateWithoutBugReportInput[]
+    connectOrCreate?: BugVoteCreateOrConnectWithoutBugReportInput | BugVoteCreateOrConnectWithoutBugReportInput[]
+    createMany?: BugVoteCreateManyBugReportInputEnvelope
+    connect?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+  }
+
+  export type BugVoteUncheckedCreateNestedManyWithoutBugReportInput = {
+    create?: XOR<BugVoteCreateWithoutBugReportInput, BugVoteUncheckedCreateWithoutBugReportInput> | BugVoteCreateWithoutBugReportInput[] | BugVoteUncheckedCreateWithoutBugReportInput[]
+    connectOrCreate?: BugVoteCreateOrConnectWithoutBugReportInput | BugVoteCreateOrConnectWithoutBugReportInput[]
+    createMany?: BugVoteCreateManyBugReportInputEnvelope
+    connect?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+  }
+
+  export type GamePatchUpdateOneRequiredWithoutBugReportsNestedInput = {
+    create?: XOR<GamePatchCreateWithoutBugReportsInput, GamePatchUncheckedCreateWithoutBugReportsInput>
+    connectOrCreate?: GamePatchCreateOrConnectWithoutBugReportsInput
+    upsert?: GamePatchUpsertWithoutBugReportsInput
+    connect?: GamePatchWhereUniqueInput
+    update?: XOR<XOR<GamePatchUpdateToOneWithWhereWithoutBugReportsInput, GamePatchUpdateWithoutBugReportsInput>, GamePatchUncheckedUpdateWithoutBugReportsInput>
+  }
+
+  export type PokemonUpdateOneWithoutBugReportsNestedInput = {
+    create?: XOR<PokemonCreateWithoutBugReportsInput, PokemonUncheckedCreateWithoutBugReportsInput>
+    connectOrCreate?: PokemonCreateOrConnectWithoutBugReportsInput
+    upsert?: PokemonUpsertWithoutBugReportsInput
+    disconnect?: PokemonWhereInput | boolean
+    delete?: PokemonWhereInput | boolean
+    connect?: PokemonWhereUniqueInput
+    update?: XOR<XOR<PokemonUpdateToOneWithWhereWithoutBugReportsInput, PokemonUpdateWithoutBugReportsInput>, PokemonUncheckedUpdateWithoutBugReportsInput>
+  }
+
+  export type BugVoteUpdateManyWithoutBugReportNestedInput = {
+    create?: XOR<BugVoteCreateWithoutBugReportInput, BugVoteUncheckedCreateWithoutBugReportInput> | BugVoteCreateWithoutBugReportInput[] | BugVoteUncheckedCreateWithoutBugReportInput[]
+    connectOrCreate?: BugVoteCreateOrConnectWithoutBugReportInput | BugVoteCreateOrConnectWithoutBugReportInput[]
+    upsert?: BugVoteUpsertWithWhereUniqueWithoutBugReportInput | BugVoteUpsertWithWhereUniqueWithoutBugReportInput[]
+    createMany?: BugVoteCreateManyBugReportInputEnvelope
+    set?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    disconnect?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    delete?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    connect?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    update?: BugVoteUpdateWithWhereUniqueWithoutBugReportInput | BugVoteUpdateWithWhereUniqueWithoutBugReportInput[]
+    updateMany?: BugVoteUpdateManyWithWhereWithoutBugReportInput | BugVoteUpdateManyWithWhereWithoutBugReportInput[]
+    deleteMany?: BugVoteScalarWhereInput | BugVoteScalarWhereInput[]
+  }
+
+  export type BugVoteUncheckedUpdateManyWithoutBugReportNestedInput = {
+    create?: XOR<BugVoteCreateWithoutBugReportInput, BugVoteUncheckedCreateWithoutBugReportInput> | BugVoteCreateWithoutBugReportInput[] | BugVoteUncheckedCreateWithoutBugReportInput[]
+    connectOrCreate?: BugVoteCreateOrConnectWithoutBugReportInput | BugVoteCreateOrConnectWithoutBugReportInput[]
+    upsert?: BugVoteUpsertWithWhereUniqueWithoutBugReportInput | BugVoteUpsertWithWhereUniqueWithoutBugReportInput[]
+    createMany?: BugVoteCreateManyBugReportInputEnvelope
+    set?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    disconnect?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    delete?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    connect?: BugVoteWhereUniqueInput | BugVoteWhereUniqueInput[]
+    update?: BugVoteUpdateWithWhereUniqueWithoutBugReportInput | BugVoteUpdateWithWhereUniqueWithoutBugReportInput[]
+    updateMany?: BugVoteUpdateManyWithWhereWithoutBugReportInput | BugVoteUpdateManyWithWhereWithoutBugReportInput[]
+    deleteMany?: BugVoteScalarWhereInput | BugVoteScalarWhereInput[]
+  }
+
+  export type MetaPostCreateNestedOneWithoutVotesInput = {
+    create?: XOR<MetaPostCreateWithoutVotesInput, MetaPostUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: MetaPostCreateOrConnectWithoutVotesInput
+    connect?: MetaPostWhereUniqueInput
+  }
+
+  export type MetaPostUpdateOneRequiredWithoutVotesNestedInput = {
+    create?: XOR<MetaPostCreateWithoutVotesInput, MetaPostUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: MetaPostCreateOrConnectWithoutVotesInput
+    upsert?: MetaPostUpsertWithoutVotesInput
+    connect?: MetaPostWhereUniqueInput
+    update?: XOR<XOR<MetaPostUpdateToOneWithWhereWithoutVotesInput, MetaPostUpdateWithoutVotesInput>, MetaPostUncheckedUpdateWithoutVotesInput>
+  }
+
+  export type BanPickCreateNestedOneWithoutVotesInput = {
+    create?: XOR<BanPickCreateWithoutVotesInput, BanPickUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: BanPickCreateOrConnectWithoutVotesInput
+    connect?: BanPickWhereUniqueInput
+  }
+
+  export type BanPickUpdateOneRequiredWithoutVotesNestedInput = {
+    create?: XOR<BanPickCreateWithoutVotesInput, BanPickUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: BanPickCreateOrConnectWithoutVotesInput
+    upsert?: BanPickUpsertWithoutVotesInput
+    connect?: BanPickWhereUniqueInput
+    update?: XOR<XOR<BanPickUpdateToOneWithWhereWithoutVotesInput, BanPickUpdateWithoutVotesInput>, BanPickUncheckedUpdateWithoutVotesInput>
+  }
+
+  export type BugReportCreateNestedOneWithoutVotesInput = {
+    create?: XOR<BugReportCreateWithoutVotesInput, BugReportUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: BugReportCreateOrConnectWithoutVotesInput
+    connect?: BugReportWhereUniqueInput
+  }
+
+  export type BugReportUpdateOneRequiredWithoutVotesNestedInput = {
+    create?: XOR<BugReportCreateWithoutVotesInput, BugReportUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: BugReportCreateOrConnectWithoutVotesInput
+    upsert?: BugReportUpsertWithoutVotesInput
+    connect?: BugReportWhereUniqueInput
+    update?: XOR<XOR<BugReportUpdateToOneWithWhereWithoutVotesInput, BugReportUpdateWithoutVotesInput>, BugReportUncheckedUpdateWithoutVotesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -22236,8 +39305,10 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    guestId?: string | null
     counterPokemon: PokemonCreateNestedOneWithoutCounterForInput
     votes?: VoteCreateNestedManyWithoutPokemonCounterInput
+    user?: UserCreateNestedOneWithoutPokemonCountersInput
   }
 
   export type PokemonCounterUncheckedCreateWithoutTargetPokemonInput = {
@@ -22247,6 +39318,8 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
     votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
   }
 
@@ -22265,8 +39338,10 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    guestId?: string | null
     targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
     votes?: VoteCreateNestedManyWithoutPokemonCounterInput
+    user?: UserCreateNestedOneWithoutPokemonCountersInput
   }
 
   export type PokemonCounterUncheckedCreateWithoutCounterPokemonInput = {
@@ -22276,6 +39351,8 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
     votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
   }
 
@@ -22306,6 +39383,117 @@ export namespace Prisma {
 
   export type PokemonCustomTagCreateManyPokemonInputEnvelope = {
     data: PokemonCustomTagCreateManyPokemonInput | PokemonCustomTagCreateManyPokemonInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MetaPostCreateWithoutPokemonInput = {
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutMetaPostsInput
+    votes?: MetaVoteCreateNestedManyWithoutMetaPostInput
+  }
+
+  export type MetaPostUncheckedCreateWithoutPokemonInput = {
+    id?: number
+    patchId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: MetaVoteUncheckedCreateNestedManyWithoutMetaPostInput
+  }
+
+  export type MetaPostCreateOrConnectWithoutPokemonInput = {
+    where: MetaPostWhereUniqueInput
+    create: XOR<MetaPostCreateWithoutPokemonInput, MetaPostUncheckedCreateWithoutPokemonInput>
+  }
+
+  export type MetaPostCreateManyPokemonInputEnvelope = {
+    data: MetaPostCreateManyPokemonInput | MetaPostCreateManyPokemonInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BanPickCreateWithoutPokemonInput = {
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutBanPicksInput
+    votes?: BanVoteCreateNestedManyWithoutBanPickInput
+  }
+
+  export type BanPickUncheckedCreateWithoutPokemonInput = {
+    id?: number
+    patchId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: BanVoteUncheckedCreateNestedManyWithoutBanPickInput
+  }
+
+  export type BanPickCreateOrConnectWithoutPokemonInput = {
+    where: BanPickWhereUniqueInput
+    create: XOR<BanPickCreateWithoutPokemonInput, BanPickUncheckedCreateWithoutPokemonInput>
+  }
+
+  export type BanPickCreateManyPokemonInputEnvelope = {
+    data: BanPickCreateManyPokemonInput | BanPickCreateManyPokemonInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BugReportCreateWithoutPokemonInput = {
+    title: string
+    description?: string | null
+    category: string
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutBugReportsInput
+    votes?: BugVoteCreateNestedManyWithoutBugReportInput
+  }
+
+  export type BugReportUncheckedCreateWithoutPokemonInput = {
+    id?: number
+    patchId: number
+    title: string
+    description?: string | null
+    category: string
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: BugVoteUncheckedCreateNestedManyWithoutBugReportInput
+  }
+
+  export type BugReportCreateOrConnectWithoutPokemonInput = {
+    where: BugReportWhereUniqueInput
+    create: XOR<BugReportCreateWithoutPokemonInput, BugReportUncheckedCreateWithoutPokemonInput>
+  }
+
+  export type BugReportCreateManyPokemonInputEnvelope = {
+    data: BugReportCreateManyPokemonInput | BugReportCreateManyPokemonInput[]
     skipDuplicates?: boolean
   }
 
@@ -22363,6 +39551,8 @@ export namespace Prisma {
     counterType?: StringNullableFilter<"PokemonCounter"> | string | null
     upvotes?: IntFilter<"PokemonCounter"> | number
     downvotes?: IntFilter<"PokemonCounter"> | number
+    userId?: StringNullableFilter<"PokemonCounter"> | string | null
+    guestId?: StringNullableFilter<"PokemonCounter"> | string | null
   }
 
   export type PokemonCounterUpsertWithWhereUniqueWithoutCounterPokemonInput = {
@@ -22404,6 +39594,105 @@ export namespace Prisma {
     pokemonId?: IntFilter<"PokemonCustomTag"> | number
     tagId?: IntFilter<"PokemonCustomTag"> | number
     createdAt?: DateTimeFilter<"PokemonCustomTag"> | Date | string
+  }
+
+  export type MetaPostUpsertWithWhereUniqueWithoutPokemonInput = {
+    where: MetaPostWhereUniqueInput
+    update: XOR<MetaPostUpdateWithoutPokemonInput, MetaPostUncheckedUpdateWithoutPokemonInput>
+    create: XOR<MetaPostCreateWithoutPokemonInput, MetaPostUncheckedCreateWithoutPokemonInput>
+  }
+
+  export type MetaPostUpdateWithWhereUniqueWithoutPokemonInput = {
+    where: MetaPostWhereUniqueInput
+    data: XOR<MetaPostUpdateWithoutPokemonInput, MetaPostUncheckedUpdateWithoutPokemonInput>
+  }
+
+  export type MetaPostUpdateManyWithWhereWithoutPokemonInput = {
+    where: MetaPostScalarWhereInput
+    data: XOR<MetaPostUpdateManyMutationInput, MetaPostUncheckedUpdateManyWithoutPokemonInput>
+  }
+
+  export type MetaPostScalarWhereInput = {
+    AND?: MetaPostScalarWhereInput | MetaPostScalarWhereInput[]
+    OR?: MetaPostScalarWhereInput[]
+    NOT?: MetaPostScalarWhereInput | MetaPostScalarWhereInput[]
+    id?: IntFilter<"MetaPost"> | number
+    patchId?: IntFilter<"MetaPost"> | number
+    pokemonId?: IntFilter<"MetaPost"> | number
+    reason?: StringNullableFilter<"MetaPost"> | string | null
+    tier?: StringFilter<"MetaPost"> | string
+    upvotes?: IntFilter<"MetaPost"> | number
+    downvotes?: IntFilter<"MetaPost"> | number
+    guestId?: StringNullableFilter<"MetaPost"> | string | null
+    createdAt?: DateTimeFilter<"MetaPost"> | Date | string
+    updatedAt?: DateTimeFilter<"MetaPost"> | Date | string
+  }
+
+  export type BanPickUpsertWithWhereUniqueWithoutPokemonInput = {
+    where: BanPickWhereUniqueInput
+    update: XOR<BanPickUpdateWithoutPokemonInput, BanPickUncheckedUpdateWithoutPokemonInput>
+    create: XOR<BanPickCreateWithoutPokemonInput, BanPickUncheckedCreateWithoutPokemonInput>
+  }
+
+  export type BanPickUpdateWithWhereUniqueWithoutPokemonInput = {
+    where: BanPickWhereUniqueInput
+    data: XOR<BanPickUpdateWithoutPokemonInput, BanPickUncheckedUpdateWithoutPokemonInput>
+  }
+
+  export type BanPickUpdateManyWithWhereWithoutPokemonInput = {
+    where: BanPickScalarWhereInput
+    data: XOR<BanPickUpdateManyMutationInput, BanPickUncheckedUpdateManyWithoutPokemonInput>
+  }
+
+  export type BanPickScalarWhereInput = {
+    AND?: BanPickScalarWhereInput | BanPickScalarWhereInput[]
+    OR?: BanPickScalarWhereInput[]
+    NOT?: BanPickScalarWhereInput | BanPickScalarWhereInput[]
+    id?: IntFilter<"BanPick"> | number
+    patchId?: IntFilter<"BanPick"> | number
+    pokemonId?: IntFilter<"BanPick"> | number
+    side?: StringFilter<"BanPick"> | string
+    reason?: StringNullableFilter<"BanPick"> | string | null
+    upvotes?: IntFilter<"BanPick"> | number
+    downvotes?: IntFilter<"BanPick"> | number
+    guestId?: StringNullableFilter<"BanPick"> | string | null
+    createdAt?: DateTimeFilter<"BanPick"> | Date | string
+    updatedAt?: DateTimeFilter<"BanPick"> | Date | string
+  }
+
+  export type BugReportUpsertWithWhereUniqueWithoutPokemonInput = {
+    where: BugReportWhereUniqueInput
+    update: XOR<BugReportUpdateWithoutPokemonInput, BugReportUncheckedUpdateWithoutPokemonInput>
+    create: XOR<BugReportCreateWithoutPokemonInput, BugReportUncheckedCreateWithoutPokemonInput>
+  }
+
+  export type BugReportUpdateWithWhereUniqueWithoutPokemonInput = {
+    where: BugReportWhereUniqueInput
+    data: XOR<BugReportUpdateWithoutPokemonInput, BugReportUncheckedUpdateWithoutPokemonInput>
+  }
+
+  export type BugReportUpdateManyWithWhereWithoutPokemonInput = {
+    where: BugReportScalarWhereInput
+    data: XOR<BugReportUpdateManyMutationInput, BugReportUncheckedUpdateManyWithoutPokemonInput>
+  }
+
+  export type BugReportScalarWhereInput = {
+    AND?: BugReportScalarWhereInput | BugReportScalarWhereInput[]
+    OR?: BugReportScalarWhereInput[]
+    NOT?: BugReportScalarWhereInput | BugReportScalarWhereInput[]
+    id?: IntFilter<"BugReport"> | number
+    patchId?: IntFilter<"BugReport"> | number
+    title?: StringFilter<"BugReport"> | string
+    description?: StringNullableFilter<"BugReport"> | string | null
+    category?: StringFilter<"BugReport"> | string
+    pokemonId?: IntNullableFilter<"BugReport"> | number | null
+    severity?: StringFilter<"BugReport"> | string
+    status?: StringFilter<"BugReport"> | string
+    upvotes?: IntFilter<"BugReport"> | number
+    downvotes?: IntFilter<"BugReport"> | number
+    guestId?: StringNullableFilter<"BugReport"> | string | null
+    createdAt?: DateTimeFilter<"BugReport"> | Date | string
+    updatedAt?: DateTimeFilter<"BugReport"> | Date | string
   }
 
   export type PokemonStatCreateWithoutStatInput = {
@@ -22458,6 +39747,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
     counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
     customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonUncheckedCreateWithoutStatsInput = {
@@ -22474,6 +39766,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
     counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
     customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonCreateOrConnectWithoutStatsInput = {
@@ -22519,6 +39814,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
     counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
     customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonUncheckedUpdateWithoutStatsInput = {
@@ -22535,6 +39833,9 @@ export namespace Prisma {
     targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
     counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
     customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
   }
 
   export type StatUpsertWithoutPokemonStatsInput = {
@@ -22570,6 +39871,9 @@ export namespace Prisma {
     stats?: PokemonStatCreateNestedManyWithoutPokemonInput
     counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
     customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonUncheckedCreateWithoutTargetOfInput = {
@@ -22586,6 +39890,9 @@ export namespace Prisma {
     stats?: PokemonStatUncheckedCreateNestedManyWithoutPokemonInput
     counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
     customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonCreateOrConnectWithoutTargetOfInput = {
@@ -22606,6 +39913,9 @@ export namespace Prisma {
     stats?: PokemonStatCreateNestedManyWithoutPokemonInput
     targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
     customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonUncheckedCreateWithoutCounterForInput = {
@@ -22622,6 +39932,9 @@ export namespace Prisma {
     stats?: PokemonStatUncheckedCreateNestedManyWithoutPokemonInput
     targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
     customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonCreateOrConnectWithoutCounterForInput = {
@@ -22652,6 +39965,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type UserCreateWithoutPokemonCountersInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPokemonCountersInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPokemonCountersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPokemonCountersInput, UserUncheckedCreateWithoutPokemonCountersInput>
+  }
+
   export type PokemonUpsertWithoutTargetOfInput = {
     update: XOR<PokemonUpdateWithoutTargetOfInput, PokemonUncheckedUpdateWithoutTargetOfInput>
     create: XOR<PokemonCreateWithoutTargetOfInput, PokemonUncheckedCreateWithoutTargetOfInput>
@@ -22676,6 +40020,9 @@ export namespace Prisma {
     stats?: PokemonStatUpdateManyWithoutPokemonNestedInput
     counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
     customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonUncheckedUpdateWithoutTargetOfInput = {
@@ -22692,6 +40039,9 @@ export namespace Prisma {
     stats?: PokemonStatUncheckedUpdateManyWithoutPokemonNestedInput
     counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
     customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonUpsertWithoutCounterForInput = {
@@ -22718,6 +40068,9 @@ export namespace Prisma {
     stats?: PokemonStatUpdateManyWithoutPokemonNestedInput
     targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
     customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonUncheckedUpdateWithoutCounterForInput = {
@@ -22734,6 +40087,9 @@ export namespace Prisma {
     stats?: PokemonStatUncheckedUpdateManyWithoutPokemonNestedInput
     targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
     customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
   }
 
   export type VoteUpsertWithWhereUniqueWithoutPokemonCounterInput = {
@@ -22763,13 +40119,52 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Vote"> | Date | string
   }
 
+  export type UserUpsertWithoutPokemonCountersInput = {
+    update: XOR<UserUpdateWithoutPokemonCountersInput, UserUncheckedUpdateWithoutPokemonCountersInput>
+    create: XOR<UserCreateWithoutPokemonCountersInput, UserUncheckedCreateWithoutPokemonCountersInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPokemonCountersInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPokemonCountersInput, UserUncheckedUpdateWithoutPokemonCountersInput>
+  }
+
+  export type UserUpdateWithoutPokemonCountersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPokemonCountersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type PokemonCounterCreateWithoutVotesInput = {
     reason?: string | null
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    guestId?: string | null
     targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
     counterPokemon: PokemonCreateNestedOneWithoutCounterForInput
+    user?: UserCreateNestedOneWithoutPokemonCountersInput
   }
 
   export type PokemonCounterUncheckedCreateWithoutVotesInput = {
@@ -22780,6 +40175,8 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
   }
 
   export type PokemonCounterCreateOrConnectWithoutVotesInput = {
@@ -22803,8 +40200,10 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
     counterPokemon?: PokemonUpdateOneRequiredWithoutCounterForNestedInput
+    user?: UserUpdateOneWithoutPokemonCountersNestedInput
   }
 
   export type PokemonCounterUncheckedUpdateWithoutVotesInput = {
@@ -22815,6 +40214,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PokemonCustomTagCreateWithoutTagInput = {
@@ -22866,6 +40267,9 @@ export namespace Prisma {
     stats?: PokemonStatCreateNestedManyWithoutPokemonInput
     targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
     counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonUncheckedCreateWithoutCustomTagsInput = {
@@ -22882,6 +40286,9 @@ export namespace Prisma {
     stats?: PokemonStatUncheckedCreateNestedManyWithoutPokemonInput
     targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
     counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
   }
 
   export type PokemonCreateOrConnectWithoutCustomTagsInput = {
@@ -22933,6 +40340,9 @@ export namespace Prisma {
     stats?: PokemonStatUpdateManyWithoutPokemonNestedInput
     targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
     counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
   }
 
   export type PokemonUncheckedUpdateWithoutCustomTagsInput = {
@@ -22949,6 +40359,9 @@ export namespace Prisma {
     stats?: PokemonStatUncheckedUpdateManyWithoutPokemonNestedInput
     targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
     counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
   }
 
   export type TagUpsertWithoutPokemonTagsInput = {
@@ -23274,15 +40687,17 @@ export namespace Prisma {
   }
 
   export type TrainerRadarPostCreateWithoutTrainerInput = {
-    authorToken: string
+    authorToken?: string | null
     comment?: string | null
     createdAt?: Date | string
     radarValues?: RadarValueCreateNestedManyWithoutPostInput
+    user?: UserCreateNestedOneWithoutTrainerRadarPostsInput
   }
 
   export type TrainerRadarPostUncheckedCreateWithoutTrainerInput = {
     id?: number
-    authorToken: string
+    authorToken?: string | null
+    userId?: string | null
     comment?: string | null
     createdAt?: Date | string
     radarValues?: RadarValueUncheckedCreateNestedManyWithoutPostInput
@@ -23376,7 +40791,8 @@ export namespace Prisma {
     NOT?: TrainerRadarPostScalarWhereInput | TrainerRadarPostScalarWhereInput[]
     id?: IntFilter<"TrainerRadarPost"> | number
     trainerId?: IntFilter<"TrainerRadarPost"> | number
-    authorToken?: StringFilter<"TrainerRadarPost"> | string
+    authorToken?: StringNullableFilter<"TrainerRadarPost"> | string | null
+    userId?: StringNullableFilter<"TrainerRadarPost"> | string | null
     comment?: StringNullableFilter<"TrainerRadarPost"> | string | null
     createdAt?: DateTimeFilter<"TrainerRadarPost"> | Date | string
   }
@@ -23607,6 +41023,37 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type UserCreateWithoutTrainerRadarPostsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutTrainerRadarPostsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutTrainerRadarPostsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutTrainerRadarPostsInput, UserUncheckedCreateWithoutTrainerRadarPostsInput>
+  }
+
   export type TrainerUpsertWithoutRadarPostsInput = {
     update: XOR<TrainerUpdateWithoutRadarPostsInput, TrainerUncheckedUpdateWithoutRadarPostsInput>
     create: XOR<TrainerCreateWithoutRadarPostsInput, TrainerUncheckedCreateWithoutRadarPostsInput>
@@ -23655,17 +41102,56 @@ export namespace Prisma {
     data: XOR<RadarValueUpdateManyMutationInput, RadarValueUncheckedUpdateManyWithoutPostInput>
   }
 
+  export type UserUpsertWithoutTrainerRadarPostsInput = {
+    update: XOR<UserUpdateWithoutTrainerRadarPostsInput, UserUncheckedUpdateWithoutTrainerRadarPostsInput>
+    create: XOR<UserCreateWithoutTrainerRadarPostsInput, UserUncheckedCreateWithoutTrainerRadarPostsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutTrainerRadarPostsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutTrainerRadarPostsInput, UserUncheckedUpdateWithoutTrainerRadarPostsInput>
+  }
+
+  export type UserUpdateWithoutTrainerRadarPostsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutTrainerRadarPostsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type TrainerRadarPostCreateWithoutRadarValuesInput = {
-    authorToken: string
+    authorToken?: string | null
     comment?: string | null
     createdAt?: Date | string
     trainer: TrainerCreateNestedOneWithoutRadarPostsInput
+    user?: UserCreateNestedOneWithoutTrainerRadarPostsInput
   }
 
   export type TrainerRadarPostUncheckedCreateWithoutRadarValuesInput = {
     id?: number
     trainerId: number
-    authorToken: string
+    authorToken?: string | null
+    userId?: string | null
     comment?: string | null
     createdAt?: Date | string
   }
@@ -23711,16 +41197,18 @@ export namespace Prisma {
   }
 
   export type TrainerRadarPostUpdateWithoutRadarValuesInput = {
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     trainer?: TrainerUpdateOneRequiredWithoutRadarPostsNestedInput
+    user?: UserUpdateOneWithoutTrainerRadarPostsNestedInput
   }
 
   export type TrainerRadarPostUncheckedUpdateWithoutRadarValuesInput = {
     id?: IntFieldUpdateOperationsInput | number
     trainerId?: IntFieldUpdateOperationsInput | number
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -23755,6 +41243,1311 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type AccountCreateWithoutUserInput = {
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token?: string | null
+    access_token?: string | null
+    expires_at?: number | null
+    token_type?: string | null
+    scope?: string | null
+    id_token?: string | null
+    session_state?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AccountUncheckedCreateWithoutUserInput = {
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token?: string | null
+    access_token?: string | null
+    expires_at?: number | null
+    token_type?: string | null
+    scope?: string | null
+    id_token?: string | null
+    session_state?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AccountCreateOrConnectWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
+  }
+
+  export type AccountCreateManyUserInputEnvelope = {
+    data: AccountCreateManyUserInput | AccountCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SessionCreateWithoutUserInput = {
+    sessionToken: string
+    expires: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SessionUncheckedCreateWithoutUserInput = {
+    sessionToken: string
+    expires: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SessionCreateOrConnectWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionCreateManyUserInputEnvelope = {
+    data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PokemonCounterCreateWithoutUserInput = {
+    reason?: string | null
+    counterType?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    targetPokemon: PokemonCreateNestedOneWithoutTargetOfInput
+    counterPokemon: PokemonCreateNestedOneWithoutCounterForInput
+    votes?: VoteCreateNestedManyWithoutPokemonCounterInput
+  }
+
+  export type PokemonCounterUncheckedCreateWithoutUserInput = {
+    id?: number
+    targetPokemonId: number
+    counterPokemonId: number
+    reason?: string | null
+    counterType?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    votes?: VoteUncheckedCreateNestedManyWithoutPokemonCounterInput
+  }
+
+  export type PokemonCounterCreateOrConnectWithoutUserInput = {
+    where: PokemonCounterWhereUniqueInput
+    create: XOR<PokemonCounterCreateWithoutUserInput, PokemonCounterUncheckedCreateWithoutUserInput>
+  }
+
+  export type PokemonCounterCreateManyUserInputEnvelope = {
+    data: PokemonCounterCreateManyUserInput | PokemonCounterCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TrainerRadarPostCreateWithoutUserInput = {
+    authorToken?: string | null
+    comment?: string | null
+    createdAt?: Date | string
+    trainer: TrainerCreateNestedOneWithoutRadarPostsInput
+    radarValues?: RadarValueCreateNestedManyWithoutPostInput
+  }
+
+  export type TrainerRadarPostUncheckedCreateWithoutUserInput = {
+    id?: number
+    trainerId: number
+    authorToken?: string | null
+    comment?: string | null
+    createdAt?: Date | string
+    radarValues?: RadarValueUncheckedCreateNestedManyWithoutPostInput
+  }
+
+  export type TrainerRadarPostCreateOrConnectWithoutUserInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    create: XOR<TrainerRadarPostCreateWithoutUserInput, TrainerRadarPostUncheckedCreateWithoutUserInput>
+  }
+
+  export type TrainerRadarPostCreateManyUserInputEnvelope = {
+    data: TrainerRadarPostCreateManyUserInput | TrainerRadarPostCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AccountUpsertWithWhereUniqueWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
+    create: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput>
+  }
+
+  export type AccountUpdateWithWhereUniqueWithoutUserInput = {
+    where: AccountWhereUniqueInput
+    data: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
+  }
+
+  export type AccountUpdateManyWithWhereWithoutUserInput = {
+    where: AccountScalarWhereInput
+    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type AccountScalarWhereInput = {
+    AND?: AccountScalarWhereInput | AccountScalarWhereInput[]
+    OR?: AccountScalarWhereInput[]
+    NOT?: AccountScalarWhereInput | AccountScalarWhereInput[]
+    userId?: StringFilter<"Account"> | string
+    type?: StringFilter<"Account"> | string
+    provider?: StringFilter<"Account"> | string
+    providerAccountId?: StringFilter<"Account"> | string
+    refresh_token?: StringNullableFilter<"Account"> | string | null
+    access_token?: StringNullableFilter<"Account"> | string | null
+    expires_at?: IntNullableFilter<"Account"> | number | null
+    token_type?: StringNullableFilter<"Account"> | string | null
+    scope?: StringNullableFilter<"Account"> | string | null
+    id_token?: StringNullableFilter<"Account"> | string | null
+    session_state?: StringNullableFilter<"Account"> | string | null
+    createdAt?: DateTimeFilter<"Account"> | Date | string
+    updatedAt?: DateTimeFilter<"Account"> | Date | string
+  }
+
+  export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+    create: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput>
+  }
+
+  export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+    where: SessionWhereUniqueInput
+    data: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SessionUpdateManyWithWhereWithoutUserInput = {
+    where: SessionScalarWhereInput
+    data: XOR<SessionUpdateManyMutationInput, SessionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SessionScalarWhereInput = {
+    AND?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    OR?: SessionScalarWhereInput[]
+    NOT?: SessionScalarWhereInput | SessionScalarWhereInput[]
+    sessionToken?: StringFilter<"Session"> | string
+    userId?: StringFilter<"Session"> | string
+    expires?: DateTimeFilter<"Session"> | Date | string
+    createdAt?: DateTimeFilter<"Session"> | Date | string
+    updatedAt?: DateTimeFilter<"Session"> | Date | string
+  }
+
+  export type PokemonCounterUpsertWithWhereUniqueWithoutUserInput = {
+    where: PokemonCounterWhereUniqueInput
+    update: XOR<PokemonCounterUpdateWithoutUserInput, PokemonCounterUncheckedUpdateWithoutUserInput>
+    create: XOR<PokemonCounterCreateWithoutUserInput, PokemonCounterUncheckedCreateWithoutUserInput>
+  }
+
+  export type PokemonCounterUpdateWithWhereUniqueWithoutUserInput = {
+    where: PokemonCounterWhereUniqueInput
+    data: XOR<PokemonCounterUpdateWithoutUserInput, PokemonCounterUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PokemonCounterUpdateManyWithWhereWithoutUserInput = {
+    where: PokemonCounterScalarWhereInput
+    data: XOR<PokemonCounterUpdateManyMutationInput, PokemonCounterUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type TrainerRadarPostUpsertWithWhereUniqueWithoutUserInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    update: XOR<TrainerRadarPostUpdateWithoutUserInput, TrainerRadarPostUncheckedUpdateWithoutUserInput>
+    create: XOR<TrainerRadarPostCreateWithoutUserInput, TrainerRadarPostUncheckedCreateWithoutUserInput>
+  }
+
+  export type TrainerRadarPostUpdateWithWhereUniqueWithoutUserInput = {
+    where: TrainerRadarPostWhereUniqueInput
+    data: XOR<TrainerRadarPostUpdateWithoutUserInput, TrainerRadarPostUncheckedUpdateWithoutUserInput>
+  }
+
+  export type TrainerRadarPostUpdateManyWithWhereWithoutUserInput = {
+    where: TrainerRadarPostScalarWhereInput
+    data: XOR<TrainerRadarPostUpdateManyMutationInput, TrainerRadarPostUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UserCreateWithoutAccountsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutAccountsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterUncheckedCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutAccountsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+  }
+
+  export type UserUpsertWithoutAccountsInput = {
+    update: XOR<UserUpdateWithoutAccountsInput, UserUncheckedUpdateWithoutAccountsInput>
+    create: XOR<UserCreateWithoutAccountsInput, UserUncheckedCreateWithoutAccountsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutAccountsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAccountsInput, UserUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type UserUpdateWithoutAccountsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAccountsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUncheckedUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutSessionsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSessionsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    pokemonCounters?: PokemonCounterUncheckedCreateNestedManyWithoutUserInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSessionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+  }
+
+  export type UserUpsertWithoutSessionsInput = {
+    update: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
+    create: XOR<UserCreateWithoutSessionsInput, UserUncheckedCreateWithoutSessionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSessionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSessionsInput, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSessionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    pokemonCounters?: PokemonCounterUncheckedUpdateManyWithoutUserNestedInput
+    trainerRadarPosts?: TrainerRadarPostUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type MetaPostCreateWithoutPatchInput = {
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    pokemon: PokemonCreateNestedOneWithoutMetaPostsInput
+    votes?: MetaVoteCreateNestedManyWithoutMetaPostInput
+  }
+
+  export type MetaPostUncheckedCreateWithoutPatchInput = {
+    id?: number
+    pokemonId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: MetaVoteUncheckedCreateNestedManyWithoutMetaPostInput
+  }
+
+  export type MetaPostCreateOrConnectWithoutPatchInput = {
+    where: MetaPostWhereUniqueInput
+    create: XOR<MetaPostCreateWithoutPatchInput, MetaPostUncheckedCreateWithoutPatchInput>
+  }
+
+  export type MetaPostCreateManyPatchInputEnvelope = {
+    data: MetaPostCreateManyPatchInput | MetaPostCreateManyPatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BanPickCreateWithoutPatchInput = {
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    pokemon: PokemonCreateNestedOneWithoutBanPicksInput
+    votes?: BanVoteCreateNestedManyWithoutBanPickInput
+  }
+
+  export type BanPickUncheckedCreateWithoutPatchInput = {
+    id?: number
+    pokemonId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: BanVoteUncheckedCreateNestedManyWithoutBanPickInput
+  }
+
+  export type BanPickCreateOrConnectWithoutPatchInput = {
+    where: BanPickWhereUniqueInput
+    create: XOR<BanPickCreateWithoutPatchInput, BanPickUncheckedCreateWithoutPatchInput>
+  }
+
+  export type BanPickCreateManyPatchInputEnvelope = {
+    data: BanPickCreateManyPatchInput | BanPickCreateManyPatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BugReportCreateWithoutPatchInput = {
+    title: string
+    description?: string | null
+    category: string
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    pokemon?: PokemonCreateNestedOneWithoutBugReportsInput
+    votes?: BugVoteCreateNestedManyWithoutBugReportInput
+  }
+
+  export type BugReportUncheckedCreateWithoutPatchInput = {
+    id?: number
+    title: string
+    description?: string | null
+    category: string
+    pokemonId?: number | null
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    votes?: BugVoteUncheckedCreateNestedManyWithoutBugReportInput
+  }
+
+  export type BugReportCreateOrConnectWithoutPatchInput = {
+    where: BugReportWhereUniqueInput
+    create: XOR<BugReportCreateWithoutPatchInput, BugReportUncheckedCreateWithoutPatchInput>
+  }
+
+  export type BugReportCreateManyPatchInputEnvelope = {
+    data: BugReportCreateManyPatchInput | BugReportCreateManyPatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MetaPostUpsertWithWhereUniqueWithoutPatchInput = {
+    where: MetaPostWhereUniqueInput
+    update: XOR<MetaPostUpdateWithoutPatchInput, MetaPostUncheckedUpdateWithoutPatchInput>
+    create: XOR<MetaPostCreateWithoutPatchInput, MetaPostUncheckedCreateWithoutPatchInput>
+  }
+
+  export type MetaPostUpdateWithWhereUniqueWithoutPatchInput = {
+    where: MetaPostWhereUniqueInput
+    data: XOR<MetaPostUpdateWithoutPatchInput, MetaPostUncheckedUpdateWithoutPatchInput>
+  }
+
+  export type MetaPostUpdateManyWithWhereWithoutPatchInput = {
+    where: MetaPostScalarWhereInput
+    data: XOR<MetaPostUpdateManyMutationInput, MetaPostUncheckedUpdateManyWithoutPatchInput>
+  }
+
+  export type BanPickUpsertWithWhereUniqueWithoutPatchInput = {
+    where: BanPickWhereUniqueInput
+    update: XOR<BanPickUpdateWithoutPatchInput, BanPickUncheckedUpdateWithoutPatchInput>
+    create: XOR<BanPickCreateWithoutPatchInput, BanPickUncheckedCreateWithoutPatchInput>
+  }
+
+  export type BanPickUpdateWithWhereUniqueWithoutPatchInput = {
+    where: BanPickWhereUniqueInput
+    data: XOR<BanPickUpdateWithoutPatchInput, BanPickUncheckedUpdateWithoutPatchInput>
+  }
+
+  export type BanPickUpdateManyWithWhereWithoutPatchInput = {
+    where: BanPickScalarWhereInput
+    data: XOR<BanPickUpdateManyMutationInput, BanPickUncheckedUpdateManyWithoutPatchInput>
+  }
+
+  export type BugReportUpsertWithWhereUniqueWithoutPatchInput = {
+    where: BugReportWhereUniqueInput
+    update: XOR<BugReportUpdateWithoutPatchInput, BugReportUncheckedUpdateWithoutPatchInput>
+    create: XOR<BugReportCreateWithoutPatchInput, BugReportUncheckedCreateWithoutPatchInput>
+  }
+
+  export type BugReportUpdateWithWhereUniqueWithoutPatchInput = {
+    where: BugReportWhereUniqueInput
+    data: XOR<BugReportUpdateWithoutPatchInput, BugReportUncheckedUpdateWithoutPatchInput>
+  }
+
+  export type BugReportUpdateManyWithWhereWithoutPatchInput = {
+    where: BugReportScalarWhereInput
+    data: XOR<BugReportUpdateManyMutationInput, BugReportUncheckedUpdateManyWithoutPatchInput>
+  }
+
+  export type GamePatchCreateWithoutMetaPostsInput = {
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    banPicks?: BanPickCreateNestedManyWithoutPatchInput
+    bugReports?: BugReportCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchUncheckedCreateWithoutMetaPostsInput = {
+    id?: number
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPatchInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchCreateOrConnectWithoutMetaPostsInput = {
+    where: GamePatchWhereUniqueInput
+    create: XOR<GamePatchCreateWithoutMetaPostsInput, GamePatchUncheckedCreateWithoutMetaPostsInput>
+  }
+
+  export type PokemonCreateWithoutMetaPostsInput = {
+    slug: string
+    nameJa: string
+    nameEn: string
+    damageClass: string
+    rangeType: string
+    battleStyle: string
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stats?: PokemonStatCreateNestedManyWithoutPokemonInput
+    targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
+    counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
+    customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
+  }
+
+  export type PokemonUncheckedCreateWithoutMetaPostsInput = {
+    id?: number
+    slug: string
+    nameJa: string
+    nameEn: string
+    damageClass: string
+    rangeType: string
+    battleStyle: string
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stats?: PokemonStatUncheckedCreateNestedManyWithoutPokemonInput
+    targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
+    counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
+    customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
+  }
+
+  export type PokemonCreateOrConnectWithoutMetaPostsInput = {
+    where: PokemonWhereUniqueInput
+    create: XOR<PokemonCreateWithoutMetaPostsInput, PokemonUncheckedCreateWithoutMetaPostsInput>
+  }
+
+  export type MetaVoteCreateWithoutMetaPostInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type MetaVoteUncheckedCreateWithoutMetaPostInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type MetaVoteCreateOrConnectWithoutMetaPostInput = {
+    where: MetaVoteWhereUniqueInput
+    create: XOR<MetaVoteCreateWithoutMetaPostInput, MetaVoteUncheckedCreateWithoutMetaPostInput>
+  }
+
+  export type MetaVoteCreateManyMetaPostInputEnvelope = {
+    data: MetaVoteCreateManyMetaPostInput | MetaVoteCreateManyMetaPostInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type GamePatchUpsertWithoutMetaPostsInput = {
+    update: XOR<GamePatchUpdateWithoutMetaPostsInput, GamePatchUncheckedUpdateWithoutMetaPostsInput>
+    create: XOR<GamePatchCreateWithoutMetaPostsInput, GamePatchUncheckedCreateWithoutMetaPostsInput>
+    where?: GamePatchWhereInput
+  }
+
+  export type GamePatchUpdateToOneWithWhereWithoutMetaPostsInput = {
+    where?: GamePatchWhereInput
+    data: XOR<GamePatchUpdateWithoutMetaPostsInput, GamePatchUncheckedUpdateWithoutMetaPostsInput>
+  }
+
+  export type GamePatchUpdateWithoutMetaPostsInput = {
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    banPicks?: BanPickUpdateManyWithoutPatchNestedInput
+    bugReports?: BugReportUpdateManyWithoutPatchNestedInput
+  }
+
+  export type GamePatchUncheckedUpdateWithoutMetaPostsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    banPicks?: BanPickUncheckedUpdateManyWithoutPatchNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPatchNestedInput
+  }
+
+  export type PokemonUpsertWithoutMetaPostsInput = {
+    update: XOR<PokemonUpdateWithoutMetaPostsInput, PokemonUncheckedUpdateWithoutMetaPostsInput>
+    create: XOR<PokemonCreateWithoutMetaPostsInput, PokemonUncheckedCreateWithoutMetaPostsInput>
+    where?: PokemonWhereInput
+  }
+
+  export type PokemonUpdateToOneWithWhereWithoutMetaPostsInput = {
+    where?: PokemonWhereInput
+    data: XOR<PokemonUpdateWithoutMetaPostsInput, PokemonUncheckedUpdateWithoutMetaPostsInput>
+  }
+
+  export type PokemonUpdateWithoutMetaPostsInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    nameJa?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    damageClass?: StringFieldUpdateOperationsInput | string
+    rangeType?: StringFieldUpdateOperationsInput | string
+    battleStyle?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stats?: PokemonStatUpdateManyWithoutPokemonNestedInput
+    targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
+    counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
+    customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
+  }
+
+  export type PokemonUncheckedUpdateWithoutMetaPostsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
+    nameJa?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    damageClass?: StringFieldUpdateOperationsInput | string
+    rangeType?: StringFieldUpdateOperationsInput | string
+    battleStyle?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stats?: PokemonStatUncheckedUpdateManyWithoutPokemonNestedInput
+    targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
+    counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
+    customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
+  }
+
+  export type MetaVoteUpsertWithWhereUniqueWithoutMetaPostInput = {
+    where: MetaVoteWhereUniqueInput
+    update: XOR<MetaVoteUpdateWithoutMetaPostInput, MetaVoteUncheckedUpdateWithoutMetaPostInput>
+    create: XOR<MetaVoteCreateWithoutMetaPostInput, MetaVoteUncheckedCreateWithoutMetaPostInput>
+  }
+
+  export type MetaVoteUpdateWithWhereUniqueWithoutMetaPostInput = {
+    where: MetaVoteWhereUniqueInput
+    data: XOR<MetaVoteUpdateWithoutMetaPostInput, MetaVoteUncheckedUpdateWithoutMetaPostInput>
+  }
+
+  export type MetaVoteUpdateManyWithWhereWithoutMetaPostInput = {
+    where: MetaVoteScalarWhereInput
+    data: XOR<MetaVoteUpdateManyMutationInput, MetaVoteUncheckedUpdateManyWithoutMetaPostInput>
+  }
+
+  export type MetaVoteScalarWhereInput = {
+    AND?: MetaVoteScalarWhereInput | MetaVoteScalarWhereInput[]
+    OR?: MetaVoteScalarWhereInput[]
+    NOT?: MetaVoteScalarWhereInput | MetaVoteScalarWhereInput[]
+    id?: IntFilter<"MetaVote"> | number
+    metaPostId?: IntFilter<"MetaVote"> | number
+    userId?: StringFilter<"MetaVote"> | string
+    voteType?: StringFilter<"MetaVote"> | string
+    createdAt?: DateTimeFilter<"MetaVote"> | Date | string
+  }
+
+  export type GamePatchCreateWithoutBanPicksInput = {
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    metaPosts?: MetaPostCreateNestedManyWithoutPatchInput
+    bugReports?: BugReportCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchUncheckedCreateWithoutBanPicksInput = {
+    id?: number
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPatchInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchCreateOrConnectWithoutBanPicksInput = {
+    where: GamePatchWhereUniqueInput
+    create: XOR<GamePatchCreateWithoutBanPicksInput, GamePatchUncheckedCreateWithoutBanPicksInput>
+  }
+
+  export type PokemonCreateWithoutBanPicksInput = {
+    slug: string
+    nameJa: string
+    nameEn: string
+    damageClass: string
+    rangeType: string
+    battleStyle: string
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stats?: PokemonStatCreateNestedManyWithoutPokemonInput
+    targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
+    counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
+    customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportCreateNestedManyWithoutPokemonInput
+  }
+
+  export type PokemonUncheckedCreateWithoutBanPicksInput = {
+    id?: number
+    slug: string
+    nameJa: string
+    nameEn: string
+    damageClass: string
+    rangeType: string
+    battleStyle: string
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stats?: PokemonStatUncheckedCreateNestedManyWithoutPokemonInput
+    targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
+    counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
+    customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    bugReports?: BugReportUncheckedCreateNestedManyWithoutPokemonInput
+  }
+
+  export type PokemonCreateOrConnectWithoutBanPicksInput = {
+    where: PokemonWhereUniqueInput
+    create: XOR<PokemonCreateWithoutBanPicksInput, PokemonUncheckedCreateWithoutBanPicksInput>
+  }
+
+  export type BanVoteCreateWithoutBanPickInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BanVoteUncheckedCreateWithoutBanPickInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BanVoteCreateOrConnectWithoutBanPickInput = {
+    where: BanVoteWhereUniqueInput
+    create: XOR<BanVoteCreateWithoutBanPickInput, BanVoteUncheckedCreateWithoutBanPickInput>
+  }
+
+  export type BanVoteCreateManyBanPickInputEnvelope = {
+    data: BanVoteCreateManyBanPickInput | BanVoteCreateManyBanPickInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type GamePatchUpsertWithoutBanPicksInput = {
+    update: XOR<GamePatchUpdateWithoutBanPicksInput, GamePatchUncheckedUpdateWithoutBanPicksInput>
+    create: XOR<GamePatchCreateWithoutBanPicksInput, GamePatchUncheckedCreateWithoutBanPicksInput>
+    where?: GamePatchWhereInput
+  }
+
+  export type GamePatchUpdateToOneWithWhereWithoutBanPicksInput = {
+    where?: GamePatchWhereInput
+    data: XOR<GamePatchUpdateWithoutBanPicksInput, GamePatchUncheckedUpdateWithoutBanPicksInput>
+  }
+
+  export type GamePatchUpdateWithoutBanPicksInput = {
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPosts?: MetaPostUpdateManyWithoutPatchNestedInput
+    bugReports?: BugReportUpdateManyWithoutPatchNestedInput
+  }
+
+  export type GamePatchUncheckedUpdateWithoutBanPicksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPatchNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPatchNestedInput
+  }
+
+  export type PokemonUpsertWithoutBanPicksInput = {
+    update: XOR<PokemonUpdateWithoutBanPicksInput, PokemonUncheckedUpdateWithoutBanPicksInput>
+    create: XOR<PokemonCreateWithoutBanPicksInput, PokemonUncheckedCreateWithoutBanPicksInput>
+    where?: PokemonWhereInput
+  }
+
+  export type PokemonUpdateToOneWithWhereWithoutBanPicksInput = {
+    where?: PokemonWhereInput
+    data: XOR<PokemonUpdateWithoutBanPicksInput, PokemonUncheckedUpdateWithoutBanPicksInput>
+  }
+
+  export type PokemonUpdateWithoutBanPicksInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    nameJa?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    damageClass?: StringFieldUpdateOperationsInput | string
+    rangeType?: StringFieldUpdateOperationsInput | string
+    battleStyle?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stats?: PokemonStatUpdateManyWithoutPokemonNestedInput
+    targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
+    counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
+    customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUpdateManyWithoutPokemonNestedInput
+  }
+
+  export type PokemonUncheckedUpdateWithoutBanPicksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
+    nameJa?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    damageClass?: StringFieldUpdateOperationsInput | string
+    rangeType?: StringFieldUpdateOperationsInput | string
+    battleStyle?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stats?: PokemonStatUncheckedUpdateManyWithoutPokemonNestedInput
+    targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
+    counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
+    customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    bugReports?: BugReportUncheckedUpdateManyWithoutPokemonNestedInput
+  }
+
+  export type BanVoteUpsertWithWhereUniqueWithoutBanPickInput = {
+    where: BanVoteWhereUniqueInput
+    update: XOR<BanVoteUpdateWithoutBanPickInput, BanVoteUncheckedUpdateWithoutBanPickInput>
+    create: XOR<BanVoteCreateWithoutBanPickInput, BanVoteUncheckedCreateWithoutBanPickInput>
+  }
+
+  export type BanVoteUpdateWithWhereUniqueWithoutBanPickInput = {
+    where: BanVoteWhereUniqueInput
+    data: XOR<BanVoteUpdateWithoutBanPickInput, BanVoteUncheckedUpdateWithoutBanPickInput>
+  }
+
+  export type BanVoteUpdateManyWithWhereWithoutBanPickInput = {
+    where: BanVoteScalarWhereInput
+    data: XOR<BanVoteUpdateManyMutationInput, BanVoteUncheckedUpdateManyWithoutBanPickInput>
+  }
+
+  export type BanVoteScalarWhereInput = {
+    AND?: BanVoteScalarWhereInput | BanVoteScalarWhereInput[]
+    OR?: BanVoteScalarWhereInput[]
+    NOT?: BanVoteScalarWhereInput | BanVoteScalarWhereInput[]
+    id?: IntFilter<"BanVote"> | number
+    banPickId?: IntFilter<"BanVote"> | number
+    userId?: StringFilter<"BanVote"> | string
+    voteType?: StringFilter<"BanVote"> | string
+    createdAt?: DateTimeFilter<"BanVote"> | Date | string
+  }
+
+  export type GamePatchCreateWithoutBugReportsInput = {
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    metaPosts?: MetaPostCreateNestedManyWithoutPatchInput
+    banPicks?: BanPickCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchUncheckedCreateWithoutBugReportsInput = {
+    id?: number
+    version: string
+    releasedAt: Date | string
+    isActive?: boolean
+    createdAt?: Date | string
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPatchInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPatchInput
+  }
+
+  export type GamePatchCreateOrConnectWithoutBugReportsInput = {
+    where: GamePatchWhereUniqueInput
+    create: XOR<GamePatchCreateWithoutBugReportsInput, GamePatchUncheckedCreateWithoutBugReportsInput>
+  }
+
+  export type PokemonCreateWithoutBugReportsInput = {
+    slug: string
+    nameJa: string
+    nameEn: string
+    damageClass: string
+    rangeType: string
+    battleStyle: string
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stats?: PokemonStatCreateNestedManyWithoutPokemonInput
+    targetOf?: PokemonCounterCreateNestedManyWithoutTargetPokemonInput
+    counterFor?: PokemonCounterCreateNestedManyWithoutCounterPokemonInput
+    customTags?: PokemonCustomTagCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickCreateNestedManyWithoutPokemonInput
+  }
+
+  export type PokemonUncheckedCreateWithoutBugReportsInput = {
+    id?: number
+    slug: string
+    nameJa: string
+    nameEn: string
+    damageClass: string
+    rangeType: string
+    battleStyle: string
+    imageUrl?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stats?: PokemonStatUncheckedCreateNestedManyWithoutPokemonInput
+    targetOf?: PokemonCounterUncheckedCreateNestedManyWithoutTargetPokemonInput
+    counterFor?: PokemonCounterUncheckedCreateNestedManyWithoutCounterPokemonInput
+    customTags?: PokemonCustomTagUncheckedCreateNestedManyWithoutPokemonInput
+    metaPosts?: MetaPostUncheckedCreateNestedManyWithoutPokemonInput
+    banPicks?: BanPickUncheckedCreateNestedManyWithoutPokemonInput
+  }
+
+  export type PokemonCreateOrConnectWithoutBugReportsInput = {
+    where: PokemonWhereUniqueInput
+    create: XOR<PokemonCreateWithoutBugReportsInput, PokemonUncheckedCreateWithoutBugReportsInput>
+  }
+
+  export type BugVoteCreateWithoutBugReportInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BugVoteUncheckedCreateWithoutBugReportInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BugVoteCreateOrConnectWithoutBugReportInput = {
+    where: BugVoteWhereUniqueInput
+    create: XOR<BugVoteCreateWithoutBugReportInput, BugVoteUncheckedCreateWithoutBugReportInput>
+  }
+
+  export type BugVoteCreateManyBugReportInputEnvelope = {
+    data: BugVoteCreateManyBugReportInput | BugVoteCreateManyBugReportInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type GamePatchUpsertWithoutBugReportsInput = {
+    update: XOR<GamePatchUpdateWithoutBugReportsInput, GamePatchUncheckedUpdateWithoutBugReportsInput>
+    create: XOR<GamePatchCreateWithoutBugReportsInput, GamePatchUncheckedCreateWithoutBugReportsInput>
+    where?: GamePatchWhereInput
+  }
+
+  export type GamePatchUpdateToOneWithWhereWithoutBugReportsInput = {
+    where?: GamePatchWhereInput
+    data: XOR<GamePatchUpdateWithoutBugReportsInput, GamePatchUncheckedUpdateWithoutBugReportsInput>
+  }
+
+  export type GamePatchUpdateWithoutBugReportsInput = {
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPosts?: MetaPostUpdateManyWithoutPatchNestedInput
+    banPicks?: BanPickUpdateManyWithoutPatchNestedInput
+  }
+
+  export type GamePatchUncheckedUpdateWithoutBugReportsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    version?: StringFieldUpdateOperationsInput | string
+    releasedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPatchNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPatchNestedInput
+  }
+
+  export type PokemonUpsertWithoutBugReportsInput = {
+    update: XOR<PokemonUpdateWithoutBugReportsInput, PokemonUncheckedUpdateWithoutBugReportsInput>
+    create: XOR<PokemonCreateWithoutBugReportsInput, PokemonUncheckedCreateWithoutBugReportsInput>
+    where?: PokemonWhereInput
+  }
+
+  export type PokemonUpdateToOneWithWhereWithoutBugReportsInput = {
+    where?: PokemonWhereInput
+    data: XOR<PokemonUpdateWithoutBugReportsInput, PokemonUncheckedUpdateWithoutBugReportsInput>
+  }
+
+  export type PokemonUpdateWithoutBugReportsInput = {
+    slug?: StringFieldUpdateOperationsInput | string
+    nameJa?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    damageClass?: StringFieldUpdateOperationsInput | string
+    rangeType?: StringFieldUpdateOperationsInput | string
+    battleStyle?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stats?: PokemonStatUpdateManyWithoutPokemonNestedInput
+    targetOf?: PokemonCounterUpdateManyWithoutTargetPokemonNestedInput
+    counterFor?: PokemonCounterUpdateManyWithoutCounterPokemonNestedInput
+    customTags?: PokemonCustomTagUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUpdateManyWithoutPokemonNestedInput
+  }
+
+  export type PokemonUncheckedUpdateWithoutBugReportsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    slug?: StringFieldUpdateOperationsInput | string
+    nameJa?: StringFieldUpdateOperationsInput | string
+    nameEn?: StringFieldUpdateOperationsInput | string
+    damageClass?: StringFieldUpdateOperationsInput | string
+    rangeType?: StringFieldUpdateOperationsInput | string
+    battleStyle?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stats?: PokemonStatUncheckedUpdateManyWithoutPokemonNestedInput
+    targetOf?: PokemonCounterUncheckedUpdateManyWithoutTargetPokemonNestedInput
+    counterFor?: PokemonCounterUncheckedUpdateManyWithoutCounterPokemonNestedInput
+    customTags?: PokemonCustomTagUncheckedUpdateManyWithoutPokemonNestedInput
+    metaPosts?: MetaPostUncheckedUpdateManyWithoutPokemonNestedInput
+    banPicks?: BanPickUncheckedUpdateManyWithoutPokemonNestedInput
+  }
+
+  export type BugVoteUpsertWithWhereUniqueWithoutBugReportInput = {
+    where: BugVoteWhereUniqueInput
+    update: XOR<BugVoteUpdateWithoutBugReportInput, BugVoteUncheckedUpdateWithoutBugReportInput>
+    create: XOR<BugVoteCreateWithoutBugReportInput, BugVoteUncheckedCreateWithoutBugReportInput>
+  }
+
+  export type BugVoteUpdateWithWhereUniqueWithoutBugReportInput = {
+    where: BugVoteWhereUniqueInput
+    data: XOR<BugVoteUpdateWithoutBugReportInput, BugVoteUncheckedUpdateWithoutBugReportInput>
+  }
+
+  export type BugVoteUpdateManyWithWhereWithoutBugReportInput = {
+    where: BugVoteScalarWhereInput
+    data: XOR<BugVoteUpdateManyMutationInput, BugVoteUncheckedUpdateManyWithoutBugReportInput>
+  }
+
+  export type BugVoteScalarWhereInput = {
+    AND?: BugVoteScalarWhereInput | BugVoteScalarWhereInput[]
+    OR?: BugVoteScalarWhereInput[]
+    NOT?: BugVoteScalarWhereInput | BugVoteScalarWhereInput[]
+    id?: IntFilter<"BugVote"> | number
+    bugReportId?: IntFilter<"BugVote"> | number
+    userId?: StringFilter<"BugVote"> | string
+    voteType?: StringFilter<"BugVote"> | string
+    createdAt?: DateTimeFilter<"BugVote"> | Date | string
+  }
+
+  export type MetaPostCreateWithoutVotesInput = {
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutMetaPostsInput
+    pokemon: PokemonCreateNestedOneWithoutMetaPostsInput
+  }
+
+  export type MetaPostUncheckedCreateWithoutVotesInput = {
+    id?: number
+    patchId: number
+    pokemonId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MetaPostCreateOrConnectWithoutVotesInput = {
+    where: MetaPostWhereUniqueInput
+    create: XOR<MetaPostCreateWithoutVotesInput, MetaPostUncheckedCreateWithoutVotesInput>
+  }
+
+  export type MetaPostUpsertWithoutVotesInput = {
+    update: XOR<MetaPostUpdateWithoutVotesInput, MetaPostUncheckedUpdateWithoutVotesInput>
+    create: XOR<MetaPostCreateWithoutVotesInput, MetaPostUncheckedCreateWithoutVotesInput>
+    where?: MetaPostWhereInput
+  }
+
+  export type MetaPostUpdateToOneWithWhereWithoutVotesInput = {
+    where?: MetaPostWhereInput
+    data: XOR<MetaPostUpdateWithoutVotesInput, MetaPostUncheckedUpdateWithoutVotesInput>
+  }
+
+  export type MetaPostUpdateWithoutVotesInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutMetaPostsNestedInput
+    pokemon?: PokemonUpdateOneRequiredWithoutMetaPostsNestedInput
+  }
+
+  export type MetaPostUncheckedUpdateWithoutVotesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanPickCreateWithoutVotesInput = {
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutBanPicksInput
+    pokemon: PokemonCreateNestedOneWithoutBanPicksInput
+  }
+
+  export type BanPickUncheckedCreateWithoutVotesInput = {
+    id?: number
+    patchId: number
+    pokemonId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BanPickCreateOrConnectWithoutVotesInput = {
+    where: BanPickWhereUniqueInput
+    create: XOR<BanPickCreateWithoutVotesInput, BanPickUncheckedCreateWithoutVotesInput>
+  }
+
+  export type BanPickUpsertWithoutVotesInput = {
+    update: XOR<BanPickUpdateWithoutVotesInput, BanPickUncheckedUpdateWithoutVotesInput>
+    create: XOR<BanPickCreateWithoutVotesInput, BanPickUncheckedCreateWithoutVotesInput>
+    where?: BanPickWhereInput
+  }
+
+  export type BanPickUpdateToOneWithWhereWithoutVotesInput = {
+    where?: BanPickWhereInput
+    data: XOR<BanPickUpdateWithoutVotesInput, BanPickUncheckedUpdateWithoutVotesInput>
+  }
+
+  export type BanPickUpdateWithoutVotesInput = {
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutBanPicksNestedInput
+    pokemon?: PokemonUpdateOneRequiredWithoutBanPicksNestedInput
+  }
+
+  export type BanPickUncheckedUpdateWithoutVotesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugReportCreateWithoutVotesInput = {
+    title: string
+    description?: string | null
+    category: string
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    patch: GamePatchCreateNestedOneWithoutBugReportsInput
+    pokemon?: PokemonCreateNestedOneWithoutBugReportsInput
+  }
+
+  export type BugReportUncheckedCreateWithoutVotesInput = {
+    id?: number
+    patchId: number
+    title: string
+    description?: string | null
+    category: string
+    pokemonId?: number | null
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BugReportCreateOrConnectWithoutVotesInput = {
+    where: BugReportWhereUniqueInput
+    create: XOR<BugReportCreateWithoutVotesInput, BugReportUncheckedCreateWithoutVotesInput>
+  }
+
+  export type BugReportUpsertWithoutVotesInput = {
+    update: XOR<BugReportUpdateWithoutVotesInput, BugReportUncheckedUpdateWithoutVotesInput>
+    create: XOR<BugReportCreateWithoutVotesInput, BugReportUncheckedCreateWithoutVotesInput>
+    where?: BugReportWhereInput
+  }
+
+  export type BugReportUpdateToOneWithWhereWithoutVotesInput = {
+    where?: BugReportWhereInput
+    data: XOR<BugReportUpdateWithoutVotesInput, BugReportUncheckedUpdateWithoutVotesInput>
+  }
+
+  export type BugReportUpdateWithoutVotesInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutBugReportsNestedInput
+    pokemon?: PokemonUpdateOneWithoutBugReportsNestedInput
+  }
+
+  export type BugReportUncheckedUpdateWithoutVotesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    pokemonId?: NullableIntFieldUpdateOperationsInput | number | null
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type PokemonStatCreateManyPokemonInput = {
     id?: number
     statId: number
@@ -23769,6 +42562,8 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
   }
 
   export type PokemonCounterCreateManyCounterPokemonInput = {
@@ -23778,11 +42573,52 @@ export namespace Prisma {
     counterType?: string | null
     upvotes?: number
     downvotes?: number
+    userId?: string | null
+    guestId?: string | null
   }
 
   export type PokemonCustomTagCreateManyPokemonInput = {
     tagId: number
     createdAt?: Date | string
+  }
+
+  export type MetaPostCreateManyPokemonInput = {
+    id?: number
+    patchId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BanPickCreateManyPokemonInput = {
+    id?: number
+    patchId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BugReportCreateManyPokemonInput = {
+    id?: number
+    patchId: number
+    title: string
+    description?: string | null
+    category: string
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PokemonStatUpdateWithoutPokemonInput = {
@@ -23810,8 +42646,10 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     counterPokemon?: PokemonUpdateOneRequiredWithoutCounterForNestedInput
     votes?: VoteUpdateManyWithoutPokemonCounterNestedInput
+    user?: UserUpdateOneWithoutPokemonCountersNestedInput
   }
 
   export type PokemonCounterUncheckedUpdateWithoutTargetPokemonInput = {
@@ -23821,6 +42659,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
   }
 
@@ -23831,6 +42671,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PokemonCounterUpdateWithoutCounterPokemonInput = {
@@ -23838,8 +42680,10 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
     votes?: VoteUpdateManyWithoutPokemonCounterNestedInput
+    user?: UserUpdateOneWithoutPokemonCountersNestedInput
   }
 
   export type PokemonCounterUncheckedUpdateWithoutCounterPokemonInput = {
@@ -23849,6 +42693,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
     votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
   }
 
@@ -23859,6 +42705,8 @@ export namespace Prisma {
     counterType?: NullableStringFieldUpdateOperationsInput | string | null
     upvotes?: IntFieldUpdateOperationsInput | number
     downvotes?: IntFieldUpdateOperationsInput | number
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PokemonCustomTagUpdateWithoutPokemonInput = {
@@ -23874,6 +42722,126 @@ export namespace Prisma {
   export type PokemonCustomTagUncheckedUpdateManyWithoutPokemonInput = {
     tagId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaPostUpdateWithoutPokemonInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutMetaPostsNestedInput
+    votes?: MetaVoteUpdateManyWithoutMetaPostNestedInput
+  }
+
+  export type MetaPostUncheckedUpdateWithoutPokemonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: MetaVoteUncheckedUpdateManyWithoutMetaPostNestedInput
+  }
+
+  export type MetaPostUncheckedUpdateManyWithoutPokemonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanPickUpdateWithoutPokemonInput = {
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutBanPicksNestedInput
+    votes?: BanVoteUpdateManyWithoutBanPickNestedInput
+  }
+
+  export type BanPickUncheckedUpdateWithoutPokemonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: BanVoteUncheckedUpdateManyWithoutBanPickNestedInput
+  }
+
+  export type BanPickUncheckedUpdateManyWithoutPokemonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugReportUpdateWithoutPokemonInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    patch?: GamePatchUpdateOneRequiredWithoutBugReportsNestedInput
+    votes?: BugVoteUpdateManyWithoutBugReportNestedInput
+  }
+
+  export type BugReportUncheckedUpdateWithoutPokemonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: BugVoteUncheckedUpdateManyWithoutBugReportNestedInput
+  }
+
+  export type BugReportUncheckedUpdateManyWithoutPokemonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patchId?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonStatCreateManyStatInput = {
@@ -24057,7 +43025,8 @@ export namespace Prisma {
 
   export type TrainerRadarPostCreateManyTrainerInput = {
     id?: number
-    authorToken: string
+    authorToken?: string | null
+    userId?: string | null
     comment?: string | null
     createdAt?: Date | string
   }
@@ -24086,15 +43055,17 @@ export namespace Prisma {
   }
 
   export type TrainerRadarPostUpdateWithoutTrainerInput = {
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     radarValues?: RadarValueUpdateManyWithoutPostNestedInput
+    user?: UserUpdateOneWithoutTrainerRadarPostsNestedInput
   }
 
   export type TrainerRadarPostUncheckedUpdateWithoutTrainerInput = {
     id?: IntFieldUpdateOperationsInput | number
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     radarValues?: RadarValueUncheckedUpdateManyWithoutPostNestedInput
@@ -24102,7 +43073,8 @@ export namespace Prisma {
 
   export type TrainerRadarPostUncheckedUpdateManyWithoutTrainerInput = {
     id?: IntFieldUpdateOperationsInput | number
-    authorToken?: StringFieldUpdateOperationsInput | string
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -24151,6 +43123,412 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     metricId?: IntFieldUpdateOperationsInput | number
     value?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type AccountCreateManyUserInput = {
+    type: string
+    provider: string
+    providerAccountId: string
+    refresh_token?: string | null
+    access_token?: string | null
+    expires_at?: number | null
+    token_type?: string | null
+    scope?: string | null
+    id_token?: string | null
+    session_state?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SessionCreateManyUserInput = {
+    sessionToken: string
+    expires: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PokemonCounterCreateManyUserInput = {
+    id?: number
+    targetPokemonId: number
+    counterPokemonId: number
+    reason?: string | null
+    counterType?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+  }
+
+  export type TrainerRadarPostCreateManyUserInput = {
+    id?: number
+    trainerId: number
+    authorToken?: string | null
+    comment?: string | null
+    createdAt?: Date | string
+  }
+
+  export type AccountUpdateWithoutUserInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountUncheckedUpdateWithoutUserInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AccountUncheckedUpdateManyWithoutUserInput = {
+    type?: StringFieldUpdateOperationsInput | string
+    provider?: StringFieldUpdateOperationsInput | string
+    providerAccountId?: StringFieldUpdateOperationsInput | string
+    refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
+    access_token?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: NullableIntFieldUpdateOperationsInput | number | null
+    token_type?: NullableStringFieldUpdateOperationsInput | string | null
+    scope?: NullableStringFieldUpdateOperationsInput | string | null
+    id_token?: NullableStringFieldUpdateOperationsInput | string | null
+    session_state?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUpdateWithoutUserInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateWithoutUserInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SessionUncheckedUpdateManyWithoutUserInput = {
+    sessionToken?: StringFieldUpdateOperationsInput | string
+    expires?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PokemonCounterUpdateWithoutUserInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    targetPokemon?: PokemonUpdateOneRequiredWithoutTargetOfNestedInput
+    counterPokemon?: PokemonUpdateOneRequiredWithoutCounterForNestedInput
+    votes?: VoteUpdateManyWithoutPokemonCounterNestedInput
+  }
+
+  export type PokemonCounterUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    targetPokemonId?: IntFieldUpdateOperationsInput | number
+    counterPokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    votes?: VoteUncheckedUpdateManyWithoutPokemonCounterNestedInput
+  }
+
+  export type PokemonCounterUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    targetPokemonId?: IntFieldUpdateOperationsInput | number
+    counterPokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    counterType?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TrainerRadarPostUpdateWithoutUserInput = {
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    trainer?: TrainerUpdateOneRequiredWithoutRadarPostsNestedInput
+    radarValues?: RadarValueUpdateManyWithoutPostNestedInput
+  }
+
+  export type TrainerRadarPostUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    radarValues?: RadarValueUncheckedUpdateManyWithoutPostNestedInput
+  }
+
+  export type TrainerRadarPostUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    trainerId?: IntFieldUpdateOperationsInput | number
+    authorToken?: NullableStringFieldUpdateOperationsInput | string | null
+    comment?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaPostCreateManyPatchInput = {
+    id?: number
+    pokemonId: number
+    reason?: string | null
+    tier?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BanPickCreateManyPatchInput = {
+    id?: number
+    pokemonId: number
+    side: string
+    reason?: string | null
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BugReportCreateManyPatchInput = {
+    id?: number
+    title: string
+    description?: string | null
+    category: string
+    pokemonId?: number | null
+    severity?: string
+    status?: string
+    upvotes?: number
+    downvotes?: number
+    guestId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MetaPostUpdateWithoutPatchInput = {
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pokemon?: PokemonUpdateOneRequiredWithoutMetaPostsNestedInput
+    votes?: MetaVoteUpdateManyWithoutMetaPostNestedInput
+  }
+
+  export type MetaPostUncheckedUpdateWithoutPatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: MetaVoteUncheckedUpdateManyWithoutMetaPostNestedInput
+  }
+
+  export type MetaPostUncheckedUpdateManyWithoutPatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    tier?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanPickUpdateWithoutPatchInput = {
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pokemon?: PokemonUpdateOneRequiredWithoutBanPicksNestedInput
+    votes?: BanVoteUpdateManyWithoutBanPickNestedInput
+  }
+
+  export type BanPickUncheckedUpdateWithoutPatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: BanVoteUncheckedUpdateManyWithoutBanPickNestedInput
+  }
+
+  export type BanPickUncheckedUpdateManyWithoutPatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    side?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugReportUpdateWithoutPatchInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pokemon?: PokemonUpdateOneWithoutBugReportsNestedInput
+    votes?: BugVoteUpdateManyWithoutBugReportNestedInput
+  }
+
+  export type BugReportUncheckedUpdateWithoutPatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    pokemonId?: NullableIntFieldUpdateOperationsInput | number | null
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: BugVoteUncheckedUpdateManyWithoutBugReportNestedInput
+  }
+
+  export type BugReportUncheckedUpdateManyWithoutPatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    pokemonId?: NullableIntFieldUpdateOperationsInput | number | null
+    severity?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaVoteCreateManyMetaPostInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type MetaVoteUpdateWithoutMetaPostInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaVoteUncheckedUpdateWithoutMetaPostInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MetaVoteUncheckedUpdateManyWithoutMetaPostInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanVoteCreateManyBanPickInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BanVoteUpdateWithoutBanPickInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanVoteUncheckedUpdateWithoutBanPickInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BanVoteUncheckedUpdateManyWithoutBanPickInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugVoteCreateManyBugReportInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type BugVoteUpdateWithoutBugReportInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugVoteUncheckedUpdateWithoutBugReportInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BugVoteUncheckedUpdateManyWithoutBugReportInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

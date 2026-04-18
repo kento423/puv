@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import InputCandidateCard from "./InputCandidateCard";
+import { getUserId } from "@/lib/userId";
 
 interface PokemonMaster {
   id: number;
@@ -70,6 +71,7 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
           selectedPokemonId: newCounter.selectedPokemonId,
           reason: newCounter.reason,
           counterType: newCounter.counterType,
+          guestId: getUserId(),
         }),
       });
 

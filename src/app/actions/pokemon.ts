@@ -31,6 +31,13 @@ export interface PokemonCounterItem {
   counterType: 'hard' | 'soft' | null;
   upvotes: number;
   downvotes: number;
+  userId: string | null;
+  guestId: string | null;
+  user: {
+    id: string;
+    name: string | null;
+    image: string | null;
+  } | null;
 }
 
 /**
@@ -70,7 +77,7 @@ export const getPokemonList = unstable_cache(
     }
   },
   ['pokemon-list'],
-  { revalidate: 3600, tags: ['pokemon-list'] }
+  { revalidate: 60, tags: ['pokemon-list'] }
 );
 
 /**
@@ -120,6 +127,13 @@ export async function getPokemonCounters(pokemonId: number): Promise<PokemonCoun
           where: { targetPokemonId: pokemonId },
           include: {
             counterPokemon: true,
+            user: {
+              select: {
+                id: true,
+                name: true,
+                image: true,
+              }
+            }
           },
         });
 
@@ -133,6 +147,9 @@ export async function getPokemonCounters(pokemonId: number): Promise<PokemonCoun
           counterType: counter.counterType as 'hard' | 'soft' | null,
           upvotes: counter.upvotes,
           downvotes: counter.downvotes,
+          userId: counter.userId,
+          guestId: counter.guestId,
+          user: counter.user,
         }));
       } catch (error) {
         console.error(`Failed to fetch counters for pokemon ${pokemonId}:`, error);

@@ -18,6 +18,7 @@ interface Counter {
   upvotes: number;
   downvotes: number;
   slug: string;
+  guestId: string | null;
 }
 
 export default function PokemonPageClient({ pokemonId, slug, pokemonName, initialCounters }: { pokemonId: number, slug: string, pokemonName: string, initialCounters: Counter[] }) {
@@ -70,12 +71,31 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName, initia
         counterId,
         reason: newReason,
         counterType: newCounterType,
+        guestId: getUserId(),
       }),
     });
 
     if (!res.ok) {
       const error = await res.json();
       throw new Error(`編集に失敗しました: ${error.error}`);
+    }
+
+    await fetchCounters();
+  };
+
+  // カウンター削除処理
+  const handleDeleteCounter = async (counterId: number): Promise<void> => {
+    if (!confirm("本当にこの対策を削除しますか？")) return;
+    
+    const guestId = getUserId();
+    const res = await fetch(`/api/pokemon/counter?counterId=${counterId}&guestId=${guestId}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      const error = await res.json();
+      alert(`削除に失敗しました: ${error.error}`);
+      return;
     }
 
     await fetchCounters();
@@ -113,8 +133,10 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName, initia
                 <CandidateCardList
                   counters={sortedCounters}
                   locale={locale}
+                  targetPokemonName={pokemonName}
                   onVote={handleVote}
                   onEditReason={handleEditReason}
+                  onDelete={handleDeleteCounter}
                 />
               )}
             </div>

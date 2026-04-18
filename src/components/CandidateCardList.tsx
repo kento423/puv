@@ -11,20 +11,25 @@ interface Counter {
   upvotes: number;
   downvotes: number;
   slug: string;
+  guestId: string | null;
 }
 
 interface CandidateCardListProps {
   counters: Counter[];
   locale: string;
+  targetPokemonName?: string;
   onVote: (counterId: number, voteType: "upvote" | "downvote") => Promise<void>;
   onEditReason: (counterId: number, newReason: string, newCounterType?: "hard" | "soft" | null) => Promise<void>;
+  onDelete?: (counterId: number) => Promise<void> | void;
 }
 
 export default function CandidateCardList({
   counters,
   locale,
+  targetPokemonName,
   onVote,
-  onEditReason
+  onEditReason,
+  onDelete
 }: CandidateCardListProps) {
   return (
     <ul className="space-y-3 md:space-y-4">
@@ -38,8 +43,11 @@ export default function CandidateCardList({
           upvotes={counter.upvotes}
           downvotes={counter.downvotes}
           slug={counter.slug}
+          guestId={counter.guestId}
+          targetPokemonName={targetPokemonName}
           onVote={(voteType: "upvote" | "downvote") => onVote(counter.id, voteType)}
           onEditReason={(newReason: string, newCounterType?: "hard" | "soft" | null) => onEditReason(counter.id, newReason, newCounterType)}
+          onDelete={() => onDelete ? onDelete(counter.id) : undefined}
         />
       ))}
     </ul>

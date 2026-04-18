@@ -47,14 +47,15 @@ export default function CandidateCard({
   const [shareUrl, setShareUrl] = useState("");
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const currentGuestId = typeof window !== "undefined" ? getUserId() : null;
-  const isOwner = currentGuestId != null && currentGuestId === guestId;
+  const [currentUserGuestId, setCurrentUserGuestId] = useState<string | null>(null);
+  const isOwner = currentUserGuestId != null && currentUserGuestId === guestId;
 
   const isUpvoted = activeVote === "upvote";
   const isDownvoted = activeVote === "downvote";
   const hasVoted = activeVote !== null;
 
   useEffect(() => {
+    setCurrentUserGuestId(getUserId());
     setShareUrl(window.location.href);
   }, []);
 

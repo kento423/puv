@@ -287,6 +287,80 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.GamePatchScalarFieldEnum = {
+  id: 'id',
+  version: 'version',
+  releasedAt: 'releasedAt',
+  isActive: 'isActive',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.MetaPostScalarFieldEnum = {
+  id: 'id',
+  patchId: 'patchId',
+  pokemonId: 'pokemonId',
+  reason: 'reason',
+  tier: 'tier',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BanPickScalarFieldEnum = {
+  id: 'id',
+  patchId: 'patchId',
+  pokemonId: 'pokemonId',
+  side: 'side',
+  reason: 'reason',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BugReportScalarFieldEnum = {
+  id: 'id',
+  patchId: 'patchId',
+  title: 'title',
+  description: 'description',
+  category: 'category',
+  pokemonId: 'pokemonId',
+  severity: 'severity',
+  status: 'status',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MetaVoteScalarFieldEnum = {
+  id: 'id',
+  metaPostId: 'metaPostId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BanVoteScalarFieldEnum = {
+  id: 'id',
+  banPickId: 'banPickId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BugVoteScalarFieldEnum = {
+  id: 'id',
+  bugReportId: 'bugReportId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -321,7 +395,14 @@ exports.Prisma.ModelName = {
   User: 'User',
   Account: 'Account',
   Session: 'Session',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  GamePatch: 'GamePatch',
+  MetaPost: 'MetaPost',
+  BanPick: 'BanPick',
+  BugReport: 'BugReport',
+  MetaVote: 'MetaVote',
+  BanVote: 'BanVote',
+  BugVote: 'BugVote'
 };
 
 /**

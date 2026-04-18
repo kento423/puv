@@ -799,5 +799,14 @@
     "rangeType": "melee",
     "battleStyle": "all-rounder",
     "imageUrl": "/pokemon/moltres.png"
+  },
+  {
+    "slug": "articuno",
+    "nameJa": "フリーザー",
+    "nameEn": "Articuno",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "defender",
+    "imageUrl": "/pokemon/articuno.png"
   }
 ]

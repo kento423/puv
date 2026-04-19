@@ -271,7 +271,7 @@ export default function CompositionCard({
                 <Link
                   key={slot.id}
                   href={`/pokemon/${slot.pokemon.slug}`}
-                  className="flex flex-col items-center gap-0.5 group"
+                  className="flex flex-col items-center group"
                 >
                   <div className="relative">
                     <Image
@@ -282,9 +282,6 @@ export default function CompositionCard({
                       className="rounded-full bg-gray-100 dark:bg-gray-700 object-cover border border-gray-200 dark:border-gray-600 shadow-sm group-hover:scale-110 transition-transform md:w-12 md:h-12"
                     />
                   </div>
-                  <span className="text-[10px] md:text-xs text-gray-600 dark:text-gray-300 font-medium text-center leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                    {slot.pokemon.nameJa}
-                  </span>
                 </Link>
               ))}
               {(!slotsByLane[lane] || slotsByLane[lane].length === 0) && (

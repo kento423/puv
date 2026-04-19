@@ -361,6 +361,33 @@ exports.Prisma.BugVoteScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.CompositionScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CompositionSlotScalarFieldEnum = {
+  id: 'id',
+  compositionId: 'compositionId',
+  pokemonId: 'pokemonId',
+  lane: 'lane',
+  sortOrder: 'sortOrder'
+};
+
+exports.Prisma.CompositionVoteScalarFieldEnum = {
+  id: 'id',
+  compositionId: 'compositionId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -402,7 +429,10 @@ exports.Prisma.ModelName = {
   BugReport: 'BugReport',
   MetaVote: 'MetaVote',
   BanVote: 'BanVote',
-  BugVote: 'BugVote'
+  BugVote: 'BugVote',
+  Composition: 'Composition',
+  CompositionSlot: 'CompositionSlot',
+  CompositionVote: 'CompositionVote'
 };
 
 /**

@@ -329,7 +329,7 @@ model BugReport {
   category    String   // "system" (システム), "pokemon" (ポケモン), "item" (もちもの), "other" (その他)
   pokemonId   Int?     // ポケモン関連バグの場合
   severity    String   @default("normal") // "critical", "normal", "minor"
-  status      String   @default("open") // "open", "confirmed", "fixed"
+  status      String   @default("open") // "open" (募集中), "confirmed" (再現あり), "fixed" (解消済み), "resolved" (仕様・解決)
   upvotes     Int      @default(0)
   downvotes   Int      @default(0)
   guestId     String?

@@ -56,9 +56,9 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     const { selectedPokemonId, reason, counterType, guestId } = body;
-    if (!selectedPokemonId || !reason) {
+    if (!selectedPokemonId) {
       return NextResponse.json(
-        { error: "selectedPokemonId and reason are required" },
+        { error: "selectedPokemonId is required" },
         { status: 400 }
       );
     }

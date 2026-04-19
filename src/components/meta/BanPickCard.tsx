@@ -44,8 +44,10 @@ export default function BanPickCard({
   const [editReason, setEditReason] = useState(reason || "");
   const [editSide, setEditSide] = useState(side);
   const [isEditSaving, setIsEditSaving] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+
 
   const [currentUserGuestId, setCurrentUserGuestId] = useState<string | null>(null);
   const isOwner = currentUserGuestId != null && currentUserGuestId === guestId;
@@ -96,8 +98,44 @@ export default function BanPickCard({
     }
   };
 
+  if (isDeleting) {
+    return (
+      <li className="flex flex-col items-center justify-center gap-4 p-8 rounded-xl border-2 border-red-200 dark:border-red-900/30 bg-red-50/50 dark:bg-red-900/10 text-center animate-in fade-in zoom-in-95 duration-200">
+        <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-red-600 dark:text-red-400">
+          <Trash2 size={24} />
+        </div>
+        <div>
+          <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+            この提案を削除しますか？
+          </h4>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            削除したデータは元に戻せません。
+          </p>
+        </div>
+        <div className="flex gap-3 w-full max-w-xs">
+          <button
+            onClick={async () => {
+              if (onDelete) await onDelete();
+              setIsDeleting(false);
+            }}
+            className="flex-1 bg-red-600 text-white font-bold py-2 rounded-lg hover:bg-red-700 transition active:scale-95 shadow-sm"
+          >
+            削除する
+          </button>
+          <button
+            onClick={() => setIsDeleting(false)}
+            className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition active:scale-95 shadow-sm"
+          >
+            戻る
+          </button>
+        </div>
+      </li>
+    );
+  }
+
   return (
     <li className={`flex flex-col gap-3 p-3 md:p-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 relative transition-all`}>
+
       {isOwner && !isPastPatch && (
         <div className="absolute top-2 right-2 z-[5] text-gray-400">
           <div className="relative" ref={menuRef}>
@@ -116,11 +154,12 @@ export default function BanPickCard({
                   <Edit3 size={14} /><span>編集</span>
                 </button>
                 <button
-                  onClick={() => { setIsMenuOpen(false); if (onDelete) onDelete(); }}
+                  onClick={() => { setIsMenuOpen(false); setIsDeleting(true); }}
                   className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20"
                 >
                   <Trash2 size={14} /><span>削除</span>
                 </button>
+
               </div>
             )}
           </div>

@@ -58,10 +58,6 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
       return;
     }
 
-    if (!newCounter.reason.trim()) {
-      setError("理由を入力してください");
-      return;
-    }
 
     try {
       const res = await fetch(`/api/pokemon/${slug}/counters`, {

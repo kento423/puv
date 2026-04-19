@@ -12,6 +12,8 @@ import {
 } from '@/components/ui/dialog';
 import { addTeamSponsor, deleteTeamSponsor, TeamDetail } from '@/app/actions/team';
 import { Plus, Trash2, Globe, Image as ImageIcon, Settings2 } from 'lucide-react';
+import { DeleteConfirmDialog } from '@/components/DeleteConfirmDialog';
+
 
 type SponsorManageDialogProps = {
     team: TeamDetail;
@@ -21,7 +23,9 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
     const router = useRouter();
     const [open, setOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [deleteDialogId, setDeleteDialogId] = useState<number | null>(null);
     const [error, setError] = useState<string | null>(null);
+
 
     const [form, setForm] = useState({
         name: '',
@@ -56,9 +60,7 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
         setIsSubmitting(false);
     };
 
-    const handleDelete = async (id: number) => {
-        if (!confirm('このスポンサーを削除してもよろしいですか？')) return;
-
+    const executeDelete = async (id: number) => {
         setIsSubmitting(true);
         const result = await deleteTeamSponsor(id, team.id);
         if (result.success) {
@@ -68,6 +70,11 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
         }
         setIsSubmitting(false);
     };
+
+    const handleDelete = (id: number) => {
+        setDeleteDialogId(id);
+    };
+
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -189,6 +196,13 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
                     </button>
                 </DialogFooter>
             </DialogContent>
+            <DeleteConfirmDialog
+                open={deleteDialogId !== null}
+                onOpenChange={(open) => !open && setDeleteDialogId(null)}
+                onConfirm={() => deleteDialogId && executeDelete(deleteDialogId)}
+                title="スポンサーを削除しますか？"
+            />
         </Dialog>
+
     );
 }

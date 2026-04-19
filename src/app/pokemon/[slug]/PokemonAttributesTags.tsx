@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Plus, X } from "lucide-react";
+import { DeleteConfirmDialog } from "@/components/DeleteConfirmDialog";
+
 
 interface AttributeTag {
   label: string;
@@ -74,7 +76,9 @@ export default function PokemonAttributesTags({
   const [tagName, setTagName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState<number | null>(null);
+  const [deleteDialogId, setDeleteDialogId] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+
   const [expandTags, setExpandTags] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -149,10 +153,8 @@ export default function PokemonAttributesTags({
     }
   };
 
-  const handleDeleteTag = async (tagId: number) => {
-    if (!slug || !window.confirm("このタグを削除しますか？")) {
-      return;
-    }
+  const executeDeleteTag = async (tagId: number) => {
+    if (!slug) return;
 
     setIsDeleting(tagId);
     setError(null);
@@ -177,6 +179,11 @@ export default function PokemonAttributesTags({
       setIsDeleting(null);
     }
   };
+
+  const handleDeleteTag = (tagId: number) => {
+    setDeleteDialogId(tagId);
+  };
+
 
   return (
     <div className={compact ? "space-y-2" : "space-y-4 mt-4"}>
@@ -314,6 +321,12 @@ export default function PokemonAttributesTags({
           )}
         </div>
       )}
+      <DeleteConfirmDialog
+        open={deleteDialogId !== null}
+        onOpenChange={(open) => !open && setDeleteDialogId(null)}
+        onConfirm={() => deleteDialogId && executeDeleteTag(deleteDialogId)}
+        title="このタグを削除しますか？"
+      />
     </div>
   );
 }

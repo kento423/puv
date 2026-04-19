@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Plus, X } from "lucide-react";
+import { DeleteConfirmDialog } from "@/components/DeleteConfirmDialog";
+
 
 interface CustomTag {
   tag: {
@@ -45,7 +47,9 @@ export default function TagManager({ slug, customTags, onTagsUpdated }: TagManag
   const [tagColor, setTagColor] = useState("gray");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState<number | null>(null);
+  const [deleteDialogId, setDeleteDialogId] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+
 
   const handleAddTag = async () => {
     if (!tagName.trim()) {
@@ -83,11 +87,7 @@ export default function TagManager({ slug, customTags, onTagsUpdated }: TagManag
     }
   };
 
-  const handleDeleteTag = async (tagId: number) => {
-    if (!window.confirm("このタグを削除しますか？")) {
-      return;
-    }
-
+  const executeDeleteTag = async (tagId: number) => {
     setIsDeleting(tagId);
     setError(null);
 
@@ -109,6 +109,11 @@ export default function TagManager({ slug, customTags, onTagsUpdated }: TagManag
       setIsDeleting(null);
     }
   };
+
+  const handleDeleteTag = (tagId: number) => {
+    setDeleteDialogId(tagId);
+  };
+
 
   return (
     <div className="space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700 mt-4">
@@ -197,6 +202,12 @@ export default function TagManager({ slug, customTags, onTagsUpdated }: TagManag
           タグを追加
         </button>
       )}
+      <DeleteConfirmDialog
+        open={deleteDialogId !== null}
+        onOpenChange={(open) => !open && setDeleteDialogId(null)}
+        onConfirm={() => deleteDialogId && executeDeleteTag(deleteDialogId)}
+        title="このタグを削除しますか？"
+      />
     </div>
   );
 }

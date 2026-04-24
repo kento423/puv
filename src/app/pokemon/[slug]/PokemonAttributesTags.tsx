@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Plus, X } from "lucide-react";
+import { Plus, X, AlertTriangle, Check, MoreHorizontal, ThumbsUp, ThumbsDown, Trash2 } from "lucide-react";
+import { getUserId } from "@/lib/userId";
+import { DeleteConfirmDialog } from "@/components/DeleteConfirmDialog";
+import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+
 
 interface AttributeTag {
   label: string;
@@ -10,6 +14,10 @@ interface AttributeTag {
 }
 
 interface CustomTag {
+  guestId?: string | null;
+  userId?: string | null;
+  upvotes: number;
+  downvotes: number;
   tag: {
     id: number;
     name: string;
@@ -74,7 +82,19 @@ export default function PokemonAttributesTags({
   const [tagName, setTagName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState<number | null>(null);
+  const [deleteDialogId, setDeleteDialogId] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [reportedTagId, setReportedTagId] = useState<number | null>(null);
+
+  useEffect(() => {
+    try {
+      setCurrentUserId(getUserId());
+    } catch (e) {
+      console.error("Failed to get userId:", e);
+    }
+  }, []);
+
   const [expandTags, setExpandTags] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -127,6 +147,7 @@ export default function PokemonAttributesTags({
         body: JSON.stringify({
           tagName: tagName.trim(),
           color: "gray",
+          guestId: currentUserId,
         }),
       });
 
@@ -149,16 +170,14 @@ export default function PokemonAttributesTags({
     }
   };
 
-  const handleDeleteTag = async (tagId: number) => {
-    if (!slug || !window.confirm("このタグを削除しますか？")) {
-      return;
-    }
+  const executeDeleteTag = async (tagId: number) => {
+    if (!slug) return;
 
     setIsDeleting(tagId);
     setError(null);
 
     try {
-      const res = await fetch(`/api/pokemon/${slug}/tags/${tagId}`, {
+      const res = await fetch(`/api/pokemon/${slug}/tags/${tagId}?guestId=${currentUserId}`, {
         method: "DELETE",
       });
 
@@ -177,6 +196,54 @@ export default function PokemonAttributesTags({
       setIsDeleting(null);
     }
   };
+
+  const handleReportTag = async (tagId: number) => {
+    if (!currentUserId || !slug) return;
+    
+    try {
+      const res = await fetch(`/api/pokemon/${slug}/tags/${tagId}/report`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          reporterGuestId: currentUserId,
+          reason: "不適切なタグ",
+        }),
+      });
+
+      if (res.ok) {
+        setReportedTagId(tagId);
+        setTimeout(() => setReportedTagId(null), 3000);
+      }
+    } catch (err) {
+      console.error("Failed to report tag:", err);
+    }
+  };
+
+  const handleVoteTag = async (tagId: number, voteType: "upvote" | "downvote") => {
+    if (!currentUserId || !slug) return;
+
+    try {
+      const res = await fetch(`/api/pokemon/${slug}/tags/${tagId}/vote`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: currentUserId,
+          voteType,
+        }),
+      });
+
+      if (res.ok) {
+        if (onTagsUpdated) onTagsUpdated();
+      }
+    } catch (err) {
+      console.error("Failed to vote on tag:", err);
+    }
+  };
+
+  const handleDeleteTag = (tagId: number) => {
+    setDeleteDialogId(tagId);
+  };
+
 
   return (
     <div className={compact ? "space-y-2" : "space-y-4 mt-4"}>
@@ -211,24 +278,83 @@ export default function PokemonAttributesTags({
             <div>
               <div className={`flex flex-wrap gap-2 ${compact ? "mb-2" : "mb-3"}`}>
                 {/* compactモード時はデバイスに応じて表示タグ数を変更 */}
-                {(compact && !expandTags ? customTags.slice(0, maxVisibleTags) : customTags).map((ct) => (
-                  <div
-                    key={ct.tag.id}
-                    className={`flex items-center gap-2 ${tagClassName} ${customTagColor} border border-current border-opacity-30`}
-                  >
-                    <span>{ct.tag.name}</span>
-                    {slug && (
-                      <button
-                        onClick={() => handleDeleteTag(ct.tag.id)}
-                        disabled={isDeleting === ct.tag.id}
-                        className="hover:opacity-70 transition-opacity disabled:opacity-50"
-                        aria-label={`${ct.tag.name}を削除`}
-                      >
-                        <X size={14} />
-                      </button>
-                    )}
-                  </div>
-                ))}
+                {(compact && !expandTags ? customTags.slice(0, maxVisibleTags) : customTags).map((ct) => {
+                  const isOwner = currentUserId && ct.guestId === currentUserId;
+                  const isReported = reportedTagId === ct.tag.id;
+                  const score = (ct.upvotes || 0) - (ct.downvotes || 0);
+
+                  return (
+                    <div
+                      key={ct.tag.id}
+                      className={`flex items-center gap-1.5 ${tagClassName} ${customTagColor} border border-current border-opacity-30`}
+                    >
+                      <span className="flex items-center gap-1">
+                        {ct.tag.name}
+                        {score !== 0 && (
+                          <span className={`text-[10px] opacity-70 font-bold ${score > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+                            {score > 0 ? `+${score}` : score}
+                          </span>
+                        )}
+                      </span>
+                      {slug && (
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <button
+                              className="hover:bg-black/5 dark:hover:bg-white/10 rounded-full p-0.5 transition-colors"
+                              aria-label="メニュー"
+                            >
+                              <MoreHorizontal size={14} />
+                            </button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-40 p-2" align="start">
+                            <div className="flex flex-col gap-1">
+                              {/* 評価セクション */}
+                              <div className="flex items-center justify-between border-b pb-1 mb-1 border-gray-100 dark:border-gray-700">
+                                <button
+                                  onClick={() => handleVoteTag(ct.tag.id, "upvote")}
+                                  className="flex-1 flex items-center justify-center p-1.5 hover:bg-green-50 dark:hover:bg-green-900/30 rounded text-green-600 transition-colors"
+                                  title="高評価"
+                                >
+                                  <ThumbsUp size={14} />
+                                </button>
+                                <button
+                                  onClick={() => handleVoteTag(ct.tag.id, "downvote")}
+                                  className="flex-1 flex items-center justify-center p-1.5 hover:bg-red-50 dark:hover:bg-red-900/30 rounded text-red-600 transition-colors"
+                                  title="低評価"
+                                >
+                                  <ThumbsDown size={14} />
+                                </button>
+                              </div>
+                              
+                              {/* 通報 */}
+                              <button
+                                onClick={() => handleReportTag(ct.tag.id)}
+                                className={`flex items-center gap-2 w-full text-left px-2 py-1.5 text-xs rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${isReported ? 'text-green-600' : 'text-orange-600'}`}
+                                disabled={isReported}
+                              >
+                                {isReported ? (
+                                  <><Check size={14} /> 通報済み</>
+                                ) : (
+                                  <><AlertTriangle size={14} /> 通報する</>
+                                )}
+                              </button>
+
+                              {/* 削除 (所有者のみ) */}
+                              {isOwner && (
+                                <button
+                                  onClick={() => handleDeleteTag(ct.tag.id)}
+                                  className="flex items-center gap-2 w-full text-left px-2 py-1.5 text-xs rounded hover:bg-red-50 dark:hover:bg-red-900/30 text-red-600 transition-colors"
+                                >
+                                  <Trash2 size={14} /> 削除する
+                                </button>
+                              )}
+                            </div>
+                          </PopoverContent>
+                        </Popover>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
               {/* expandボタン（compactモード時で非表示タグがある場合） */}
               {compact && customTags.length > maxVisibleTags && (
@@ -314,6 +440,12 @@ export default function PokemonAttributesTags({
           )}
         </div>
       )}
+      <DeleteConfirmDialog
+        open={deleteDialogId !== null}
+        onOpenChange={(open) => !open && setDeleteDialogId(null)}
+        onConfirm={() => deleteDialogId && executeDeleteTag(deleteDialogId)}
+        title="このタグを削除しますか？"
+      />
     </div>
   );
 }

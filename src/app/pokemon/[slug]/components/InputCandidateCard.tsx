@@ -163,7 +163,7 @@ export default function InputCandidateCard({
 
       <div className="space-y-2">
         <label className="block text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
-          理由（対策方法など） <span className="text-red-500">*</span>
+          理由（対策方法など） (任意)
         </label>
         <textarea
           ref={textareaRef}

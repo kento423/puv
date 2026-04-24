@@ -53,7 +53,10 @@ export function Combobox<T>({
         >
           <span className="truncate">
             {selectedValue
-              ? itemLabel(items.find((item) => itemValue(item) === selectedValue)!)
+              ? (() => {
+                  const item = items.find((i) => itemValue(i) === selectedValue);
+                  return item ? itemLabel(item) : placeholder;
+                })()
               : placeholder}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />

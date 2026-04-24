@@ -10,6 +10,8 @@ export async function DELETE(
   try {
     const { slug, tagId } = await params;
     const tagIdNum = parseInt(tagId, 10);
+    const { searchParams } = new URL(request.url);
+    const guestId = searchParams.get("guestId");
 
     if (!slug || isNaN(tagIdNum)) {
       return NextResponse.json(
@@ -27,6 +29,32 @@ export async function DELETE(
       return NextResponse.json(
         { error: "ポケモンが見つかりません" },
         { status: 404 }
+      );
+    }
+
+    // タグの所有権を確認
+    const customTag = await prisma.pokemonCustomTag.findUnique({
+      where: {
+        pokemonId_tagId: {
+          pokemonId: pokemon.id,
+          tagId: tagIdNum,
+        },
+      },
+    });
+
+    if (!customTag) {
+      return NextResponse.json(
+        { error: "タグが見つかりません" },
+        { status: 404 }
+      );
+    }
+
+    // 削除権限チェック
+    const isOwner = guestId && customTag.guestId === guestId;
+    if (!isOwner) {
+      return NextResponse.json(
+        { error: "削除権限がありません" },
+        { status: 403 }
       );
     }
 

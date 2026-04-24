@@ -50,7 +50,7 @@
     "nameEn": "Wigglytuff",
     "damageClass": "special",
     "rangeType": "melee",
-    "battleStyle": "defender",
+    "battleStyle": "supporter",
     "imageUrl": "/pokemon/wigglytuff.png"
   },
   {

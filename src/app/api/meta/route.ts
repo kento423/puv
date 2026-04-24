@@ -34,8 +34,8 @@ export async function POST(req: Request) {
       }
     });
 
-    revalidatePath('/meta');
-    revalidateTag('meta-posts', 'max' as any);
+    revalidatePath('/meta', 'page');
+    revalidateTag('meta-posts', { expire: 0 } as any);
     return NextResponse.json(newPost);
   } catch (error) {
     console.error("Error creating meta post:", error);
@@ -82,8 +82,8 @@ export async function PATCH(req: Request) {
       data: updateData,
     });
 
-    revalidatePath('/meta');
-    revalidateTag('meta-posts', 'max' as any);
+    revalidatePath('/meta', 'page');
+    revalidateTag('meta-posts', { expire: 0 } as any);
     return NextResponse.json(updatedPost);
   } catch (error) {
     console.error("Error updating meta post:", error);
@@ -128,8 +128,8 @@ export async function DELETE(req: Request) {
       where: { id: postId },
     });
 
-    revalidatePath('/meta');
-    revalidateTag('meta-posts', 'max' as any);
+    revalidatePath('/meta', 'page');
+    revalidateTag('meta-posts', { expire: 0 } as any);
     
     return NextResponse.json({ success: true });
   } catch (error) {

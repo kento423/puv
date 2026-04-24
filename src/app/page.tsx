@@ -1,6 +1,6 @@
 import Link from "next/link";
 import StatusBadge from "@/components/ui/StatusBadge";
-import { MessageSquare, Users, Shield, Wrench } from "lucide-react";
+import { MessageSquare, User, Users, Shield, Wrench } from "lucide-react";
 
 export default function Home() {
   const features = [
@@ -10,14 +10,14 @@ export default function Home() {
       href: "/pokemon",
       status: "beta" as const,
       icon: <Shield className="w-6 h-6" />,
-      color: "blue",
+      color: "purple",
     },
     {
       title: "トレーナー名鑑",
       description: "ユナイトを盛り上げるトレーナーたちのプロフィール・活動を掲載。",
       href: "/trainers",
       status: "alpha" as const,
-      icon: <Users className="w-6 h-6" />,
+      icon: <User className="w-6 h-6" />,
       color: "orange",
     },
     {
@@ -34,14 +34,22 @@ export default function Home() {
       href: "/meta",
       status: "beta" as const,
       icon: <MessageSquare className="w-6 h-6" />,
-      color: "green",
+      color: "orange",
     },
     {
       title: "構成メーカー",
-      description: "自分の考えるチーム構成を共有。",
+      description: "自分の考える5匹のチーム構成を作成・共有。他のユーザーの構成を参考にすることもできます。",
+      href: "/compositions",
+      status: "alpha" as const,
+      icon: <Wrench className="w-6 h-6" />,
+      color: "purple",
+    },
+    {
+      title: "新機能（近日公開）",
+      description: "次のアップデートをお楽しみに。",
       href: "#",
       status: "coming-soon" as const,
-      icon: <Wrench className="w-6 h-6" />,
+      icon: <Shield className="w-6 h-6" />,
       color: "gray",
     },
   ];

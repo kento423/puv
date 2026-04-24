@@ -178,6 +178,28 @@ exports.Prisma.TagScalarFieldEnum = {
 exports.Prisma.PokemonCustomTagScalarFieldEnum = {
   pokemonId: 'pokemonId',
   tagId: 'tagId',
+  guestId: 'guestId',
+  userId: 'userId',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CustomTagVoteScalarFieldEnum = {
+  id: 'id',
+  pokemonId: 'pokemonId',
+  tagId: 'tagId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.TagReportScalarFieldEnum = {
+  id: 'id',
+  pokemonId: 'pokemonId',
+  tagId: 'tagId',
+  reporterGuestId: 'reporterGuestId',
+  reason: 'reason',
   createdAt: 'createdAt'
 };
 
@@ -361,6 +383,33 @@ exports.Prisma.BugVoteScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.CompositionScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  guestId: 'guestId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CompositionSlotScalarFieldEnum = {
+  id: 'id',
+  compositionId: 'compositionId',
+  pokemonId: 'pokemonId',
+  lane: 'lane',
+  sortOrder: 'sortOrder'
+};
+
+exports.Prisma.CompositionVoteScalarFieldEnum = {
+  id: 'id',
+  compositionId: 'compositionId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -385,6 +434,8 @@ exports.Prisma.ModelName = {
   Vote: 'Vote',
   Tag: 'Tag',
   PokemonCustomTag: 'PokemonCustomTag',
+  CustomTagVote: 'CustomTagVote',
+  TagReport: 'TagReport',
   Team: 'Team',
   TeamSponsor: 'TeamSponsor',
   Trainer: 'Trainer',
@@ -402,7 +453,10 @@ exports.Prisma.ModelName = {
   BugReport: 'BugReport',
   MetaVote: 'MetaVote',
   BanVote: 'BanVote',
-  BugVote: 'BugVote'
+  BugVote: 'BugVote',
+  Composition: 'Composition',
+  CompositionSlot: 'CompositionSlot',
+  CompositionVote: 'CompositionVote'
 };
 
 /**

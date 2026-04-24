@@ -50,8 +50,10 @@ export default function BugReportCard({
   const [editSeverity, setEditSeverity] = useState(severity);
   const [editStatus, setEditStatus] = useState(status);
   const [isEditSaving, setIsEditSaving] = useState(false);
-
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
   const menuRef = useRef<HTMLDivElement>(null);
 
   const [currentUserGuestId, setCurrentUserGuestId] = useState<string | null>(null);
@@ -111,15 +113,52 @@ export default function BugReportCard({
   };
 
   const StatusBadge = ({ s }: { s: string }) => {
-    if (s === "fixed") return <span className="text-xs font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded">修正済み</span>;
-    if (s === "confirmed") return <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">確認済み</span>;
-    return <span className="text-xs font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded">未確認</span>;
+    if (s === "fixed") return <span className="text-xs font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded">解消済み</span>;
+    if (s === "confirmed") return <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">再現あり</span>;
+    if (s === "resolved") return <span className="text-xs font-bold text-gray-600 bg-gray-100 px-2 py-0.5 rounded">仕様・解決</span>;
+    return <span className="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">情報募集中</span>;
   };
 
   const categoryLabel = category === "pokemon" ? "ポケモン関連" : category === "item" ? "もちもの関連" : category === "system" ? "システム" : "その他";
 
+  if (isDeleting) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-8 rounded-xl border-2 border-red-200 dark:border-red-900/30 bg-red-50/50 dark:bg-red-900/10 text-center animate-in fade-in zoom-in-95 duration-200">
+        <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-red-600 dark:text-red-400">
+          <Trash2 size={24} />
+        </div>
+        <div>
+          <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+            この報告を削除しますか？
+          </h4>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            削除したデータは元に戻せません。
+          </p>
+        </div>
+        <div className="flex gap-3 w-full max-w-xs">
+          <button
+            onClick={async () => {
+              if (onDelete) await onDelete();
+              setIsDeleting(false);
+            }}
+            className="flex-1 bg-red-600 text-white font-bold py-2 rounded-lg hover:bg-red-700 transition active:scale-95 shadow-sm"
+          >
+            削除する
+          </button>
+          <button
+            onClick={() => setIsDeleting(false)}
+            className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition active:scale-95 shadow-sm"
+          >
+            戻る
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={`p-4 rounded-xl shadow-sm border ${status === 'fixed' ? 'border-green-300 dark:border-green-800 bg-green-50/50 dark:bg-green-900/10 opacity-70' : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800'}`}>
+    <div className={`p-4 rounded-xl shadow-sm border ${(status === 'fixed' || status === 'resolved') ? 'border-green-300 dark:border-green-800 bg-green-50/50 dark:bg-green-900/10 opacity-70' : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800'}`}>
+
       <div className="flex justify-between items-start mb-2">
         <div className="flex flex-wrap gap-2 items-center">
           <span className="text-xs font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800">{categoryLabel}</span>
@@ -141,10 +180,11 @@ export default function BugReportCard({
                   <Edit3 size={14} /><span>編集</span>
                 </button>
                 {!isPastPatch && (
-                  <button onClick={() => { setIsMenuOpen(false); if (onDelete) onDelete(); }} className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20">
+                  <button onClick={() => { setIsMenuOpen(false); setIsDeleting(true); }} className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20">
                     <Trash2 size={14} /><span>削除</span>
                   </button>
                 )}
+
               </div>
             )}
           </div>
@@ -156,9 +196,10 @@ export default function BugReportCard({
           <div className="flex gap-2 items-center">
             <span className="text-sm font-bold text-gray-700 dark:text-gray-300">ステータス:</span>
             <select value={editStatus} onChange={e => setEditStatus(e.target.value)} className="p-2 border rounded text-sm dark:bg-gray-700 dark:border-gray-600">
-              <option value="open">未確認</option>
-              <option value="confirmed">確認済み</option>
-              <option value="fixed">修正済み</option>
+              <option value="open">情報募集中</option>
+              <option value="confirmed">再現あり</option>
+              <option value="fixed">解消済み</option>
+              <option value="resolved">仕様・解決</option>
             </select>
           </div>
           {!isPastPatch && (

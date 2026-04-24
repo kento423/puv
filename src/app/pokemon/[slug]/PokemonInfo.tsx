@@ -5,6 +5,10 @@ import Image from "next/image";
 import PokemonAttributesTags from "./PokemonAttributesTags";
 
 interface CustomTag {
+  guestId?: string | null;
+  userId?: string | null;
+  upvotes: number;
+  downvotes: number;
   tag: {
     id: number;
     name: string;

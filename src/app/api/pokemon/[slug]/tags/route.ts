@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   try {
     const pathname = request.nextUrl.pathname; // "/api/pokemon/[slug]/tags"
     const slug = pathname.split("/")[3];
-    const { tagName, color } = await request.json();
+    const { tagName, color, guestId } = await request.json();
 
     if (!tagName || tagName.trim().length === 0) {
       return NextResponse.json(
@@ -38,16 +38,83 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // ポケモンにタグを関連付け
+    // 既にそのポケモンに同じタグが付与されているか確認
+    const existingCustomTag = await prisma.pokemonCustomTag.findUnique({
+      where: {
+        pokemonId_tagId: {
+          pokemonId: pokemon.id,
+          tagId: tag.id,
+        },
+      },
+    });
+
+    if (existingCustomTag) {
+      // 既に存在する場合、そのユーザーがまだ投票していなければ高評価としてカウント
+      if (guestId) {
+        const existingVote = await prisma.customTagVote.findUnique({
+          where: {
+            pokemonId_tagId_userId: {
+              pokemonId: pokemon.id,
+              tagId: tag.id,
+              userId: guestId,
+            },
+          },
+        });
+
+        if (!existingVote) {
+          await prisma.$transaction([
+            prisma.customTagVote.create({
+              data: {
+                pokemonId: pokemon.id,
+                tagId: tag.id,
+                userId: guestId,
+                voteType: "upvote",
+              },
+            }),
+            prisma.pokemonCustomTag.update({
+              where: {
+                pokemonId_tagId: {
+                  pokemonId: pokemon.id,
+                  tagId: tag.id,
+                },
+              },
+              data: {
+                upvotes: { increment: 1 },
+              },
+            }),
+          ]);
+        }
+      }
+      
+      revalidatePath(`/pokemon/${slug}`);
+      revalidateTag(`pokemon-detail-${slug}`, 'max');
+      return NextResponse.json({ ...existingCustomTag, tag, updated: true }, { status: 200 });
+    }
+
+    // 新規にポケモンとタグを関連付け
     const customTag = await prisma.pokemonCustomTag.create({
       data: {
         pokemonId: pokemon.id,
         tagId: tag.id,
+        guestId: guestId || null,
+        upvotes: guestId ? 1 : 0, // 投稿者自身の1票を入れる場合
       },
       include: {
         tag: true,
       },
     });
+
+    // 投稿者自身の投票履歴も作成
+    if (guestId) {
+      await prisma.customTagVote.create({
+        data: {
+          pokemonId: pokemon.id,
+          tagId: tag.id,
+          userId: guestId,
+          voteType: "upvote",
+        },
+      });
+    }
 
     revalidatePath(`/pokemon/${slug}`);
     revalidateTag(`pokemon-detail-${slug}`, 'max');

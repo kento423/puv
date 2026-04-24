@@ -49,6 +49,16 @@ export type Tag = $Result.DefaultSelection<Prisma.$TagPayload>
  */
 export type PokemonCustomTag = $Result.DefaultSelection<Prisma.$PokemonCustomTagPayload>
 /**
+ * Model CustomTagVote
+ * 
+ */
+export type CustomTagVote = $Result.DefaultSelection<Prisma.$CustomTagVotePayload>
+/**
+ * Model TagReport
+ * 
+ */
+export type TagReport = $Result.DefaultSelection<Prisma.$TagReportPayload>
+/**
  * Model Team
  * 
  */
@@ -341,6 +351,26 @@ export class PrismaClient<
     * ```
     */
   get pokemonCustomTag(): Prisma.PokemonCustomTagDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customTagVote`: Exposes CRUD operations for the **CustomTagVote** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomTagVotes
+    * const customTagVotes = await prisma.customTagVote.findMany()
+    * ```
+    */
+  get customTagVote(): Prisma.CustomTagVoteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tagReport`: Exposes CRUD operations for the **TagReport** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TagReports
+    * const tagReports = await prisma.tagReport.findMany()
+    * ```
+    */
+  get tagReport(): Prisma.TagReportDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.team`: Exposes CRUD operations for the **Team** model.
@@ -999,6 +1029,8 @@ export namespace Prisma {
     Vote: 'Vote',
     Tag: 'Tag',
     PokemonCustomTag: 'PokemonCustomTag',
+    CustomTagVote: 'CustomTagVote',
+    TagReport: 'TagReport',
     Team: 'Team',
     TeamSponsor: 'TeamSponsor',
     Trainer: 'Trainer',
@@ -1038,7 +1070,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "team" | "teamSponsor" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue" | "user" | "account" | "session" | "verificationToken" | "gamePatch" | "metaPost" | "banPick" | "bugReport" | "metaVote" | "banVote" | "bugVote" | "composition" | "compositionSlot" | "compositionVote"
+      modelProps: "pokemon" | "stat" | "pokemonStat" | "pokemonCounter" | "vote" | "tag" | "pokemonCustomTag" | "customTagVote" | "tagReport" | "team" | "teamSponsor" | "trainer" | "trainerTeamHistory" | "radarMetric" | "trainerRadarPost" | "radarValue" | "user" | "account" | "session" | "verificationToken" | "gamePatch" | "metaPost" | "banPick" | "bugReport" | "metaVote" | "banVote" | "bugVote" | "composition" | "compositionSlot" | "compositionVote"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1557,6 +1589,154 @@ export namespace Prisma {
           count: {
             args: Prisma.PokemonCustomTagCountArgs<ExtArgs>
             result: $Utils.Optional<PokemonCustomTagCountAggregateOutputType> | number
+          }
+        }
+      }
+      CustomTagVote: {
+        payload: Prisma.$CustomTagVotePayload<ExtArgs>
+        fields: Prisma.CustomTagVoteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomTagVoteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomTagVoteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>
+          }
+          findFirst: {
+            args: Prisma.CustomTagVoteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomTagVoteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>
+          }
+          findMany: {
+            args: Prisma.CustomTagVoteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>[]
+          }
+          create: {
+            args: Prisma.CustomTagVoteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>
+          }
+          createMany: {
+            args: Prisma.CustomTagVoteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomTagVoteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>[]
+          }
+          delete: {
+            args: Prisma.CustomTagVoteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>
+          }
+          update: {
+            args: Prisma.CustomTagVoteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomTagVoteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomTagVoteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CustomTagVoteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>[]
+          }
+          upsert: {
+            args: Prisma.CustomTagVoteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomTagVotePayload>
+          }
+          aggregate: {
+            args: Prisma.CustomTagVoteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomTagVote>
+          }
+          groupBy: {
+            args: Prisma.CustomTagVoteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomTagVoteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomTagVoteCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomTagVoteCountAggregateOutputType> | number
+          }
+        }
+      }
+      TagReport: {
+        payload: Prisma.$TagReportPayload<ExtArgs>
+        fields: Prisma.TagReportFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TagReportFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TagReportFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>
+          }
+          findFirst: {
+            args: Prisma.TagReportFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TagReportFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>
+          }
+          findMany: {
+            args: Prisma.TagReportFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>[]
+          }
+          create: {
+            args: Prisma.TagReportCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>
+          }
+          createMany: {
+            args: Prisma.TagReportCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TagReportCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>[]
+          }
+          delete: {
+            args: Prisma.TagReportDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>
+          }
+          update: {
+            args: Prisma.TagReportUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>
+          }
+          deleteMany: {
+            args: Prisma.TagReportDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TagReportUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TagReportUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>[]
+          }
+          upsert: {
+            args: Prisma.TagReportUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TagReportPayload>
+          }
+          aggregate: {
+            args: Prisma.TagReportAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTagReport>
+          }
+          groupBy: {
+            args: Prisma.TagReportGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TagReportGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TagReportCountArgs<ExtArgs>
+            result: $Utils.Optional<TagReportCountAggregateOutputType> | number
           }
         }
       }
@@ -3217,6 +3397,8 @@ export namespace Prisma {
     vote?: VoteOmit
     tag?: TagOmit
     pokemonCustomTag?: PokemonCustomTagOmit
+    customTagVote?: CustomTagVoteOmit
+    tagReport?: TagReportOmit
     team?: TeamOmit
     teamSponsor?: TeamSponsorOmit
     trainer?: TrainerOmit
@@ -3497,6 +3679,37 @@ export namespace Prisma {
    */
   export type TagCountOutputTypeCountPokemonTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PokemonCustomTagWhereInput
+  }
+
+
+  /**
+   * Count Type PokemonCustomTagCountOutputType
+   */
+
+  export type PokemonCustomTagCountOutputType = {
+    votes: number
+  }
+
+  export type PokemonCustomTagCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    votes?: boolean | PokemonCustomTagCountOutputTypeCountVotesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PokemonCustomTagCountOutputType without action
+   */
+  export type PokemonCustomTagCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PokemonCustomTagCountOutputType
+     */
+    select?: PokemonCustomTagCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PokemonCustomTagCountOutputType without action
+   */
+  export type PokemonCustomTagCountOutputTypeCountVotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomTagVoteWhereInput
   }
 
 
@@ -10881,28 +11094,44 @@ export namespace Prisma {
   export type PokemonCustomTagAvgAggregateOutputType = {
     pokemonId: number | null
     tagId: number | null
+    upvotes: number | null
+    downvotes: number | null
   }
 
   export type PokemonCustomTagSumAggregateOutputType = {
     pokemonId: number | null
     tagId: number | null
+    upvotes: number | null
+    downvotes: number | null
   }
 
   export type PokemonCustomTagMinAggregateOutputType = {
     pokemonId: number | null
     tagId: number | null
+    guestId: string | null
+    userId: string | null
+    upvotes: number | null
+    downvotes: number | null
     createdAt: Date | null
   }
 
   export type PokemonCustomTagMaxAggregateOutputType = {
     pokemonId: number | null
     tagId: number | null
+    guestId: string | null
+    userId: string | null
+    upvotes: number | null
+    downvotes: number | null
     createdAt: Date | null
   }
 
   export type PokemonCustomTagCountAggregateOutputType = {
     pokemonId: number
     tagId: number
+    guestId: number
+    userId: number
+    upvotes: number
+    downvotes: number
     createdAt: number
     _all: number
   }
@@ -10911,28 +11140,44 @@ export namespace Prisma {
   export type PokemonCustomTagAvgAggregateInputType = {
     pokemonId?: true
     tagId?: true
+    upvotes?: true
+    downvotes?: true
   }
 
   export type PokemonCustomTagSumAggregateInputType = {
     pokemonId?: true
     tagId?: true
+    upvotes?: true
+    downvotes?: true
   }
 
   export type PokemonCustomTagMinAggregateInputType = {
     pokemonId?: true
     tagId?: true
+    guestId?: true
+    userId?: true
+    upvotes?: true
+    downvotes?: true
     createdAt?: true
   }
 
   export type PokemonCustomTagMaxAggregateInputType = {
     pokemonId?: true
     tagId?: true
+    guestId?: true
+    userId?: true
+    upvotes?: true
+    downvotes?: true
     createdAt?: true
   }
 
   export type PokemonCustomTagCountAggregateInputType = {
     pokemonId?: true
     tagId?: true
+    guestId?: true
+    userId?: true
+    upvotes?: true
+    downvotes?: true
     createdAt?: true
     _all?: true
   }
@@ -11026,6 +11271,10 @@ export namespace Prisma {
   export type PokemonCustomTagGroupByOutputType = {
     pokemonId: number
     tagId: number
+    guestId: string | null
+    userId: string | null
+    upvotes: number
+    downvotes: number
     createdAt: Date
     _count: PokemonCustomTagCountAggregateOutputType | null
     _avg: PokemonCustomTagAvgAggregateOutputType | null
@@ -11051,14 +11300,24 @@ export namespace Prisma {
   export type PokemonCustomTagSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     pokemonId?: boolean
     tagId?: boolean
+    guestId?: boolean
+    userId?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
     createdAt?: boolean
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     tag?: boolean | TagDefaultArgs<ExtArgs>
+    votes?: boolean | PokemonCustomTag$votesArgs<ExtArgs>
+    _count?: boolean | PokemonCustomTagCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonCustomTag"]>
 
   export type PokemonCustomTagSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     pokemonId?: boolean
     tagId?: boolean
+    guestId?: boolean
+    userId?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
     createdAt?: boolean
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     tag?: boolean | TagDefaultArgs<ExtArgs>
@@ -11067,6 +11326,10 @@ export namespace Prisma {
   export type PokemonCustomTagSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     pokemonId?: boolean
     tagId?: boolean
+    guestId?: boolean
+    userId?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
     createdAt?: boolean
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     tag?: boolean | TagDefaultArgs<ExtArgs>
@@ -11075,13 +11338,19 @@ export namespace Prisma {
   export type PokemonCustomTagSelectScalar = {
     pokemonId?: boolean
     tagId?: boolean
+    guestId?: boolean
+    userId?: boolean
+    upvotes?: boolean
+    downvotes?: boolean
     createdAt?: boolean
   }
 
-  export type PokemonCustomTagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"pokemonId" | "tagId" | "createdAt", ExtArgs["result"]["pokemonCustomTag"]>
+  export type PokemonCustomTagOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"pokemonId" | "tagId" | "guestId" | "userId" | "upvotes" | "downvotes" | "createdAt", ExtArgs["result"]["pokemonCustomTag"]>
   export type PokemonCustomTagInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     tag?: boolean | TagDefaultArgs<ExtArgs>
+    votes?: boolean | PokemonCustomTag$votesArgs<ExtArgs>
+    _count?: boolean | PokemonCustomTagCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PokemonCustomTagIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
@@ -11097,10 +11366,15 @@ export namespace Prisma {
     objects: {
       pokemon: Prisma.$PokemonPayload<ExtArgs>
       tag: Prisma.$TagPayload<ExtArgs>
+      votes: Prisma.$CustomTagVotePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       pokemonId: number
       tagId: number
+      guestId: string | null
+      userId: string | null
+      upvotes: number
+      downvotes: number
       createdAt: Date
     }, ExtArgs["result"]["pokemonCustomTag"]>
     composites: {}
@@ -11498,6 +11772,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     pokemon<T extends PokemonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PokemonDefaultArgs<ExtArgs>>): Prisma__PokemonClient<$Result.GetResult<Prisma.$PokemonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     tag<T extends TagDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TagDefaultArgs<ExtArgs>>): Prisma__TagClient<$Result.GetResult<Prisma.$TagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    votes<T extends PokemonCustomTag$votesArgs<ExtArgs> = {}>(args?: Subset<T, PokemonCustomTag$votesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11529,6 +11804,10 @@ export namespace Prisma {
   interface PokemonCustomTagFieldRefs {
     readonly pokemonId: FieldRef<"PokemonCustomTag", 'Int'>
     readonly tagId: FieldRef<"PokemonCustomTag", 'Int'>
+    readonly guestId: FieldRef<"PokemonCustomTag", 'String'>
+    readonly userId: FieldRef<"PokemonCustomTag", 'String'>
+    readonly upvotes: FieldRef<"PokemonCustomTag", 'Int'>
+    readonly downvotes: FieldRef<"PokemonCustomTag", 'Int'>
     readonly createdAt: FieldRef<"PokemonCustomTag", 'DateTime'>
   }
     
@@ -11926,6 +12205,30 @@ export namespace Prisma {
   }
 
   /**
+   * PokemonCustomTag.votes
+   */
+  export type PokemonCustomTag$votesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    where?: CustomTagVoteWhereInput
+    orderBy?: CustomTagVoteOrderByWithRelationInput | CustomTagVoteOrderByWithRelationInput[]
+    cursor?: CustomTagVoteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomTagVoteScalarFieldEnum | CustomTagVoteScalarFieldEnum[]
+  }
+
+  /**
    * PokemonCustomTag without action
    */
   export type PokemonCustomTagDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11941,6 +12244,2169 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: PokemonCustomTagInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomTagVote
+   */
+
+  export type AggregateCustomTagVote = {
+    _count: CustomTagVoteCountAggregateOutputType | null
+    _avg: CustomTagVoteAvgAggregateOutputType | null
+    _sum: CustomTagVoteSumAggregateOutputType | null
+    _min: CustomTagVoteMinAggregateOutputType | null
+    _max: CustomTagVoteMaxAggregateOutputType | null
+  }
+
+  export type CustomTagVoteAvgAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+  }
+
+  export type CustomTagVoteSumAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+  }
+
+  export type CustomTagVoteMinAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type CustomTagVoteMaxAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+    userId: string | null
+    voteType: string | null
+    createdAt: Date | null
+  }
+
+  export type CustomTagVoteCountAggregateOutputType = {
+    id: number
+    pokemonId: number
+    tagId: number
+    userId: number
+    voteType: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CustomTagVoteAvgAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+  }
+
+  export type CustomTagVoteSumAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+  }
+
+  export type CustomTagVoteMinAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type CustomTagVoteMaxAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+  }
+
+  export type CustomTagVoteCountAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+    userId?: true
+    voteType?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CustomTagVoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomTagVote to aggregate.
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomTagVotes to fetch.
+     */
+    orderBy?: CustomTagVoteOrderByWithRelationInput | CustomTagVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomTagVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomTagVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomTagVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomTagVotes
+    **/
+    _count?: true | CustomTagVoteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CustomTagVoteAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomTagVoteSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomTagVoteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomTagVoteMaxAggregateInputType
+  }
+
+  export type GetCustomTagVoteAggregateType<T extends CustomTagVoteAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomTagVote]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomTagVote[P]>
+      : GetScalarType<T[P], AggregateCustomTagVote[P]>
+  }
+
+
+
+
+  export type CustomTagVoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomTagVoteWhereInput
+    orderBy?: CustomTagVoteOrderByWithAggregationInput | CustomTagVoteOrderByWithAggregationInput[]
+    by: CustomTagVoteScalarFieldEnum[] | CustomTagVoteScalarFieldEnum
+    having?: CustomTagVoteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomTagVoteCountAggregateInputType | true
+    _avg?: CustomTagVoteAvgAggregateInputType
+    _sum?: CustomTagVoteSumAggregateInputType
+    _min?: CustomTagVoteMinAggregateInputType
+    _max?: CustomTagVoteMaxAggregateInputType
+  }
+
+  export type CustomTagVoteGroupByOutputType = {
+    id: number
+    pokemonId: number
+    tagId: number
+    userId: string
+    voteType: string
+    createdAt: Date
+    _count: CustomTagVoteCountAggregateOutputType | null
+    _avg: CustomTagVoteAvgAggregateOutputType | null
+    _sum: CustomTagVoteSumAggregateOutputType | null
+    _min: CustomTagVoteMinAggregateOutputType | null
+    _max: CustomTagVoteMaxAggregateOutputType | null
+  }
+
+  type GetCustomTagVoteGroupByPayload<T extends CustomTagVoteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomTagVoteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomTagVoteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomTagVoteGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomTagVoteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomTagVoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    customTag?: boolean | PokemonCustomTagDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customTagVote"]>
+
+  export type CustomTagVoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    customTag?: boolean | PokemonCustomTagDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customTagVote"]>
+
+  export type CustomTagVoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+    customTag?: boolean | PokemonCustomTagDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customTagVote"]>
+
+  export type CustomTagVoteSelectScalar = {
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    userId?: boolean
+    voteType?: boolean
+    createdAt?: boolean
+  }
+
+  export type CustomTagVoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pokemonId" | "tagId" | "userId" | "voteType" | "createdAt", ExtArgs["result"]["customTagVote"]>
+  export type CustomTagVoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customTag?: boolean | PokemonCustomTagDefaultArgs<ExtArgs>
+  }
+  export type CustomTagVoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customTag?: boolean | PokemonCustomTagDefaultArgs<ExtArgs>
+  }
+  export type CustomTagVoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customTag?: boolean | PokemonCustomTagDefaultArgs<ExtArgs>
+  }
+
+  export type $CustomTagVotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomTagVote"
+    objects: {
+      customTag: Prisma.$PokemonCustomTagPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      pokemonId: number
+      tagId: number
+      userId: string
+      voteType: string
+      createdAt: Date
+    }, ExtArgs["result"]["customTagVote"]>
+    composites: {}
+  }
+
+  type CustomTagVoteGetPayload<S extends boolean | null | undefined | CustomTagVoteDefaultArgs> = $Result.GetResult<Prisma.$CustomTagVotePayload, S>
+
+  type CustomTagVoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomTagVoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomTagVoteCountAggregateInputType | true
+    }
+
+  export interface CustomTagVoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomTagVote'], meta: { name: 'CustomTagVote' } }
+    /**
+     * Find zero or one CustomTagVote that matches the filter.
+     * @param {CustomTagVoteFindUniqueArgs} args - Arguments to find a CustomTagVote
+     * @example
+     * // Get one CustomTagVote
+     * const customTagVote = await prisma.customTagVote.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomTagVoteFindUniqueArgs>(args: SelectSubset<T, CustomTagVoteFindUniqueArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CustomTagVote that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CustomTagVoteFindUniqueOrThrowArgs} args - Arguments to find a CustomTagVote
+     * @example
+     * // Get one CustomTagVote
+     * const customTagVote = await prisma.customTagVote.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomTagVoteFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomTagVoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomTagVote that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteFindFirstArgs} args - Arguments to find a CustomTagVote
+     * @example
+     * // Get one CustomTagVote
+     * const customTagVote = await prisma.customTagVote.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomTagVoteFindFirstArgs>(args?: SelectSubset<T, CustomTagVoteFindFirstArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomTagVote that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteFindFirstOrThrowArgs} args - Arguments to find a CustomTagVote
+     * @example
+     * // Get one CustomTagVote
+     * const customTagVote = await prisma.customTagVote.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomTagVoteFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomTagVoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CustomTagVotes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomTagVotes
+     * const customTagVotes = await prisma.customTagVote.findMany()
+     * 
+     * // Get first 10 CustomTagVotes
+     * const customTagVotes = await prisma.customTagVote.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customTagVoteWithIdOnly = await prisma.customTagVote.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomTagVoteFindManyArgs>(args?: SelectSubset<T, CustomTagVoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CustomTagVote.
+     * @param {CustomTagVoteCreateArgs} args - Arguments to create a CustomTagVote.
+     * @example
+     * // Create one CustomTagVote
+     * const CustomTagVote = await prisma.customTagVote.create({
+     *   data: {
+     *     // ... data to create a CustomTagVote
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomTagVoteCreateArgs>(args: SelectSubset<T, CustomTagVoteCreateArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CustomTagVotes.
+     * @param {CustomTagVoteCreateManyArgs} args - Arguments to create many CustomTagVotes.
+     * @example
+     * // Create many CustomTagVotes
+     * const customTagVote = await prisma.customTagVote.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomTagVoteCreateManyArgs>(args?: SelectSubset<T, CustomTagVoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomTagVotes and returns the data saved in the database.
+     * @param {CustomTagVoteCreateManyAndReturnArgs} args - Arguments to create many CustomTagVotes.
+     * @example
+     * // Create many CustomTagVotes
+     * const customTagVote = await prisma.customTagVote.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomTagVotes and only return the `id`
+     * const customTagVoteWithIdOnly = await prisma.customTagVote.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomTagVoteCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomTagVoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CustomTagVote.
+     * @param {CustomTagVoteDeleteArgs} args - Arguments to delete one CustomTagVote.
+     * @example
+     * // Delete one CustomTagVote
+     * const CustomTagVote = await prisma.customTagVote.delete({
+     *   where: {
+     *     // ... filter to delete one CustomTagVote
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomTagVoteDeleteArgs>(args: SelectSubset<T, CustomTagVoteDeleteArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CustomTagVote.
+     * @param {CustomTagVoteUpdateArgs} args - Arguments to update one CustomTagVote.
+     * @example
+     * // Update one CustomTagVote
+     * const customTagVote = await prisma.customTagVote.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomTagVoteUpdateArgs>(args: SelectSubset<T, CustomTagVoteUpdateArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CustomTagVotes.
+     * @param {CustomTagVoteDeleteManyArgs} args - Arguments to filter CustomTagVotes to delete.
+     * @example
+     * // Delete a few CustomTagVotes
+     * const { count } = await prisma.customTagVote.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomTagVoteDeleteManyArgs>(args?: SelectSubset<T, CustomTagVoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomTagVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomTagVotes
+     * const customTagVote = await prisma.customTagVote.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomTagVoteUpdateManyArgs>(args: SelectSubset<T, CustomTagVoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomTagVotes and returns the data updated in the database.
+     * @param {CustomTagVoteUpdateManyAndReturnArgs} args - Arguments to update many CustomTagVotes.
+     * @example
+     * // Update many CustomTagVotes
+     * const customTagVote = await prisma.customTagVote.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CustomTagVotes and only return the `id`
+     * const customTagVoteWithIdOnly = await prisma.customTagVote.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CustomTagVoteUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomTagVoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CustomTagVote.
+     * @param {CustomTagVoteUpsertArgs} args - Arguments to update or create a CustomTagVote.
+     * @example
+     * // Update or create a CustomTagVote
+     * const customTagVote = await prisma.customTagVote.upsert({
+     *   create: {
+     *     // ... data to create a CustomTagVote
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomTagVote we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomTagVoteUpsertArgs>(args: SelectSubset<T, CustomTagVoteUpsertArgs<ExtArgs>>): Prisma__CustomTagVoteClient<$Result.GetResult<Prisma.$CustomTagVotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CustomTagVotes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteCountArgs} args - Arguments to filter CustomTagVotes to count.
+     * @example
+     * // Count the number of CustomTagVotes
+     * const count = await prisma.customTagVote.count({
+     *   where: {
+     *     // ... the filter for the CustomTagVotes we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomTagVoteCountArgs>(
+      args?: Subset<T, CustomTagVoteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomTagVoteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomTagVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomTagVoteAggregateArgs>(args: Subset<T, CustomTagVoteAggregateArgs>): Prisma.PrismaPromise<GetCustomTagVoteAggregateType<T>>
+
+    /**
+     * Group by CustomTagVote.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomTagVoteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomTagVoteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomTagVoteGroupByArgs['orderBy'] }
+        : { orderBy?: CustomTagVoteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomTagVoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomTagVoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomTagVote model
+   */
+  readonly fields: CustomTagVoteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomTagVote.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomTagVoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customTag<T extends PokemonCustomTagDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PokemonCustomTagDefaultArgs<ExtArgs>>): Prisma__PokemonCustomTagClient<$Result.GetResult<Prisma.$PokemonCustomTagPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomTagVote model
+   */
+  interface CustomTagVoteFieldRefs {
+    readonly id: FieldRef<"CustomTagVote", 'Int'>
+    readonly pokemonId: FieldRef<"CustomTagVote", 'Int'>
+    readonly tagId: FieldRef<"CustomTagVote", 'Int'>
+    readonly userId: FieldRef<"CustomTagVote", 'String'>
+    readonly voteType: FieldRef<"CustomTagVote", 'String'>
+    readonly createdAt: FieldRef<"CustomTagVote", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomTagVote findUnique
+   */
+  export type CustomTagVoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomTagVote to fetch.
+     */
+    where: CustomTagVoteWhereUniqueInput
+  }
+
+  /**
+   * CustomTagVote findUniqueOrThrow
+   */
+  export type CustomTagVoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomTagVote to fetch.
+     */
+    where: CustomTagVoteWhereUniqueInput
+  }
+
+  /**
+   * CustomTagVote findFirst
+   */
+  export type CustomTagVoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomTagVote to fetch.
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomTagVotes to fetch.
+     */
+    orderBy?: CustomTagVoteOrderByWithRelationInput | CustomTagVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomTagVotes.
+     */
+    cursor?: CustomTagVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomTagVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomTagVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomTagVotes.
+     */
+    distinct?: CustomTagVoteScalarFieldEnum | CustomTagVoteScalarFieldEnum[]
+  }
+
+  /**
+   * CustomTagVote findFirstOrThrow
+   */
+  export type CustomTagVoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomTagVote to fetch.
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomTagVotes to fetch.
+     */
+    orderBy?: CustomTagVoteOrderByWithRelationInput | CustomTagVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomTagVotes.
+     */
+    cursor?: CustomTagVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomTagVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomTagVotes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomTagVotes.
+     */
+    distinct?: CustomTagVoteScalarFieldEnum | CustomTagVoteScalarFieldEnum[]
+  }
+
+  /**
+   * CustomTagVote findMany
+   */
+  export type CustomTagVoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomTagVotes to fetch.
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomTagVotes to fetch.
+     */
+    orderBy?: CustomTagVoteOrderByWithRelationInput | CustomTagVoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomTagVotes.
+     */
+    cursor?: CustomTagVoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomTagVotes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomTagVotes.
+     */
+    skip?: number
+    distinct?: CustomTagVoteScalarFieldEnum | CustomTagVoteScalarFieldEnum[]
+  }
+
+  /**
+   * CustomTagVote create
+   */
+  export type CustomTagVoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomTagVote.
+     */
+    data: XOR<CustomTagVoteCreateInput, CustomTagVoteUncheckedCreateInput>
+  }
+
+  /**
+   * CustomTagVote createMany
+   */
+  export type CustomTagVoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomTagVotes.
+     */
+    data: CustomTagVoteCreateManyInput | CustomTagVoteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomTagVote createManyAndReturn
+   */
+  export type CustomTagVoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * The data used to create many CustomTagVotes.
+     */
+    data: CustomTagVoteCreateManyInput | CustomTagVoteCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomTagVote update
+   */
+  export type CustomTagVoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomTagVote.
+     */
+    data: XOR<CustomTagVoteUpdateInput, CustomTagVoteUncheckedUpdateInput>
+    /**
+     * Choose, which CustomTagVote to update.
+     */
+    where: CustomTagVoteWhereUniqueInput
+  }
+
+  /**
+   * CustomTagVote updateMany
+   */
+  export type CustomTagVoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomTagVotes.
+     */
+    data: XOR<CustomTagVoteUpdateManyMutationInput, CustomTagVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomTagVotes to update
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * Limit how many CustomTagVotes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomTagVote updateManyAndReturn
+   */
+  export type CustomTagVoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * The data used to update CustomTagVotes.
+     */
+    data: XOR<CustomTagVoteUpdateManyMutationInput, CustomTagVoteUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomTagVotes to update
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * Limit how many CustomTagVotes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomTagVote upsert
+   */
+  export type CustomTagVoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomTagVote to update in case it exists.
+     */
+    where: CustomTagVoteWhereUniqueInput
+    /**
+     * In case the CustomTagVote found by the `where` argument doesn't exist, create a new CustomTagVote with this data.
+     */
+    create: XOR<CustomTagVoteCreateInput, CustomTagVoteUncheckedCreateInput>
+    /**
+     * In case the CustomTagVote was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomTagVoteUpdateInput, CustomTagVoteUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomTagVote delete
+   */
+  export type CustomTagVoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+    /**
+     * Filter which CustomTagVote to delete.
+     */
+    where: CustomTagVoteWhereUniqueInput
+  }
+
+  /**
+   * CustomTagVote deleteMany
+   */
+  export type CustomTagVoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomTagVotes to delete
+     */
+    where?: CustomTagVoteWhereInput
+    /**
+     * Limit how many CustomTagVotes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomTagVote without action
+   */
+  export type CustomTagVoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomTagVote
+     */
+    select?: CustomTagVoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomTagVote
+     */
+    omit?: CustomTagVoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomTagVoteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TagReport
+   */
+
+  export type AggregateTagReport = {
+    _count: TagReportCountAggregateOutputType | null
+    _avg: TagReportAvgAggregateOutputType | null
+    _sum: TagReportSumAggregateOutputType | null
+    _min: TagReportMinAggregateOutputType | null
+    _max: TagReportMaxAggregateOutputType | null
+  }
+
+  export type TagReportAvgAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+  }
+
+  export type TagReportSumAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+  }
+
+  export type TagReportMinAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+    reporterGuestId: string | null
+    reason: string | null
+    createdAt: Date | null
+  }
+
+  export type TagReportMaxAggregateOutputType = {
+    id: number | null
+    pokemonId: number | null
+    tagId: number | null
+    reporterGuestId: string | null
+    reason: string | null
+    createdAt: Date | null
+  }
+
+  export type TagReportCountAggregateOutputType = {
+    id: number
+    pokemonId: number
+    tagId: number
+    reporterGuestId: number
+    reason: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type TagReportAvgAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+  }
+
+  export type TagReportSumAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+  }
+
+  export type TagReportMinAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+    reporterGuestId?: true
+    reason?: true
+    createdAt?: true
+  }
+
+  export type TagReportMaxAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+    reporterGuestId?: true
+    reason?: true
+    createdAt?: true
+  }
+
+  export type TagReportCountAggregateInputType = {
+    id?: true
+    pokemonId?: true
+    tagId?: true
+    reporterGuestId?: true
+    reason?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type TagReportAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TagReport to aggregate.
+     */
+    where?: TagReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TagReports to fetch.
+     */
+    orderBy?: TagReportOrderByWithRelationInput | TagReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TagReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TagReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TagReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TagReports
+    **/
+    _count?: true | TagReportCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TagReportAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TagReportSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TagReportMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TagReportMaxAggregateInputType
+  }
+
+  export type GetTagReportAggregateType<T extends TagReportAggregateArgs> = {
+        [P in keyof T & keyof AggregateTagReport]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTagReport[P]>
+      : GetScalarType<T[P], AggregateTagReport[P]>
+  }
+
+
+
+
+  export type TagReportGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TagReportWhereInput
+    orderBy?: TagReportOrderByWithAggregationInput | TagReportOrderByWithAggregationInput[]
+    by: TagReportScalarFieldEnum[] | TagReportScalarFieldEnum
+    having?: TagReportScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TagReportCountAggregateInputType | true
+    _avg?: TagReportAvgAggregateInputType
+    _sum?: TagReportSumAggregateInputType
+    _min?: TagReportMinAggregateInputType
+    _max?: TagReportMaxAggregateInputType
+  }
+
+  export type TagReportGroupByOutputType = {
+    id: number
+    pokemonId: number
+    tagId: number
+    reporterGuestId: string
+    reason: string | null
+    createdAt: Date
+    _count: TagReportCountAggregateOutputType | null
+    _avg: TagReportAvgAggregateOutputType | null
+    _sum: TagReportSumAggregateOutputType | null
+    _min: TagReportMinAggregateOutputType | null
+    _max: TagReportMaxAggregateOutputType | null
+  }
+
+  type GetTagReportGroupByPayload<T extends TagReportGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TagReportGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TagReportGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TagReportGroupByOutputType[P]>
+            : GetScalarType<T[P], TagReportGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TagReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    reporterGuestId?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["tagReport"]>
+
+  export type TagReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    reporterGuestId?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["tagReport"]>
+
+  export type TagReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    reporterGuestId?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }, ExtArgs["result"]["tagReport"]>
+
+  export type TagReportSelectScalar = {
+    id?: boolean
+    pokemonId?: boolean
+    tagId?: boolean
+    reporterGuestId?: boolean
+    reason?: boolean
+    createdAt?: boolean
+  }
+
+  export type TagReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pokemonId" | "tagId" | "reporterGuestId" | "reason" | "createdAt", ExtArgs["result"]["tagReport"]>
+
+  export type $TagReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TagReport"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      pokemonId: number
+      tagId: number
+      reporterGuestId: string
+      reason: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["tagReport"]>
+    composites: {}
+  }
+
+  type TagReportGetPayload<S extends boolean | null | undefined | TagReportDefaultArgs> = $Result.GetResult<Prisma.$TagReportPayload, S>
+
+  type TagReportCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TagReportFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TagReportCountAggregateInputType | true
+    }
+
+  export interface TagReportDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TagReport'], meta: { name: 'TagReport' } }
+    /**
+     * Find zero or one TagReport that matches the filter.
+     * @param {TagReportFindUniqueArgs} args - Arguments to find a TagReport
+     * @example
+     * // Get one TagReport
+     * const tagReport = await prisma.tagReport.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TagReportFindUniqueArgs>(args: SelectSubset<T, TagReportFindUniqueArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TagReport that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TagReportFindUniqueOrThrowArgs} args - Arguments to find a TagReport
+     * @example
+     * // Get one TagReport
+     * const tagReport = await prisma.tagReport.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TagReportFindUniqueOrThrowArgs>(args: SelectSubset<T, TagReportFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TagReport that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportFindFirstArgs} args - Arguments to find a TagReport
+     * @example
+     * // Get one TagReport
+     * const tagReport = await prisma.tagReport.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TagReportFindFirstArgs>(args?: SelectSubset<T, TagReportFindFirstArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TagReport that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportFindFirstOrThrowArgs} args - Arguments to find a TagReport
+     * @example
+     * // Get one TagReport
+     * const tagReport = await prisma.tagReport.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TagReportFindFirstOrThrowArgs>(args?: SelectSubset<T, TagReportFindFirstOrThrowArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TagReports that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TagReports
+     * const tagReports = await prisma.tagReport.findMany()
+     * 
+     * // Get first 10 TagReports
+     * const tagReports = await prisma.tagReport.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tagReportWithIdOnly = await prisma.tagReport.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TagReportFindManyArgs>(args?: SelectSubset<T, TagReportFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TagReport.
+     * @param {TagReportCreateArgs} args - Arguments to create a TagReport.
+     * @example
+     * // Create one TagReport
+     * const TagReport = await prisma.tagReport.create({
+     *   data: {
+     *     // ... data to create a TagReport
+     *   }
+     * })
+     * 
+     */
+    create<T extends TagReportCreateArgs>(args: SelectSubset<T, TagReportCreateArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TagReports.
+     * @param {TagReportCreateManyArgs} args - Arguments to create many TagReports.
+     * @example
+     * // Create many TagReports
+     * const tagReport = await prisma.tagReport.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TagReportCreateManyArgs>(args?: SelectSubset<T, TagReportCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TagReports and returns the data saved in the database.
+     * @param {TagReportCreateManyAndReturnArgs} args - Arguments to create many TagReports.
+     * @example
+     * // Create many TagReports
+     * const tagReport = await prisma.tagReport.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TagReports and only return the `id`
+     * const tagReportWithIdOnly = await prisma.tagReport.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TagReportCreateManyAndReturnArgs>(args?: SelectSubset<T, TagReportCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TagReport.
+     * @param {TagReportDeleteArgs} args - Arguments to delete one TagReport.
+     * @example
+     * // Delete one TagReport
+     * const TagReport = await prisma.tagReport.delete({
+     *   where: {
+     *     // ... filter to delete one TagReport
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TagReportDeleteArgs>(args: SelectSubset<T, TagReportDeleteArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TagReport.
+     * @param {TagReportUpdateArgs} args - Arguments to update one TagReport.
+     * @example
+     * // Update one TagReport
+     * const tagReport = await prisma.tagReport.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TagReportUpdateArgs>(args: SelectSubset<T, TagReportUpdateArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TagReports.
+     * @param {TagReportDeleteManyArgs} args - Arguments to filter TagReports to delete.
+     * @example
+     * // Delete a few TagReports
+     * const { count } = await prisma.tagReport.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TagReportDeleteManyArgs>(args?: SelectSubset<T, TagReportDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TagReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TagReports
+     * const tagReport = await prisma.tagReport.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TagReportUpdateManyArgs>(args: SelectSubset<T, TagReportUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TagReports and returns the data updated in the database.
+     * @param {TagReportUpdateManyAndReturnArgs} args - Arguments to update many TagReports.
+     * @example
+     * // Update many TagReports
+     * const tagReport = await prisma.tagReport.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TagReports and only return the `id`
+     * const tagReportWithIdOnly = await prisma.tagReport.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TagReportUpdateManyAndReturnArgs>(args: SelectSubset<T, TagReportUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TagReport.
+     * @param {TagReportUpsertArgs} args - Arguments to update or create a TagReport.
+     * @example
+     * // Update or create a TagReport
+     * const tagReport = await prisma.tagReport.upsert({
+     *   create: {
+     *     // ... data to create a TagReport
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TagReport we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TagReportUpsertArgs>(args: SelectSubset<T, TagReportUpsertArgs<ExtArgs>>): Prisma__TagReportClient<$Result.GetResult<Prisma.$TagReportPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TagReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportCountArgs} args - Arguments to filter TagReports to count.
+     * @example
+     * // Count the number of TagReports
+     * const count = await prisma.tagReport.count({
+     *   where: {
+     *     // ... the filter for the TagReports we want to count
+     *   }
+     * })
+    **/
+    count<T extends TagReportCountArgs>(
+      args?: Subset<T, TagReportCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TagReportCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TagReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TagReportAggregateArgs>(args: Subset<T, TagReportAggregateArgs>): Prisma.PrismaPromise<GetTagReportAggregateType<T>>
+
+    /**
+     * Group by TagReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TagReportGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TagReportGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TagReportGroupByArgs['orderBy'] }
+        : { orderBy?: TagReportGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TagReportGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTagReportGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TagReport model
+   */
+  readonly fields: TagReportFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TagReport.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TagReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TagReport model
+   */
+  interface TagReportFieldRefs {
+    readonly id: FieldRef<"TagReport", 'Int'>
+    readonly pokemonId: FieldRef<"TagReport", 'Int'>
+    readonly tagId: FieldRef<"TagReport", 'Int'>
+    readonly reporterGuestId: FieldRef<"TagReport", 'String'>
+    readonly reason: FieldRef<"TagReport", 'String'>
+    readonly createdAt: FieldRef<"TagReport", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TagReport findUnique
+   */
+  export type TagReportFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * Filter, which TagReport to fetch.
+     */
+    where: TagReportWhereUniqueInput
+  }
+
+  /**
+   * TagReport findUniqueOrThrow
+   */
+  export type TagReportFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * Filter, which TagReport to fetch.
+     */
+    where: TagReportWhereUniqueInput
+  }
+
+  /**
+   * TagReport findFirst
+   */
+  export type TagReportFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * Filter, which TagReport to fetch.
+     */
+    where?: TagReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TagReports to fetch.
+     */
+    orderBy?: TagReportOrderByWithRelationInput | TagReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TagReports.
+     */
+    cursor?: TagReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TagReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TagReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TagReports.
+     */
+    distinct?: TagReportScalarFieldEnum | TagReportScalarFieldEnum[]
+  }
+
+  /**
+   * TagReport findFirstOrThrow
+   */
+  export type TagReportFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * Filter, which TagReport to fetch.
+     */
+    where?: TagReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TagReports to fetch.
+     */
+    orderBy?: TagReportOrderByWithRelationInput | TagReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TagReports.
+     */
+    cursor?: TagReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TagReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TagReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TagReports.
+     */
+    distinct?: TagReportScalarFieldEnum | TagReportScalarFieldEnum[]
+  }
+
+  /**
+   * TagReport findMany
+   */
+  export type TagReportFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * Filter, which TagReports to fetch.
+     */
+    where?: TagReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TagReports to fetch.
+     */
+    orderBy?: TagReportOrderByWithRelationInput | TagReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TagReports.
+     */
+    cursor?: TagReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TagReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TagReports.
+     */
+    skip?: number
+    distinct?: TagReportScalarFieldEnum | TagReportScalarFieldEnum[]
+  }
+
+  /**
+   * TagReport create
+   */
+  export type TagReportCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * The data needed to create a TagReport.
+     */
+    data: XOR<TagReportCreateInput, TagReportUncheckedCreateInput>
+  }
+
+  /**
+   * TagReport createMany
+   */
+  export type TagReportCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TagReports.
+     */
+    data: TagReportCreateManyInput | TagReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TagReport createManyAndReturn
+   */
+  export type TagReportCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * The data used to create many TagReports.
+     */
+    data: TagReportCreateManyInput | TagReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TagReport update
+   */
+  export type TagReportUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * The data needed to update a TagReport.
+     */
+    data: XOR<TagReportUpdateInput, TagReportUncheckedUpdateInput>
+    /**
+     * Choose, which TagReport to update.
+     */
+    where: TagReportWhereUniqueInput
+  }
+
+  /**
+   * TagReport updateMany
+   */
+  export type TagReportUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TagReports.
+     */
+    data: XOR<TagReportUpdateManyMutationInput, TagReportUncheckedUpdateManyInput>
+    /**
+     * Filter which TagReports to update
+     */
+    where?: TagReportWhereInput
+    /**
+     * Limit how many TagReports to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TagReport updateManyAndReturn
+   */
+  export type TagReportUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * The data used to update TagReports.
+     */
+    data: XOR<TagReportUpdateManyMutationInput, TagReportUncheckedUpdateManyInput>
+    /**
+     * Filter which TagReports to update
+     */
+    where?: TagReportWhereInput
+    /**
+     * Limit how many TagReports to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TagReport upsert
+   */
+  export type TagReportUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * The filter to search for the TagReport to update in case it exists.
+     */
+    where: TagReportWhereUniqueInput
+    /**
+     * In case the TagReport found by the `where` argument doesn't exist, create a new TagReport with this data.
+     */
+    create: XOR<TagReportCreateInput, TagReportUncheckedCreateInput>
+    /**
+     * In case the TagReport was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TagReportUpdateInput, TagReportUncheckedUpdateInput>
+  }
+
+  /**
+   * TagReport delete
+   */
+  export type TagReportDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
+    /**
+     * Filter which TagReport to delete.
+     */
+    where: TagReportWhereUniqueInput
+  }
+
+  /**
+   * TagReport deleteMany
+   */
+  export type TagReportDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TagReports to delete
+     */
+    where?: TagReportWhereInput
+    /**
+     * Limit how many TagReports to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TagReport without action
+   */
+  export type TagReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TagReport
+     */
+    select?: TagReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TagReport
+     */
+    omit?: TagReportOmit<ExtArgs> | null
   }
 
 
@@ -36010,10 +38476,38 @@ export namespace Prisma {
   export const PokemonCustomTagScalarFieldEnum: {
     pokemonId: 'pokemonId',
     tagId: 'tagId',
+    guestId: 'guestId',
+    userId: 'userId',
+    upvotes: 'upvotes',
+    downvotes: 'downvotes',
     createdAt: 'createdAt'
   };
 
   export type PokemonCustomTagScalarFieldEnum = (typeof PokemonCustomTagScalarFieldEnum)[keyof typeof PokemonCustomTagScalarFieldEnum]
+
+
+  export const CustomTagVoteScalarFieldEnum: {
+    id: 'id',
+    pokemonId: 'pokemonId',
+    tagId: 'tagId',
+    userId: 'userId',
+    voteType: 'voteType',
+    createdAt: 'createdAt'
+  };
+
+  export type CustomTagVoteScalarFieldEnum = (typeof CustomTagVoteScalarFieldEnum)[keyof typeof CustomTagVoteScalarFieldEnum]
+
+
+  export const TagReportScalarFieldEnum: {
+    id: 'id',
+    pokemonId: 'pokemonId',
+    tagId: 'tagId',
+    reporterGuestId: 'reporterGuestId',
+    reason: 'reason',
+    createdAt: 'createdAt'
+  };
+
+  export type TagReportScalarFieldEnum = (typeof TagReportScalarFieldEnum)[keyof typeof TagReportScalarFieldEnum]
 
 
   export const TeamScalarFieldEnum: {
@@ -36793,17 +39287,27 @@ export namespace Prisma {
     NOT?: PokemonCustomTagWhereInput | PokemonCustomTagWhereInput[]
     pokemonId?: IntFilter<"PokemonCustomTag"> | number
     tagId?: IntFilter<"PokemonCustomTag"> | number
+    guestId?: StringNullableFilter<"PokemonCustomTag"> | string | null
+    userId?: StringNullableFilter<"PokemonCustomTag"> | string | null
+    upvotes?: IntFilter<"PokemonCustomTag"> | number
+    downvotes?: IntFilter<"PokemonCustomTag"> | number
     createdAt?: DateTimeFilter<"PokemonCustomTag"> | Date | string
     pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     tag?: XOR<TagScalarRelationFilter, TagWhereInput>
+    votes?: CustomTagVoteListRelationFilter
   }
 
   export type PokemonCustomTagOrderByWithRelationInput = {
     pokemonId?: SortOrder
     tagId?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    userId?: SortOrderInput | SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
     createdAt?: SortOrder
     pokemon?: PokemonOrderByWithRelationInput
     tag?: TagOrderByWithRelationInput
+    votes?: CustomTagVoteOrderByRelationAggregateInput
   }
 
   export type PokemonCustomTagWhereUniqueInput = Prisma.AtLeast<{
@@ -36813,14 +39317,23 @@ export namespace Prisma {
     NOT?: PokemonCustomTagWhereInput | PokemonCustomTagWhereInput[]
     pokemonId?: IntFilter<"PokemonCustomTag"> | number
     tagId?: IntFilter<"PokemonCustomTag"> | number
+    guestId?: StringNullableFilter<"PokemonCustomTag"> | string | null
+    userId?: StringNullableFilter<"PokemonCustomTag"> | string | null
+    upvotes?: IntFilter<"PokemonCustomTag"> | number
+    downvotes?: IntFilter<"PokemonCustomTag"> | number
     createdAt?: DateTimeFilter<"PokemonCustomTag"> | Date | string
     pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     tag?: XOR<TagScalarRelationFilter, TagWhereInput>
+    votes?: CustomTagVoteListRelationFilter
   }, "pokemonId_tagId">
 
   export type PokemonCustomTagOrderByWithAggregationInput = {
     pokemonId?: SortOrder
     tagId?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    userId?: SortOrderInput | SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
     createdAt?: SortOrder
     _count?: PokemonCustomTagCountOrderByAggregateInput
     _avg?: PokemonCustomTagAvgOrderByAggregateInput
@@ -36835,7 +39348,134 @@ export namespace Prisma {
     NOT?: PokemonCustomTagScalarWhereWithAggregatesInput | PokemonCustomTagScalarWhereWithAggregatesInput[]
     pokemonId?: IntWithAggregatesFilter<"PokemonCustomTag"> | number
     tagId?: IntWithAggregatesFilter<"PokemonCustomTag"> | number
+    guestId?: StringNullableWithAggregatesFilter<"PokemonCustomTag"> | string | null
+    userId?: StringNullableWithAggregatesFilter<"PokemonCustomTag"> | string | null
+    upvotes?: IntWithAggregatesFilter<"PokemonCustomTag"> | number
+    downvotes?: IntWithAggregatesFilter<"PokemonCustomTag"> | number
     createdAt?: DateTimeWithAggregatesFilter<"PokemonCustomTag"> | Date | string
+  }
+
+  export type CustomTagVoteWhereInput = {
+    AND?: CustomTagVoteWhereInput | CustomTagVoteWhereInput[]
+    OR?: CustomTagVoteWhereInput[]
+    NOT?: CustomTagVoteWhereInput | CustomTagVoteWhereInput[]
+    id?: IntFilter<"CustomTagVote"> | number
+    pokemonId?: IntFilter<"CustomTagVote"> | number
+    tagId?: IntFilter<"CustomTagVote"> | number
+    userId?: StringFilter<"CustomTagVote"> | string
+    voteType?: StringFilter<"CustomTagVote"> | string
+    createdAt?: DateTimeFilter<"CustomTagVote"> | Date | string
+    customTag?: XOR<PokemonCustomTagScalarRelationFilter, PokemonCustomTagWhereInput>
+  }
+
+  export type CustomTagVoteOrderByWithRelationInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    customTag?: PokemonCustomTagOrderByWithRelationInput
+  }
+
+  export type CustomTagVoteWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    pokemonId_tagId_userId?: CustomTagVotePokemonIdTagIdUserIdCompoundUniqueInput
+    AND?: CustomTagVoteWhereInput | CustomTagVoteWhereInput[]
+    OR?: CustomTagVoteWhereInput[]
+    NOT?: CustomTagVoteWhereInput | CustomTagVoteWhereInput[]
+    pokemonId?: IntFilter<"CustomTagVote"> | number
+    tagId?: IntFilter<"CustomTagVote"> | number
+    userId?: StringFilter<"CustomTagVote"> | string
+    voteType?: StringFilter<"CustomTagVote"> | string
+    createdAt?: DateTimeFilter<"CustomTagVote"> | Date | string
+    customTag?: XOR<PokemonCustomTagScalarRelationFilter, PokemonCustomTagWhereInput>
+  }, "id" | "pokemonId_tagId_userId">
+
+  export type CustomTagVoteOrderByWithAggregationInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+    _count?: CustomTagVoteCountOrderByAggregateInput
+    _avg?: CustomTagVoteAvgOrderByAggregateInput
+    _max?: CustomTagVoteMaxOrderByAggregateInput
+    _min?: CustomTagVoteMinOrderByAggregateInput
+    _sum?: CustomTagVoteSumOrderByAggregateInput
+  }
+
+  export type CustomTagVoteScalarWhereWithAggregatesInput = {
+    AND?: CustomTagVoteScalarWhereWithAggregatesInput | CustomTagVoteScalarWhereWithAggregatesInput[]
+    OR?: CustomTagVoteScalarWhereWithAggregatesInput[]
+    NOT?: CustomTagVoteScalarWhereWithAggregatesInput | CustomTagVoteScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"CustomTagVote"> | number
+    pokemonId?: IntWithAggregatesFilter<"CustomTagVote"> | number
+    tagId?: IntWithAggregatesFilter<"CustomTagVote"> | number
+    userId?: StringWithAggregatesFilter<"CustomTagVote"> | string
+    voteType?: StringWithAggregatesFilter<"CustomTagVote"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"CustomTagVote"> | Date | string
+  }
+
+  export type TagReportWhereInput = {
+    AND?: TagReportWhereInput | TagReportWhereInput[]
+    OR?: TagReportWhereInput[]
+    NOT?: TagReportWhereInput | TagReportWhereInput[]
+    id?: IntFilter<"TagReport"> | number
+    pokemonId?: IntFilter<"TagReport"> | number
+    tagId?: IntFilter<"TagReport"> | number
+    reporterGuestId?: StringFilter<"TagReport"> | string
+    reason?: StringNullableFilter<"TagReport"> | string | null
+    createdAt?: DateTimeFilter<"TagReport"> | Date | string
+  }
+
+  export type TagReportOrderByWithRelationInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    reporterGuestId?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TagReportWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    pokemonId_tagId_reporterGuestId?: TagReportPokemonIdTagIdReporterGuestIdCompoundUniqueInput
+    AND?: TagReportWhereInput | TagReportWhereInput[]
+    OR?: TagReportWhereInput[]
+    NOT?: TagReportWhereInput | TagReportWhereInput[]
+    pokemonId?: IntFilter<"TagReport"> | number
+    tagId?: IntFilter<"TagReport"> | number
+    reporterGuestId?: StringFilter<"TagReport"> | string
+    reason?: StringNullableFilter<"TagReport"> | string | null
+    createdAt?: DateTimeFilter<"TagReport"> | Date | string
+  }, "id" | "pokemonId_tagId_reporterGuestId">
+
+  export type TagReportOrderByWithAggregationInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    reporterGuestId?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: TagReportCountOrderByAggregateInput
+    _avg?: TagReportAvgOrderByAggregateInput
+    _max?: TagReportMaxOrderByAggregateInput
+    _min?: TagReportMinOrderByAggregateInput
+    _sum?: TagReportSumOrderByAggregateInput
+  }
+
+  export type TagReportScalarWhereWithAggregatesInput = {
+    AND?: TagReportScalarWhereWithAggregatesInput | TagReportScalarWhereWithAggregatesInput[]
+    OR?: TagReportScalarWhereWithAggregatesInput[]
+    NOT?: TagReportScalarWhereWithAggregatesInput | TagReportScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TagReport"> | number
+    pokemonId?: IntWithAggregatesFilter<"TagReport"> | number
+    tagId?: IntWithAggregatesFilter<"TagReport"> | number
+    reporterGuestId?: StringWithAggregatesFilter<"TagReport"> | string
+    reason?: StringNullableWithAggregatesFilter<"TagReport"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"TagReport"> | Date | string
   }
 
   export type TeamWhereInput = {
@@ -38691,42 +41331,190 @@ export namespace Prisma {
   }
 
   export type PokemonCustomTagCreateInput = {
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
     pokemon: PokemonCreateNestedOneWithoutCustomTagsInput
     tag: TagCreateNestedOneWithoutPokemonTagsInput
+    votes?: CustomTagVoteCreateNestedManyWithoutCustomTagInput
   }
 
   export type PokemonCustomTagUncheckedCreateInput = {
     pokemonId: number
     tagId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
+    votes?: CustomTagVoteUncheckedCreateNestedManyWithoutCustomTagInput
   }
 
   export type PokemonCustomTagUpdateInput = {
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     pokemon?: PokemonUpdateOneRequiredWithoutCustomTagsNestedInput
     tag?: TagUpdateOneRequiredWithoutPokemonTagsNestedInput
+    votes?: CustomTagVoteUpdateManyWithoutCustomTagNestedInput
   }
 
   export type PokemonCustomTagUncheckedUpdateInput = {
     pokemonId?: IntFieldUpdateOperationsInput | number
     tagId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: CustomTagVoteUncheckedUpdateManyWithoutCustomTagNestedInput
   }
 
   export type PokemonCustomTagCreateManyInput = {
     pokemonId: number
     tagId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
   }
 
   export type PokemonCustomTagUpdateManyMutationInput = {
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonCustomTagUncheckedUpdateManyInput = {
     pokemonId?: IntFieldUpdateOperationsInput | number
     tagId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteCreateInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+    customTag: PokemonCustomTagCreateNestedOneWithoutVotesInput
+  }
+
+  export type CustomTagVoteUncheckedCreateInput = {
+    id?: number
+    pokemonId: number
+    tagId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type CustomTagVoteUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    customTag?: PokemonCustomTagUpdateOneRequiredWithoutVotesNestedInput
+  }
+
+  export type CustomTagVoteUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteCreateManyInput = {
+    id?: number
+    pokemonId: number
+    tagId: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type CustomTagVoteUpdateManyMutationInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TagReportCreateInput = {
+    pokemonId: number
+    tagId: number
+    reporterGuestId: string
+    reason?: string | null
+    createdAt?: Date | string
+  }
+
+  export type TagReportUncheckedCreateInput = {
+    id?: number
+    pokemonId: number
+    tagId: number
+    reporterGuestId: string
+    reason?: string | null
+    createdAt?: Date | string
+  }
+
+  export type TagReportUpdateInput = {
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    reporterGuestId?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TagReportUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    reporterGuestId?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TagReportCreateManyInput = {
+    id?: number
+    pokemonId: number
+    tagId: number
+    reporterGuestId: string
+    reason?: string | null
+    createdAt?: Date | string
+  }
+
+  export type TagReportUpdateManyMutationInput = {
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    reporterGuestId?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TagReportUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    reporterGuestId?: StringFieldUpdateOperationsInput | string
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -40670,6 +43458,16 @@ export namespace Prisma {
     isNot?: TagWhereInput
   }
 
+  export type CustomTagVoteListRelationFilter = {
+    every?: CustomTagVoteWhereInput
+    some?: CustomTagVoteWhereInput
+    none?: CustomTagVoteWhereInput
+  }
+
+  export type CustomTagVoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type PokemonCustomTagPokemonIdTagIdCompoundUniqueInput = {
     pokemonId: number
     tagId: number
@@ -40678,27 +43476,138 @@ export namespace Prisma {
   export type PokemonCustomTagCountOrderByAggregateInput = {
     pokemonId?: SortOrder
     tagId?: SortOrder
+    guestId?: SortOrder
+    userId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PokemonCustomTagAvgOrderByAggregateInput = {
     pokemonId?: SortOrder
     tagId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
   }
 
   export type PokemonCustomTagMaxOrderByAggregateInput = {
     pokemonId?: SortOrder
     tagId?: SortOrder
+    guestId?: SortOrder
+    userId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PokemonCustomTagMinOrderByAggregateInput = {
     pokemonId?: SortOrder
     tagId?: SortOrder
+    guestId?: SortOrder
+    userId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PokemonCustomTagSumOrderByAggregateInput = {
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    upvotes?: SortOrder
+    downvotes?: SortOrder
+  }
+
+  export type PokemonCustomTagScalarRelationFilter = {
+    is?: PokemonCustomTagWhereInput
+    isNot?: PokemonCustomTagWhereInput
+  }
+
+  export type CustomTagVotePokemonIdTagIdUserIdCompoundUniqueInput = {
+    pokemonId: number
+    tagId: number
+    userId: string
+  }
+
+  export type CustomTagVoteCountOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomTagVoteAvgOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+  }
+
+  export type CustomTagVoteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomTagVoteMinOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    userId?: SortOrder
+    voteType?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomTagVoteSumOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+  }
+
+  export type TagReportPokemonIdTagIdReporterGuestIdCompoundUniqueInput = {
+    pokemonId: number
+    tagId: number
+    reporterGuestId: string
+  }
+
+  export type TagReportCountOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    reporterGuestId?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TagReportAvgOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+  }
+
+  export type TagReportMaxOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    reporterGuestId?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TagReportMinOrderByAggregateInput = {
+    id?: SortOrder
+    pokemonId?: SortOrder
+    tagId?: SortOrder
+    reporterGuestId?: SortOrder
+    reason?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type TagReportSumOrderByAggregateInput = {
+    id?: SortOrder
     pokemonId?: SortOrder
     tagId?: SortOrder
   }
@@ -42395,6 +45304,20 @@ export namespace Prisma {
     connect?: TagWhereUniqueInput
   }
 
+  export type CustomTagVoteCreateNestedManyWithoutCustomTagInput = {
+    create?: XOR<CustomTagVoteCreateWithoutCustomTagInput, CustomTagVoteUncheckedCreateWithoutCustomTagInput> | CustomTagVoteCreateWithoutCustomTagInput[] | CustomTagVoteUncheckedCreateWithoutCustomTagInput[]
+    connectOrCreate?: CustomTagVoteCreateOrConnectWithoutCustomTagInput | CustomTagVoteCreateOrConnectWithoutCustomTagInput[]
+    createMany?: CustomTagVoteCreateManyCustomTagInputEnvelope
+    connect?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+  }
+
+  export type CustomTagVoteUncheckedCreateNestedManyWithoutCustomTagInput = {
+    create?: XOR<CustomTagVoteCreateWithoutCustomTagInput, CustomTagVoteUncheckedCreateWithoutCustomTagInput> | CustomTagVoteCreateWithoutCustomTagInput[] | CustomTagVoteUncheckedCreateWithoutCustomTagInput[]
+    connectOrCreate?: CustomTagVoteCreateOrConnectWithoutCustomTagInput | CustomTagVoteCreateOrConnectWithoutCustomTagInput[]
+    createMany?: CustomTagVoteCreateManyCustomTagInputEnvelope
+    connect?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+  }
+
   export type PokemonUpdateOneRequiredWithoutCustomTagsNestedInput = {
     create?: XOR<PokemonCreateWithoutCustomTagsInput, PokemonUncheckedCreateWithoutCustomTagsInput>
     connectOrCreate?: PokemonCreateOrConnectWithoutCustomTagsInput
@@ -42409,6 +45332,48 @@ export namespace Prisma {
     upsert?: TagUpsertWithoutPokemonTagsInput
     connect?: TagWhereUniqueInput
     update?: XOR<XOR<TagUpdateToOneWithWhereWithoutPokemonTagsInput, TagUpdateWithoutPokemonTagsInput>, TagUncheckedUpdateWithoutPokemonTagsInput>
+  }
+
+  export type CustomTagVoteUpdateManyWithoutCustomTagNestedInput = {
+    create?: XOR<CustomTagVoteCreateWithoutCustomTagInput, CustomTagVoteUncheckedCreateWithoutCustomTagInput> | CustomTagVoteCreateWithoutCustomTagInput[] | CustomTagVoteUncheckedCreateWithoutCustomTagInput[]
+    connectOrCreate?: CustomTagVoteCreateOrConnectWithoutCustomTagInput | CustomTagVoteCreateOrConnectWithoutCustomTagInput[]
+    upsert?: CustomTagVoteUpsertWithWhereUniqueWithoutCustomTagInput | CustomTagVoteUpsertWithWhereUniqueWithoutCustomTagInput[]
+    createMany?: CustomTagVoteCreateManyCustomTagInputEnvelope
+    set?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    disconnect?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    delete?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    connect?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    update?: CustomTagVoteUpdateWithWhereUniqueWithoutCustomTagInput | CustomTagVoteUpdateWithWhereUniqueWithoutCustomTagInput[]
+    updateMany?: CustomTagVoteUpdateManyWithWhereWithoutCustomTagInput | CustomTagVoteUpdateManyWithWhereWithoutCustomTagInput[]
+    deleteMany?: CustomTagVoteScalarWhereInput | CustomTagVoteScalarWhereInput[]
+  }
+
+  export type CustomTagVoteUncheckedUpdateManyWithoutCustomTagNestedInput = {
+    create?: XOR<CustomTagVoteCreateWithoutCustomTagInput, CustomTagVoteUncheckedCreateWithoutCustomTagInput> | CustomTagVoteCreateWithoutCustomTagInput[] | CustomTagVoteUncheckedCreateWithoutCustomTagInput[]
+    connectOrCreate?: CustomTagVoteCreateOrConnectWithoutCustomTagInput | CustomTagVoteCreateOrConnectWithoutCustomTagInput[]
+    upsert?: CustomTagVoteUpsertWithWhereUniqueWithoutCustomTagInput | CustomTagVoteUpsertWithWhereUniqueWithoutCustomTagInput[]
+    createMany?: CustomTagVoteCreateManyCustomTagInputEnvelope
+    set?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    disconnect?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    delete?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    connect?: CustomTagVoteWhereUniqueInput | CustomTagVoteWhereUniqueInput[]
+    update?: CustomTagVoteUpdateWithWhereUniqueWithoutCustomTagInput | CustomTagVoteUpdateWithWhereUniqueWithoutCustomTagInput[]
+    updateMany?: CustomTagVoteUpdateManyWithWhereWithoutCustomTagInput | CustomTagVoteUpdateManyWithWhereWithoutCustomTagInput[]
+    deleteMany?: CustomTagVoteScalarWhereInput | CustomTagVoteScalarWhereInput[]
+  }
+
+  export type PokemonCustomTagCreateNestedOneWithoutVotesInput = {
+    create?: XOR<PokemonCustomTagCreateWithoutVotesInput, PokemonCustomTagUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: PokemonCustomTagCreateOrConnectWithoutVotesInput
+    connect?: PokemonCustomTagWhereUniqueInput
+  }
+
+  export type PokemonCustomTagUpdateOneRequiredWithoutVotesNestedInput = {
+    create?: XOR<PokemonCustomTagCreateWithoutVotesInput, PokemonCustomTagUncheckedCreateWithoutVotesInput>
+    connectOrCreate?: PokemonCustomTagCreateOrConnectWithoutVotesInput
+    upsert?: PokemonCustomTagUpsertWithoutVotesInput
+    connect?: PokemonCustomTagWhereUniqueInput
+    update?: XOR<XOR<PokemonCustomTagUpdateToOneWithWhereWithoutVotesInput, PokemonCustomTagUpdateWithoutVotesInput>, PokemonCustomTagUncheckedUpdateWithoutVotesInput>
   }
 
   export type TrainerCreateNestedManyWithoutTeamInput = {
@@ -43846,13 +46811,23 @@ export namespace Prisma {
   }
 
   export type PokemonCustomTagCreateWithoutPokemonInput = {
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
     tag: TagCreateNestedOneWithoutPokemonTagsInput
+    votes?: CustomTagVoteCreateNestedManyWithoutCustomTagInput
   }
 
   export type PokemonCustomTagUncheckedCreateWithoutPokemonInput = {
     tagId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
+    votes?: CustomTagVoteUncheckedCreateNestedManyWithoutCustomTagInput
   }
 
   export type PokemonCustomTagCreateOrConnectWithoutPokemonInput = {
@@ -44095,6 +47070,10 @@ export namespace Prisma {
     NOT?: PokemonCustomTagScalarWhereInput | PokemonCustomTagScalarWhereInput[]
     pokemonId?: IntFilter<"PokemonCustomTag"> | number
     tagId?: IntFilter<"PokemonCustomTag"> | number
+    guestId?: StringNullableFilter<"PokemonCustomTag"> | string | null
+    userId?: StringNullableFilter<"PokemonCustomTag"> | string | null
+    upvotes?: IntFilter<"PokemonCustomTag"> | number
+    downvotes?: IntFilter<"PokemonCustomTag"> | number
     createdAt?: DateTimeFilter<"PokemonCustomTag"> | Date | string
   }
 
@@ -44760,13 +47739,23 @@ export namespace Prisma {
   }
 
   export type PokemonCustomTagCreateWithoutTagInput = {
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
     pokemon: PokemonCreateNestedOneWithoutCustomTagsInput
+    votes?: CustomTagVoteCreateNestedManyWithoutCustomTagInput
   }
 
   export type PokemonCustomTagUncheckedCreateWithoutTagInput = {
     pokemonId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
+    votes?: CustomTagVoteUncheckedCreateNestedManyWithoutCustomTagInput
   }
 
   export type PokemonCustomTagCreateOrConnectWithoutTagInput = {
@@ -44859,6 +47848,29 @@ export namespace Prisma {
     create: XOR<TagCreateWithoutPokemonTagsInput, TagUncheckedCreateWithoutPokemonTagsInput>
   }
 
+  export type CustomTagVoteCreateWithoutCustomTagInput = {
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type CustomTagVoteUncheckedCreateWithoutCustomTagInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type CustomTagVoteCreateOrConnectWithoutCustomTagInput = {
+    where: CustomTagVoteWhereUniqueInput
+    create: XOR<CustomTagVoteCreateWithoutCustomTagInput, CustomTagVoteUncheckedCreateWithoutCustomTagInput>
+  }
+
+  export type CustomTagVoteCreateManyCustomTagInputEnvelope = {
+    data: CustomTagVoteCreateManyCustomTagInput | CustomTagVoteCreateManyCustomTagInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PokemonUpsertWithoutCustomTagsInput = {
     update: XOR<PokemonUpdateWithoutCustomTagsInput, PokemonUncheckedUpdateWithoutCustomTagsInput>
     create: XOR<PokemonCreateWithoutCustomTagsInput, PokemonUncheckedCreateWithoutCustomTagsInput>
@@ -44933,6 +47945,90 @@ export namespace Prisma {
     color?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteUpsertWithWhereUniqueWithoutCustomTagInput = {
+    where: CustomTagVoteWhereUniqueInput
+    update: XOR<CustomTagVoteUpdateWithoutCustomTagInput, CustomTagVoteUncheckedUpdateWithoutCustomTagInput>
+    create: XOR<CustomTagVoteCreateWithoutCustomTagInput, CustomTagVoteUncheckedCreateWithoutCustomTagInput>
+  }
+
+  export type CustomTagVoteUpdateWithWhereUniqueWithoutCustomTagInput = {
+    where: CustomTagVoteWhereUniqueInput
+    data: XOR<CustomTagVoteUpdateWithoutCustomTagInput, CustomTagVoteUncheckedUpdateWithoutCustomTagInput>
+  }
+
+  export type CustomTagVoteUpdateManyWithWhereWithoutCustomTagInput = {
+    where: CustomTagVoteScalarWhereInput
+    data: XOR<CustomTagVoteUpdateManyMutationInput, CustomTagVoteUncheckedUpdateManyWithoutCustomTagInput>
+  }
+
+  export type CustomTagVoteScalarWhereInput = {
+    AND?: CustomTagVoteScalarWhereInput | CustomTagVoteScalarWhereInput[]
+    OR?: CustomTagVoteScalarWhereInput[]
+    NOT?: CustomTagVoteScalarWhereInput | CustomTagVoteScalarWhereInput[]
+    id?: IntFilter<"CustomTagVote"> | number
+    pokemonId?: IntFilter<"CustomTagVote"> | number
+    tagId?: IntFilter<"CustomTagVote"> | number
+    userId?: StringFilter<"CustomTagVote"> | string
+    voteType?: StringFilter<"CustomTagVote"> | string
+    createdAt?: DateTimeFilter<"CustomTagVote"> | Date | string
+  }
+
+  export type PokemonCustomTagCreateWithoutVotesInput = {
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
+    createdAt?: Date | string
+    pokemon: PokemonCreateNestedOneWithoutCustomTagsInput
+    tag: TagCreateNestedOneWithoutPokemonTagsInput
+  }
+
+  export type PokemonCustomTagUncheckedCreateWithoutVotesInput = {
+    pokemonId: number
+    tagId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
+    createdAt?: Date | string
+  }
+
+  export type PokemonCustomTagCreateOrConnectWithoutVotesInput = {
+    where: PokemonCustomTagWhereUniqueInput
+    create: XOR<PokemonCustomTagCreateWithoutVotesInput, PokemonCustomTagUncheckedCreateWithoutVotesInput>
+  }
+
+  export type PokemonCustomTagUpsertWithoutVotesInput = {
+    update: XOR<PokemonCustomTagUpdateWithoutVotesInput, PokemonCustomTagUncheckedUpdateWithoutVotesInput>
+    create: XOR<PokemonCustomTagCreateWithoutVotesInput, PokemonCustomTagUncheckedCreateWithoutVotesInput>
+    where?: PokemonCustomTagWhereInput
+  }
+
+  export type PokemonCustomTagUpdateToOneWithWhereWithoutVotesInput = {
+    where?: PokemonCustomTagWhereInput
+    data: XOR<PokemonCustomTagUpdateWithoutVotesInput, PokemonCustomTagUncheckedUpdateWithoutVotesInput>
+  }
+
+  export type PokemonCustomTagUpdateWithoutVotesInput = {
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    pokemon?: PokemonUpdateOneRequiredWithoutCustomTagsNestedInput
+    tag?: TagUpdateOneRequiredWithoutPokemonTagsNestedInput
+  }
+
+  export type PokemonCustomTagUncheckedUpdateWithoutVotesInput = {
+    pokemonId?: IntFieldUpdateOperationsInput | number
+    tagId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TrainerCreateWithoutTeamInput = {
@@ -47443,6 +50539,10 @@ export namespace Prisma {
 
   export type PokemonCustomTagCreateManyPokemonInput = {
     tagId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
   }
 
@@ -47581,17 +50681,31 @@ export namespace Prisma {
   }
 
   export type PokemonCustomTagUpdateWithoutPokemonInput = {
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     tag?: TagUpdateOneRequiredWithoutPokemonTagsNestedInput
+    votes?: CustomTagVoteUpdateManyWithoutCustomTagNestedInput
   }
 
   export type PokemonCustomTagUncheckedUpdateWithoutPokemonInput = {
     tagId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: CustomTagVoteUncheckedUpdateManyWithoutCustomTagNestedInput
   }
 
   export type PokemonCustomTagUncheckedUpdateManyWithoutPokemonInput = {
     tagId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -47791,21 +50905,66 @@ export namespace Prisma {
 
   export type PokemonCustomTagCreateManyTagInput = {
     pokemonId: number
+    guestId?: string | null
+    userId?: string | null
+    upvotes?: number
+    downvotes?: number
     createdAt?: Date | string
   }
 
   export type PokemonCustomTagUpdateWithoutTagInput = {
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     pokemon?: PokemonUpdateOneRequiredWithoutCustomTagsNestedInput
+    votes?: CustomTagVoteUpdateManyWithoutCustomTagNestedInput
   }
 
   export type PokemonCustomTagUncheckedUpdateWithoutTagInput = {
     pokemonId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    votes?: CustomTagVoteUncheckedUpdateManyWithoutCustomTagNestedInput
   }
 
   export type PokemonCustomTagUncheckedUpdateManyWithoutTagInput = {
     pokemonId?: IntFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    upvotes?: IntFieldUpdateOperationsInput | number
+    downvotes?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteCreateManyCustomTagInput = {
+    id?: number
+    userId: string
+    voteType: string
+    createdAt?: Date | string
+  }
+
+  export type CustomTagVoteUpdateWithoutCustomTagInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteUncheckedUpdateWithoutCustomTagInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomTagVoteUncheckedUpdateManyWithoutCustomTagInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    voteType?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

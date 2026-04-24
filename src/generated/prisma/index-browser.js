@@ -178,6 +178,28 @@ exports.Prisma.TagScalarFieldEnum = {
 exports.Prisma.PokemonCustomTagScalarFieldEnum = {
   pokemonId: 'pokemonId',
   tagId: 'tagId',
+  guestId: 'guestId',
+  userId: 'userId',
+  upvotes: 'upvotes',
+  downvotes: 'downvotes',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CustomTagVoteScalarFieldEnum = {
+  id: 'id',
+  pokemonId: 'pokemonId',
+  tagId: 'tagId',
+  userId: 'userId',
+  voteType: 'voteType',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.TagReportScalarFieldEnum = {
+  id: 'id',
+  pokemonId: 'pokemonId',
+  tagId: 'tagId',
+  reporterGuestId: 'reporterGuestId',
+  reason: 'reason',
   createdAt: 'createdAt'
 };
 
@@ -412,6 +434,8 @@ exports.Prisma.ModelName = {
   Vote: 'Vote',
   Tag: 'Tag',
   PokemonCustomTag: 'PokemonCustomTag',
+  CustomTagVote: 'CustomTagVote',
+  TagReport: 'TagReport',
   Team: 'Team',
   TeamSponsor: 'TeamSponsor',
   Trainer: 'Trainer',

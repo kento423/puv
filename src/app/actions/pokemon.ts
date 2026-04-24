@@ -102,6 +102,15 @@ export async function getPokemonBySlug(slug: string) {
             },
           },
         });
+        if (!pokemon) return null;
+
+        // カスタムタグを評価順（upvotes - downvotes）にソート
+        pokemon.customTags.sort((a, b) => {
+          const scoreA = (a.upvotes || 0) - (a.downvotes || 0);
+          const scoreB = (b.upvotes || 0) - (b.downvotes || 0);
+          return scoreB - scoreA;
+        });
+
         return pokemon;
       } catch (error) {
         console.error(`Failed to fetch pokemon ${slug}:`, error);

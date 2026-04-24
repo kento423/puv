@@ -22,9 +22,16 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Pokemon not found" }, { status: 404 });
     }
 
+    // カスタムタグを評価順にソート
+    pokemon.customTags.sort((a, b) => {
+      const scoreA = (a.upvotes || 0) - (a.downvotes || 0);
+      const scoreB = (b.upvotes || 0) - (b.downvotes || 0);
+      return scoreB - scoreA;
+    });
+
     return NextResponse.json(pokemon, {
       headers: {
-        "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+        "Cache-Control": "no-store, max-age=0",
       },
     });
   } catch (error) {

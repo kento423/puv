@@ -106,14 +106,43 @@ model Tag {
 model PokemonCustomTag {
   pokemonId Int
   tagId     Int
+  guestId   String? // 投稿者識別子（匿名）
+  userId    String? // ログインユーザーの場合
+  upvotes   Int      @default(0)
+  downvotes Int      @default(0)
   createdAt DateTime @default(now())
 
   // リレーション
-  pokemon Pokemon @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
-  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  pokemon Pokemon         @relation(fields: [pokemonId], references: [id], onDelete: Cascade)
+  tag     Tag             @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  votes   CustomTagVote[]
 
   // 複合主キー: 同じポケモンに同じタグは一度だけ付与可能
   @@id([pokemonId, tagId])
+}
+
+model CustomTagVote {
+  id        Int      @id @default(autoincrement())
+  pokemonId Int
+  tagId     Int
+  userId    String // 投票者のID (localStorage等)
+  voteType  String // "upvote" or "downvote"
+  createdAt DateTime @default(now())
+
+  customTag PokemonCustomTag @relation(fields: [pokemonId, tagId], references: [pokemonId, tagId], onDelete: Cascade)
+
+  @@unique([pokemonId, tagId, userId])
+}
+
+model TagReport {
+  id              Int      @id @default(autoincrement())
+  pokemonId       Int
+  tagId           Int
+  reporterGuestId String // 通報者の識別子
+  reason          String? // 通報理由
+  createdAt       DateTime @default(now())
+
+  @@unique([pokemonId, tagId, reporterGuestId])
 }
 
 // --- トレーナー名鑑機能 (Trainer Directory) ---
@@ -329,7 +358,7 @@ model BugReport {
   category    String // "system" (システム), "pokemon" (ポケモン), "item" (もちもの), "other" (その他)
   pokemonId   Int? // ポケモン関連バグの場合
   severity    String   @default("normal") // "critical", "normal", "minor"
-  status      String   @default("open") // "open", "confirmed", "fixed"
+  status      String   @default("open") // "open" (募集中), "confirmed" (再現あり), "fixed" (解消済み), "resolved" (仕様・解決)
   upvotes     Int      @default(0)
   downvotes   Int      @default(0)
   guestId     String?

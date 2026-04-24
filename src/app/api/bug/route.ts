@@ -36,8 +36,8 @@ export async function POST(req: Request) {
       }
     });
 
-    revalidatePath('/meta');
-    revalidateTag('bug-reports', 'max' as any);
+    revalidatePath('/meta', 'page');
+    revalidateTag('bug-reports', { expire: 0 } as any);
     return NextResponse.json(newReport);
   } catch (error) {
     console.error("Error creating bug report:", error);
@@ -88,8 +88,8 @@ export async function PATCH(req: Request) {
       data: updateData,
     });
 
-    revalidatePath('/meta');
-    revalidateTag('bug-reports', 'max' as any);
+    revalidatePath('/meta', 'page');
+    revalidateTag('bug-reports', { expire: 0 } as any);
     return NextResponse.json(updatedReport);
   } catch (error) {
     console.error("Error updating bug report:", error);
@@ -134,8 +134,8 @@ export async function DELETE(req: Request) {
       where: { id: reportId },
     });
 
-    revalidatePath('/meta');
-    revalidateTag('bug-reports', 'max' as any);
+    revalidatePath('/meta', 'page');
+    revalidateTag('bug-reports', { expire: 0 } as any);
     
     return NextResponse.json({ success: true });
   } catch (error) {

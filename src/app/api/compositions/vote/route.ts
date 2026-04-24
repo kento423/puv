@@ -66,8 +66,8 @@ export async function POST(req: Request) {
       },
     });
 
-    revalidatePath("/compositions");
-    revalidateTag("compositions", "max" as any);
+    revalidatePath("/compositions", "page");
+    revalidateTag("compositions", { expire: 0 } as any);
 
     return NextResponse.json({
       success: true,

@@ -106,7 +106,7 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                             value={filters.search}
                             onChange={(e) => handleFilterChange("search", e.target.value)}
                             placeholder={locale === "ja" ? "ポケモン名..." : "Pokemon name..."}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary text-sm"
                         />
                     </div>
 
@@ -118,7 +118,7 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                         <select
                             value={filters.damageClass}
                             onChange={(e) => handleFilterChange("damageClass", e.target.value)}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary text-sm"
                         >
                             <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
                             {uniqueValues.damageClasses.map((val) => (
@@ -137,7 +137,7 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                         <select
                             value={filters.rangeType}
                             onChange={(e) => handleFilterChange("rangeType", e.target.value)}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary text-sm"
                         >
                             <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
                             {uniqueValues.rangeTypes.map((val) => (
@@ -156,7 +156,7 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                         <select
                             value={filters.battleStyle}
                             onChange={(e) => handleFilterChange("battleStyle", e.target.value)}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-brand-primary text-sm"
                         >
                             <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
                             {uniqueValues.battleStyles.map((val) => (

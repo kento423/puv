@@ -202,7 +202,7 @@ export default function CompositionForm({
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             placeholder="例: 上レーン重視構成"
             maxLength={50}
           />
@@ -357,7 +357,7 @@ export default function CompositionForm({
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             placeholder="構成のポイントやレーン配置の意図など"
             maxLength={500}
           />
@@ -369,7 +369,7 @@ export default function CompositionForm({
         <button
           type="submit"
           disabled={isSubmitting || !canSubmit}
-          className="flex-1 bg-purple-600 text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 bg-brand-primary text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting
             ? (isEditMode ? "保存中..." : "投稿中...")

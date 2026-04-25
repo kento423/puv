@@ -60,7 +60,7 @@ export default function BanPickForm({ pokemons, onSuccess, onCancel, defaultSide
             type="button"
             onClick={() => setSide("first")}
             className={`flex-1 py-3 text-sm flex items-center justify-center gap-2 font-bold transition-colors ${
-              side === "first" ? "bg-blue-600 text-white" : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+              side === "first" ? "bg-brand-primary text-white" : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
             }`}
           >
             <Shield size={16} />先攻BAN
@@ -69,7 +69,7 @@ export default function BanPickForm({ pokemons, onSuccess, onCancel, defaultSide
             type="button"
             onClick={() => setSide("second")}
             className={`flex-1 py-3 text-sm flex items-center justify-center gap-2 font-bold transition-colors ${
-              side === "second" ? "bg-red-600 text-white" : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+              side === "second" ? "bg-brand-accent text-white" : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
             }`}
           >
             <Target size={16} />後攻BAN
@@ -90,7 +90,7 @@ export default function BanPickForm({ pokemons, onSuccess, onCancel, defaultSide
           <textarea
             value={reason}
             onChange={(e) => setReason(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             placeholder="なぜBANすべきか"
           />
         </div>
@@ -100,7 +100,7 @@ export default function BanPickForm({ pokemons, onSuccess, onCancel, defaultSide
         <button
           type="submit"
           disabled={isSubmitting}
-          className="flex-1 bg-purple-600 text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all shadow-sm"
+          className="flex-1 bg-brand-primary text-white font-bold py-2.5 rounded-lg hover:opacity-90 active:scale-95 transition-all shadow-sm"
         >
           {isSubmitting ? "提案中..." : "提案する"}
         </button>

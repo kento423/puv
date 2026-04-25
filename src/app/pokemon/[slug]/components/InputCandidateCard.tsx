@@ -143,7 +143,7 @@ export default function InputCandidateCard({
           <button
             onClick={() => setNewCounter({ ...newCounter, counterType: newCounter.counterType === "hard" ? null : "hard" })}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-colors border ${newCounter.counterType === "hard"
-              ? "bg-orange-500 text-white border-orange-500 dark:bg-orange-600 dark:border-orange-600"
+              ? "bg-brand-accent text-white border-brand-accent dark:bg-orange-600 dark:border-orange-600"
               : "bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100 dark:bg-orange-900/20 dark:text-orange-400 dark:border-orange-800/50 dark:hover:bg-orange-900/40"
               }`}
           >
@@ -152,8 +152,8 @@ export default function InputCandidateCard({
           <button
             onClick={() => setNewCounter({ ...newCounter, counterType: newCounter.counterType === "soft" ? null : "soft" })}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-colors border ${newCounter.counterType === "soft"
-              ? "bg-purple-600 text-white border-purple-600 dark:bg-purple-500 dark:border-purple-500"
-              : "bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 dark:hover:bg-purple-900/40"
+              ? "bg-brand-primary text-white border-brand-primary dark:bg-brand-primary dark:border-brand-primary"
+              : "bg-purple-50 text-brand-primary border-purple-200 hover:bg-purple-100 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 dark:hover:bg-purple-900/40"
               }`}
           >
             <Target size={16} /> ソフトカウンター
@@ -177,14 +177,14 @@ export default function InputCandidateCard({
               handleCancelWithReset();
             }
           }}
-          className="w-full p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg min-h-24 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-600 text-sm md:text-base"
+          className="w-full p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg min-h-24 focus:outline-none focus:ring-2 focus:ring-brand-primary dark:focus:ring-brand-primary text-sm md:text-base"
         />
       </div>
 
       <div className="flex gap-2 flex-col-reverse md:flex-row pt-2">
         <button
           onClick={handleSubmit}
-          className="flex-1 px-4 py-2.5 md:py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 active:scale-95 transition-all font-medium text-sm md:text-base"
+          className="flex-1 px-4 py-2.5 md:py-2 bg-brand-primary text-white rounded-lg hover:opacity-90 active:scale-95 transition-all font-medium text-sm md:text-base"
         >
           追加
         </button>

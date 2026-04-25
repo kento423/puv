@@ -227,7 +227,7 @@ export default function MetaPostCard({
                 <option value="rising">注目</option>
               </select>
               <textarea
-                className="text-sm p-3 border rounded-lg focus:ring-2 focus:ring-purple-500 w-full min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="text-sm p-3 border rounded-lg focus:ring-2 focus:ring-brand-primary w-full min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 value={editReason || ""}
                 onChange={(e) => setEditReason(e.target.value)}
                 placeholder="評価理由（任意）"
@@ -236,7 +236,7 @@ export default function MetaPostCard({
               <div className="flex gap-2">
                 <button
                   onClick={handleEditSave} disabled={isEditSaving}
-                  className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm transition-colors hover:bg-purple-700"
+                  className="px-4 py-2 bg-brand-primary text-white rounded-lg text-sm transition-colors hover:bg-purple-700"
                 >
                   保存する
                 </button>
@@ -262,7 +262,7 @@ export default function MetaPostCard({
             className={`flex items-center gap-1.5 px-3 py-2 rounded-full border transition-all font-semibold ${
               activeVote === "upvote"
                 ? "bg-purple-50 border-purple-200 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
-                : "bg-white border-gray-200 text-gray-600 hover:text-purple-600 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
+                : "bg-white border-gray-200 text-gray-600 hover:text-brand-primary dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
             }`}
           >
            <ThumbsUp size={16} fill={activeVote === "upvote" ? "currentColor" : "none"} />

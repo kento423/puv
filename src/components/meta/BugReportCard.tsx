@@ -161,7 +161,7 @@ export default function BugReportCard({
 
       <div className="flex justify-between items-start mb-2">
         <div className="flex flex-wrap gap-2 items-center">
-          <span className="text-xs font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800">{categoryLabel}</span>
+          <span className="text-xs font-semibold text-brand-primary bg-purple-50 border border-purple-200 px-2 py-0.5 rounded dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800">{categoryLabel}</span>
           <SeverityBadge s={severity} />
           <StatusBadge s={status} />
         </div>
@@ -223,7 +223,7 @@ export default function BugReportCard({
             </>
           )}
           <div className="flex gap-2">
-            <button onClick={handleEditSave} disabled={isEditSaving} className="px-3 py-1.5 bg-purple-600 text-white rounded text-sm hover:bg-purple-700">保存</button>
+            <button onClick={handleEditSave} disabled={isEditSaving} className="px-3 py-1.5 bg-brand-primary text-white rounded text-sm hover:bg-purple-700">保存</button>
             <button onClick={() => setIsEditing(false)} disabled={isEditSaving} className="px-3 py-1.5 bg-gray-200 text-gray-700 rounded text-sm">キャンセル</button>
           </div>
         </div>

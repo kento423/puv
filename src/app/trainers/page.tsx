@@ -22,7 +22,7 @@ export default async function TrainersPage() {
         <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
                 <div className="flex-1">
-                    <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-orange-500 mb-2">
+                    <h1 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent mb-2">
                         トレーナー名鑑
                     </h1>
                     <p className="text-gray-500 dark:text-gray-400 font-medium max-w-2xl">
@@ -32,7 +32,7 @@ export default async function TrainersPage() {
                 </div>
                 <div className="flex flex-col items-end gap-3 w-full md:w-auto">
                     <TrainerAddDialog />
-                    <div className="h-1 w-24 bg-gradient-to-r from-purple-500 to-orange-400 rounded-full opacity-30"></div>
+                    <div className="h-1 w-24 bg-gradient-to-r from-brand-primary to-orange-400 rounded-full opacity-30"></div>
                 </div>
             </div>
 

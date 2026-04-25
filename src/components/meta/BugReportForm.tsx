@@ -69,7 +69,7 @@ export default function BugReportForm({ pokemons, onSuccess, onCancel }: BugRepo
             required
             value={title}
             onChange={e => setTitle(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
             placeholder="例) 〇〇の技のダメージが反映されない"
           />
         </div>
@@ -85,7 +85,7 @@ export default function BugReportForm({ pokemons, onSuccess, onCancel }: BugRepo
                 setCategory(e.target.value);
                 if (e.target.value !== "pokemon") setPokemonId("");
               }}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
             >
               <option value="system">システム (切断, 表示バグ等)</option>
               <option value="pokemon">ポケモン (技, 通常攻撃等)</option>
@@ -101,7 +101,7 @@ export default function BugReportForm({ pokemons, onSuccess, onCancel }: BugRepo
             <select
               value={severity}
               onChange={e => setSeverity(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
             >
               <option value="normal">通常 (ゲームプレイは可能)</option>
               <option value="critical">致命的 (進行不能, クラッシュ)</option>
@@ -127,14 +127,14 @@ export default function BugReportForm({ pokemons, onSuccess, onCancel }: BugRepo
           <textarea
             value={description}
             onChange={e => setDescription(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 min-h-[100px] dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary min-h-[100px] dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm"
             placeholder="発生条件、環境(Switch/スマホ)などを詳しく"
           />
         </div>
       </div>
 
       <div className="mt-6 flex gap-3">
-        <button type="submit" disabled={isSubmitting} className="flex-1 bg-purple-600 text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all">
+        <button type="submit" disabled={isSubmitting} className="flex-1 bg-brand-primary text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all">
           {isSubmitting ? "送信中..." : "報告する"}
         </button>
         {onCancel && (

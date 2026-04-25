@@ -62,7 +62,7 @@ export default function TrainerAddDialog() {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <button className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-2.5 px-6 rounded-xl shadow-lg shadow-purple-900/20 transition-all active:scale-95">
+                <button className="flex items-center gap-2 bg-gradient-to-r from-brand-primary to-indigo-600 hover:from-brand-primary hover:to-indigo-500 text-white font-bold py-2.5 px-6 rounded-xl shadow-lg shadow-purple-900/20 transition-all active:scale-95">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
@@ -72,7 +72,7 @@ export default function TrainerAddDialog() {
             <DialogContent className="sm:max-w-[425px] bg-white dark:bg-gray-800 rounded-3xl border-none shadow-2xl">
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-3">
-                        <span className="w-2 h-7 bg-orange-500 rounded-full"></span>
+                        <span className="w-2 h-7 bg-brand-accent rounded-full"></span>
                         新規トレーナー登録
                     </DialogTitle>
                 </DialogHeader>
@@ -90,7 +90,7 @@ export default function TrainerAddDialog() {
                             type="text"
                             value={form.name}
                             onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            className="w-full bg-gray-50 dark:bg-gray-900 border border-transparent focus:border-purple-500 rounded-xl px-4 py-3 text-gray-900 dark:text-white outline-none transition-all font-bold placeholder:text-gray-300"
+                            className="w-full bg-gray-50 dark:bg-gray-900 border border-transparent focus:border-brand-primary rounded-xl px-4 py-3 text-gray-900 dark:text-white outline-none transition-all font-bold placeholder:text-gray-300"
                             placeholder="トレーナー名を入力"
                             required
                         />
@@ -105,8 +105,8 @@ export default function TrainerAddDialog() {
                                     type="button"
                                     onClick={() => setForm({ ...form, type: t })}
                                     className={`py-2.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider transition-all border ${form.type === t
-                                            ? 'bg-purple-600 text-white border-purple-500 shadow-lg shadow-purple-500/20'
-                                            : 'bg-gray-50 dark:bg-gray-900 text-gray-400 border-transparent hover:border-purple-500/30'
+                                            ? 'bg-brand-primary text-white border-brand-primary shadow-lg shadow-brand-primary/20'
+                                            : 'bg-gray-50 dark:bg-gray-900 text-gray-400 border-transparent hover:border-brand-primary/30'
                                         }`}
                                 >
                                     {t === 'pro' ? 'PRO' : 'AMATEUR'}
@@ -120,7 +120,7 @@ export default function TrainerAddDialog() {
                         <select
                             value={form.teamId}
                             onChange={(e) => setForm({ ...form, teamId: e.target.value })}
-                            className="w-full bg-gray-50 dark:bg-gray-900 border border-transparent focus:border-purple-500 rounded-xl px-4 py-3 text-gray-900 dark:text-white outline-none transition-all font-bold appearance-none cursor-pointer"
+                            className="w-full bg-gray-50 dark:bg-gray-900 border border-transparent focus:border-brand-primary rounded-xl px-4 py-3 text-gray-900 dark:text-white outline-none transition-all font-bold appearance-none cursor-pointer"
                         >
                             <option value="">無所属</option>
                             {teams.map((team) => (
@@ -135,7 +135,7 @@ export default function TrainerAddDialog() {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-500 hover:to-indigo-600 text-white font-black py-4 rounded-xl shadow-xl shadow-purple-900/10 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                            className="w-full bg-gradient-to-r from-brand-primary to-indigo-700 hover:from-brand-primary hover:to-indigo-600 text-white font-black py-4 rounded-xl shadow-xl shadow-purple-900/10 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
                         >
                             {isSubmitting ? (
                                 <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>

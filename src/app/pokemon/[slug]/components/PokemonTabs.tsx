@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Target, Swords, Info } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Target, Swords, BarChart3 } from "lucide-react";
 
 type TabType = "counters" | "countered-by" | "stats";
 
@@ -22,7 +23,28 @@ export default function PokemonTabs({
   pokemonName,
   children,
 }: PokemonTabsProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab") as TabType;
+
+  // 初期タブをURLから取得、なければ 'counters'
   const [activeTab, setActiveTab] = useState<TabType>("counters");
+
+  // URLパラメータの変更を監視して activeTab を更新
+  useEffect(() => {
+    if (tabParam && ["counters", "countered-by", "stats"].includes(tabParam)) {
+      setActiveTab(tabParam);
+    } else {
+      setActiveTab("counters");
+    }
+  }, [tabParam]);
+
+  const handleTabChange = (tabId: TabType) => {
+    // URLを更新。scroll: false でガクつきを防止。
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tab", tabId);
+    router.replace(`?${params.toString()}`, { scroll: false });
+  };
 
   const tabs: Array<{ id: TabType; label: string }> = [
     { id: "counters", label: "カウンターピック" },
@@ -43,7 +65,7 @@ export default function PokemonTabs({
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => handleTabChange(tab.id)}
             className={tabButtonClass(activeTab === tab.id)}
           >
             {tab.label}
@@ -65,10 +87,10 @@ export default function PokemonTabs({
         </div>
       )}
 
-      {/* ステータスタブの説明エリア（Coming soon） */}
+      {/* ステータスタブの説明エリア */}
       {activeTab === "stats" && (
-        <div className="bg-gray-50 flex items-center gap-2 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300">
-          <Info className="w-4 h-4" /> ステータス詳細: Coming soon
+        <div className="bg-purple-50 flex items-center gap-2 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 px-4 py-2.5 text-sm text-purple-800 dark:text-purple-100">
+          <BarChart3 className="w-4 h-4" /> {pokemonName}のレベル別ステータスとレーダーチャート
         </div>
       )}
 

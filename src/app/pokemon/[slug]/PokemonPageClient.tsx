@@ -156,7 +156,7 @@ export default function PokemonPageClient({ pokemonId, slug, pokemonName, initia
             </>
           ),
           counteredBy: <ReverseCounterList slug={slug} />,
-          stats: <StatRadarChartTab slug={slug} />,
+          stats: <StatRadarChartTab slug={slug} pokemonId={pokemonId} />,
         }}
       />
     </>

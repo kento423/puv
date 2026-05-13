@@ -39,23 +39,31 @@ model Pokemon {
 }
 
 model Stat {
-  id   Int    @id @default(autoincrement()) // ステータスID (主キー)
-  name String // ステータス名（例: HP 等）
+  id        Int    @id @default(autoincrement()) // ステータスID (主キー)
+  key       String @unique // コード上の識別子（例: "hp", "atk"）
+  name      String // 表示名（例: "HP", "攻撃"）
+  sortOrder Int    @default(0) // 表示順
+  unit      String @default("") // 単位（"%" or ""）
 
   // リレーション
   pokemonStats PokemonStat[] // PokemonStat モデルとのリレーション
 }
 
 model PokemonStat {
-  id        Int   @id @default(autoincrement()) // 主キー
+  id        Int      @id @default(autoincrement()) // 主キー
   pokemonId Int // Pokemon モデルへの外部キー
   statId    Int // Stat モデルへの外部キー
   level     Int // レベル（1〜15）
   value     Float // 絶対値ステータス（整数 or 小数）
+  guestId   String? // ステータス更新者のゲストID
+  updatedAt DateTime @updatedAt // 更新日時
 
   // リレーション
   pokemon Pokemon @relation(fields: [pokemonId], references: [id])
   stat    Stat    @relation(fields: [statId], references: [id])
+
+  // pokemon_id + stat_id + level の組み合わせで一意に管理
+  @@unique([pokemonId, statId, level])
 }
 
 model PokemonCounter {

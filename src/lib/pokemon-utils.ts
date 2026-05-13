@@ -79,14 +79,14 @@ export const getBattleStyleColor = (style: string, isSelected: boolean): string 
   return colors[style.toLowerCase()] || "bg-gray-100 text-gray-800 border-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600";
 };
 
-/** ポケモンカード背景画像パス */
-export const getBattleStyleBgImage = (battleStyle: string): string => {
-  const images: Record<string, string> = {
-    attacker: "/background/bg-thumb_red.jpg",
-    "all-rounder": "/background/bg-thumb_violet.jpg",
-    defender: "/background/bg-thumb_green.jpg",
-    speedster: "/background/bg-thumb_blue.jpg",
-    supporter: "/background/bg-thumb_yellow.jpg",
+/** ポケモンカード用スタイル（背景・ボーダー） */
+export const getBattleStyleCardStyle = (style: string): string => {
+  const styles: Record<string, string> = {
+    attacker: "bg-red-100/30 dark:bg-red-900/10 border-red-200/50 dark:border-red-800/20",
+    "all-rounder": "bg-purple-100/30 dark:bg-purple-900/10 border-purple-200/50 dark:border-purple-800/20",
+    defender: "bg-green-100/30 dark:bg-green-900/10 border-green-200/50 dark:border-green-800/20",
+    speedster: "bg-blue-100/30 dark:bg-blue-900/10 border-blue-200/50 dark:border-blue-800/20",
+    supporter: "bg-yellow-100/30 dark:bg-yellow-900/10 border-yellow-200/50 dark:border-yellow-800/20",
   };
-  return images[battleStyle.toLowerCase()] || "";
+  return styles[style.toLowerCase()] || "bg-gray-100/30 dark:bg-gray-800/10 border-gray-200/50 dark:border-gray-700/20";
 };

@@ -5487,50 +5487,72 @@ export namespace Prisma {
 
   export type StatAvgAggregateOutputType = {
     id: number | null
+    sortOrder: number | null
   }
 
   export type StatSumAggregateOutputType = {
     id: number | null
+    sortOrder: number | null
   }
 
   export type StatMinAggregateOutputType = {
     id: number | null
+    key: string | null
     name: string | null
+    sortOrder: number | null
+    unit: string | null
   }
 
   export type StatMaxAggregateOutputType = {
     id: number | null
+    key: string | null
     name: string | null
+    sortOrder: number | null
+    unit: string | null
   }
 
   export type StatCountAggregateOutputType = {
     id: number
+    key: number
     name: number
+    sortOrder: number
+    unit: number
     _all: number
   }
 
 
   export type StatAvgAggregateInputType = {
     id?: true
+    sortOrder?: true
   }
 
   export type StatSumAggregateInputType = {
     id?: true
+    sortOrder?: true
   }
 
   export type StatMinAggregateInputType = {
     id?: true
+    key?: true
     name?: true
+    sortOrder?: true
+    unit?: true
   }
 
   export type StatMaxAggregateInputType = {
     id?: true
+    key?: true
     name?: true
+    sortOrder?: true
+    unit?: true
   }
 
   export type StatCountAggregateInputType = {
     id?: true
+    key?: true
     name?: true
+    sortOrder?: true
+    unit?: true
     _all?: true
   }
 
@@ -5622,7 +5644,10 @@ export namespace Prisma {
 
   export type StatGroupByOutputType = {
     id: number
+    key: string
     name: string
+    sortOrder: number
+    unit: string
     _count: StatCountAggregateOutputType | null
     _avg: StatAvgAggregateOutputType | null
     _sum: StatSumAggregateOutputType | null
@@ -5646,27 +5671,39 @@ export namespace Prisma {
 
   export type StatSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    key?: boolean
     name?: boolean
+    sortOrder?: boolean
+    unit?: boolean
     pokemonStats?: boolean | Stat$pokemonStatsArgs<ExtArgs>
     _count?: boolean | StatCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stat"]>
 
   export type StatSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    key?: boolean
     name?: boolean
+    sortOrder?: boolean
+    unit?: boolean
   }, ExtArgs["result"]["stat"]>
 
   export type StatSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    key?: boolean
     name?: boolean
+    sortOrder?: boolean
+    unit?: boolean
   }, ExtArgs["result"]["stat"]>
 
   export type StatSelectScalar = {
     id?: boolean
+    key?: boolean
     name?: boolean
+    sortOrder?: boolean
+    unit?: boolean
   }
 
-  export type StatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["stat"]>
+  export type StatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "key" | "name" | "sortOrder" | "unit", ExtArgs["result"]["stat"]>
   export type StatInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pokemonStats?: boolean | Stat$pokemonStatsArgs<ExtArgs>
     _count?: boolean | StatCountOutputTypeDefaultArgs<ExtArgs>
@@ -5681,7 +5718,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      key: string
       name: string
+      sortOrder: number
+      unit: string
     }, ExtArgs["result"]["stat"]>
     composites: {}
   }
@@ -6107,7 +6147,10 @@ export namespace Prisma {
    */
   interface StatFieldRefs {
     readonly id: FieldRef<"Stat", 'Int'>
+    readonly key: FieldRef<"Stat", 'String'>
     readonly name: FieldRef<"Stat", 'String'>
+    readonly sortOrder: FieldRef<"Stat", 'Int'>
+    readonly unit: FieldRef<"Stat", 'String'>
   }
     
 
@@ -6572,6 +6615,8 @@ export namespace Prisma {
     statId: number | null
     level: number | null
     value: number | null
+    guestId: string | null
+    updatedAt: Date | null
   }
 
   export type PokemonStatMaxAggregateOutputType = {
@@ -6580,6 +6625,8 @@ export namespace Prisma {
     statId: number | null
     level: number | null
     value: number | null
+    guestId: string | null
+    updatedAt: Date | null
   }
 
   export type PokemonStatCountAggregateOutputType = {
@@ -6588,6 +6635,8 @@ export namespace Prisma {
     statId: number
     level: number
     value: number
+    guestId: number
+    updatedAt: number
     _all: number
   }
 
@@ -6614,6 +6663,8 @@ export namespace Prisma {
     statId?: true
     level?: true
     value?: true
+    guestId?: true
+    updatedAt?: true
   }
 
   export type PokemonStatMaxAggregateInputType = {
@@ -6622,6 +6673,8 @@ export namespace Prisma {
     statId?: true
     level?: true
     value?: true
+    guestId?: true
+    updatedAt?: true
   }
 
   export type PokemonStatCountAggregateInputType = {
@@ -6630,6 +6683,8 @@ export namespace Prisma {
     statId?: true
     level?: true
     value?: true
+    guestId?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -6725,6 +6780,8 @@ export namespace Prisma {
     statId: number
     level: number
     value: number
+    guestId: string | null
+    updatedAt: Date
     _count: PokemonStatCountAggregateOutputType | null
     _avg: PokemonStatAvgAggregateOutputType | null
     _sum: PokemonStatSumAggregateOutputType | null
@@ -6752,6 +6809,8 @@ export namespace Prisma {
     statId?: boolean
     level?: boolean
     value?: boolean
+    guestId?: boolean
+    updatedAt?: boolean
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     stat?: boolean | StatDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonStat"]>
@@ -6762,6 +6821,8 @@ export namespace Prisma {
     statId?: boolean
     level?: boolean
     value?: boolean
+    guestId?: boolean
+    updatedAt?: boolean
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     stat?: boolean | StatDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonStat"]>
@@ -6772,6 +6833,8 @@ export namespace Prisma {
     statId?: boolean
     level?: boolean
     value?: boolean
+    guestId?: boolean
+    updatedAt?: boolean
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     stat?: boolean | StatDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["pokemonStat"]>
@@ -6782,9 +6845,11 @@ export namespace Prisma {
     statId?: boolean
     level?: boolean
     value?: boolean
+    guestId?: boolean
+    updatedAt?: boolean
   }
 
-  export type PokemonStatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pokemonId" | "statId" | "level" | "value", ExtArgs["result"]["pokemonStat"]>
+  export type PokemonStatOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "pokemonId" | "statId" | "level" | "value" | "guestId" | "updatedAt", ExtArgs["result"]["pokemonStat"]>
   export type PokemonStatInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     pokemon?: boolean | PokemonDefaultArgs<ExtArgs>
     stat?: boolean | StatDefaultArgs<ExtArgs>
@@ -6810,6 +6875,8 @@ export namespace Prisma {
       statId: number
       level: number
       value: number
+      guestId: string | null
+      updatedAt: Date
     }, ExtArgs["result"]["pokemonStat"]>
     composites: {}
   }
@@ -7240,6 +7307,8 @@ export namespace Prisma {
     readonly statId: FieldRef<"PokemonStat", 'Int'>
     readonly level: FieldRef<"PokemonStat", 'Int'>
     readonly value: FieldRef<"PokemonStat", 'Float'>
+    readonly guestId: FieldRef<"PokemonStat", 'String'>
+    readonly updatedAt: FieldRef<"PokemonStat", 'DateTime'>
   }
     
 
@@ -38419,7 +38488,10 @@ export namespace Prisma {
 
   export const StatScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    key: 'key',
+    name: 'name',
+    sortOrder: 'sortOrder',
+    unit: 'unit'
   };
 
   export type StatScalarFieldEnum = (typeof StatScalarFieldEnum)[keyof typeof StatScalarFieldEnum]
@@ -38430,7 +38502,9 @@ export namespace Prisma {
     pokemonId: 'pokemonId',
     statId: 'statId',
     level: 'level',
-    value: 'value'
+    value: 'value',
+    guestId: 'guestId',
+    updatedAt: 'updatedAt'
   };
 
   export type PokemonStatScalarFieldEnum = (typeof PokemonStatScalarFieldEnum)[keyof typeof PokemonStatScalarFieldEnum]
@@ -38983,28 +39057,40 @@ export namespace Prisma {
     OR?: StatWhereInput[]
     NOT?: StatWhereInput | StatWhereInput[]
     id?: IntFilter<"Stat"> | number
+    key?: StringFilter<"Stat"> | string
     name?: StringFilter<"Stat"> | string
+    sortOrder?: IntFilter<"Stat"> | number
+    unit?: StringFilter<"Stat"> | string
     pokemonStats?: PokemonStatListRelationFilter
   }
 
   export type StatOrderByWithRelationInput = {
     id?: SortOrder
+    key?: SortOrder
     name?: SortOrder
+    sortOrder?: SortOrder
+    unit?: SortOrder
     pokemonStats?: PokemonStatOrderByRelationAggregateInput
   }
 
   export type StatWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    key?: string
     AND?: StatWhereInput | StatWhereInput[]
     OR?: StatWhereInput[]
     NOT?: StatWhereInput | StatWhereInput[]
     name?: StringFilter<"Stat"> | string
+    sortOrder?: IntFilter<"Stat"> | number
+    unit?: StringFilter<"Stat"> | string
     pokemonStats?: PokemonStatListRelationFilter
-  }, "id">
+  }, "id" | "key">
 
   export type StatOrderByWithAggregationInput = {
     id?: SortOrder
+    key?: SortOrder
     name?: SortOrder
+    sortOrder?: SortOrder
+    unit?: SortOrder
     _count?: StatCountOrderByAggregateInput
     _avg?: StatAvgOrderByAggregateInput
     _max?: StatMaxOrderByAggregateInput
@@ -39017,7 +39103,10 @@ export namespace Prisma {
     OR?: StatScalarWhereWithAggregatesInput[]
     NOT?: StatScalarWhereWithAggregatesInput | StatScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Stat"> | number
+    key?: StringWithAggregatesFilter<"Stat"> | string
     name?: StringWithAggregatesFilter<"Stat"> | string
+    sortOrder?: IntWithAggregatesFilter<"Stat"> | number
+    unit?: StringWithAggregatesFilter<"Stat"> | string
   }
 
   export type PokemonStatWhereInput = {
@@ -39029,6 +39118,8 @@ export namespace Prisma {
     statId?: IntFilter<"PokemonStat"> | number
     level?: IntFilter<"PokemonStat"> | number
     value?: FloatFilter<"PokemonStat"> | number
+    guestId?: StringNullableFilter<"PokemonStat"> | string | null
+    updatedAt?: DateTimeFilter<"PokemonStat"> | Date | string
     pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     stat?: XOR<StatScalarRelationFilter, StatWhereInput>
   }
@@ -39039,12 +39130,15 @@ export namespace Prisma {
     statId?: SortOrder
     level?: SortOrder
     value?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
     pokemon?: PokemonOrderByWithRelationInput
     stat?: StatOrderByWithRelationInput
   }
 
   export type PokemonStatWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    pokemonId_statId_level?: PokemonStatPokemonIdStatIdLevelCompoundUniqueInput
     AND?: PokemonStatWhereInput | PokemonStatWhereInput[]
     OR?: PokemonStatWhereInput[]
     NOT?: PokemonStatWhereInput | PokemonStatWhereInput[]
@@ -39052,9 +39146,11 @@ export namespace Prisma {
     statId?: IntFilter<"PokemonStat"> | number
     level?: IntFilter<"PokemonStat"> | number
     value?: FloatFilter<"PokemonStat"> | number
+    guestId?: StringNullableFilter<"PokemonStat"> | string | null
+    updatedAt?: DateTimeFilter<"PokemonStat"> | Date | string
     pokemon?: XOR<PokemonScalarRelationFilter, PokemonWhereInput>
     stat?: XOR<StatScalarRelationFilter, StatWhereInput>
-  }, "id">
+  }, "id" | "pokemonId_statId_level">
 
   export type PokemonStatOrderByWithAggregationInput = {
     id?: SortOrder
@@ -39062,6 +39158,8 @@ export namespace Prisma {
     statId?: SortOrder
     level?: SortOrder
     value?: SortOrder
+    guestId?: SortOrderInput | SortOrder
+    updatedAt?: SortOrder
     _count?: PokemonStatCountOrderByAggregateInput
     _avg?: PokemonStatAvgOrderByAggregateInput
     _max?: PokemonStatMaxOrderByAggregateInput
@@ -39078,6 +39176,8 @@ export namespace Prisma {
     statId?: IntWithAggregatesFilter<"PokemonStat"> | number
     level?: IntWithAggregatesFilter<"PokemonStat"> | number
     value?: FloatWithAggregatesFilter<"PokemonStat"> | number
+    guestId?: StringNullableWithAggregatesFilter<"PokemonStat"> | string | null
+    updatedAt?: DateTimeWithAggregatesFilter<"PokemonStat"> | Date | string
   }
 
   export type PokemonCounterWhereInput = {
@@ -41053,44 +41153,67 @@ export namespace Prisma {
   }
 
   export type StatCreateInput = {
+    key: string
     name: string
+    sortOrder?: number
+    unit?: string
     pokemonStats?: PokemonStatCreateNestedManyWithoutStatInput
   }
 
   export type StatUncheckedCreateInput = {
     id?: number
+    key: string
     name: string
+    sortOrder?: number
+    unit?: string
     pokemonStats?: PokemonStatUncheckedCreateNestedManyWithoutStatInput
   }
 
   export type StatUpdateInput = {
+    key?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
     pokemonStats?: PokemonStatUpdateManyWithoutStatNestedInput
   }
 
   export type StatUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
     pokemonStats?: PokemonStatUncheckedUpdateManyWithoutStatNestedInput
   }
 
   export type StatCreateManyInput = {
     id?: number
+    key: string
     name: string
+    sortOrder?: number
+    unit?: string
   }
 
   export type StatUpdateManyMutationInput = {
+    key?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
   }
 
   export type StatUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
   }
 
   export type PokemonStatCreateInput = {
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
     pokemon: PokemonCreateNestedOneWithoutStatsInput
     stat: StatCreateNestedOneWithoutPokemonStatsInput
   }
@@ -41101,11 +41224,15 @@ export namespace Prisma {
     statId: number
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
   }
 
   export type PokemonStatUpdateInput = {
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     pokemon?: PokemonUpdateOneRequiredWithoutStatsNestedInput
     stat?: StatUpdateOneRequiredWithoutPokemonStatsNestedInput
   }
@@ -41116,6 +41243,8 @@ export namespace Prisma {
     statId?: IntFieldUpdateOperationsInput | number
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonStatCreateManyInput = {
@@ -41124,11 +41253,15 @@ export namespace Prisma {
     statId: number
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
   }
 
   export type PokemonStatUpdateManyMutationInput = {
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonStatUncheckedUpdateManyInput = {
@@ -41137,6 +41270,8 @@ export namespace Prisma {
     statId?: IntFieldUpdateOperationsInput | number
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonCounterCreateInput = {
@@ -43212,25 +43347,36 @@ export namespace Prisma {
 
   export type StatCountOrderByAggregateInput = {
     id?: SortOrder
+    key?: SortOrder
     name?: SortOrder
+    sortOrder?: SortOrder
+    unit?: SortOrder
   }
 
   export type StatAvgOrderByAggregateInput = {
     id?: SortOrder
+    sortOrder?: SortOrder
   }
 
   export type StatMaxOrderByAggregateInput = {
     id?: SortOrder
+    key?: SortOrder
     name?: SortOrder
+    sortOrder?: SortOrder
+    unit?: SortOrder
   }
 
   export type StatMinOrderByAggregateInput = {
     id?: SortOrder
+    key?: SortOrder
     name?: SortOrder
+    sortOrder?: SortOrder
+    unit?: SortOrder
   }
 
   export type StatSumOrderByAggregateInput = {
     id?: SortOrder
+    sortOrder?: SortOrder
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -43254,12 +43400,20 @@ export namespace Prisma {
     isNot?: StatWhereInput
   }
 
+  export type PokemonStatPokemonIdStatIdLevelCompoundUniqueInput = {
+    pokemonId: number
+    statId: number
+    level: number
+  }
+
   export type PokemonStatCountOrderByAggregateInput = {
     id?: SortOrder
     pokemonId?: SortOrder
     statId?: SortOrder
     level?: SortOrder
     value?: SortOrder
+    guestId?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PokemonStatAvgOrderByAggregateInput = {
@@ -43276,6 +43430,8 @@ export namespace Prisma {
     statId?: SortOrder
     level?: SortOrder
     value?: SortOrder
+    guestId?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PokemonStatMinOrderByAggregateInput = {
@@ -43284,6 +43440,8 @@ export namespace Prisma {
     statId?: SortOrder
     level?: SortOrder
     value?: SortOrder
+    guestId?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type PokemonStatSumOrderByAggregateInput = {
@@ -46724,6 +46882,8 @@ export namespace Prisma {
   export type PokemonStatCreateWithoutPokemonInput = {
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
     stat: StatCreateNestedOneWithoutPokemonStatsInput
   }
 
@@ -46732,6 +46892,8 @@ export namespace Prisma {
     statId: number
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
   }
 
   export type PokemonStatCreateOrConnectWithoutPokemonInput = {
@@ -46999,6 +47161,8 @@ export namespace Prisma {
     statId?: IntFilter<"PokemonStat"> | number
     level?: IntFilter<"PokemonStat"> | number
     value?: FloatFilter<"PokemonStat"> | number
+    guestId?: StringNullableFilter<"PokemonStat"> | string | null
+    updatedAt?: DateTimeFilter<"PokemonStat"> | Date | string
   }
 
   export type PokemonCounterUpsertWithWhereUniqueWithoutTargetPokemonInput = {
@@ -47206,6 +47370,8 @@ export namespace Prisma {
   export type PokemonStatCreateWithoutStatInput = {
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
     pokemon: PokemonCreateNestedOneWithoutStatsInput
   }
 
@@ -47214,6 +47380,8 @@ export namespace Prisma {
     pokemonId: number
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
   }
 
   export type PokemonStatCreateOrConnectWithoutStatInput = {
@@ -47287,12 +47455,18 @@ export namespace Prisma {
   }
 
   export type StatCreateWithoutPokemonStatsInput = {
+    key: string
     name: string
+    sortOrder?: number
+    unit?: string
   }
 
   export type StatUncheckedCreateWithoutPokemonStatsInput = {
     id?: number
+    key: string
     name: string
+    sortOrder?: number
+    unit?: string
   }
 
   export type StatCreateOrConnectWithoutPokemonStatsInput = {
@@ -47362,12 +47536,18 @@ export namespace Prisma {
   }
 
   export type StatUpdateWithoutPokemonStatsInput = {
+    key?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
   }
 
   export type StatUncheckedUpdateWithoutPokemonStatsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    key?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    sortOrder?: IntFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
   }
 
   export type PokemonCreateWithoutTargetOfInput = {
@@ -50513,6 +50693,8 @@ export namespace Prisma {
     statId: number
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
   }
 
   export type PokemonCounterCreateManyTargetPokemonInput = {
@@ -50595,6 +50777,8 @@ export namespace Prisma {
   export type PokemonStatUpdateWithoutPokemonInput = {
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     stat?: StatUpdateOneRequiredWithoutPokemonStatsNestedInput
   }
 
@@ -50603,6 +50787,8 @@ export namespace Prisma {
     statId?: IntFieldUpdateOperationsInput | number
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonStatUncheckedUpdateManyWithoutPokemonInput = {
@@ -50610,6 +50796,8 @@ export namespace Prisma {
     statId?: IntFieldUpdateOperationsInput | number
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonCounterUpdateWithoutTargetPokemonInput = {
@@ -50854,11 +51042,15 @@ export namespace Prisma {
     pokemonId: number
     level: number
     value: number
+    guestId?: string | null
+    updatedAt?: Date | string
   }
 
   export type PokemonStatUpdateWithoutStatInput = {
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     pokemon?: PokemonUpdateOneRequiredWithoutStatsNestedInput
   }
 
@@ -50867,6 +51059,8 @@ export namespace Prisma {
     pokemonId?: IntFieldUpdateOperationsInput | number
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PokemonStatUncheckedUpdateManyWithoutStatInput = {
@@ -50874,6 +51068,8 @@ export namespace Prisma {
     pokemonId?: IntFieldUpdateOperationsInput | number
     level?: IntFieldUpdateOperationsInput | number
     value?: FloatFieldUpdateOperationsInput | number
+    guestId?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type VoteCreateManyPokemonCounterInput = {

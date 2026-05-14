@@ -135,7 +135,7 @@ export default function MetaBoardClient({
           onClick={() => { setActiveTab("meta"); setShowForm(false); }}
           className={`flex-none snap-start px-4 md:px-6 py-4 flex items-center justify-center gap-2 font-bold text-sm md:text-base whitespace-nowrap transition-all border-b-2 ${
             activeTab === "meta"
-              ? "border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400"
+              ? "border-brand-primary text-brand-primary dark:text-purple-400 dark:border-purple-400"
               : "border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
           }`}
         >
@@ -145,7 +145,7 @@ export default function MetaBoardClient({
           onClick={() => { setActiveTab("ban"); setShowForm(false); }}
           className={`flex-none snap-start px-4 md:px-6 py-4 flex items-center justify-center gap-2 font-bold text-sm md:text-base whitespace-nowrap transition-all border-b-2 ${
             activeTab === "ban"
-              ? "border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400"
+              ? "border-brand-primary text-brand-primary dark:text-purple-400 dark:border-purple-400"
               : "border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
           }`}
         >
@@ -155,7 +155,7 @@ export default function MetaBoardClient({
           onClick={() => { setActiveTab("bug"); setShowForm(false); }}
           className={`flex-none snap-start px-4 md:px-6 py-4 flex items-center justify-center gap-2 font-bold text-sm md:text-base whitespace-nowrap transition-all border-b-2 ${
             activeTab === "bug"
-              ? "border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400"
+              ? "border-brand-primary text-brand-primary dark:text-purple-400 dark:border-purple-400"
               : "border-transparent text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300"
           }`}
         >
@@ -164,7 +164,7 @@ export default function MetaBoardClient({
       </div>
 
       <div className="mb-6 flex flex-col md:flex-row items-center justify-between p-3 md:p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-100 dark:border-purple-800/30 gap-3">
-        <span className="text-purple-600 dark:text-purple-400 font-bold text-sm md:text-base whitespace-nowrap">
+        <span className="text-brand-primary dark:text-purple-400 font-bold text-sm md:text-base whitespace-nowrap">
           対象パッチ
         </span>
         <select
@@ -176,7 +176,7 @@ export default function MetaBoardClient({
             else params.delete("patchId");
             router.push(`/meta?${params.toString()}`);
           }}
-          className="w-full md:w-auto p-2 border border-purple-200 dark:border-purple-800 rounded bg-white dark:bg-gray-800 text-sm font-semibold text-gray-800 dark:text-gray-200 shadow-sm focus:ring-2 focus:ring-purple-500"
+          className="w-full md:w-auto p-2 border border-purple-200 dark:border-purple-800 rounded bg-white dark:bg-gray-800 text-sm font-semibold text-gray-800 dark:text-gray-200 shadow-sm focus:ring-2 focus:ring-brand-primary"
         >
           {allPatches.map((p) => (
             <option key={p.id} value={p.id}>
@@ -194,7 +194,7 @@ export default function MetaBoardClient({
         ) : !showForm ? (
           <button
             onClick={() => setShowForm(true)}
-            className="w-full md:w-auto px-6 py-3 bg-purple-600 text-white font-bold rounded-lg shadow-sm hover:bg-purple-700 active:scale-95 transition-all flex items-center justify-center gap-2"
+            className="w-full md:w-auto px-6 py-3 bg-brand-primary text-white font-bold rounded-lg shadow-sm hover:bg-purple-700 active:scale-95 transition-all flex items-center justify-center gap-2"
           >
             <Plus size={20} />
             {activeTab === "meta" ? "環境ポケモンを投稿" : activeTab === "ban" ? "BAN候補を提案" : "バグを報告する"}

@@ -80,13 +80,13 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors group" title="スポンサー管理">
-                    <Settings2 className="w-5 h-5 text-gray-400 group-hover:text-purple-500" />
+                    <Settings2 className="w-5 h-5 text-gray-400 group-hover:text-brand-primary" />
                 </button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[500px] bg-white dark:bg-gray-800 rounded-3xl border-none shadow-2xl overflow-hidden p-0">
                 <DialogHeader className="p-6 pb-0">
                     <DialogTitle className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-3">
-                        <span className="w-2 h-7 bg-orange-500 rounded-full"></span>
+                        <span className="w-2 h-7 bg-brand-accent rounded-full"></span>
                         スポンサー管理
                     </DialogTitle>
                 </DialogHeader>
@@ -95,7 +95,7 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
                     {/* 追加フォーム */}
                     <div className="space-y-4">
                         <h4 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <Plus className="w-4 h-4 text-orange-500" />
+                            <Plus className="w-4 h-4 text-brand-accent" />
                             新規追加
                         </h4>
                         <form onSubmit={handleAdd} className="space-y-3 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
@@ -110,7 +110,7 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
                                     type="text"
                                     value={form.name}
                                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                    className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-orange-500 transition-all font-bold"
+                                    className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-brand-accent transition-all font-bold"
                                     placeholder="例: 株式会社ユナイト"
                                     required
                                 />
@@ -124,7 +124,7 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
                                         type="url"
                                         value={form.logoUrl}
                                         onChange={(e) => setForm({ ...form, logoUrl: e.target.value })}
-                                        className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-orange-500 transition-all"
+                                        className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-brand-accent transition-all"
                                         placeholder="https://..."
                                     />
                                 </div>
@@ -136,7 +136,7 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
                                         type="url"
                                         value={form.url}
                                         onChange={(e) => setForm({ ...form, url: e.target.value })}
-                                        className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-orange-500 transition-all"
+                                        className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 text-sm outline-none focus:border-brand-accent transition-all"
                                         placeholder="https://..."
                                     />
                                 </div>
@@ -159,7 +159,7 @@ export default function SponsorManageDialog({ team }: SponsorManageDialogProps) 
                                 <p className="text-xs text-gray-400 italic py-4 text-center">登録されているスポンサーはありません</p>
                             ) : (
                                 team.sponsors.map((sponsor) => (
-                                    <div key={sponsor.id} className="flex items-center justify-between p-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-700 group hover:border-purple-500/30 transition-all">
+                                    <div key={sponsor.id} className="flex items-center justify-between p-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-700 group hover:border-brand-primary/30 transition-all">
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 rounded-lg bg-gray-50 dark:bg-gray-800 flex items-center justify-center border border-gray-100 dark:border-gray-700 overflow-hidden">
                                                 {sponsor.logoUrl ? (

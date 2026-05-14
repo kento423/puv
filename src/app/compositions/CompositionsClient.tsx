@@ -98,7 +98,7 @@ export default function CompositionsClient({
       ) : (
         <button
           onClick={() => setShowForm(true)}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-purple-400 hover:text-purple-600 dark:hover:border-purple-500 dark:hover:text-purple-400 transition-all bg-white/50 dark:bg-gray-800/50"
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-purple-400 hover:text-brand-primary dark:hover:border-brand-primary dark:hover:text-purple-400 transition-all bg-white/50 dark:bg-gray-800/50"
         >
           <Plus size={20} />
           <span className="font-medium">構成を作成する</span>

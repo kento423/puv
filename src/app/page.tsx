@@ -1,6 +1,6 @@
 import Link from "next/link";
 import StatusBadge from "@/components/ui/StatusBadge";
-import { MessageSquare, User, Users, Shield, Wrench } from "lucide-react";
+import { MessageSquare, User, Users, Shield, Wrench, BarChart3, Scale } from "lucide-react";
 
 export default function Home() {
   const features = [
@@ -42,6 +42,22 @@ export default function Home() {
       href: "/compositions",
       status: "alpha" as const,
       icon: <Wrench className="w-6 h-6" />,
+      color: "purple",
+    },
+    {
+      title: "ステータス図鑑",
+      description: "全ポケモンのステータスをレベル別に比較。レーダーチャートで視覚的に確認。",
+      href: "/stats",
+      status: "alpha" as const,
+      icon: <BarChart3 className="w-6 h-6" />,
+      color: "orange",
+    },
+    {
+      title: "ステータス比較",
+      description: "任意のポケモンを複数並べて、レーダーチャートと詳細テーブルで徹底比較。",
+      href: "/stats/compare",
+      status: "beta" as const,
+      icon: <Scale className="w-6 h-6" />,
       color: "purple",
     },
     {

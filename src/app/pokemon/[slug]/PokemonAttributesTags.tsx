@@ -402,7 +402,7 @@ export default function PokemonAttributesTags({
                       }
                     }}
                     autoFocus
-                    className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 text-xs md:text-sm"
+                    className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white rounded-lg focus:ring-2 focus:ring-brand-primary text-xs md:text-sm"
                   />
                   <div className="flex gap-2 justify-end">
                     <button
@@ -420,7 +420,7 @@ export default function PokemonAttributesTags({
                     <button
                       onClick={handleAddTag}
                       disabled={isSubmitting || !tagName.trim()}
-                      className="px-3 py-2 text-xs md:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                      className="px-3 py-2 text-xs md:text-sm bg-brand-primary text-white rounded-lg hover:opacity-90 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                     >
                       {isSubmitting ? "追加中..." : "追加"}
                     </button>
@@ -429,7 +429,7 @@ export default function PokemonAttributesTags({
               ) : (
                 <button
                   onClick={() => setShowForm(true)}
-                  className={`flex items-center gap-1 px-3 py-2 text-xs md:text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all ${compact ? "" : ""
+                  className={`flex items-center gap-1 px-3 py-2 text-xs md:text-sm font-medium bg-brand-primary text-white rounded-lg hover:opacity-90 active:scale-95 transition-all ${compact ? "" : ""
                     }`}
                 >
                   <Plus size={16} />

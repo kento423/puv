@@ -14,7 +14,7 @@ export default function GuidelinesPage() {
         },
         {
             title: "禁止事項",
-            icon: <AlertTriangle className="text-orange-500" />,
+            icon: <AlertTriangle className="text-brand-accent" />,
             content: "誹謗中傷、特定の個人・クランへの攻撃、虚偽の情報拡散、スパム行為等は禁止です。発見次第、運営にて削除を行います。"
         }
     ];
@@ -22,7 +22,7 @@ export default function GuidelinesPage() {
     return (
         <div className="max-w-4xl mx-auto py-8 md:py-12 px-4 text-center">
             <div className="mb-12">
-                <div className="inline-flex p-3 rounded-2xl bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 mb-4">
+                <div className="inline-flex p-3 rounded-2xl bg-purple-50 dark:bg-purple-900/20 text-brand-primary dark:text-purple-400 mb-4">
                     <ShieldCheck className="w-10 h-10" />
                 </div>
                 <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">

@@ -172,3 +172,173 @@ export async function getPokemonCounters(pokemonId: number): Promise<PokemonCoun
     }
   )();
 }
+
+// ============================================
+// ステータス関連のデータ取得関数
+// ============================================
+
+/** Stat定義の型 */
+export interface StatDefinition {
+  id: number;
+  key: string;
+  name: string;
+  sortOrder: number;
+  unit: string;
+}
+
+/** ポケモンステータスの型 */
+export interface PokemonStatItem {
+  statId: number;
+  statKey: string;
+  statName: string;
+  unit: string;
+  level: number;
+  value: number;
+  guestId: string | null;
+  updatedAt: string; // ISO文字列
+}
+
+/** Min/Max 正規化用の型 */
+export interface StatMinMax {
+  [statKey: string]: { min: number; max: number };
+}
+
+/**
+ * Stat マスターデータを取得
+ */
+export const getStatDefinitions = unstable_cache(
+  async (): Promise<StatDefinition[]> => {
+    try {
+      const stats = await prisma.stat.findMany({
+        orderBy: { sortOrder: 'asc' },
+      });
+      return stats.map((s) => ({
+        id: s.id,
+        key: s.key,
+        name: s.name,
+        sortOrder: s.sortOrder,
+        unit: s.unit,
+      }));
+    } catch (error) {
+      console.error('Failed to fetch stat definitions:', error);
+      return [];
+    }
+  },
+  ['stat-definitions'],
+  { revalidate: 3600, tags: ['stat-definitions'] }
+);
+
+/**
+ * 特定ポケモンの全レベル・全ステータスを取得
+ */
+export async function getPokemonStats(pokemonId: number): Promise<PokemonStatItem[]> {
+  return unstable_cache(
+    async () => {
+      try {
+        const stats = await prisma.pokemonStat.findMany({
+          where: { pokemonId },
+          include: { stat: true },
+          orderBy: [{ stat: { sortOrder: 'asc' } }, { level: 'asc' }],
+        });
+        return stats.map((s) => ({
+          statId: s.statId,
+          statKey: s.stat.key,
+          statName: s.stat.name,
+          unit: s.stat.unit,
+          level: s.level,
+          value: s.value,
+          guestId: s.guestId,
+          updatedAt: s.updatedAt.toISOString(),
+        }));
+      } catch (error) {
+        console.error(`Failed to fetch stats for pokemon ${pokemonId}:`, error);
+        return [];
+      }
+    },
+    ['pokemon-stats', pokemonId.toString()],
+    {
+      revalidate: 60,
+      tags: ['pokemon-stats', `pokemon-stats-${pokemonId}`],
+    }
+  )();
+}
+
+/**
+ * 正規化用の全ポケモン・全レベルの min/max を取得
+ */
+export const getStatMinMax = unstable_cache(
+  async (): Promise<StatMinMax> => {
+    try {
+      const stats = await prisma.stat.findMany({
+        orderBy: { sortOrder: 'asc' },
+      });
+      const result: StatMinMax = {};
+
+      for (const stat of stats) {
+        const agg = await prisma.pokemonStat.aggregate({
+          where: { statId: stat.id },
+          _min: { value: true },
+          _max: { value: true },
+        });
+        result[stat.key] = {
+          min: agg._min.value ?? 0,
+          max: agg._max.value ?? 100,
+        };
+      }
+
+      return result;
+    } catch (error) {
+      console.error('Failed to fetch stat min/max:', error);
+      return {};
+    }
+  },
+  ['stat-min-max'],
+  { revalidate: 60, tags: ['stat-min-max'] }
+);
+
+/**
+ * 全ポケモンの特定レベルのステータス一覧を取得
+ */
+export async function getAllPokemonStatsForLevel(level: number) {
+  return unstable_cache(
+    async () => {
+      try {
+        const pokemons = await prisma.pokemon.findMany({
+          orderBy: { id: 'asc' },
+          include: {
+            stats: {
+              where: { level },
+              include: { stat: true },
+              orderBy: { stat: { sortOrder: 'asc' } },
+            },
+          },
+        });
+
+        return pokemons.map((p) => ({
+          id: p.id,
+          slug: p.slug,
+          nameJa: p.nameJa,
+          nameEn: p.nameEn,
+          imageUrl: p.imageUrl ?? '',
+          battleStyle: p.battleStyle,
+          stats: p.stats.map((s) => ({
+            statId: s.statId,
+            statKey: s.stat.key,
+            statName: s.stat.name,
+            unit: s.stat.unit,
+            value: s.value,
+            updatedAt: s.updatedAt.toISOString(),
+          })),
+        }));
+      } catch (error) {
+        console.error(`Failed to fetch all pokemon stats for level ${level}:`, error);
+        return [];
+      }
+    },
+    ['all-pokemon-stats', `level-${level}`],
+    {
+      revalidate: 60,
+      tags: ['all-pokemon-stats', `all-pokemon-stats-level-${level}`],
+    }
+  )();
+}

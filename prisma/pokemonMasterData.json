@@ -641,7 +641,7 @@
   {
     "slug": "rapidash",
     "nameJa": "ガラルギャロップ",
-    "nameEn": "Rapidash",
+    "nameEn": "Galarian Rapidash",
     "damageClass": "special",
     "rangeType": "ranged",
     "battleStyle": "speedster",
@@ -659,7 +659,7 @@
   {
     "slug": "raichu",
     "nameJa": "アローラライチュウ",
-    "nameEn": "Raichu",
+    "nameEn": "Alolan Raichu",
     "damageClass": "special",
     "rangeType": "ranged",
     "battleStyle": "attacker",
@@ -808,5 +808,23 @@
     "rangeType": "ranged",
     "battleStyle": "defender",
     "imageUrl": "/pokemon/articuno.png"
+  },
+  {
+    "slug": "typhlosion",
+    "nameJa": "バクフーン",
+    "nameEn": "Typhlosion",
+    "damageClass": "special",
+    "rangeType": "ranged",
+    "battleStyle": "attacker",
+    "imageUrl": "/pokemon/typhlosion.png"
+  },
+  {
+    "slug": "feraligatr",
+    "nameJa": "オーダイル",
+    "nameEn": "Feraligatr",
+    "damageClass": "physical",
+    "rangeType": "melee",
+    "battleStyle": "all-rounder",
+    "imageUrl": "/pokemon/feraligatr.png"
   }
 ]

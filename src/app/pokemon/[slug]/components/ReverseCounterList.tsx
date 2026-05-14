@@ -150,7 +150,7 @@ export default function ReverseCounterList({ slug }: ReverseCounterListProps) {
     return (
       <div className="flex flex-col items-center justify-center p-10 md:p-14 text-center bg-white/50 dark:bg-gray-800/40 rounded-3xl border border-dashed border-gray-200 dark:border-gray-700 shadow-sm backdrop-blur-sm">
         <div className="w-16 h-16 mb-5 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center shadow-inner">
-          <Target className="w-8 h-8 text-purple-500 dark:text-purple-400" />
+          <Target className="w-8 h-8 text-brand-primary dark:text-purple-400" />
         </div>
         <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
           有利な対面データがありません

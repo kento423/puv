@@ -96,7 +96,7 @@ export default function AddCounterForm({ slug, locale, onAdded }: AddCounterForm
   return !showForm ? (
     <button
       onClick={() => setShowForm(true)}
-      className="w-full md:w-auto px-4 md:px-6 py-2.5 md:py-2 bg-blue-600 dark:bg-blue-700 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 active:scale-95 transition-all font-medium text-sm md:text-base shadow-md hover:shadow-lg"
+      className="w-full md:w-auto px-4 md:px-6 py-2.5 md:py-2 bg-brand-primary text-white rounded-lg hover:opacity-90 active:scale-95 transition-all font-medium text-sm md:text-base shadow-md hover:shadow-lg"
     >
       ＋ カウンターを追加する
     </button>

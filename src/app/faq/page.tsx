@@ -39,7 +39,7 @@ export default function FAQPage() {
                             {faq.q}
                         </h2>
                         <div className="text-gray-600 dark:text-gray-400 leading-relaxed flex items-start">
-                            <span className="text-orange-500 mr-2 font-black">A.</span>
+                            <span className="text-brand-accent mr-2 font-black">A.</span>
                             <p>{faq.a}</p>
                         </div>
                     </div>

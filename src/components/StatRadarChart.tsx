@@ -31,8 +31,8 @@ export default function StatRadarChart({ data }: Props) {
           <Radar
             name="ステータス"
             dataKey="value"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke="rgb(147, 51, 234)"
+            fill="rgb(147, 51, 234)"
             fillOpacity={0.6}
           />
           <Tooltip

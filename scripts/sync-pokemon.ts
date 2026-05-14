@@ -96,6 +96,57 @@ async function main() {
     if (!res.ok) throw new Error("Failed to fetch from Unite-DB");
     const externalData = await res.json();
 
+    // Generic additions for missing Pokemon in Unite-DB by scraping the official site
+    console.log("Checking official site for missing Pokemon...");
+    try {
+      const siteHtml = await fetch("https://www.pokemonunite.jp/ja/pokemon/").then(res => res.text());
+      const regex = /<li class="card-border (\w+)">(?:[\s\S]*?)<img[^>]+src="[^"]+\/([^/.]+)\.png"[^>]*>(?:[\s\S]*?)<span class="name-text">([^<]+)<\/span>/g;
+      const styleMap: Record<string, string> = {
+        'balance': 'all-rounder',
+        'attack': 'attacker',
+        'defense': 'defender',
+        'speed': 'speedster',
+        'support': 'supporter'
+      };
+      
+      let match;
+      while ((match = regex.exec(siteHtml)) !== null) {
+        const styleClass = match[1];
+        let filename = match[2];
+        let nameJa = match[3];
+        let nameEn = filename.replace(/-1$/, '').replace(/_/g, ' ');
+        // Skip Japanese filenames (like ミュウ.png) since older Pokemon are already in Unite-DB
+        if (nameEn.match(/[^\x00-\x7F]/)) continue; 
+        
+        // Map official filenames to Unite-DB standard
+        if (nameEn.toLowerCase() === "alolan-raichu") nameEn = "Raichu";
+        if (nameEn.toLowerCase() === "galarian-rapidash") nameEn = "Rapidash";
+
+        // Capitalize
+        nameEn = nameEn.charAt(0).toUpperCase() + nameEn.slice(1);
+        
+        const isMissing = !externalData.some((p: any) => 
+          p.name.toLowerCase().replace(/[^a-z]/g, '') === nameEn.toLowerCase().replace(/[^a-z]/g, '')
+        );
+        
+        if (isMissing) {
+          externalData.push({
+            name: nameEn,
+            display_name: nameEn,
+            name_ja_override: nameJa,
+            damage_type: "physical", // Default guess for new Pokemon
+            tags: { 
+              range: "melee", // Default guess for new Pokemon
+              role: styleMap[styleClass] || "all-rounder" 
+            }
+          });
+          console.log(`[Auto-Add] Found missing Pokemon on official site: ${nameEn} (${nameJa})`);
+        }
+      }
+    } catch (e) {
+      console.warn("Failed to scrape official site for missing pokemon", e);
+    }
+
     const existingData: PokemonData[] = JSON.parse(fs.readFileSync(MASTER_DATA_PATH, "utf-8"));
     const existingSlugs = new Set(existingData.map(p => p.slug));
 
@@ -118,7 +169,7 @@ async function main() {
       }
 
       console.log(`New Pokemon found: ${ext.name}. Fetching Japanese name...`);
-      const nameJa = await fetchJapaneseName(ext.name);
+      const nameJa = ext.name_ja_override || await fetchJapaneseName(ext.name);
 
       const newEntry: PokemonData = {
         slug,

@@ -94,7 +94,7 @@ export default function MetaPostForm({ pokemons, onSuccess, onCancel }: MetaPost
           <textarea
             value={reason}
             onChange={(e) => setReason(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-primary min-h-[80px] dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             placeholder="どう強いのか、どんな構成で活きるか等"
           />
         </div>
@@ -104,7 +104,7 @@ export default function MetaPostForm({ pokemons, onSuccess, onCancel }: MetaPost
         <button
           type="submit"
           disabled={isSubmitting}
-          className="flex-1 bg-purple-600 text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all shadow-sm"
+          className="flex-1 bg-brand-primary text-white font-bold py-2.5 rounded-lg hover:bg-purple-700 active:scale-95 transition-all shadow-sm"
         >
           {isSubmitting ? "投稿中..." : "投稿する"}
         </button>

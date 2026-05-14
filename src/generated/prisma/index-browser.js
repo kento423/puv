@@ -136,7 +136,10 @@ exports.Prisma.PokemonScalarFieldEnum = {
 
 exports.Prisma.StatScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  key: 'key',
+  name: 'name',
+  sortOrder: 'sortOrder',
+  unit: 'unit'
 };
 
 exports.Prisma.PokemonStatScalarFieldEnum = {
@@ -144,7 +147,9 @@ exports.Prisma.PokemonStatScalarFieldEnum = {
   pokemonId: 'pokemonId',
   statId: 'statId',
   level: 'level',
-  value: 'value'
+  value: 'value',
+  guestId: 'guestId',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PokemonCounterScalarFieldEnum = {

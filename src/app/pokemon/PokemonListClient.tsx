@@ -9,8 +9,13 @@ import {
     getRangeTypeLabel,
     getRangeTypeColor,
     getBattleStyleLabel,
-    getBattleStyleBgImage,
+    getBattleStyleColor,
+    getBattleStyleShortLabel,
+    getBattleStyleCardStyle,
 } from "@/lib/pokemon-utils";
+import { Filter, RotateCcw } from "lucide-react";
+import SearchInput from "@/components/ui/SearchInput";
+import FilterPills from "@/components/ui/FilterPills";
 
 export interface Pokemon {
     id: number;
@@ -38,9 +43,9 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
     // フィルタ状態
     const [filters, setFilters] = useState({
         search: "",
-        damageClass: "all",
-        rangeType: "all",
-        battleStyle: "all",
+        damageClasses: [] as string[],
+        rangeTypes: [] as string[],
+        battleStyles: [] as string[],
     });
 
     // ロケール設定
@@ -58,123 +63,119 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                 pokemon.nameJa.includes(filters.search) ||
                 pokemon.nameEn.toLowerCase().includes(filters.search.toLowerCase());
 
-            // 各ドロップダウンの一致判定
+            // 各カテゴリの一致判定 (空配列の場合はすべて表示)
             const damageClassMatch =
-                filters.damageClass === "all" || pokemon.damageClass === filters.damageClass;
+                filters.damageClasses.length === 0 || filters.damageClasses.includes(pokemon.damageClass);
 
             const rangeTypeMatch =
-                filters.rangeType === "all" || pokemon.rangeType === filters.rangeType;
+                filters.rangeTypes.length === 0 || filters.rangeTypes.includes(pokemon.rangeType);
 
             const battleStyleMatch =
-                filters.battleStyle === "all" || pokemon.battleStyle === filters.battleStyle;
+                filters.battleStyles.length === 0 || filters.battleStyles.includes(pokemon.battleStyle);
 
             return searchMatch && damageClassMatch && rangeTypeMatch && battleStyleMatch;
         });
     }, [initialPokemons, filters]);
 
-    const handleFilterChange = (field: keyof typeof filters, value: string) => {
-        setFilters((prev) => ({ ...prev, [field]: value }));
+    const handleSearchChange = (value: string) => {
+        setFilters((prev) => ({ ...prev, search: value }));
+    };
+
+    const toggleFilter = (field: "damageClasses" | "rangeTypes" | "battleStyles", value: string) => {
+        setFilters((prev) => {
+            const current = prev[field];
+            const next = current.includes(value)
+                ? current.filter((v) => v !== value)
+                : [...current, value];
+            return { ...prev, [field]: next };
+        });
     };
 
     const handleReset = () => {
         setFilters({
             search: "",
-            damageClass: "all",
-            rangeType: "all",
-            battleStyle: "all",
+            damageClasses: [],
+            rangeTypes: [],
+            battleStyles: [],
         });
     };
 
-
+    // フィルタボタンの共通スタイル
+    const getPillStyle = (isSelected: boolean, activeClasses: string) => {
+        if (isSelected) return activeClasses;
+        return "bg-gray-100 text-gray-600 border-gray-200 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600";
+    };
 
     return (
-        <>
+        <div className="space-y-6">
+            {/* ヘッダーセクション: 検索のみ */}
+            <div className="flex justify-end">
+                <SearchInput
+                    onSearchChange={handleSearchChange}
+                    value={filters.search}
+                    placeholder={locale === "ja" ? "ポケモン名で検索..." : "Search for a Pokémon..."}
+                    className="w-full md:w-72 lg:w-96"
+                />
+            </div>
 
-            {/* フィルターセクション */}
-            <div className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-lg mb-6 shadow-sm border border-gray-200 dark:border-gray-700">
-                <h2 className="text-lg md:text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                    {locale === "ja" ? "絞り込み" : "Filters"}
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
-                    {/* 検索 */}
-                    <div>
-                        <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                            {locale === "ja" ? "名前" : "Search Name"}
-                        </label>
-                        <input
-                            type="text"
-                            value={filters.search}
-                            onChange={(e) => handleFilterChange("search", e.target.value)}
-                            placeholder={locale === "ja" ? "ポケモン名..." : "Pokemon name..."}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+            {/* 統合フィルタコンテナ (unite-dbスタイル) */}
+            <div className="relative group">
+                {/* フィルタラベル・タブ */}
+                <div className="absolute -top-3 left-4 px-2 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-t-md flex items-center gap-1.5 z-10">
+                    <Filter className="w-3 h-3 text-gray-500" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                        {locale === "ja" ? "フィルター" : "Filters"}
+                    </span>
+                    <button
+                        onClick={handleReset}
+                        className="ml-1 p-0.5 text-brand-accent hover:opacity-80 transition-opacity"
+                        title={locale === "ja" ? "リセット" : "Reset"}
+                    >
+                        <RotateCcw className="w-3 h-3" />
+                    </button>
+                </div>
+
+                {/* フィルタ本体 */}
+                <div className="bg-white dark:bg-gray-900/40 border border-gray-200 dark:border-gray-700 rounded-xl p-4 pt-6 shadow-sm backdrop-blur-sm">
+                    <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+                        
+                        {/* 射程グループ */}
+                        <FilterPills
+                            options={uniqueValues.rangeTypes.map((val) => ({
+                                value: val,
+                                label: locale === "ja" ? getRangeTypeLabel(val) : val,
+                            }))}
+                            selectedValues={filters.rangeTypes}
+                            onToggle={(val) => toggleFilter("rangeTypes", val)}
+                            getColor={(val, isSelected) =>
+                                getPillStyle(isSelected, getRangeTypeColor(val) + " dark:border-gray-600")
+                            }
                         />
-                    </div>
 
-                    {/* ダメージクラス */}
-                    <div>
-                        <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                            {locale === "ja" ? "タイプ" : "Damage Class"}
-                        </label>
-                        <select
-                            value={filters.damageClass}
-                            onChange={(e) => handleFilterChange("damageClass", e.target.value)}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
-                        >
-                            <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
-                            {uniqueValues.damageClasses.map((val) => (
-                                <option key={val} value={val}>
-                                    {locale === "ja" ? getDamageClassLabel(val) : val}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                        {/* タイプグループ */}
+                        <FilterPills
+                            options={uniqueValues.damageClasses.map((val) => ({
+                                value: val,
+                                label: locale === "ja" ? getDamageClassLabel(val) : val,
+                            }))}
+                            selectedValues={filters.damageClasses}
+                            onToggle={(val) => toggleFilter("damageClasses", val)}
+                            getColor={(val, isSelected) =>
+                                getPillStyle(isSelected, getDamageClassColor(val) + " dark:border-gray-600")
+                            }
+                        />
 
-                    {/* レンジタイプ */}
-                    <div>
-                        <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                            {locale === "ja" ? "攻撃範囲" : "Range Type"}
-                        </label>
-                        <select
-                            value={filters.rangeType}
-                            onChange={(e) => handleFilterChange("rangeType", e.target.value)}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
-                        >
-                            <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
-                            {uniqueValues.rangeTypes.map((val) => (
-                                <option key={val} value={val}>
-                                    {locale === "ja" ? getRangeTypeLabel(val) : val}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                        {/* バトルスタイルグループ */}
+                        <FilterPills
+                            options={uniqueValues.battleStyles.map((style) => ({
+                                value: style,
+                                label: locale === "ja" ? getBattleStyleLabel(style) : style,
+                            }))}
+                            selectedValues={filters.battleStyles}
+                            onToggle={(val) => toggleFilter("battleStyles", val)}
+                            getColor={(val, isSelected) => getBattleStyleColor(val, isSelected)}
+                        />
 
-                    {/* バトルスタイル */}
-                    <div>
-                        <label className="block text-xs md:text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-                            {locale === "ja" ? "型" : "Battle Style"}
-                        </label>
-                        <select
-                            value={filters.battleStyle}
-                            onChange={(e) => handleFilterChange("battleStyle", e.target.value)}
-                            className="w-full px-3 py-2.5 md:py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
-                        >
-                            <option value="all">{locale === "ja" ? "すべて" : "All"}</option>
-                            {uniqueValues.battleStyles.map((val) => (
-                                <option key={val} value={val}>
-                                    {locale === "ja" ? getBattleStyleLabel(val) : val}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* リセットボタン */}
-                    <div className="flex items-end">
-                        <button
-                            onClick={handleReset}
-                            className="w-full px-4 py-2.5 md:py-2 bg-gray-400 dark:bg-gray-600 text-white rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 active:scale-95 transition-all text-sm md:text-base font-medium"
-                        >
-                            {locale === "ja" ? "リセット" : "Reset"}
-                        </button>
                     </div>
                 </div>
             </div>
@@ -197,21 +198,21 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                         {filteredPokemons.map((pokemon) => (
                             <li
                                 key={pokemon.id}
-                                className="border border-gray-200 dark:border-gray-700 p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-gray-800 bg-cover bg-center bg-blend-overlay overflow-hidden"
-                                style={{
-                                    backgroundImage: `url('${getBattleStyleBgImage(pokemon.battleStyle)}')`,
-                                }}
+                                className={`border p-3 md:p-4 rounded-xl shadow-sm hover:shadow-md transition-all backdrop-blur-[2px] overflow-hidden ${getBattleStyleCardStyle(
+                                    pokemon.battleStyle
+                                )}`}
                             >
                                 <Link href={`/pokemon/${pokemon.slug}`}>
-                                    <div className="flex flex-col items-center cursor-pointer">
-                                        <Image
-                                            src={pokemon.imageUrl}
-                                            alt={locale === "ja" ? pokemon.nameJa : pokemon.nameEn}
-                                            width={80}
-                                            height={80}
-                                            className="mb-2 md:mb-3"
-                                        />
-                                        <h2 className="text-sm md:text-base font-bold text-center text-gray-900 dark:text-white">
+                                    <div className="flex flex-col items-center cursor-pointer group">
+                                        <div className="relative mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">
+                                            <Image
+                                                src={pokemon.imageUrl}
+                                                alt={locale === "ja" ? pokemon.nameJa : pokemon.nameEn}
+                                                width={84}
+                                                height={84}
+                                            />
+                                        </div>
+                                        <h2 className="text-sm md:text-base font-bold text-center text-gray-900 dark:text-white group-hover:text-brand-primary transition-colors">
                                             {locale === "ja" ? pokemon.nameJa : pokemon.nameEn}
                                         </h2>
                                         <div className="mt-2 flex gap-1.5 flex-wrap justify-center">
@@ -237,6 +238,6 @@ export default function PokemonListClient({ initialPokemons, uniqueValues }: Pok
                     </ul>
                 </>
             )}
-        </>
+        </div>
     );
 }

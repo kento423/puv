@@ -270,7 +270,7 @@ export default function CandidateCard({
                 onClick={() => setEditCounterType(editCounterType === "hard" ? null : "hard")}
                 disabled={isEditSaving}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors border ${editCounterType === "hard"
-                  ? "bg-orange-500 text-white border-orange-500 dark:bg-orange-600 dark:border-orange-600"
+                  ? "bg-brand-accent text-white border-brand-accent dark:bg-orange-600 dark:border-orange-600"
                   : "bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100 dark:bg-orange-900/20 dark:text-orange-400 dark:border-orange-800/50 dark:hover:bg-orange-900/40"
                   } disabled:opacity-50`}
               >
@@ -280,15 +280,15 @@ export default function CandidateCard({
                 onClick={() => setEditCounterType(editCounterType === "soft" ? null : "soft")}
                 disabled={isEditSaving}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-colors border ${editCounterType === "soft"
-                  ? "bg-purple-600 text-white border-purple-600 dark:bg-purple-500 dark:border-purple-500"
-                  : "bg-purple-50 text-purple-600 border-purple-200 hover:bg-purple-100 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 dark:hover:bg-purple-900/40"
+                  ? "bg-brand-primary text-white border-brand-primary dark:bg-brand-primary dark:border-brand-primary"
+                  : "bg-purple-50 text-brand-primary border-purple-200 hover:bg-purple-100 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 dark:hover:bg-purple-900/40"
                   } disabled:opacity-50`}
               >
                 <Target size={14} /> ソフトカウンター
               </button>
             </div>
             <textarea
-              className="text-xs md:text-sm text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full min-h-[80px]"
+              className="text-xs md:text-sm text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-brand-primary w-full min-h-[80px]"
               value={editReason}
               onChange={(e) => setEditReason(e.target.value)}
               placeholder="対策理由や立ち回り..."
@@ -296,7 +296,7 @@ export default function CandidateCard({
             />
             <div className="flex gap-2">
               <button
-                className="px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white text-xs md:text-sm rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95 font-medium flex-1 md:flex-none shadow-sm"
+                className="px-4 py-2 bg-brand-primary text-white text-xs md:text-sm rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors active:scale-95 font-medium flex-1 md:flex-none shadow-sm"
                 onClick={handleEditSave}
                 disabled={isEditSaving}
               >

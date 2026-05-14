@@ -319,7 +319,7 @@ export default function CompositionCard({
           className={`flex items-center gap-1.5 px-3 py-2 rounded-full border transition-all font-semibold text-sm ${
             activeVote === "upvote"
               ? "bg-purple-50 border-purple-200 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
-              : "bg-white border-gray-200 text-gray-600 hover:text-purple-600 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
+              : "bg-white border-gray-200 text-gray-600 hover:text-brand-primary dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400"
           }`}
         >
           <ThumbsUp

@@ -96,11 +96,11 @@ export async function PUT(request: NextRequest) {
     });
 
     // キャッシュ無効化
-    revalidateTag(`pokemon-stats-${pokemonId}`, { expire: 0 } as any);
-    revalidateTag('pokemon-stats', { expire: 0 } as any);
-    revalidateTag('stat-min-max', { expire: 0 } as any);
-    revalidateTag('all-pokemon-stats', { expire: 0 } as any);
-    revalidateTag(`all-pokemon-stats-level-${level}`, { expire: 0 } as any);
+    revalidateTag(`pokemon-stats-${pokemonId}`, { expire: 0 });
+    revalidateTag('pokemon-stats', { expire: 0 });
+    revalidateTag('stat-min-max', { expire: 0 });
+    revalidateTag('all-pokemon-stats', { expire: 0 });
+    revalidateTag(`all-pokemon-stats-level-${level}`, { expire: 0 });
 
     return NextResponse.json({
       statId: result.statId,

@@ -85,8 +85,8 @@ export async function POST(request: NextRequest) {
     });
 
     revalidatePath(`/pokemon/${slug}`);
-    revalidateTag(`pokemon-detail-${slug}`, 'max');
-    revalidateTag(`pokemon-counters-${targetPokemon.id}`, 'max');
+    revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
+    revalidateTag(`pokemon-counters-${targetPokemon.id}`, { expire: 0 });
     return NextResponse.json(newCounter, { status: 201 });
   } catch (error) {
     console.error("Error creating PokemonCounter:", error);

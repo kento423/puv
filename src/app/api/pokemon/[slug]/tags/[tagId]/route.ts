@@ -69,7 +69,7 @@ export async function DELETE(
     });
 
     revalidatePath(`/pokemon/${slug}`);
-    revalidateTag(`pokemon-detail-${slug}`, 'max');
+    revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
     return NextResponse.json({ message: "タグを削除しました" });
   } catch (error) {
     console.error("Error deleting custom tag:", error);

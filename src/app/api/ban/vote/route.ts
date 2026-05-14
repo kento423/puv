@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('ban-picks', { expire: 0 } as any);
+    revalidateTag('ban-picks', { expire: 0 });
     
     return NextResponse.json({ success: true, upvotes: updatedPick.upvotes, downvotes: updatedPick.downvotes });
   } catch (error) {

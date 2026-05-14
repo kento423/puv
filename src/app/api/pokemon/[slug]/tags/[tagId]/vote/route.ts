@@ -64,7 +64,7 @@ export async function POST(
         ]);
         
         revalidatePath(`/pokemon/${slug}`);
-        revalidateTag(`pokemon-detail-${slug}`, 'max');
+      revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
         return NextResponse.json({ message: "投票を取り消しました", action: "removed" });
       } else {
         // 逆の投票なら切り替え
@@ -92,7 +92,7 @@ export async function POST(
         ]);
         
         revalidatePath(`/pokemon/${slug}`);
-        revalidateTag(`pokemon-detail-${slug}`, 'max');
+      revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
         return NextResponse.json({ message: "投票を更新しました", action: "updated" });
       }
     } else {
@@ -122,7 +122,7 @@ export async function POST(
       ]);
       
       revalidatePath(`/pokemon/${slug}`);
-      revalidateTag(`pokemon-detail-${slug}`, 'max');
+      revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
       return NextResponse.json({ message: "投票を受け付けました", action: "added" });
     }
   } catch (error) {

@@ -67,7 +67,7 @@ export async function POST(req: Request) {
     });
 
     revalidatePath("/compositions", "page");
-    revalidateTag("compositions", { expire: 0 } as any);
+    revalidateTag("compositions", { expire: 0 });
 
     return NextResponse.json({
       success: true,

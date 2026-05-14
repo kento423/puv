@@ -101,7 +101,9 @@ async function main() {
   }
 
   const statKeys = ["hp", "atk", "def", "spatk", "spdef", "speed", "crit", "cdr", "lifesteal", "atkspd"] as const;
-  let statUpserted = 0;
+  
+  // 高速化のため、全リクエストを一旦フラットなリストにする
+  const upsertTasks: any[] = [];
   let statSkipped = 0;
 
   for (const entry of statSeedData) {
@@ -118,7 +120,7 @@ async function main() {
         if (!statId) continue;
 
         const value = statLevel[key];
-        await prisma.pokemonStat.upsert({
+        upsertTasks.push({
           where: {
             pokemonId_statId_level: {
               pokemonId,
@@ -137,9 +139,27 @@ async function main() {
         });
       }
     }
-    statUpserted++;
   }
-  console.log(`PokemonStat seed data synced! (Matched: ${statUpserted}, Skipped: ${statSkipped})`);
+
+  // チャンクに分けて並列実行（一度に1万件送るとDB接続が溢れる可能性があるため、300件ずつにする）
+  const CHUNK_SIZE = 300;
+  let processedCount = 0;
+  const totalTasks = upsertTasks.length;
+
+  console.log(`  Processing ${totalTasks} stat records in chunks of ${CHUNK_SIZE}...`);
+
+  for (let i = 0; i < totalTasks; i += CHUNK_SIZE) {
+    const chunk = upsertTasks.slice(i, i + CHUNK_SIZE);
+    await Promise.all(
+      chunk.map((task) => prisma.pokemonStat.upsert(task))
+    );
+    processedCount += chunk.length;
+    if (processedCount % 3000 === 0 || processedCount === totalTasks) {
+      console.log(`  Progress: ${processedCount} / ${totalTasks} records synced...`);
+    }
+  }
+
+  console.log(`PokemonStat seed data synced! (Total: ${totalTasks}, Skipped: ${statSkipped})`);
 
   // --- トレーナー名鑑データのシード ---
 

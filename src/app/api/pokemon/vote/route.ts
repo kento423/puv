@@ -70,8 +70,8 @@ export async function POST(req: Request) {
 
     // キャッシュを破棄して最新の投票を表示
     revalidatePath(`/pokemon/${pokemonCounter.targetPokemon.slug}`);
-    revalidateTag(`pokemon-detail-${pokemonCounter.targetPokemon.slug}`, 'max');
-    revalidateTag(`pokemon-counters-${pokemonCounter.targetPokemon.id}`, 'max');
+    revalidateTag(`pokemon-detail-${pokemonCounter.targetPokemon.slug}`, { expire: 0 });
+    revalidateTag(`pokemon-counters-${pokemonCounter.targetPokemon.id}`, { expire: 0 });
     return NextResponse.json({ success: true, upvotes: updatedCounter.upvotes, downvotes: updatedCounter.downvotes });
   } catch (error) {
     console.error("Error processing vote:", error);

@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('meta-posts', { expire: 0 } as any);
+    revalidateTag('meta-posts', { expire: 0 });
     
     return NextResponse.json({ success: true, upvotes: updatedPost.upvotes, downvotes: updatedPost.downvotes });
   } catch (error) {

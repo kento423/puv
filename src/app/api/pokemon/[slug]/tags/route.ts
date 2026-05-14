@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
       }
       
       revalidatePath(`/pokemon/${slug}`);
-      revalidateTag(`pokemon-detail-${slug}`, 'max');
+      revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
       return NextResponse.json({ ...existingCustomTag, tag, updated: true }, { status: 200 });
     }
 
@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
     }
 
     revalidatePath(`/pokemon/${slug}`);
-    revalidateTag(`pokemon-detail-${slug}`, 'max');
+    revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
     return NextResponse.json(customTag, { status: 201 });
   } catch (error) {
     console.error("Error adding custom tag:", error);

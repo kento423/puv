@@ -53,8 +53,8 @@ export async function PATCH(req: Request) {
     const slug = pokemonCounter.targetPokemon.slug;
     const pokemonId = pokemonCounter.targetPokemon.id;
     revalidatePath(`/pokemon/${slug}`);
-    revalidateTag(`pokemon-detail-${slug}`, 'max' as any);
-    revalidateTag(`pokemon-counters-${pokemonId}`, 'max' as any);
+    revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
+    revalidateTag(`pokemon-counters-${pokemonId}`, { expire: 0 });
     return NextResponse.json(updatedCounter);
   } catch (error) {
     console.error("Error updating counter reason:", error);
@@ -107,8 +107,8 @@ export async function DELETE(req: Request) {
     const slug = pokemonCounter.targetPokemon.slug;
     const pokemonId = pokemonCounter.targetPokemon.id;
     revalidatePath(`/pokemon/${slug}`);
-    revalidateTag(`pokemon-detail-${slug}`, 'max' as any);
-    revalidateTag(`pokemon-counters-${pokemonId}`, 'max' as any);
+    revalidateTag(`pokemon-detail-${slug}`, { expire: 0 });
+    revalidateTag(`pokemon-counters-${pokemonId}`, { expire: 0 });
     
     return NextResponse.json({ success: true });
   } catch (error) {

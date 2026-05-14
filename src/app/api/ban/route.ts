@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('ban-picks', { expire: 0 } as any);
+    revalidateTag('ban-picks', { expire: 0 });
     return NextResponse.json(newPost);
   } catch (error) {
     console.error("Error creating ban pick:", error);
@@ -83,7 +83,7 @@ export async function PATCH(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('ban-picks', { expire: 0 } as any);
+    revalidateTag('ban-picks', { expire: 0 });
     return NextResponse.json(updatedPick);
   } catch (error) {
     console.error("Error updating ban pick:", error);
@@ -129,7 +129,7 @@ export async function DELETE(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('ban-picks', { expire: 0 } as any);
+    revalidateTag('ban-picks', { expire: 0 });
     
     return NextResponse.json({ success: true });
   } catch (error) {

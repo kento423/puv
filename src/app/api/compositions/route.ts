@@ -101,7 +101,7 @@ export async function POST(req: Request) {
     });
 
     revalidatePath("/compositions", "page");
-    revalidateTag("compositions", { expire: 0 } as any);
+    revalidateTag("compositions", { expire: 0 });
 
     return NextResponse.json({ success: true, composition });
   } catch (error) {
@@ -205,7 +205,7 @@ export async function PUT(req: Request) {
     });
 
     revalidatePath("/compositions", "page");
-    revalidateTag("compositions", { expire: 0 } as any);
+    revalidateTag("compositions", { expire: 0 });
 
     return NextResponse.json({ success: true, composition: updated });
   } catch (error) {
@@ -251,7 +251,7 @@ export async function DELETE(req: Request) {
     });
 
     revalidatePath("/compositions", "page");
-    revalidateTag("compositions", { expire: 0 } as any);
+    revalidateTag("compositions", { expire: 0 });
 
     return NextResponse.json({ success: true });
   } catch (error) {

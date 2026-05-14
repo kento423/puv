@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('meta-posts', { expire: 0 } as any);
+    revalidateTag('meta-posts', { expire: 0 });
     return NextResponse.json(newPost);
   } catch (error) {
     console.error("Error creating meta post:", error);
@@ -83,7 +83,7 @@ export async function PATCH(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('meta-posts', { expire: 0 } as any);
+    revalidateTag('meta-posts', { expire: 0 });
     return NextResponse.json(updatedPost);
   } catch (error) {
     console.error("Error updating meta post:", error);
@@ -129,7 +129,7 @@ export async function DELETE(req: Request) {
     });
 
     revalidatePath('/meta', 'page');
-    revalidateTag('meta-posts', { expire: 0 } as any);
+    revalidateTag('meta-posts', { expire: 0 });
     
     return NextResponse.json({ success: true });
   } catch (error) {
